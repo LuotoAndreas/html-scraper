@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Showcase</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Card Showcase</h1>
+    
+    <div id="loading">Loading cards...</div>
+    <div id="cards-container">
+        {% for card in cards %}
+        <div class="card-wrapper">
+            <div class="card" style="background-image: url('{{ card.image }}')">
+                <div class="overlay">
+                    <div class="header">
+                        <div class="number">
+                            {% if card.number != "N/A" %}
+                                <div class="restriction">{{ card.number }}</div>
+                            {% endif %}
+                        </div>
+                        <div class="icons">
+                            {% for tag in card.tags %}
+                                <div class="tag" 
+                                    style="background-image: url('{{ tag.image_url }}')"
+                                    title="{{ tag.name }}">
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="title">{{ card.title }}</div>                
+                    <div class="description">{{ card.descriptions }}</div>
+                    {% if card.points != "N/A" %}
+                    <div class="points">{{ card.points }}</div>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <!-- Price container now outside the card but inside wrapper -->
+            <div class="price-container">
+                {% if card.price.image_url %}
+                    <div class="price-icon" 
+                        style="background-image: url('{{ card.price.image_url }}')"
+                        title="{{ card.price.text }}">
+                    </div>
+                {% endif %}
+                <div class="price-text">{{ card.price.text }}</div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div id="error-message"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loadingElement = document.getElementById('loading');
+            if (loadingElement && document.querySelectorAll('.card').length > 0) {
+                loadingElement.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

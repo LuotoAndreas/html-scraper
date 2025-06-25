@@ -1,0 +1,476 @@
+[
+    {
+        "title": "COLONIZER TRAINING CAMP",
+        "price": {
+            "text": "8",
+            "image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png",
+            "is_megacredit": true
+        },
+        "tags": [
+            {
+                "name": "Building",
+                "image_url": "https://ssimeonoff.github.io/images/tags/building.png",
+                "class": "tag tag1 tag-building"
+            },
+            {
+                "name": "Jovian",
+                "image_url": "https://ssimeonoff.github.io/images/tags/jovian.png",
+                "class": "tag tag2 tag-jovian"
+            }
+        ],
+        "number": "#001",
+        "money": "N/A",
+        "descriptions": "(Oxygen must be 5% or less.)",
+        "points": "N/A",
+        "image": "https://ssimeonoff.github.io/images/mars.png"
+    },
+    {
+        "title": "ASTEROID MINING CONSORTIUM",
+        "price": {
+            "text": "13",
+            "image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png",
+            "is_megacredit": true
+        },
+        "tags": [
+            {
+                "name": "Jovian",
+                "image_url": "https://ssimeonoff.github.io/images/tags/jovian.png",
+                "class": "tag tag1 tag-jovian"
+            }
+        ],
+        "number": "#002",
+        "money": "N/A",
+        "descriptions": "(Requires that you have titanium production. Decrease any titanium production 1 step and increase your own 1 step.)",
+        "points": "N/A",
+        "image": "https://ssimeonoff.github.io/images/mars.png"
+    },
+    {
+        "title": "DEEP WELL HEATING",
+        "price": {
+            "text": "13",
+            "image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png",
+            "is_megacredit": true
+        },
+        "tags": [
+            {
+                "name": "Building",
+                "image_url": "https://ssimeonoff.github.io/images/tags/building.png",
+                "class": "tag tag1 tag-building"
+            },
+            {
+                "name": "Power",
+                "image_url": "https://ssimeonoff.github.io/images/tags/power.png",
+                "class": "tag tag2 tag-power"
+            }
+        ],
+        "number": "#003",
+        "money": "N/A",
+        "descriptions": "(Increase your Energy production 1 step. Increase temperature 1 step.)",
+        "points": "N/A",
+        "image": "https://ssimeonoff.github.io/images/mars.png"
+    },
+    {
+        "title": "CLOUD SEEDING",
+        "price": {
+            "text": "11",
+            "image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png",
+            "is_megacredit": true
+        },
+        "tags": [],
+        "number": "#004",
+        "money": "N/A",
+        "descriptions": "(Requires 3 ocean tiles. Decrease your MC production 1 step and any heat production 1 step. Increase your Plant production 2 steps.)",
+        "points": "N/A",
+        "image": "https://ssimeonoff.github.io/images/mars.png"
+    },
+    {
+        "title": "SEARCH FOR LIFE",
+        "price": {
+            "text": "3",
+            "image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png",
+            "is_megacredit": true
+        },
+        "tags": [
+            {
+                "name": "Science",
+                "image_url": "https://ssimeonoff.github.io/images/tags/science.png",
+                "class": "tag tag1 tag-science"
+            }
+        ],
+        "number": "#005",
+        "money": "1",
+        "descriptions": "(Action: Spend 1 MC to reveal the top card of the draw deck. If that card has a Microbe tag, add a Science resource here.)\n\n(3 VPs if you have one or more Science resources here.)",
+        "points": "N/A",
+        "image": "https://ssimeonoff.github.io/images/mars.png"
+    },
+    {
+        "title": "INVENTORS' GUILD",
+        "price": {
+            "text": "9",
+            "image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png",
+            "is_megacredit": true
+        },
+        "tags": [
+            {
+                "name": "Science",
+                "image_url": "https://ssimeonoff.github.io/images/tags/science.png",
+                "class": "tag tag1 tag-science"
+            }
+        ],
+        "number": "#006",
+        "money": "N/A",
+        "descriptions": "N/A",
+        "points": "N/A",
+        "image": "https://ssimeonoff.github.io/images/mars.png"
+    },
+    {
+        "title": "MARTIAN RAILS",
+        "price": {
+            "text": "13",
+            "image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png",
+            "is_megacredit": true
+        },
+        "tags": [
+            {
+                "name": "Building",
+                "image_url": "https://ssimeonoff.github.io/images/tags/building.png",
+                "class": "tag tag1 tag-building"
+            }
+        ],
+        "number": "#007",
+        "money": "1",
+        "descriptions": "(Action: Spend 1 Energy to gain 1 MC for each City tile ON MARS.)",
+        "points": "N/A",
+        "image": "https://ssimeonoff.github.io/images/mars.png"
+    },
+    {
+        "title": "CAPITAL",
+        "price": {
+            "text": "26",
+            "image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png",
+            "is_megacredit": true
+        },
+        "tags": [
+            {
+                "name": "Building",
+                "image_url": "https://ssimeonoff.github.io/images/tags/building.png",
+                "class": "tag tag1 tag-building"
+            },
+            {
+                "name": "City",
+                "image_url": "https://ssimeonoff.github.io/images/tags/city.png",
+                "class": "tag tag2 tag-city"
+            }
+        ],
+        "number": "#008",
+        "money": "N/A",
+        "descriptions": "(Requires 4 ocean tiles. Place this tile. Decrease your Energy production 2 steps and increase your MC production 5 steps.\n1 ADDITIONAL VP FOR EACH\nOCEAN TILE ADJACENT\nTO THIS CITY TILE.",
+        "points": "N/A",
+        "image": "https://ssimeonoff.github.io/images/mars.png"
+    },
+    {
+        "title": "ASTEROID",
+        "price": {
+            "text": "14",
+            "image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png",
+            "is_megacredit": true
+        },
+        "tags": [
+            {
+                "name": "Event",
+                "image_url": "https://ssimeonoff.github.io/images/tags/event.png",
+                "class": "tag tag1 tag-event"
+            },
+            {
+                "name": "Space",
+                "image_url": "https://ssimeonoff.github.io/images/tags/space.png",
+                "class": "tag tag2 tag-space"
+            }
+        ],
+        "number": "#009",
+        "money": "N/A",
+        "descriptions": "(Raise temperature 1 step and gain 2 titanium. Remove up to 3 Plants from any player.)",
+        "points": "N/A",
+        "image": "https://ssimeonoff.github.io/images/mars.png"
+    },
+    {
+        "title": "COMET",
+        "price": {
+            "text": "21",
+            "image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png",
+            "is_megacredit": true
+        },
+        "tags": [
+            {
+                "name": "Event",
+                "image_url": "https://ssimeonoff.github.io/images/tags/event.png",
+                "class": "tag tag1 tag-event"
+            },
+            {
+                "name": "Space",
+                "image_url": "https://ssimeonoff.github.io/images/tags/space.png",
+                "class": "tag tag2 tag-space"
+            }
+        ],
+        "number": "#010",
+        "money": "N/A",
+        "descriptions": "(Raise temperature 1 step and place an ocean tile. Remove up to 3 Plants from any player.)",
+        "points": "N/A",
+        "image": "https://ssimeonoff.github.io/images/mars.png"
+    },
+    {
+        "title": "BIG ASTEROID",
+        "price": {
+            "text": "27",
+            "image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png",
+            "is_megacredit": true
+        },
+        "tags": [
+            {
+                "name": "Event",
+                "image_url": "https://ssimeonoff.github.io/images/tags/event.png",
+                "class": "tag tag1 tag-event"
+            },
+            {
+                "name": "Space",
+                "image_url": "https://ssimeonoff.github.io/images/tags/space.png",
+                "class": "tag tag2 tag-space"
+            }
+        ],
+        "number": "#011",
+        "money": "N/A",
+        "descriptions": "(Raise temperature 2 steps and gain 4 titanium. Remove up to 4 Plants from any player.)",
+        "points": "N/A",
+        "image": "https://ssimeonoff.github.io/images/mars.png"
+    },
+    {
+        "title": "WATER IMPORT FROM EUROPA",
+        "price": {
+            "text": "25",
+            "image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png",
+            "is_megacredit": true
+        },
+        "tags": [
+            {
+                "name": "Space",
+                "image_url": "https://ssimeonoff.github.io/images/tags/space.png",
+                "class": "tag tag1 tag-space"
+            },
+            {
+                "name": "Jovian",
+                "image_url": "https://ssimeonoff.github.io/images/tags/jovian.png",
+                "class": "tag tag2 tag-jovian"
+            }
+        ],
+        "number": "#012",
+        "money": "N/A",
+        "descriptions": "(Action: Pay 12 MC to place an ocean tile. TITANIUM MAY BE USED as if playing a Space card.)\n\n(1 VP for each Jovian tag you have.)",
+        "points": "N/A",
+        "image": "https://ssimeonoff.github.io/images/mars.png"
+    },
+    {
+        "title": "SPACE ELEVATOR",
+        "price": {
+            "text": "27",
+            "image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png",
+            "is_megacredit": true
+        },
+        "tags": [
+            {
+                "name": "Space",
+                "image_url": "https://ssimeonoff.github.io/images/tags/space.png",
+                "class": "tag tag2 tag-space"
+            },
+            {
+                "name": "Building",
+                "image_url": "https://ssimeonoff.github.io/images/tags/building.png",
+                "class": "tag tag1 tag-building"
+            }
+        ],
+        "number": "#013",
+        "money": "5",
+        "descriptions": "(Action: Spend 1 steel to gain 5 MC.) (Increase your titanium production 1 step.)",
+        "points": "N/A",
+        "image": "https://ssimeonoff.github.io/images/mars.png"
+    },
+    {
+        "title": "DEVELOPMENT CENTER",
+        "price": {
+            "text": "11",
+            "image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png",
+            "is_megacredit": true
+        },
+        "tags": [
+            {
+                "name": "Building",
+                "image_url": "https://ssimeonoff.github.io/images/tags/building.png",
+                "class": "tag tag1 tag-building"
+            },
+            {
+                "name": "Science",
+                "image_url": "https://ssimeonoff.github.io/images/tags/science.png",
+                "class": "tag tag2 tag-science"
+            }
+        ],
+        "number": "#014",
+        "money": "N/A",
+        "descriptions": "(Action: Spend 1 Energy to draw a card.)",
+        "points": "N/A",
+        "image": "https://ssimeonoff.github.io/images/mars.png"
+    },
+    {
+        "title": "EQUATORIAL MAGNETIZER",
+        "price": {
+            "text": "11",
+            "image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png",
+            "is_megacredit": true
+        },
+        "tags": [
+            {
+                "name": "Building",
+                "image_url": "https://ssimeonoff.github.io/images/tags/building.png",
+                "class": "tag tag1 tag-building"
+            }
+        ],
+        "number": "#015",
+        "money": "N/A",
+        "descriptions": "(Action: Decrease your Energy production 1 step to increase your terraform rating 1 step.)",
+        "points": "N/A",
+        "image": "https://ssimeonoff.github.io/images/mars.png"
+    },
+    {
+        "title": "DOMED CRATER",
+        "price": {
+            "text": "24",
+            "image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png",
+            "is_megacredit": true
+        },
+        "tags": [
+            {
+                "name": "Building",
+                "image_url": "https://ssimeonoff.github.io/images/tags/building.png",
+                "class": "tag tag1 tag-building"
+            },
+            {
+                "name": "City",
+                "image_url": "https://ssimeonoff.github.io/images/tags/city.png",
+                "class": "tag tag2 tag-city"
+            }
+        ],
+        "number": "#016",
+        "money": "N/A",
+        "descriptions": "(Oxygen must be 7% or less. Gain 3 plants. Place a City tile. Decrease\nyour Energy production 1\nstep and increase your\nMC production 3 steps.)",
+        "points": "N/A",
+        "image": "https://ssimeonoff.github.io/images/mars.png"
+    },
+    {
+        "title": "NOCTIS CITY",
+        "price": {
+            "text": "18",
+            "image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png",
+            "is_megacredit": true
+        },
+        "tags": [
+            {
+                "name": "Building",
+                "image_url": "https://ssimeonoff.github.io/images/tags/building.png",
+                "class": "tag tag1 tag-building"
+            },
+            {
+                "name": "City",
+                "image_url": "https://ssimeonoff.github.io/images/tags/city.png",
+                "class": "tag tag2 tag-city"
+            }
+        ],
+        "number": "#017",
+        "money": "N/A",
+        "descriptions": "(Decrease your Energy production 1 step and increase your MC production 3 steps. Place a city ON THE RESERVED AREA, disregarding normal placement restrictions.)",
+        "points": "N/A",
+        "image": "https://ssimeonoff.github.io/images/mars.png"
+    },
+    {
+        "title": "METHANE FROM TITAN",
+        "price": {
+            "text": "28",
+            "image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png",
+            "is_megacredit": true
+        },
+        "tags": [
+            {
+                "name": "Space",
+                "image_url": "https://ssimeonoff.github.io/images/tags/space.png",
+                "class": "tag tag1 tag-space"
+            },
+            {
+                "name": "Jovian",
+                "image_url": "https://ssimeonoff.github.io/images/tags/jovian.png",
+                "class": "tag tag2 tag-jovian"
+            }
+        ],
+        "number": "#018",
+        "money": "N/A",
+        "descriptions": "(Requires 2% oxygen. Increase your heat production 2 steps and your Plant production 2 steps.)",
+        "points": "N/A",
+        "image": "https://ssimeonoff.github.io/images/mars.png"
+    },
+    {
+        "title": "IMPORTED HYDROGEN",
+        "price": {
+            "text": "16",
+            "image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png",
+            "is_megacredit": true
+        },
+        "tags": [
+            {
+                "name": "Event",
+                "image_url": "https://ssimeonoff.github.io/images/tags/event.png",
+                "class": "tag tag1 tag-event"
+            },
+            {
+                "name": "Space",
+                "image_url": "https://ssimeonoff.github.io/images/tags/space.png",
+                "class": "tag tag2 tag-space"
+            },
+            {
+                "name": "Earth",
+                "image_url": "https://ssimeonoff.github.io/images/tags/earth.png",
+                "class": "tag tag3 tag-earth"
+            }
+        ],
+        "number": "#019",
+        "money": "N/A",
+        "descriptions": "(Gain 3 Plants, or add 3 Microbes or 2 Animals to ANOTHER card. Place an ocean tile.)",
+        "points": "N/A",
+        "image": "https://ssimeonoff.github.io/images/mars.png"
+    },
+    {
+        "title": "RESEARCH OUTPOST",
+        "price": {
+            "text": "18",
+            "image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png",
+            "is_megacredit": true
+        },
+        "tags": [
+            {
+                "name": "Building",
+                "image_url": "https://ssimeonoff.github.io/images/tags/building.png",
+                "class": "tag tag1 tag-building"
+            },
+            {
+                "name": "City",
+                "image_url": "https://ssimeonoff.github.io/images/tags/city.png",
+                "class": "tag tag2 tag-city"
+            },
+            {
+                "name": "Science",
+                "image_url": "https://ssimeonoff.github.io/images/tags/science.png",
+                "class": "tag tag3 tag-science"
+            }
+        ],
+        "number": "#020",
+        "money": "-1",
+        "descriptions": "(Effect: When you play a card, you pay 1 MC less for it.) (Place a city tile NEXT TO NO OTHER TILE.)",
+        "points": "N/A",
+        "image": "https://ssimeonoff.github.io/images/mars.png"
+    }
+]

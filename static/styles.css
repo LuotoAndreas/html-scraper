@@ -1,0 +1,224 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('https://ssimeonoff.github.io/images/stars.jpg');
+    background-color: black;
+    background-attachment: fixed;
+}
+
+
+h1 {
+    text-align: center;
+    color: #d1d1d1;
+    margin-bottom: 30px;
+}
+
+#cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+.card-wrapper {
+    position: relative; /* Add this line */
+    width: 240px; /* Match the card width */
+}
+
+.card {
+    position: relative;
+    width: 240px;
+    height: 310px;
+    background-size: 250% auto;
+    background-position: center;
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid #aaa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    z-index: 1;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit; /* Copy the background image */
+    background-size: 250% auto; /* Match the original */
+    background-position: center; /* Match the original */
+    filter: grayscale(100%) brightness(1.5); /* Black & white and light gray */
+    z-index: 0; /* Place it behind the content */
+}
+
+.card .overlay {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+}
+
+
+.card .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: rgba(209, 209, 209, 0.8);
+    padding: 5px 10px;
+    min-height: 43px; /* minimikorkeus jos ei tägejä */
+}
+
+.header .cost {
+    width: 40px;
+    height: 40px;
+    background: yellow;
+    border: 2px solid #000;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+.header .icons {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 5px;
+}
+
+.icons .icon {
+    width: 25px;
+    height: 25px;
+    background: gray;
+    border-radius: 50%;
+}
+
+.card .title {
+    text-align: center;
+    white-space: nowrap;
+    background: rgba(0, 128, 0, 0.8);
+    color: black;
+    font-weight: 700;
+    font-size: 16px;
+    padding-top: 8px;
+    padding-bottom: 14px;
+    text-transform: uppercase;
+    margin-top: -11px;
+    border-radius: 0 0 50% 50%;
+    z-index: 2;
+}
+
+.number {
+    z-index: 2;
+}
+
+.card .restriction {
+    padding-left: 45px;
+    padding-top: 10px;
+    color: rgb(129, 129, 129);
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    z-index: 3;
+}
+
+.card .description {
+    padding-top: 100px;
+    margin: 10px;
+    color: black;
+    font-size: 12px;
+    border-radius: 5px;
+    flex-grow: 1;
+    font-weight: bold;
+    z-index: 2;
+    padding-bottom: -30px;
+}
+
+.card .points {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background: rgba(209, 209, 209, 0.8);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}
+
+#loading {
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+}
+
+#error-message {
+    color: red;
+    text-align: center;
+    padding: 20px;
+    display: none;
+}
+
+.tag {
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3);
+    position: relative; /* Changed from absolute to work better in your layout */
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    border-radius: 50%;
+    border-top: 2px solid rgb(221, 221, 221);
+    border-left: 2px solid rgb(221, 221, 221);
+    border-bottom: 2px solid rgb(137, 137, 137);
+    border-right: 2px solid rgb(137, 137, 137);
+    background-color: transparent;
+    margin-top: -1px;
+    filter: brightness(0.9);
+    display: inline-block; /* For better layout in your header */
+    transition: transform 0.2s ease;
+    z-index: 3;
+}
+
+.price-container {
+    position: absolute;
+    top: -205px; /* Position inside the card */
+    left: -199px; /* Adjusted to fit the card */
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    z-index: 2;
+    margin-top: 200px;
+}
+
+.price-icon {
+    width: 50px;
+    height: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top;    
+    position: relative;
+}
+
+.price-text {
+    position: absolute;
+    top: 47%; /* Adjust this value to move text higher or lower */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    font-size: 21px; /* Adjust font size for clarity */
+    color: black;
+    pointer-events: none; /* Prevent interference with the icon */
+}
