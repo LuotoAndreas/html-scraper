@@ -85,7 +85,7 @@ def safe_find_text(element, selector):
     except:
         return "N/A"
 
-for card in cards[:20]:  # limit to first 10 cards
+for card in cards[:48]:  # limit to first 10 cards
     title = safe_find_text(card, "div.title")
     price_data = extract_price_data(driver, card)
     number = safe_find_text(card, "div.number")
