@@ -10,12 +10,14 @@ options.add_argument("--headless")
 driver = webdriver.Chrome(options=options)
 
 RESOURCE_IMAGE_MAP = {
+    "background-image":         "https://ssimeonoff.github.io/images/mars.png",
     "resource ocean-resource":  "https://ssimeonoff.github.io/images/tiles/ocean.png",
     "resource science":         "https://ssimeonoff.github.io/images/resources/science.png",
     "tag-jovian resource-tag":  "https://ssimeonoff.github.io/images/tags/jovian.png",
     "resource microbe":         "https://ssimeonoff.github.io/images/resources/microbe.png",
     "animal resource":          "https://ssimeonoff.github.io/images/resources/animal.png",
     "resource fighter":         "https://ssimeonoff.github.io/images/resources/fighter.png",
+    "requirements":             "https://ssimeonoff.github.io/images/requisites/min_big.png",
 }
 
 URL = "https://ssimeonoff.github.io/cards-list"
@@ -31,7 +33,7 @@ def safe_find_text(element, selector):
     try:
         return element.find_element(By.CSS_SELECTOR, selector).text
     except:
-        return "N/A"
+        return ""
 
 # Function to extract price text and megacredits image URL
 def extract_price_data(driver, card):
@@ -151,11 +153,7 @@ def extract_points_data(card):
             print(f"Error extracting points data: {e}")
     return point_data
 
-
-
-
-
-for card in cards[:48]:  # limit to first 10 cards
+for card in cards[:48]:  # limit to first 48 cards
     title = safe_find_text(card, "div.title")
     price_data = extract_price_data(driver, card)
     number = safe_find_text(card, "div.number")
@@ -163,16 +161,8 @@ for card in cards[:48]:  # limit to first 10 cards
     points_resource = extract_points_data(card)  # Extract points data
     descriptions = " ".join([d.text for d in card.find_elements(By.CSS_SELECTOR, "div.description")]) or "N/A"
     tag_data = extract_tag_data(driver, card)
+    requirements = safe_find_text(card, "div.requirements")
 
-    # Get card background image
-    script = """
-    var elem = arguments[0];
-    var style = window.getComputedStyle(elem, '::before');
-    return style.getPropertyValue('background-image');
-    """
-    bg_image = driver.execute_script(script, card)
-    match = re.search(r'url\(["\']?(.*?)["\']?\)', bg_image)
-    image_url = match.group(1) if match else "N/A"
 
     data.append({
         "title": title,        
@@ -182,7 +172,9 @@ for card in cards[:48]:  # limit to first 10 cards
         "money": money,
         "descriptions": descriptions,
         "points_resource": points_resource,
-        "image": image_url
+        "requirements": requirements,
+        "requirements_image": RESOURCE_IMAGE_MAP.get("requirements", ""),
+        "image": RESOURCE_IMAGE_MAP.get("background-image", "")
     })
 
 driver.quit()

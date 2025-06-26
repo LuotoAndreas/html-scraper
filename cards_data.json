@@ -19,7 +19,7 @@
                 "class": "tag tag2 tag-jovian"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Oxygen must be 5% or less.)",
         "points_resource": [
             {
@@ -28,6 +28,8 @@
                 "image_url": ""
             }
         ],
+        "requirements": "max 5% O2",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -45,7 +47,7 @@
                 "class": "tag tag1 tag-jovian"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Requires that you have titanium production. Decrease any titanium production 1 step and increase your own 1 step.)",
         "points_resource": [
             {
@@ -54,6 +56,8 @@
                 "image_url": ""
             }
         ],
+        "requirements": "Titanium production",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -76,9 +80,11 @@
                 "class": "tag tag2 tag-power"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Increase your Energy production 1 step. Increase temperature 1 step.)",
         "points_resource": [],
+        "requirements": "",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -90,9 +96,11 @@
             "is_megacredit": true
         },
         "tags": [],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Requires 3 ocean tiles. Decrease your MC production 1 step and any heat production 1 step. Increase your Plant production 2 steps.)",
         "points_resource": [],
+        "requirements": "3 Oceans",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -119,6 +127,8 @@
                 "image_url": "https://ssimeonoff.github.io/images/resources/science.png"
             }
         ],
+        "requirements": "max 6% O2",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -136,9 +146,11 @@
                 "class": "tag tag1 tag-science"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "N/A",
         "points_resource": [],
+        "requirements": "",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -159,6 +171,8 @@
         "money": "1",
         "descriptions": "(Action: Spend 1 Energy to gain 1 MC for each City tile ON MARS.)",
         "points_resource": [],
+        "requirements": "",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -181,7 +195,7 @@
                 "class": "tag tag2 tag-city"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Requires 4 ocean tiles. Place this tile. Decrease your Energy production 2 steps and increase your MC production 5 steps.\n1 ADDITIONAL VP FOR EACH\nOCEAN TILE ADJACENT\nTO THIS CITY TILE.",
         "points_resource": [
             {
@@ -190,6 +204,8 @@
                 "image_url": "https://ssimeonoff.github.io/images/tiles/ocean.png"
             }
         ],
+        "requirements": "4 Oceans",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -212,9 +228,11 @@
                 "class": "tag tag2 tag-space"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Raise temperature 1 step and gain 2 titanium. Remove up to 3 Plants from any player.)",
         "points_resource": [],
+        "requirements": "",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -237,9 +255,11 @@
                 "class": "tag tag2 tag-space"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Raise temperature 1 step and place an ocean tile. Remove up to 3 Plants from any player.)",
         "points_resource": [],
+        "requirements": "",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -262,9 +282,11 @@
                 "class": "tag tag2 tag-space"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Raise temperature 2 steps and gain 4 titanium. Remove up to 4 Plants from any player.)",
         "points_resource": [],
+        "requirements": "",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -287,7 +309,7 @@
                 "class": "tag tag2 tag-jovian"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Action: Pay 12 MC to place an ocean tile. TITANIUM MAY BE USED as if playing a Space card.)\n\n(1 VP for each Jovian tag you have.)",
         "points_resource": [
             {
@@ -296,6 +318,8 @@
                 "image_url": "https://ssimeonoff.github.io/images/tags/jovian.png"
             }
         ],
+        "requirements": "",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -327,6 +351,8 @@
                 "image_url": ""
             }
         ],
+        "requirements": "",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -349,9 +375,11 @@
                 "class": "tag tag2 tag-science"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Action: Spend 1 Energy to draw a card.)",
         "points_resource": [],
+        "requirements": "",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -369,9 +397,11 @@
                 "class": "tag tag1 tag-building"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Action: Decrease your Energy production 1 step to increase your terraform rating 1 step.)",
         "points_resource": [],
+        "requirements": "",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -394,7 +424,7 @@
                 "class": "tag tag2 tag-city"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Oxygen must be 7% or less. Gain 3 plants. Place a City tile. Decrease\nyour Energy production 1\nstep and increase your\nMC production 3 steps.)",
         "points_resource": [
             {
@@ -403,6 +433,8 @@
                 "image_url": ""
             }
         ],
+        "requirements": "max 7% O2",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -425,9 +457,11 @@
                 "class": "tag tag2 tag-city"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Decrease your Energy production 1 step and increase your MC production 3 steps. Place a city ON THE RESERVED AREA, disregarding normal placement restrictions.)",
         "points_resource": [],
+        "requirements": "",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -450,7 +484,7 @@
                 "class": "tag tag2 tag-jovian"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Requires 2% oxygen. Increase your heat production 2 steps and your Plant production 2 steps.)",
         "points_resource": [
             {
@@ -459,6 +493,8 @@
                 "image_url": ""
             }
         ],
+        "requirements": "2% O2",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -486,9 +522,11 @@
                 "class": "tag tag3 tag-earth"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Gain 3 Plants, or add 3 Microbes or 2 Animals to ANOTHER card. Place an ocean tile.)",
         "points_resource": [],
+        "requirements": "",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -519,6 +557,8 @@
         "money": "-1",
         "descriptions": "(Effect: When you play a card, you pay 1 MC less for it.) (Place a city tile NEXT TO NO OTHER TILE.)",
         "points_resource": [],
+        "requirements": "",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -541,7 +581,7 @@
                 "class": "tag tag2 tag-city"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Increase your titanium production 1 step and place a City tile ON THE RESERVED AREA.)",
         "points_resource": [
             {
@@ -550,6 +590,8 @@
                 "image_url": ""
             }
         ],
+        "requirements": "",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -561,9 +603,11 @@
             "is_megacredit": true
         },
         "tags": [],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Place an ocean tile. Decrease your MC production 2 steps and increase your heat production 3 steps.)",
         "points_resource": [],
+        "requirements": "",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -581,9 +625,11 @@
                 "class": "tag tag1 tag-plant"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Effect: When anyone places an ocean tile, gain 2 Plants.) (It must be -12 C or colder to play. Gain 1 Plant.)",
         "points_resource": [],
+        "requirements": "max -12 C",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -601,7 +647,7 @@
                 "class": "tag tag1 tag-animal"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Action: Remove 1 Animal from any card and add it to this card.) (Requires 11% oxygen. 1 VP per Animal on this card.)",
         "points_resource": [
             {
@@ -610,6 +656,8 @@
                 "image_url": "https://ssimeonoff.github.io/images/resources/animal.png"
             }
         ],
+        "requirements": "11% O2",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -627,7 +675,7 @@
                 "class": "tag tag1 tag-space"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Effect: When you play a Space card, you pay 2 MC less for it.)",
         "points_resource": [
             {
@@ -636,6 +684,8 @@
                 "image_url": ""
             }
         ],
+        "requirements": "",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -658,7 +708,7 @@
                 "class": "tag tag2 tag-plant"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Requires -12 C or warmer. Add 1 Animal TO ANY ANIMAL CARD. Gain 3 Plants. Increase your MC production 2 steps.)",
         "points_resource": [
             {
@@ -667,6 +717,8 @@
                 "image_url": ""
             }
         ],
+        "requirements": "-12 C",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -694,7 +746,7 @@
                 "class": "tag tag3 tag-earth"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "N/A",
         "points_resource": [
             {
@@ -703,6 +755,8 @@
                 "image_url": ""
             }
         ],
+        "requirements": "5 Science",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -720,7 +774,7 @@
                 "class": "tag tag1 tag-space"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Action: Spend 1 titanium to add 1 fighter resource to this card.) (1 VP for each fighter resource on this card.)",
         "points_resource": [
             {
@@ -729,6 +783,8 @@
                 "image_url": "https://ssimeonoff.github.io/images/resources/fighter.png"
             }
         ],
+        "requirements": "",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -751,9 +807,11 @@
                 "class": "tag tag2 tag-city"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Oxygen must be 9% or less. Place a City tile. Decrease your Energy production 1 step and increase your MC production 3 steps.)",
         "points_resource": [],
+        "requirements": "max 9% O2",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -776,9 +834,11 @@
                 "class": "tag tag2 tag-earth"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Decrease your MC production 2 steps and increase your heat production and Energy production 2 steps each.)",
         "points_resource": [],
+        "requirements": "",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -796,9 +856,11 @@
                 "class": "tag tag1 tag-space"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Effect: When you play a Space Event, you gain 3 MC and 3 heat.)",
         "points_resource": [],
+        "requirements": "",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -821,9 +883,11 @@
                 "class": "tag tag2 tag-city"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Place a City tile. Decrease your Energy production 2 steps and increase your steel production 2 steps.)",
         "points_resource": [],
+        "requirements": "",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -846,9 +910,11 @@
                 "class": "tag tag2 tag-science"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Action: Add 1 Microbe to this card, or remove 2 Microbes from this card to raise oxygen level 1 step.)",
         "points_resource": [],
+        "requirements": "",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -871,9 +937,11 @@
                 "class": "tag tag2 tag-science"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Action: Add 1 Microbe to this card, or remove 2 Microbes to raise temperature 1 step.)\n\n(Requires 4% oxygen.)",
         "points_resource": [],
+        "requirements": "4% O2",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -891,7 +959,7 @@
                 "class": "tag tag1 tag-microbe"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Action: Remove 1 Microbe from any card to add 1 to this card.)\n\n(Requires 4% oxygen. 1 VP per 2 Microbes on this card.)",
         "points_resource": [
             {
@@ -900,6 +968,8 @@
                 "image_url": "https://ssimeonoff.github.io/images/resources/microbe.png"
             }
         ],
+        "requirements": "4% O2",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -917,9 +987,11 @@
                 "class": "tag tag1 tag-event"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Raise your terraform rating 2 steps.)",
         "points_resource": [],
+        "requirements": "",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -942,9 +1014,11 @@
                 "class": "tag tag2 tag-space"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Raise your terraforming rating 2 steps and temperature 1 step. Increase your Plant production 1 step, or 4 steps if you have 3 Plant tags.)",
         "points_resource": [],
+        "requirements": "",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -962,7 +1036,7 @@
                 "class": "tag tag1 tag-building"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Effect: When any City tile is placed, gain 2 MC.)",
         "points_resource": [
             {
@@ -971,6 +1045,8 @@
                 "image_url": ""
             }
         ],
+        "requirements": "",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -993,9 +1069,11 @@
                 "class": "tag tag2 tag-space"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Raise temperature 3 steps and gain 4 steel. Remove up to 8 Plants from any player.)",
         "points_resource": [],
+        "requirements": "",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1018,7 +1096,7 @@
                 "class": "tag tag2 tag-jovian"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Increase your titanium production 2 steps.)",
         "points_resource": [
             {
@@ -1027,6 +1105,8 @@
                 "image_url": ""
             }
         ],
+        "requirements": "",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1044,7 +1124,7 @@
                 "class": "tag tag1 tag-building"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Decrease your Plant production 1 step and increase your MC production 4 steps.)",
         "points_resource": [
             {
@@ -1053,6 +1133,8 @@
                 "image_url": ""
             }
         ],
+        "requirements": "",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1070,9 +1152,11 @@
                 "class": "tag tag1 tag-microbe"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(It must be -18 C or colder. Increase your Plant production 1 step.)",
         "points_resource": [],
+        "requirements": "max -18 C",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1090,9 +1174,11 @@
                 "class": "tag tag1 tag-building"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Decrease your Energy production 1 step and increase your heat production 3 steps.)",
         "points_resource": [],
+        "requirements": "",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1115,7 +1201,7 @@
                 "class": "tag tag2 tag-science"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Oxygen must be 4% or less. Place this tile NEXT TO NO OTHER TILE. Increase your MC production 1 step.)",
         "points_resource": [
             {
@@ -1124,6 +1210,8 @@
                 "image_url": ""
             }
         ],
+        "requirements": "max 4% O2",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1146,9 +1234,11 @@
                 "class": "tag tag2 tag-power"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Decrease your MC production 2 steps and increase your Energy production 3 steps.)",
         "points_resource": [],
+        "requirements": "",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1166,7 +1256,7 @@
                 "class": "tag tag1 tag-power"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Requires 3 Science tags. Increase your Energy production and your MC production up one step each.)",
         "points_resource": [
             {
@@ -1175,6 +1265,8 @@
                 "image_url": ""
             }
         ],
+        "requirements": "3 Science",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1192,9 +1284,11 @@
                 "class": "tag tag1 tag-plant"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Requires 5 ocean tiles. Gain 1 Plant and increase your Plant production 2 steps.)",
         "points_resource": [],
+        "requirements": "5 Oceans",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1212,9 +1306,11 @@
                 "class": "tag tag1 tag-plant"
             }
         ],
-        "money": "N/A",
+        "money": "",
         "descriptions": "(Increase your Plant production 1 step.)",
         "points_resource": [],
+        "requirements": "",
+        "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png",
         "image": "https://ssimeonoff.github.io/images/mars.png"
     }
 ]

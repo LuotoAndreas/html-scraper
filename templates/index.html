@@ -32,8 +32,19 @@
                             </div>
                         </div>                        
                     </div>
-                    <div class="title">{{ card.title }}</div>                
-                    <div class="description">{{ card.descriptions }}</div>
+                    <div class="title">{{ card.title }}</div>
+                    <div class="content">
+                        {% if card.requirements %}
+                        <div class="requirements" 
+                            style="background-image: url('{{ card.requirements_image }}');"
+                            title="{{ card.requirements }}">
+                            {{ card.requirements }}
+                        </div>
+                        {% endif %}
+                        <div class="description">{{ card.descriptions }}</div>
+                    </div>
+             
+                    
 
                     {% if card.points_resource %}
                         {% for pr in card.points_resource %}
