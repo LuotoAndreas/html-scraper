@@ -32,9 +32,19 @@
                     </div>
                     <div class="title">{{ card.title }}</div>                
                     <div class="description">{{ card.descriptions }}</div>
-                    {% if card.points != "N/A" %}
-                    <div class="points">{{ card.points }}</div>
+
+                    {% if card.points_resource %}
+                        {% for pr in card.points_resource %}
+                            <div class="points" style="background-image: url('{{ card.image }}');">
+                                {{ pr.points }}
+                                {% if pr.image_url %}
+                                    <span class="resource-image {% if pr.resource == 'tag-jovian resource-tag' %}jovian{% endif %}" 
+                                          style="background-image: url('{{ pr.image_url }}');"></span>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
                     {% endif %}
+          
                 </div>
             </div>
             

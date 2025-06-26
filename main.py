@@ -9,6 +9,15 @@ options = Options()
 options.add_argument("--headless")
 driver = webdriver.Chrome(options=options)
 
+RESOURCE_IMAGE_MAP = {
+    "resource ocean-resource":  "https://ssimeonoff.github.io/images/tiles/ocean.png",
+    "resource science":         "https://ssimeonoff.github.io/images/resources/science.png",
+    "tag-jovian resource-tag":  "https://ssimeonoff.github.io/images/tags/jovian.png",
+    "resource microbe":         "https://ssimeonoff.github.io/images/resources/microbe.png",
+    "animal resource":          "https://ssimeonoff.github.io/images/resources/animal.png",
+    "resource fighter":         "https://ssimeonoff.github.io/images/resources/fighter.png",
+}
+
 URL = "https://ssimeonoff.github.io/cards-list"
 driver.get(URL)
 
@@ -17,6 +26,14 @@ cards = driver.find_elements(By.CSS_SELECTOR, "li.filterDiv")
 
 data = []
 
+# Function to safely find text in an element
+def safe_find_text(element, selector):
+    try:
+        return element.find_element(By.CSS_SELECTOR, selector).text
+    except:
+        return "N/A"
+
+# Function to extract price text and megacredits image URL
 def extract_price_data(driver, card):
     """Extract price text and megacredits image URL"""
     price_data = {
@@ -50,6 +67,7 @@ def extract_price_data(driver, card):
     
     return price_data
 
+# Function to extract tag names and images
 def extract_tag_data(driver, card):
     """Extract both tag names and images from a card element"""
     tag_data = []
@@ -79,18 +97,70 @@ def extract_tag_data(driver, card):
             print(f"Error extracting tag data: {e}")
     return tag_data
 
-def safe_find_text(element, selector):
-    try:
-        return element.find_element(By.CSS_SELECTOR, selector).text
-    except:
-        return "N/A"
+def extract_points_and_resource_from_children(children):
+    # Assumes children length > 1
+    first = children[0]
+    second = children[1]
+
+    # Get points text from first child
+    points_value = first.text.strip() if first.text else ""
+
+    # Get resource name from second child's class attribute
+    resource_class = second.get_attribute("class") or ""
+    resource_name = " ".join(resource_class.split())
+
+    return points_value, resource_name
+
+def extract_points_data(card):
+    point_data = []
+    points = card.find_elements(By.CSS_SELECTOR, "div.points")
+    for point in points:
+        try:            
+            # Check if multiple children inside the points div
+            children = point.find_elements(By.CSS_SELECTOR, "span, div")
+
+            if len(children) > 1:
+                # Use helper to handle multiple children case
+                points_value, resource_name = extract_points_and_resource_from_children(children)
+
+            else:                        
+                # Get the text value for points
+                points_value = point.text.strip() if point.text else ""
+
+                # Find the resource element (either span or div inside the points)
+                resource = None
+                try:
+                    resource = point.find_element(By.CSS_SELECTOR, "span, div")
+                except Exception:
+                    pass  # No secondary element found
+
+                # Extract resource class if present
+                resource_name = ""
+                if resource:
+                    resource_name = " ".join(resource.get_attribute("class").split())            
+            
+            image_url = RESOURCE_IMAGE_MAP.get(resource_name, "")
+            
+            # Append data to the list
+            point_data.append({
+                'points': points_value,
+                'resource': resource_name,
+                'image_url': image_url,
+            })
+        except Exception as e:
+            print(f"Error extracting points data: {e}")
+    return point_data
+
+
+
+
 
 for card in cards[:48]:  # limit to first 10 cards
     title = safe_find_text(card, "div.title")
     price_data = extract_price_data(driver, card)
     number = safe_find_text(card, "div.number")
     money = safe_find_text(card, "span.money.resource")
-    points = safe_find_text(card, "div.points.points_big")
+    points_resource = extract_points_data(card)  # Extract points data
     descriptions = " ".join([d.text for d in card.find_elements(By.CSS_SELECTOR, "div.description")]) or "N/A"
     tag_data = extract_tag_data(driver, card)
 
@@ -105,13 +175,13 @@ for card in cards[:48]:  # limit to first 10 cards
     image_url = match.group(1) if match else "N/A"
 
     data.append({
-        "title": title,
+        "title": title,        
+        "number": number,
         "price": price_data,
         "tags": tag_data,  # Now contains both names and image URLs
-        "number": number,
         "money": money,
         "descriptions": descriptions,
-        "points": points,
+        "points_resource": points_resource,
         "image": image_url
     })
 

@@ -5,7 +5,6 @@ body {
     background-attachment: fixed;
 }
 
-
 h1 {
     text-align: center;
     color: #d1d1d1;
@@ -15,10 +14,10 @@ h1 {
 #cards-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 20px;
     max-width: 1200px;
     margin: 0 auto;
     position: relative;
+    gap: 20px;
 }
 .card-wrapper {
     position: relative; /* Add this line */
@@ -144,16 +143,38 @@ h1 {
     position: absolute;
     bottom: 10px;
     right: 10px;
-    width: 40px;
+    width: 80px;
     height: 40px;
-    background: rgba(209, 209, 209, 0.8);
+    overflow: hidden;
+    border:#000 2px solid;
+    background-size: 200% auto;    
+    /* tähän vois tehä että main.py arpoo background-positionin jotenkin 20% ja 50% aina satunnaisesti */
+    background-position: 20% 40%; 
     border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 18px;
-    font-weight: bold;
-    color: black;
+    font-size: 28px;    
+    font-weight: 650;
+    color: black;    
+    text-shadow: 0 0 5px rgb(245, 176, 91);
+    z-index: 2;
+}
+
+.resource-image {
+    display: inline-block;
+    background-color: transparent;
+    width: 30px;  
+    height: 30px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    vertical-align: middle;
+    margin-left: 6px; 
+}
+
+.resource-image.jovian {    
+    border-radius: 50%;  /* removes white square around the jovian image */
 }
 
 #loading {
