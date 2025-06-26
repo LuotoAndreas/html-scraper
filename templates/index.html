@@ -21,14 +21,16 @@
                                 <div class="restriction">{{ card.number }}</div>
                             {% endif %}
                         </div>
-                        <div class="icons">
+                        <div class="icon-container">
+                            <div class="icons">
                             {% for tag in card.tags %}
                                 <div class="tag" 
                                     style="background-image: url('{{ tag.image_url }}')"
                                     title="{{ tag.name }}">
                                 </div>
                             {% endfor %}
-                        </div>
+                            </div>
+                        </div>                        
                     </div>
                     <div class="title">{{ card.title }}</div>                
                     <div class="description">{{ card.descriptions }}</div>
