@@ -21,8 +21,17 @@
                                 <div class="restriction">{{ card.number }}</div>
                             {% endif %}
                         </div>
-                        <div class="icon-container">
-                            <div class="icons">
+                        <div class="price-container">
+                            {% if card.price.image_url %}
+                                <div class="price-icon" 
+                                    style="background-image: url('{{ card.price.image_url }}')"
+                                    title="{{ card.price.text }}">
+                                </div>
+                            {% endif %}
+                            <div class="price-text">{{ card.price.text }}</div>
+                        </div>
+                        <div class="tag-container">
+                            <div class="tags">
                             {% for tag in card.tags %}
                                 <div class="tag" 
                                     style="background-image: url('{{ tag.image_url }}')"
@@ -62,15 +71,7 @@
             </div>
             
             <!-- Price container now outside the card but inside wrapper -->
-            <div class="price-container">
-                {% if card.price.image_url %}
-                    <div class="price-icon" 
-                        style="background-image: url('{{ card.price.image_url }}')"
-                        title="{{ card.price.text }}">
-                    </div>
-                {% endif %}
-                <div class="price-text">{{ card.price.text }}</div>
-            </div>
+            
         </div>
         {% endfor %}
     </div>

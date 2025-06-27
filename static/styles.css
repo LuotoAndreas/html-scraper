@@ -48,7 +48,7 @@ h1 {
     background-size: 250% auto; /* Match the original */
     background-position: center; /* Match the original */
     border-radius: 8px;
-    filter: grayscale(100%) brightness(1.5); /* Black & white and light gray */
+    filter: grayscale(100%) brightness(1.5); /* Black & white and light gray
     z-index: 0; /* Place it behind the content */
 }
 
@@ -85,17 +85,20 @@ h1 {
     color: black;
 }
 
-.icon-container {
+.tag-container {
     display: flex; /* Enables alignment for the entire container */
     justify-content: flex-start; /* Align icons to the left by default */
     align-items: center; /* Vertically align icons */
-    left: 16px; /* Adjust this value to position the icons */
-    top: -8px; /* Adjust this value to position the icons */
+    left: 14px; /* Adjust this value to position the icons */
+    top: -20px; /* Adjust this value to position the icons */
     margin: 0; /* Adjust this if you want specific spacing around the container */
     position: relative; /* Allows positioning adjustment if needed */
+    z-index: 4;
+    width: fit-content;
+    height: 65px; /* Adjust height to fit the icons */
 }
 
-.icons {
+.tags {
     display: flex; /* Arrange icons in a row */
     gap: 5px; /* Add spacing between icons */
 }
@@ -273,15 +276,15 @@ h1 {
 
 .price-container {
     position: absolute;
-    top: -205px; /* Position inside the card */
-    left: -199px; /* Adjusted to fit the card */
+    top: -32px; /* Position inside the card */
+    left: -34px; /* Adjusted to fit the card */
     right: 0;
+    width: 100px;
+    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 5px;
-    z-index: 2;
-    margin-top: 200px;
 }
 
 .price-icon {
@@ -291,6 +294,7 @@ h1 {
     background-repeat: no-repeat;
     background-position: top;    
     position: relative;
+    z-index: 3;
 }
 
 .price-text {
@@ -302,4 +306,5 @@ h1 {
     font-size: 21px; /* Adjust font size for clarity */
     color: black;
     pointer-events: none; /* Prevent interference with the icon */
+    z-index: 4;
 }

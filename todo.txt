@@ -1,0 +1,2 @@
+- production-box, niide sisällä class esim energy production.
+- näistä pitää ottaa talteen production-box prduction-box-size1a ja css erikseen jokaiselle, määrittele koko
