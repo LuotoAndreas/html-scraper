@@ -171,6 +171,40 @@ h1 {
     clip-path: inset(23% 2% 22% 2%); /* Adjust percentages to crop the image's white edges */
 }
 
+
+.production-box {
+    font-family: Prototype;
+    font-weight: normal;
+    font-size: 18px;
+    width: 44px;
+    display: inline-block;
+    text-shadow: none;
+    border-top: 2px solid rgb(221, 221, 221);
+    border-left: 2px solid rgb(221, 221, 221);
+    border-bottom: 2px solid rgb(137, 137, 137);
+    border-right: 2px solid rgb(137, 137, 137);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3);
+    padding-top: 4px;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 2px;
+    padding-bottom: 4px;
+    line-height: 32px;
+    background-size: cover;
+}
+
+.production-icon-name {
+    display: inline-block;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background-size: 30px;
+    line-height: 30px;
+    margin: 2px 0;
+    text-align: center;
+    vertical-align: bottom;
+}
+
 .requirements-max {
     position: relative;
     top: -13px;

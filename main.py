@@ -19,6 +19,8 @@ RESOURCE_IMAGE_MAP = {
     "resource fighter":         "https://ssimeonoff.github.io/images/resources/fighter.png",
     "requirements":             "https://ssimeonoff.github.io/images/requisites/min_big.png",
     "requirements-max":         "https://ssimeonoff.github.io/images/requisites/max_big.png",
+    "production-box":           "https://ssimeonoff.github.io/images/misc/production.png",
+    "energy production":        "https://ssimeonoff.github.io/images/resources/power.png"
 }
 
 URL = "https://ssimeonoff.github.io/cards-list"
@@ -29,20 +31,27 @@ cards = driver.find_elements(By.CSS_SELECTOR, "li.filterDiv")
 
 data = []
 
-# Function to safely find text in an element
+# Function to safely find text in an element ("hei")
 def safe_find_text(element, selector):
     try:
         return element.find_element(By.CSS_SELECTOR, selector).text
     except:
         return ""
 
+# Function to safely find an attribute in an element (class names)
 def safe_find_attribute(element, selector, attribute):
     try:
         return element.find_element(By.CSS_SELECTOR, selector).get_attribute(attribute)
     except:
         return ""
 
-
+def has_certain_class_inside(inside_this_class):
+    try:
+        inside_this_class.find_element(By.CSS_SELECTOR, "div.production-box")
+        return True
+    except:
+        return False
+    
 # Function to extract price text and megacredits image URL
 def extract_price_data(driver, card):
     """Extract price text and megacredits image URL"""
@@ -182,6 +191,65 @@ def extract_requirements_data(card, resource_name):
         print(f"Error extracting requirements data: {e}")
     return requirements_data
 
+def extract_production_data(card):
+    production_data = []
+    try:
+        content_divs = card.find_elements(By.CSS_SELECTOR, "div.content")
+        if not content_divs:
+            return production_data
+        
+        content_div = content_divs[0]
+        resource_called = safe_find_attribute(card, "div.production-box", "class")
+        production_boxes = content_div.find_elements(By.CSS_SELECTOR, "div.production-box")
+        
+        for production_box in production_boxes:
+            children = production_box.find_elements(By.XPATH, "./*")
+            current_prefix = None
+            productions = []
+            
+            for child in children:
+                classes = child.get_attribute("class").split()
+                # Detect prefix
+                if "production-prefix" in classes:
+                    if child.find_elements(By.CSS_SELECTOR, "div.minus"):
+                        current_prefix = "minus"
+                    elif child.find_elements(By.CSS_SELECTOR, "div.plus"):
+                        current_prefix = "plus"
+                    else:
+                        current_prefix = None
+                    continue
+                
+                # Collect production items with prefix, or with no prefix (set prefix to 'none')
+                if "production" in classes:
+                    # Assign prefix 'none' if none was set previously
+                    prefix_to_use = current_prefix if current_prefix else "none"
+                    
+                    production_type = next((ptype for ptype in classes if ptype in ["money", "heat", "energy", "titanium", "plant", "steel"]), None)
+                    if production_type:
+                        is_special = "red-outline" in classes
+                        productions.append({
+                            "type": production_type,
+                            "prefix": prefix_to_use,
+                            "special": is_special
+                        })
+                else:
+                    # Reset prefix on unrelated elements (like <br>)
+                    if "production-prefix" not in classes and "production" not in classes:
+                        current_prefix = None
+            
+            background_image = RESOURCE_IMAGE_MAP.get("production-box", "") if productions else ""
+
+            production_data.append({
+                'production_box_size': resource_called,
+                'productions': productions,
+                'production_box_image': background_image
+            })
+    except Exception as e:
+        print(f"Error extracting production data: {e}")
+    return production_data
+
+
+
 for card in cards[:48]:  # limit to first 48 cards
     title = safe_find_text(card, "div.title")
     price_data = extract_price_data(driver, card)
@@ -191,6 +259,7 @@ for card in cards[:48]:  # limit to first 48 cards
     descriptions = " ".join([d.text for d in card.find_elements(By.CSS_SELECTOR, "div.description")]) or "N/A"
     tag_data = extract_tag_data(driver, card)
     requirements = extract_requirements_data(card, "requirements")
+    production = extract_production_data(card)
 
 
     data.append({
@@ -202,6 +271,7 @@ for card in cards[:48]:  # limit to first 48 cards
         "descriptions": descriptions,
         "points_resource": points_resource,
         "requirements": requirements,
+        "production": production,
         "image": RESOURCE_IMAGE_MAP.get("background-image", "")
     })
 

@@ -49,11 +49,16 @@
                                 title="{{ card.requirements.0.requirements }}">
                                 {{ card.requirements.0.requirements }}
                             </div>
+                        {% endif %} 
+                        {% if card.production %} 
+                            <div class="production-box" style="background-image: url('{{ card.production.0.production_box_image }}');">
+                                <div class="production-icon-name" style="background-image: url('{{ card.production.0.production_name_image }}');"></div>  
+                            </div>
+                                                    
                         {% endif %}
                         <div class="description">{{ card.descriptions }}</div>
                     </div>
-             
-                    
+                                      
 
                     {% if card.points_resource %}
                         {% for pr in card.points_resource %}

@@ -35,6 +35,7 @@
                 "requirements_image": "https://ssimeonoff.github.io/images/requisites/max_big.png"
             }
         ],
+        "production": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -68,6 +69,24 @@
                 "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png"
             }
         ],
+        "production": [
+            {
+                "production_box_size": "production-box production-box-size1a",
+                "productions": [
+                    {
+                        "type": "titanium",
+                        "prefix": "minus",
+                        "special": true
+                    },
+                    {
+                        "type": "titanium",
+                        "prefix": "plus",
+                        "special": false
+                    }
+                ],
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -94,6 +113,19 @@
         "descriptions": "(Increase your Energy production 1 step. Increase temperature 1 step.)",
         "points_resource": [],
         "requirements": [],
+        "production": [
+            {
+                "production_box_size": "production-box",
+                "productions": [
+                    {
+                        "type": "energy",
+                        "prefix": "none",
+                        "special": false
+                    }
+                ],
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -113,6 +145,34 @@
                 "requirements": "3 Oceans",
                 "resource_name": "requirements",
                 "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png"
+            }
+        ],
+        "production": [
+            {
+                "production_box_size": "production-box production-box-size2a",
+                "productions": [
+                    {
+                        "type": "money",
+                        "prefix": "minus",
+                        "special": false
+                    },
+                    {
+                        "type": "heat",
+                        "prefix": "minus",
+                        "special": true
+                    },
+                    {
+                        "type": "plant",
+                        "prefix": "plus",
+                        "special": false
+                    },
+                    {
+                        "type": "plant",
+                        "prefix": "plus",
+                        "special": false
+                    }
+                ],
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
             }
         ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
@@ -148,6 +208,7 @@
                 "requirements_image": "https://ssimeonoff.github.io/images/requisites/max_big.png"
             }
         ],
+        "production": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -169,6 +230,7 @@
         "descriptions": "N/A",
         "points_resource": [],
         "requirements": [],
+        "production": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -190,6 +252,7 @@
         "descriptions": "(Action: Spend 1 Energy to gain 1 MC for each City tile ON MARS.)",
         "points_resource": [],
         "requirements": [],
+        "production": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -228,6 +291,29 @@
                 "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png"
             }
         ],
+        "production": [
+            {
+                "production_box_size": "production-box production-box-size2a",
+                "productions": [
+                    {
+                        "type": "energy",
+                        "prefix": "minus",
+                        "special": false
+                    },
+                    {
+                        "type": "energy",
+                        "prefix": "minus",
+                        "special": false
+                    },
+                    {
+                        "type": "money",
+                        "prefix": "plus",
+                        "special": false
+                    }
+                ],
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -254,6 +340,7 @@
         "descriptions": "(Raise temperature 1 step and gain 2 titanium. Remove up to 3 Plants from any player.)",
         "points_resource": [],
         "requirements": [],
+        "production": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -280,6 +367,7 @@
         "descriptions": "(Raise temperature 1 step and place an ocean tile. Remove up to 3 Plants from any player.)",
         "points_resource": [],
         "requirements": [],
+        "production": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -306,6 +394,7 @@
         "descriptions": "(Raise temperature 2 steps and gain 4 titanium. Remove up to 4 Plants from any player.)",
         "points_resource": [],
         "requirements": [],
+        "production": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -338,6 +427,7 @@
             }
         ],
         "requirements": [],
+        "production": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -370,6 +460,19 @@
             }
         ],
         "requirements": [],
+        "production": [
+            {
+                "production_box_size": "production-box",
+                "productions": [
+                    {
+                        "type": "titanium",
+                        "prefix": "none",
+                        "special": false
+                    }
+                ],
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -396,6 +499,7 @@
         "descriptions": "(Action: Spend 1 Energy to draw a card.)",
         "points_resource": [],
         "requirements": [],
+        "production": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -417,6 +521,19 @@
         "descriptions": "(Action: Decrease your Energy production 1 step to increase your terraform rating 1 step.)",
         "points_resource": [],
         "requirements": [],
+        "production": [
+            {
+                "production_box_size": "production-box production-box-size1a",
+                "productions": [
+                    {
+                        "type": "energy",
+                        "prefix": "minus",
+                        "special": false
+                    }
+                ],
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -455,6 +572,24 @@
                 "requirements_image": "https://ssimeonoff.github.io/images/requisites/max_big.png"
             }
         ],
+        "production": [
+            {
+                "production_box_size": "production-box production-box-size1a",
+                "productions": [
+                    {
+                        "type": "energy",
+                        "prefix": "minus",
+                        "special": false
+                    },
+                    {
+                        "type": "money",
+                        "prefix": "plus",
+                        "special": false
+                    }
+                ],
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -481,6 +616,24 @@
         "descriptions": "(Decrease your Energy production 1 step and increase your MC production 3 steps. Place a city ON THE RESERVED AREA, disregarding normal placement restrictions.)",
         "points_resource": [],
         "requirements": [],
+        "production": [
+            {
+                "production_box_size": "production-box production-box-size1a",
+                "productions": [
+                    {
+                        "type": "energy",
+                        "prefix": "minus",
+                        "special": false
+                    },
+                    {
+                        "type": "money",
+                        "prefix": "plus",
+                        "special": false
+                    }
+                ],
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -519,6 +672,34 @@
                 "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png"
             }
         ],
+        "production": [
+            {
+                "production_box_size": "production-box production-box-size2",
+                "productions": [
+                    {
+                        "type": "heat",
+                        "prefix": "none",
+                        "special": false
+                    },
+                    {
+                        "type": "heat",
+                        "prefix": "none",
+                        "special": false
+                    },
+                    {
+                        "type": "plant",
+                        "prefix": "none",
+                        "special": false
+                    },
+                    {
+                        "type": "plant",
+                        "prefix": "none",
+                        "special": false
+                    }
+                ],
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -550,6 +731,7 @@
         "descriptions": "(Gain 3 Plants, or add 3 Microbes or 2 Animals to ANOTHER card. Place an ocean tile.)",
         "points_resource": [],
         "requirements": [],
+        "production": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -581,6 +763,7 @@
         "descriptions": "(Effect: When you play a card, you pay 1 MC less for it.) (Place a city tile NEXT TO NO OTHER TILE.)",
         "points_resource": [],
         "requirements": [],
+        "production": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -613,6 +796,19 @@
             }
         ],
         "requirements": [],
+        "production": [
+            {
+                "production_box_size": "production-box",
+                "productions": [
+                    {
+                        "type": "titanium",
+                        "prefix": "none",
+                        "special": false
+                    }
+                ],
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -628,6 +824,34 @@
         "descriptions": "(Place an ocean tile. Decrease your MC production 2 steps and increase your heat production 3 steps.)",
         "points_resource": [],
         "requirements": [],
+        "production": [
+            {
+                "production_box_size": "production-box production-box-size3a",
+                "productions": [
+                    {
+                        "type": "money",
+                        "prefix": "minus",
+                        "special": false
+                    },
+                    {
+                        "type": "heat",
+                        "prefix": "plus",
+                        "special": false
+                    },
+                    {
+                        "type": "heat",
+                        "prefix": "plus",
+                        "special": false
+                    },
+                    {
+                        "type": "heat",
+                        "prefix": "plus",
+                        "special": false
+                    }
+                ],
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -655,6 +879,7 @@
                 "requirements_image": "https://ssimeonoff.github.io/images/requisites/max_big.png"
             }
         ],
+        "production": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -688,6 +913,7 @@
                 "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png"
             }
         ],
+        "production": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -715,6 +941,7 @@
             }
         ],
         "requirements": [],
+        "production": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -751,6 +978,19 @@
                 "requirements": "-12 C",
                 "resource_name": "requirements",
                 "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png"
+            }
+        ],
+        "production": [
+            {
+                "production_box_size": "production-box production-box",
+                "productions": [
+                    {
+                        "type": "money",
+                        "prefix": "none",
+                        "special": false
+                    }
+                ],
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
             }
         ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
@@ -796,6 +1036,7 @@
                 "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png"
             }
         ],
+        "production": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -823,6 +1064,7 @@
             }
         ],
         "requirements": [],
+        "production": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -855,6 +1097,24 @@
                 "requirements_image": "https://ssimeonoff.github.io/images/requisites/max_big.png"
             }
         ],
+        "production": [
+            {
+                "production_box_size": "production-box production-box-size1a",
+                "productions": [
+                    {
+                        "type": "energy",
+                        "prefix": "minus",
+                        "special": false
+                    },
+                    {
+                        "type": "money",
+                        "prefix": "plus",
+                        "special": false
+                    }
+                ],
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -881,6 +1141,39 @@
         "descriptions": "(Decrease your MC production 2 steps and increase your heat production and Energy production 2 steps each.)",
         "points_resource": [],
         "requirements": [],
+        "production": [
+            {
+                "production_box_size": "production-box production-box-size2a",
+                "productions": [
+                    {
+                        "type": "money",
+                        "prefix": "minus",
+                        "special": false
+                    },
+                    {
+                        "type": "heat",
+                        "prefix": "plus",
+                        "special": false
+                    },
+                    {
+                        "type": "heat",
+                        "prefix": "plus",
+                        "special": false
+                    },
+                    {
+                        "type": "energy",
+                        "prefix": "plus",
+                        "special": false
+                    },
+                    {
+                        "type": "energy",
+                        "prefix": "plus",
+                        "special": false
+                    }
+                ],
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -902,6 +1195,7 @@
         "descriptions": "(Effect: When you play a Space Event, you gain 3 MC and 3 heat.)",
         "points_resource": [],
         "requirements": [],
+        "production": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -928,6 +1222,34 @@
         "descriptions": "(Place a City tile. Decrease your Energy production 2 steps and increase your steel production 2 steps.)",
         "points_resource": [],
         "requirements": [],
+        "production": [
+            {
+                "production_box_size": "production-box production-box-size2a",
+                "productions": [
+                    {
+                        "type": "energy",
+                        "prefix": "minus",
+                        "special": false
+                    },
+                    {
+                        "type": "energy",
+                        "prefix": "minus",
+                        "special": false
+                    },
+                    {
+                        "type": "steel",
+                        "prefix": "plus",
+                        "special": false
+                    },
+                    {
+                        "type": "steel",
+                        "prefix": "plus",
+                        "special": false
+                    }
+                ],
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -954,6 +1276,7 @@
         "descriptions": "(Action: Add 1 Microbe to this card, or remove 2 Microbes from this card to raise oxygen level 1 step.)",
         "points_resource": [],
         "requirements": [],
+        "production": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -986,6 +1309,7 @@
                 "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png"
             }
         ],
+        "production": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1019,6 +1343,7 @@
                 "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png"
             }
         ],
+        "production": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1040,6 +1365,7 @@
         "descriptions": "(Raise your terraform rating 2 steps.)",
         "points_resource": [],
         "requirements": [],
+        "production": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1066,6 +1392,24 @@
         "descriptions": "(Raise your terraforming rating 2 steps and temperature 1 step. Increase your Plant production 1 step, or 4 steps if you have 3 Plant tags.)",
         "points_resource": [],
         "requirements": [],
+        "production": [
+            {
+                "production_box_size": "production-box production-box-size3",
+                "productions": [
+                    {
+                        "type": "plant",
+                        "prefix": "none",
+                        "special": false
+                    },
+                    {
+                        "type": "plant",
+                        "prefix": "none",
+                        "special": false
+                    }
+                ],
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1093,6 +1437,7 @@
             }
         ],
         "requirements": [],
+        "production": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1119,6 +1464,7 @@
         "descriptions": "(Raise temperature 3 steps and gain 4 steel. Remove up to 8 Plants from any player.)",
         "points_resource": [],
         "requirements": [],
+        "production": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1151,6 +1497,24 @@
             }
         ],
         "requirements": [],
+        "production": [
+            {
+                "production_box_size": "production-box production-box-size2",
+                "productions": [
+                    {
+                        "type": "titanium",
+                        "prefix": "none",
+                        "special": false
+                    },
+                    {
+                        "type": "titanium",
+                        "prefix": "none",
+                        "special": false
+                    }
+                ],
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1178,6 +1542,24 @@
             }
         ],
         "requirements": [],
+        "production": [
+            {
+                "production_box_size": "production-box production-box-size1a",
+                "productions": [
+                    {
+                        "type": "plant",
+                        "prefix": "minus",
+                        "special": false
+                    },
+                    {
+                        "type": "money",
+                        "prefix": "plus",
+                        "special": false
+                    }
+                ],
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1205,6 +1587,19 @@
                 "requirements_image": "https://ssimeonoff.github.io/images/requisites/max_big.png"
             }
         ],
+        "production": [
+            {
+                "production_box_size": "production-box",
+                "productions": [
+                    {
+                        "type": "plant",
+                        "prefix": "none",
+                        "special": false
+                    }
+                ],
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1226,6 +1621,34 @@
         "descriptions": "(Decrease your Energy production 1 step and increase your heat production 3 steps.)",
         "points_resource": [],
         "requirements": [],
+        "production": [
+            {
+                "production_box_size": "production-box production-box-size3a",
+                "productions": [
+                    {
+                        "type": "energy",
+                        "prefix": "minus",
+                        "special": false
+                    },
+                    {
+                        "type": "heat",
+                        "prefix": "plus",
+                        "special": false
+                    },
+                    {
+                        "type": "heat",
+                        "prefix": "plus",
+                        "special": false
+                    },
+                    {
+                        "type": "heat",
+                        "prefix": "plus",
+                        "special": false
+                    }
+                ],
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1264,6 +1687,19 @@
                 "requirements_image": "https://ssimeonoff.github.io/images/requisites/max_big.png"
             }
         ],
+        "production": [
+            {
+                "production_box_size": "production-box",
+                "productions": [
+                    {
+                        "type": "money",
+                        "prefix": "none",
+                        "special": false
+                    }
+                ],
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1290,6 +1726,34 @@
         "descriptions": "(Decrease your MC production 2 steps and increase your Energy production 3 steps.)",
         "points_resource": [],
         "requirements": [],
+        "production": [
+            {
+                "production_box_size": "production-box production-box-size3a",
+                "productions": [
+                    {
+                        "type": "money",
+                        "prefix": "minus",
+                        "special": false
+                    },
+                    {
+                        "type": "energy",
+                        "prefix": "plus",
+                        "special": false
+                    },
+                    {
+                        "type": "energy",
+                        "prefix": "plus",
+                        "special": false
+                    },
+                    {
+                        "type": "energy",
+                        "prefix": "plus",
+                        "special": false
+                    }
+                ],
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1323,6 +1787,24 @@
                 "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png"
             }
         ],
+        "production": [
+            {
+                "production_box_size": "production-box production-box-size2",
+                "productions": [
+                    {
+                        "type": "energy",
+                        "prefix": "none",
+                        "special": false
+                    },
+                    {
+                        "type": "money",
+                        "prefix": "none",
+                        "special": false
+                    }
+                ],
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1350,6 +1832,24 @@
                 "requirements_image": "https://ssimeonoff.github.io/images/requisites/min_big.png"
             }
         ],
+        "production": [
+            {
+                "production_box_size": "production-box production-box-size2",
+                "productions": [
+                    {
+                        "type": "plant",
+                        "prefix": "none",
+                        "special": false
+                    },
+                    {
+                        "type": "plant",
+                        "prefix": "none",
+                        "special": false
+                    }
+                ],
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1371,6 +1871,19 @@
         "descriptions": "(Increase your Plant production 1 step.)",
         "points_resource": [],
         "requirements": [],
+        "production": [
+            {
+                "production_box_size": "production-box",
+                "productions": [
+                    {
+                        "type": "plant",
+                        "prefix": "none",
+                        "special": false
+                    }
+                ],
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     }
 ]
