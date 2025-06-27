@@ -35,11 +35,11 @@
                     <div class="title">{{ card.title }}</div>
                     <div class="content">
                         {% if card.requirements %}
-                        <div class="requirements" 
-                            style="background-image: url('{{ card.requirements_image }}');"
-                            title="{{ card.requirements }}">
-                            {{ card.requirements }}
-                        </div>
+                            <div class="requirements {% if 'requirements-max' in card.requirements.0.resource_name %}requirements-max{% endif %}" 
+                                style="background-image: url('{{ card.requirements.0.requirements_image }}');"
+                                title="{{ card.requirements.0.requirements }}">
+                                {{ card.requirements.0.requirements }}
+                            </div>
                         {% endif %}
                         <div class="description">{{ card.descriptions }}</div>
                     </div>

@@ -140,7 +140,7 @@ h1 {
 .content {
     position: relative;
     display: inline-block;
-    width: 250px;
+    width: 220px;
     height: 200px;
     padding: 10px;
     line-height: 13px; /* tällä muutetaan riviväliä */
@@ -149,27 +149,47 @@ h1 {
 }
 
 .requirements {
+    position: relative;
+    top: -13px;
     width: 70%; 
-    height: 25px; /* Increase height for better visibility */
-    line-height: 40px; /* Match line-height to height for vertical alignment */
-    margin-left: 12px; /* Center horizontally */
+    height: 24px;
+    line-height: 40px;
+    margin-left: 20px;
     display: flex;
-    align-items: center; /* Align content vertically */
-    justify-content: center; /* Center content horizontally */
-    padding: 10px; /* Add some padding for breathing space */
-    font-size: 16px; /* Slightly larger font size for readability */
-    font-weight: bold; /* Make text stand out */
-    color: black; /* Text color */
-    background-size: contain; /* Ensure background fits within the area */
-    background-size: 164px 25px; /* Adjusted size for better fit */
-    background-repeat: no-repeat; /* Avoid tiling */
-    background-position: center; /* Center the background image */
-    border-radius: 8px; /* Rounded corners for aesthetics */
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+    background-size: 100% 62%;
+    background-repeat: no-repeat;
+    background-position: center;    
+    clip-path: inset(23% 2% 22% 2%); /* Adjust percentages to crop the image's white edges */
+}
+
+.requirements-max {
+    position: relative;
+    top: -13px;
+    width: 70%; 
+    height: 25px;
+    line-height: 40px;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+    background-size: 100% 62%;
+    background-repeat: no-repeat;
+    background-position: center;
+    clip-path: inset(23% 2% 22% 2%);
 }
 
 .card .description {
-    padding-right: 30px;
-    padding-top: 50px;
+    padding-top: 23px;
     margin: 10px;
     color: black;
     font-size: 12px;

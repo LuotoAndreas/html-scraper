@@ -18,6 +18,7 @@ RESOURCE_IMAGE_MAP = {
     "animal resource":          "https://ssimeonoff.github.io/images/resources/animal.png",
     "resource fighter":         "https://ssimeonoff.github.io/images/resources/fighter.png",
     "requirements":             "https://ssimeonoff.github.io/images/requisites/min_big.png",
+    "requirements-max":         "https://ssimeonoff.github.io/images/requisites/max_big.png",
 }
 
 URL = "https://ssimeonoff.github.io/cards-list"
@@ -34,6 +35,13 @@ def safe_find_text(element, selector):
         return element.find_element(By.CSS_SELECTOR, selector).text
     except:
         return ""
+
+def safe_find_attribute(element, selector, attribute):
+    try:
+        return element.find_element(By.CSS_SELECTOR, selector).get_attribute(attribute)
+    except:
+        return ""
+
 
 # Function to extract price text and megacredits image URL
 def extract_price_data(driver, card):
@@ -153,6 +161,27 @@ def extract_points_data(card):
             print(f"Error extracting points data: {e}")
     return point_data
 
+def extract_requirements_data(card, resource_name):
+    requirements_data = []
+    try:
+        resource_called = safe_find_attribute(card, "div.requirements", "class")        
+        requirements_text = safe_find_text(card, "div.requirements")
+
+        if resource_called and requirements_text: 
+            if "requirements-max" in resource_called:  
+                requirements_image = RESOURCE_IMAGE_MAP.get("requirements-max", "")     
+            else:
+                requirements_image = RESOURCE_IMAGE_MAP.get(resource_name, "")   
+
+            requirements_data.append({
+                'requirements': requirements_text,
+                'resource_name': resource_called,
+                'requirements_image': requirements_image,
+            })        
+    except Exception as e:
+        print(f"Error extracting requirements data: {e}")
+    return requirements_data
+
 for card in cards[:48]:  # limit to first 48 cards
     title = safe_find_text(card, "div.title")
     price_data = extract_price_data(driver, card)
@@ -161,7 +190,7 @@ for card in cards[:48]:  # limit to first 48 cards
     points_resource = extract_points_data(card)  # Extract points data
     descriptions = " ".join([d.text for d in card.find_elements(By.CSS_SELECTOR, "div.description")]) or "N/A"
     tag_data = extract_tag_data(driver, card)
-    requirements = safe_find_text(card, "div.requirements")
+    requirements = extract_requirements_data(card, "requirements")
 
 
     data.append({
@@ -173,7 +202,6 @@ for card in cards[:48]:  # limit to first 48 cards
         "descriptions": descriptions,
         "points_resource": points_resource,
         "requirements": requirements,
-        "requirements_image": RESOURCE_IMAGE_MAP.get("requirements", ""),
         "image": RESOURCE_IMAGE_MAP.get("background-image", "")
     })
 
