@@ -276,7 +276,7 @@ for card in cards[:48]:  # limit to first 48 cards
     number = safe_find_text(card, "div.number")
     money = safe_find_text(card, "span.money.resource")
     points_resource = extract_points_data(card)  # Extract points data
-    descriptions = " ".join([d.text for d in card.find_elements(By.CSS_SELECTOR, "div.description")]) or "N/A"
+    descriptions = " ".join([d.text for d in card.find_elements(By.CSS_SELECTOR, "div.description")]) or ""
     tag_data = extract_tag_data(driver, card)
     requirements = extract_requirements_data(card, "requirements")
     production = extract_production_data(card)

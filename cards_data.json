@@ -249,7 +249,7 @@
             }
         ],
         "money": "",
-        "descriptions": "N/A",
+        "descriptions": "",
         "points_resource": [],
         "requirements": [],
         "production": [],
@@ -1103,7 +1103,7 @@
             }
         ],
         "money": "",
-        "descriptions": "N/A",
+        "descriptions": "",
         "points_resource": [
             {
                 "points": "4",
