@@ -215,6 +215,7 @@ def extract_production_data(card):
             prefix_image_url = None
             type_image_url = None
             productions = []
+            type_with_money_amount = []
             
             for child in children:
                 classes = child.get_attribute("class").split()
@@ -237,10 +238,19 @@ def extract_production_data(card):
                     
                     production_type = next((ptype for ptype in classes if ptype in ["money", "heat", "energy", "titanium", "plant", "steel"]), "None")
                     if production_type:
+                        if production_type == "money":
+                            money_amount = safe_find_text(card, "div.money")
+                            type_value = {
+                                "type": "money",
+                                "money_amount": money_amount
+                            }
+                        else:
+                            type_value = production_type
+
                         type_image_url = RESOURCE_IMAGE_MAP.get(production_type, "")
                         is_special = "red-outline" in classes
                         productions.append({
-                            "type": production_type,
+                            "type": type_value ,
                             "prefix": prefix_to_use,                            
                             "type_image_url": type_image_url,
                             "prefix_image_url": prefix_image_url,
