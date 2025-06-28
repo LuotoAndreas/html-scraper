@@ -71,20 +71,27 @@
         ],
         "production": [
             {
-                "production_box_size": "production-box production-box-size1a",
-                "productions": [
+                "production_box_size": "production-box-size1a",
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png",
+                "minus_productions": [
                     {
                         "type": "titanium",
                         "prefix": "minus",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/titanium.png",
+                        "prefix_image_url": "https://ssimeonoff.github.io/images/misc/minus.png",
                         "special": true
-                    },
+                    }
+                ],
+                "plus_productions": [
                     {
                         "type": "titanium",
                         "prefix": "plus",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/titanium.png",
+                        "prefix_image_url": "https://ssimeonoff.github.io/images/misc/plus.png",
                         "special": false
                     }
                 ],
-                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+                "none_productions": []
             }
         ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
@@ -115,15 +122,19 @@
         "requirements": [],
         "production": [
             {
-                "production_box_size": "production-box",
-                "productions": [
+                "production_box_size": null,
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png",
+                "minus_productions": [],
+                "plus_productions": [],
+                "none_productions": [
                     {
                         "type": "energy",
                         "prefix": "none",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/power.png",
+                        "prefix_image_url": null,
                         "special": false
                     }
-                ],
-                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+                ]
             }
         ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
@@ -149,30 +160,41 @@
         ],
         "production": [
             {
-                "production_box_size": "production-box production-box-size2a",
-                "productions": [
+                "production_box_size": "production-box-size2a",
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png",
+                "minus_productions": [
                     {
                         "type": "money",
                         "prefix": "minus",
+                        "type_image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png",
+                        "prefix_image_url": "https://ssimeonoff.github.io/images/misc/minus.png",
                         "special": false
                     },
                     {
                         "type": "heat",
                         "prefix": "minus",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/heat.png",
+                        "prefix_image_url": "https://ssimeonoff.github.io/images/misc/minus.png",
                         "special": true
-                    },
+                    }
+                ],
+                "plus_productions": [
                     {
                         "type": "plant",
                         "prefix": "plus",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/plant.png",
+                        "prefix_image_url": "https://ssimeonoff.github.io/images/misc/plus.png",
                         "special": false
                     },
                     {
                         "type": "plant",
                         "prefix": "plus",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/plant.png",
+                        "prefix_image_url": "https://ssimeonoff.github.io/images/misc/plus.png",
                         "special": false
                     }
                 ],
-                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+                "none_productions": []
             }
         ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
@@ -293,25 +315,34 @@
         ],
         "production": [
             {
-                "production_box_size": "production-box production-box-size2a",
-                "productions": [
+                "production_box_size": "production-box-size2a",
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png",
+                "minus_productions": [
                     {
                         "type": "energy",
                         "prefix": "minus",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/power.png",
+                        "prefix_image_url": "https://ssimeonoff.github.io/images/misc/minus.png",
                         "special": false
                     },
                     {
                         "type": "energy",
                         "prefix": "minus",
-                        "special": false
-                    },
-                    {
-                        "type": "money",
-                        "prefix": "plus",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/power.png",
+                        "prefix_image_url": "https://ssimeonoff.github.io/images/misc/minus.png",
                         "special": false
                     }
                 ],
-                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+                "plus_productions": [
+                    {
+                        "type": "money",
+                        "prefix": "plus",
+                        "type_image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png",
+                        "prefix_image_url": "https://ssimeonoff.github.io/images/misc/plus.png",
+                        "special": false
+                    }
+                ],
+                "none_productions": []
             }
         ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
@@ -462,15 +493,19 @@
         "requirements": [],
         "production": [
             {
-                "production_box_size": "production-box",
-                "productions": [
+                "production_box_size": null,
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png",
+                "minus_productions": [],
+                "plus_productions": [],
+                "none_productions": [
                     {
                         "type": "titanium",
                         "prefix": "none",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/titanium.png",
+                        "prefix_image_url": null,
                         "special": false
                     }
-                ],
-                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+                ]
             }
         ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
@@ -523,15 +558,19 @@
         "requirements": [],
         "production": [
             {
-                "production_box_size": "production-box production-box-size1a",
-                "productions": [
+                "production_box_size": "production-box-size1a",
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png",
+                "minus_productions": [
                     {
                         "type": "energy",
                         "prefix": "minus",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/power.png",
+                        "prefix_image_url": "https://ssimeonoff.github.io/images/misc/minus.png",
                         "special": false
                     }
                 ],
-                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+                "plus_productions": [],
+                "none_productions": []
             }
         ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
@@ -574,20 +613,27 @@
         ],
         "production": [
             {
-                "production_box_size": "production-box production-box-size1a",
-                "productions": [
+                "production_box_size": "production-box-size1a",
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png",
+                "minus_productions": [
                     {
                         "type": "energy",
                         "prefix": "minus",
-                        "special": false
-                    },
-                    {
-                        "type": "money",
-                        "prefix": "plus",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/power.png",
+                        "prefix_image_url": "https://ssimeonoff.github.io/images/misc/minus.png",
                         "special": false
                     }
                 ],
-                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+                "plus_productions": [
+                    {
+                        "type": "money",
+                        "prefix": "plus",
+                        "type_image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png",
+                        "prefix_image_url": "https://ssimeonoff.github.io/images/misc/plus.png",
+                        "special": false
+                    }
+                ],
+                "none_productions": []
             }
         ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
@@ -618,20 +664,27 @@
         "requirements": [],
         "production": [
             {
-                "production_box_size": "production-box production-box-size1a",
-                "productions": [
+                "production_box_size": "production-box-size1a",
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png",
+                "minus_productions": [
                     {
                         "type": "energy",
                         "prefix": "minus",
-                        "special": false
-                    },
-                    {
-                        "type": "money",
-                        "prefix": "plus",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/power.png",
+                        "prefix_image_url": "https://ssimeonoff.github.io/images/misc/minus.png",
                         "special": false
                     }
                 ],
-                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+                "plus_productions": [
+                    {
+                        "type": "money",
+                        "prefix": "plus",
+                        "type_image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png",
+                        "prefix_image_url": "https://ssimeonoff.github.io/images/misc/plus.png",
+                        "special": false
+                    }
+                ],
+                "none_productions": []
             }
         ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
@@ -674,30 +727,40 @@
         ],
         "production": [
             {
-                "production_box_size": "production-box production-box-size2",
-                "productions": [
+                "production_box_size": "production-box-size2",
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png",
+                "minus_productions": [],
+                "plus_productions": [],
+                "none_productions": [
                     {
                         "type": "heat",
                         "prefix": "none",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/heat.png",
+                        "prefix_image_url": null,
                         "special": false
                     },
                     {
                         "type": "heat",
                         "prefix": "none",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/heat.png",
+                        "prefix_image_url": null,
                         "special": false
                     },
                     {
                         "type": "plant",
                         "prefix": "none",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/plant.png",
+                        "prefix_image_url": null,
                         "special": false
                     },
                     {
                         "type": "plant",
                         "prefix": "none",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/plant.png",
+                        "prefix_image_url": null,
                         "special": false
                     }
-                ],
-                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+                ]
             }
         ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
@@ -798,15 +861,19 @@
         "requirements": [],
         "production": [
             {
-                "production_box_size": "production-box",
-                "productions": [
+                "production_box_size": null,
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png",
+                "minus_productions": [],
+                "plus_productions": [],
+                "none_productions": [
                     {
                         "type": "titanium",
                         "prefix": "none",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/titanium.png",
+                        "prefix_image_url": null,
                         "special": false
                     }
-                ],
-                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+                ]
             }
         ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
@@ -826,30 +893,41 @@
         "requirements": [],
         "production": [
             {
-                "production_box_size": "production-box production-box-size3a",
-                "productions": [
+                "production_box_size": "production-box-size3a",
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png",
+                "minus_productions": [
                     {
                         "type": "money",
                         "prefix": "minus",
-                        "special": false
-                    },
-                    {
-                        "type": "heat",
-                        "prefix": "plus",
-                        "special": false
-                    },
-                    {
-                        "type": "heat",
-                        "prefix": "plus",
-                        "special": false
-                    },
-                    {
-                        "type": "heat",
-                        "prefix": "plus",
+                        "type_image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png",
+                        "prefix_image_url": "https://ssimeonoff.github.io/images/misc/minus.png",
                         "special": false
                     }
                 ],
-                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+                "plus_productions": [
+                    {
+                        "type": "heat",
+                        "prefix": "plus",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/heat.png",
+                        "prefix_image_url": "https://ssimeonoff.github.io/images/misc/plus.png",
+                        "special": false
+                    },
+                    {
+                        "type": "heat",
+                        "prefix": "plus",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/heat.png",
+                        "prefix_image_url": "https://ssimeonoff.github.io/images/misc/plus.png",
+                        "special": false
+                    },
+                    {
+                        "type": "heat",
+                        "prefix": "plus",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/heat.png",
+                        "prefix_image_url": "https://ssimeonoff.github.io/images/misc/plus.png",
+                        "special": false
+                    }
+                ],
+                "none_productions": []
             }
         ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
@@ -982,15 +1060,19 @@
         ],
         "production": [
             {
-                "production_box_size": "production-box production-box",
-                "productions": [
+                "production_box_size": null,
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png",
+                "minus_productions": [],
+                "plus_productions": [],
+                "none_productions": [
                     {
                         "type": "money",
                         "prefix": "none",
+                        "type_image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png",
+                        "prefix_image_url": null,
                         "special": false
                     }
-                ],
-                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+                ]
             }
         ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
@@ -1099,20 +1181,27 @@
         ],
         "production": [
             {
-                "production_box_size": "production-box production-box-size1a",
-                "productions": [
+                "production_box_size": "production-box-size1a",
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png",
+                "minus_productions": [
                     {
                         "type": "energy",
                         "prefix": "minus",
-                        "special": false
-                    },
-                    {
-                        "type": "money",
-                        "prefix": "plus",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/power.png",
+                        "prefix_image_url": "https://ssimeonoff.github.io/images/misc/minus.png",
                         "special": false
                     }
                 ],
-                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+                "plus_productions": [
+                    {
+                        "type": "money",
+                        "prefix": "plus",
+                        "type_image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png",
+                        "prefix_image_url": "https://ssimeonoff.github.io/images/misc/plus.png",
+                        "special": false
+                    }
+                ],
+                "none_productions": []
             }
         ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
@@ -1143,35 +1232,48 @@
         "requirements": [],
         "production": [
             {
-                "production_box_size": "production-box production-box-size2a",
-                "productions": [
+                "production_box_size": "production-box-size2a",
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png",
+                "minus_productions": [
                     {
                         "type": "money",
                         "prefix": "minus",
-                        "special": false
-                    },
-                    {
-                        "type": "heat",
-                        "prefix": "plus",
-                        "special": false
-                    },
-                    {
-                        "type": "heat",
-                        "prefix": "plus",
-                        "special": false
-                    },
-                    {
-                        "type": "energy",
-                        "prefix": "plus",
-                        "special": false
-                    },
-                    {
-                        "type": "energy",
-                        "prefix": "plus",
+                        "type_image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png",
+                        "prefix_image_url": "https://ssimeonoff.github.io/images/misc/minus.png",
                         "special": false
                     }
                 ],
-                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+                "plus_productions": [
+                    {
+                        "type": "heat",
+                        "prefix": "plus",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/heat.png",
+                        "prefix_image_url": "https://ssimeonoff.github.io/images/misc/plus.png",
+                        "special": false
+                    },
+                    {
+                        "type": "heat",
+                        "prefix": "plus",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/heat.png",
+                        "prefix_image_url": "https://ssimeonoff.github.io/images/misc/plus.png",
+                        "special": false
+                    },
+                    {
+                        "type": "energy",
+                        "prefix": "plus",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/power.png",
+                        "prefix_image_url": "https://ssimeonoff.github.io/images/misc/plus.png",
+                        "special": false
+                    },
+                    {
+                        "type": "energy",
+                        "prefix": "plus",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/power.png",
+                        "prefix_image_url": "https://ssimeonoff.github.io/images/misc/plus.png",
+                        "special": false
+                    }
+                ],
+                "none_productions": []
             }
         ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
@@ -1224,30 +1326,41 @@
         "requirements": [],
         "production": [
             {
-                "production_box_size": "production-box production-box-size2a",
-                "productions": [
+                "production_box_size": "production-box-size2a",
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png",
+                "minus_productions": [
                     {
                         "type": "energy",
                         "prefix": "minus",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/power.png",
+                        "prefix_image_url": "https://ssimeonoff.github.io/images/misc/minus.png",
                         "special": false
                     },
                     {
                         "type": "energy",
                         "prefix": "minus",
-                        "special": false
-                    },
-                    {
-                        "type": "steel",
-                        "prefix": "plus",
-                        "special": false
-                    },
-                    {
-                        "type": "steel",
-                        "prefix": "plus",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/power.png",
+                        "prefix_image_url": "https://ssimeonoff.github.io/images/misc/minus.png",
                         "special": false
                     }
                 ],
-                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+                "plus_productions": [
+                    {
+                        "type": "steel",
+                        "prefix": "plus",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/steel.png",
+                        "prefix_image_url": "https://ssimeonoff.github.io/images/misc/plus.png",
+                        "special": false
+                    },
+                    {
+                        "type": "steel",
+                        "prefix": "plus",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/steel.png",
+                        "prefix_image_url": "https://ssimeonoff.github.io/images/misc/plus.png",
+                        "special": false
+                    }
+                ],
+                "none_productions": []
             }
         ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
@@ -1394,20 +1507,26 @@
         "requirements": [],
         "production": [
             {
-                "production_box_size": "production-box production-box-size3",
-                "productions": [
+                "production_box_size": "production-box-size3",
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png",
+                "minus_productions": [],
+                "plus_productions": [],
+                "none_productions": [
                     {
                         "type": "plant",
                         "prefix": "none",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/plant.png",
+                        "prefix_image_url": null,
                         "special": false
                     },
                     {
                         "type": "plant",
                         "prefix": "none",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/plant.png",
+                        "prefix_image_url": null,
                         "special": false
                     }
-                ],
-                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+                ]
             }
         ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
@@ -1499,20 +1618,26 @@
         "requirements": [],
         "production": [
             {
-                "production_box_size": "production-box production-box-size2",
-                "productions": [
+                "production_box_size": "production-box-size2",
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png",
+                "minus_productions": [],
+                "plus_productions": [],
+                "none_productions": [
                     {
                         "type": "titanium",
                         "prefix": "none",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/titanium.png",
+                        "prefix_image_url": null,
                         "special": false
                     },
                     {
                         "type": "titanium",
                         "prefix": "none",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/titanium.png",
+                        "prefix_image_url": null,
                         "special": false
                     }
-                ],
-                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+                ]
             }
         ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
@@ -1544,20 +1669,27 @@
         "requirements": [],
         "production": [
             {
-                "production_box_size": "production-box production-box-size1a",
-                "productions": [
+                "production_box_size": "production-box-size1a",
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png",
+                "minus_productions": [
                     {
                         "type": "plant",
                         "prefix": "minus",
-                        "special": false
-                    },
-                    {
-                        "type": "money",
-                        "prefix": "plus",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/plant.png",
+                        "prefix_image_url": "https://ssimeonoff.github.io/images/misc/minus.png",
                         "special": false
                     }
                 ],
-                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+                "plus_productions": [
+                    {
+                        "type": "money",
+                        "prefix": "plus",
+                        "type_image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png",
+                        "prefix_image_url": "https://ssimeonoff.github.io/images/misc/plus.png",
+                        "special": false
+                    }
+                ],
+                "none_productions": []
             }
         ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
@@ -1589,15 +1721,19 @@
         ],
         "production": [
             {
-                "production_box_size": "production-box",
-                "productions": [
+                "production_box_size": null,
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png",
+                "minus_productions": [],
+                "plus_productions": [],
+                "none_productions": [
                     {
                         "type": "plant",
                         "prefix": "none",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/plant.png",
+                        "prefix_image_url": null,
                         "special": false
                     }
-                ],
-                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+                ]
             }
         ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
@@ -1623,30 +1759,41 @@
         "requirements": [],
         "production": [
             {
-                "production_box_size": "production-box production-box-size3a",
-                "productions": [
+                "production_box_size": "production-box-size3a",
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png",
+                "minus_productions": [
                     {
                         "type": "energy",
                         "prefix": "minus",
-                        "special": false
-                    },
-                    {
-                        "type": "heat",
-                        "prefix": "plus",
-                        "special": false
-                    },
-                    {
-                        "type": "heat",
-                        "prefix": "plus",
-                        "special": false
-                    },
-                    {
-                        "type": "heat",
-                        "prefix": "plus",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/power.png",
+                        "prefix_image_url": "https://ssimeonoff.github.io/images/misc/minus.png",
                         "special": false
                     }
                 ],
-                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+                "plus_productions": [
+                    {
+                        "type": "heat",
+                        "prefix": "plus",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/heat.png",
+                        "prefix_image_url": "https://ssimeonoff.github.io/images/misc/plus.png",
+                        "special": false
+                    },
+                    {
+                        "type": "heat",
+                        "prefix": "plus",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/heat.png",
+                        "prefix_image_url": "https://ssimeonoff.github.io/images/misc/plus.png",
+                        "special": false
+                    },
+                    {
+                        "type": "heat",
+                        "prefix": "plus",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/heat.png",
+                        "prefix_image_url": "https://ssimeonoff.github.io/images/misc/plus.png",
+                        "special": false
+                    }
+                ],
+                "none_productions": []
             }
         ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
@@ -1689,15 +1836,19 @@
         ],
         "production": [
             {
-                "production_box_size": "production-box",
-                "productions": [
+                "production_box_size": null,
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png",
+                "minus_productions": [],
+                "plus_productions": [],
+                "none_productions": [
                     {
                         "type": "money",
                         "prefix": "none",
+                        "type_image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png",
+                        "prefix_image_url": null,
                         "special": false
                     }
-                ],
-                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+                ]
             }
         ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
@@ -1728,30 +1879,41 @@
         "requirements": [],
         "production": [
             {
-                "production_box_size": "production-box production-box-size3a",
-                "productions": [
+                "production_box_size": "production-box-size3a",
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png",
+                "minus_productions": [
                     {
                         "type": "money",
                         "prefix": "minus",
-                        "special": false
-                    },
-                    {
-                        "type": "energy",
-                        "prefix": "plus",
-                        "special": false
-                    },
-                    {
-                        "type": "energy",
-                        "prefix": "plus",
-                        "special": false
-                    },
-                    {
-                        "type": "energy",
-                        "prefix": "plus",
+                        "type_image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png",
+                        "prefix_image_url": "https://ssimeonoff.github.io/images/misc/minus.png",
                         "special": false
                     }
                 ],
-                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+                "plus_productions": [
+                    {
+                        "type": "energy",
+                        "prefix": "plus",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/power.png",
+                        "prefix_image_url": "https://ssimeonoff.github.io/images/misc/plus.png",
+                        "special": false
+                    },
+                    {
+                        "type": "energy",
+                        "prefix": "plus",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/power.png",
+                        "prefix_image_url": "https://ssimeonoff.github.io/images/misc/plus.png",
+                        "special": false
+                    },
+                    {
+                        "type": "energy",
+                        "prefix": "plus",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/power.png",
+                        "prefix_image_url": "https://ssimeonoff.github.io/images/misc/plus.png",
+                        "special": false
+                    }
+                ],
+                "none_productions": []
             }
         ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
@@ -1789,20 +1951,26 @@
         ],
         "production": [
             {
-                "production_box_size": "production-box production-box-size2",
-                "productions": [
+                "production_box_size": "production-box-size2",
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png",
+                "minus_productions": [],
+                "plus_productions": [],
+                "none_productions": [
                     {
                         "type": "energy",
                         "prefix": "none",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/power.png",
+                        "prefix_image_url": null,
                         "special": false
                     },
                     {
                         "type": "money",
                         "prefix": "none",
+                        "type_image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png",
+                        "prefix_image_url": null,
                         "special": false
                     }
-                ],
-                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+                ]
             }
         ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
@@ -1834,20 +2002,26 @@
         ],
         "production": [
             {
-                "production_box_size": "production-box production-box-size2",
-                "productions": [
+                "production_box_size": "production-box-size2",
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png",
+                "minus_productions": [],
+                "plus_productions": [],
+                "none_productions": [
                     {
                         "type": "plant",
                         "prefix": "none",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/plant.png",
+                        "prefix_image_url": null,
                         "special": false
                     },
                     {
                         "type": "plant",
                         "prefix": "none",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/plant.png",
+                        "prefix_image_url": null,
                         "special": false
                     }
-                ],
-                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+                ]
             }
         ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
@@ -1873,15 +2047,19 @@
         "requirements": [],
         "production": [
             {
-                "production_box_size": "production-box",
-                "productions": [
+                "production_box_size": null,
+                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png",
+                "minus_productions": [],
+                "plus_productions": [],
+                "none_productions": [
                     {
                         "type": "plant",
                         "prefix": "none",
+                        "type_image_url": "https://ssimeonoff.github.io/images/resources/plant.png",
+                        "prefix_image_url": null,
                         "special": false
                     }
-                ],
-                "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png"
+                ]
             }
         ],
         "image": "https://ssimeonoff.github.io/images/mars.png"

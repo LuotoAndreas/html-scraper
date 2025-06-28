@@ -50,12 +50,43 @@
                                 {{ card.requirements.0.requirements }}
                             </div>
                         {% endif %} 
-                        {% if card.production %} 
-                            <div class="production-box" style="background-image: url('{{ card.production.0.production_box_image }}');">
-                                <div class="production-icon-name" style="background-image: url('{{ card.production.0.production_name_image }}');"></div>  
+                        {% if card.production %}
+                            <div class="{% if card.production.0.production_box_size %}{{ card.production.0.production_box_size }}{% else %}production-box{% endif %}" 
+                                style="background-image: url('{{ card.production.0.production_box_image }}');">
+
+                                {% set production = card.production.0 %}
+
+                                {% if production.minus_productions %}
+                                <div class="production-container">
+                                    <img class="prefix_icons" src="{{ production.minus_productions[0].prefix_image_url }}" alt="minus">
+                                    {% for prod in production.minus_productions %}
+                                    <img class="production-icon-name" src="{{ prod.type_image_url }}" alt="{{ prod.type }}">
+                                    {% endfor %}
+                                </div>
+                                {% endif %}
+
+                                {% if production.plus_productions %}
+                                <div class="production-container">
+                                    <img class="prefix_icons" src="{{ production.plus_productions[0].prefix_image_url }}" alt="plus">
+                                    {% for prod in production.plus_productions %}
+                                    <img class="production-icon-name" src="{{ prod.type_image_url }}" alt="{{ prod.type }}">
+                                    {% endfor %}
+                                </div>
+                                {% endif %}
+
+                                {% if production.none_productions %}
+                                <div class="production-container">
+                                    {% for prod in production.none_productions %}
+                                    <img class="production-icon-name" src="{{ prod.type_image_url }}" alt="{{ prod.type }}">
+                                    {% endfor %}
+                                </div>
+                                {% endif %}
+
                             </div>
-                                                    
-                        {% endif %}
+                            {% endif %}
+
+
+
                         <div class="description">{{ card.descriptions }}</div>
                     </div>
                                       

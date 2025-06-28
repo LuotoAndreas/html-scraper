@@ -193,6 +193,89 @@ h1 {
     background-size: cover;
 }
 
+.production-box-size1a {
+    width: 65px;
+    font-family: Prototype;
+    font-weight: normal;
+    font-size: 18px;
+    display: inline-block;
+    text-shadow: none;
+    border-top: 2px solid rgb(221, 221, 221);
+    border-left: 2px solid rgb(221, 221, 221);
+    border-bottom: 2px solid rgb(137, 137, 137);
+    border-right: 2px solid rgb(137, 137, 137);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3);
+    padding-top: 4px;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 2px;
+    padding-bottom: 4px;
+    line-height: 32px;
+    background-size: cover;
+}
+
+.production-box-size2a {
+    width: 105px;
+    font-family: Prototype;
+    font-weight: normal;
+    font-size: 18px;
+    display: inline-block;
+    text-shadow: none;
+    border-top: 2px solid rgb(221, 221, 221);
+    border-left: 2px solid rgb(221, 221, 221);
+    border-bottom: 2px solid rgb(137, 137, 137);
+    border-right: 2px solid rgb(137, 137, 137);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3);
+    padding-top: 4px;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 2px;
+    padding-bottom: 4px;
+    line-height: 32px;
+    background-size: cover;
+}
+
+.production-box-size2 {
+    width: 80px;
+    font-family: Prototype;
+    font-weight: normal;
+    font-size: 18px;
+    display: inline-block;
+    text-shadow: none;
+    border-top: 2px solid rgb(221, 221, 221);
+    border-left: 2px solid rgb(221, 221, 221);
+    border-bottom: 2px solid rgb(137, 137, 137);
+    border-right: 2px solid rgb(137, 137, 137);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3);
+    padding-top: 4px;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 2px;
+    padding-bottom: 4px;
+    line-height: 32px;
+    background-size: cover;
+}
+.production-box-size3a {
+    width: 140px;
+    font-family: Prototype;
+    font-weight: normal;
+    font-size: 18px;
+    display: inline-block;
+    text-shadow: none;
+    border-top: 2px solid rgb(221, 221, 221);
+    border-left: 2px solid rgb(221, 221, 221);
+    border-bottom: 2px solid rgb(137, 137, 137);
+    border-right: 2px solid rgb(137, 137, 137);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3);
+    padding-top: 4px;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 2px;
+    padding-bottom: 4px;
+    line-height: 32px;
+    background-size: cover;
+}
+
 .production-icon-name {
     display: inline-block;
     position: relative;
@@ -203,6 +286,16 @@ h1 {
     margin: 2px 0;
     text-align: center;
     vertical-align: bottom;
+}
+
+.prefix_icons {
+    background-size: 15px;
+    width: 15px;
+    height: 15px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-bottom: 4px;
+    background-repeat: no-repeat;
 }
 
 .requirements-max {
