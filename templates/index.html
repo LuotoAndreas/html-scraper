@@ -18,7 +18,7 @@
                     <div class="header">
                         <div class="number">
                             {% if card.number != "N/A" %}
-                                <div class="restriction">{{ card.number }}</div>
+                                <div class="card-number">{{ card.number }}</div>
                             {% endif %}
                         </div>
                         <div class="price-container">
@@ -56,24 +56,26 @@
 
                             {% set production = card.production.0 %}
 
-                            {% for key in ['minus_productions', 'plus_productions', 'none_productions'] %}
-                                {% if production[key] and production[key]|length > 0 %}
-                                    <div class="production-container">
-                                        {% if key != 'none_productions' and production[key][0].prefix_image_url %}
-                                            <img class="prefix_icons" src="{{ production[key][0].prefix_image_url }}" alt="{{ key[:-12] }}">
-                                        {% endif %}
-
-                                        {% for prod in production[key] %}
-                                            <span class="production-icon-container">
-                                                <img class="production-icon-name" src="{{ prod.type_image_url }}" alt="{{ prod.type }}">
-                                                {% if prod.type and prod.type.type == "money" %}
-                                                    <div class="production-text-overlay">{{ prod.type.money_amount }}</div>
-                                                {% endif %}
-                                            </span>
-                                        {% endfor %}
-                                    </div>
+                            {% for key, grouped in [('grouped_minus', production.grouped_minus), ('grouped_plus', production.grouped_plus), ('grouped_none', production.grouped_none)] %}
+                                {% if grouped %}
+                                    {% for prod_type, prods in grouped.items() %}
+                                        <div class="production-container">
+                                            {% if key != 'grouped_none' and prods[0].prefix_image_url %}
+                                                <img class="prefix_icons" src="{{ prods[0].prefix_image_url }}" alt="{{ key }}">
+                                            {% endif %}
+                                            {% for prod in prods %}
+                                                <span class="production-icon-container">
+                                                    <img class="production-icon-name" src="{{ prod.type_image_url }}" alt="{{ prod.type }}">
+                                                    {% if prod.type is mapping and prod.type.type == "money" %}
+                                                        <div class="production-text-overlay">{{ prod.type.money_amount }}</div>
+                                                    {% endif %}
+                                                </span>
+                                            {% endfor %}
+                                        </div>
+                                    {% endfor %}
                                 {% endif %}
                             {% endfor %}
+
                             </div>                           
                         {% endif %}
                         <div class="description">{{ card.descriptions }}</div>

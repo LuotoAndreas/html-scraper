@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
+from collections import defaultdict
 import json
 import re
 
@@ -58,6 +59,31 @@ def has_certain_class_inside(inside_this_class):
         return True
     except:
         return False
+
+
+def group_productions_by_type(productions):
+    grouped = defaultdict(list)
+    for prod in productions:
+        # Determine key: if type is dict (money), get the nested type, else just type string
+        t = prod['type']['type'] if isinstance(prod['type'], dict) else prod['type']
+        grouped[t].append(prod)
+    return grouped
+
+def merge_if_single_items(grouped_productions):
+    # Count distinct types and how many items per type
+    types = list(grouped_productions.keys())
+    counts = [len(items) for items in grouped_productions.values()]
+
+    # Condition: exactly two different types, and each has exactly one item
+    if len(types) == 2 and all(count == 1 for count in counts):
+        # Flatten all items into one list (treat as one group)
+        merged_list = []
+        for items in grouped_productions.values():
+            merged_list.extend(items)
+        return {"merged": merged_list}  # Use a special key to indicate merging
+    else:
+        return grouped_productions
+
     
 # Function to extract price text and megacredits image URL
 def extract_price_data(driver, card):
@@ -198,6 +224,7 @@ def extract_requirements_data(card, resource_name):
         print(f"Error extracting requirements data: {e}")
     return requirements_data
 
+
 def extract_production_data(card):
     production_data = []
     try:
@@ -212,10 +239,9 @@ def extract_production_data(card):
         for production_box in production_boxes:
             children = production_box.find_elements(By.XPATH, "./*")
             current_prefix = None
-            prefix_image_url = None
-            type_image_url = None
+            prefix_image_url = ""
+            type_image_url = ""
             productions = []
-            type_with_money_amount = []
             
             for child in children:
                 classes = child.get_attribute("class").split()
@@ -260,19 +286,25 @@ def extract_production_data(card):
                     # Reset prefix on unrelated elements (like <br>)
                     if "production-prefix" not in classes and "production" not in classes:
                         current_prefix = None
-             # After parsing productions:
+            # After parsing productions:
             minus_productions = [p for p in productions if p['prefix'] == 'minus']
             plus_productions = [p for p in productions if p['prefix'] == 'plus']
             none_productions = [p for p in productions if p['prefix'] not in ['minus', 'plus']]
+
+            # Group each list by type or merge if they are single
+            grouped_minus = merge_if_single_items(group_productions_by_type(minus_productions))
+            grouped_plus = merge_if_single_items(group_productions_by_type(plus_productions))
+            grouped_none = merge_if_single_items(group_productions_by_type(none_productions))
+
             
             background_image = RESOURCE_IMAGE_MAP.get("production-box", "") if productions else ""
 
             production_data.append({
                 'production_box_size': next((cls for cls in resource_called.split() if cls.startswith("production-box-size")), None),
                 'production_box_image': background_image,
-                'minus_productions': minus_productions,
-                'plus_productions': plus_productions,
-                'none_productions': none_productions
+                'grouped_minus': grouped_minus,
+                'grouped_plus': grouped_plus,
+                'grouped_none': grouped_none
             })
     except Exception as e:
         print(f"Error extracting production data: {e}")
