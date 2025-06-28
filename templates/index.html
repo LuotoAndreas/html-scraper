@@ -56,57 +56,28 @@
 
                             {% set production = card.production.0 %}
 
-                            {% if production.minus_productions and production.minus_productions|length > 0 %}
-                                <div class="production-container">
-                                    {% if production.minus_productions[0].prefix_image_url %}
-                                        <img class="prefix_icons" src="{{ production.minus_productions[0].prefix_image_url }}" alt="minus">
-                                    {% endif %}
-                                    {% for prod in production.minus_productions %}
-                                        <span class="production-icon-container">
-                                            <img class="production-icon-name" src="{{ prod.type_image_url }}" alt="{{ prod.type }}">
-                                            {% if prod.type and prod.type.type == "money" %}
-                                                <div class="production-text-overlay">{{ prod.type.money_amount }}</div>
-                                            {% endif %}
-                                        </span>
-                                    {% endfor %}
-                                </div>
-                            {% endif %}
-
-
-                            {% if production.plus_productions %}
-                                <div class="production-container">
-                                    <img class="prefix_icons" src="{{ production.plus_productions[0].prefix_image_url }}" alt="plus">
-                                    {% for prod in production.plus_productions %}
-                                        <span class="production-icon-container">
-                                            <img class="production-icon-name" src="{{ prod.type_image_url }}" alt="{{ prod.type }}">
-                                            {% if prod.type and prod.type.type == "money" %}
-                                                <div class="production-text-overlay">{{ prod.type.money_amount }}</div>
-                                            {% endif %}
-                                        </span>                                        
-                                    {% endfor %}
-                                </div>
-                            {% endif %}
-
-                            {% if production.none_productions %}
-                                <div class="production-container">
-                                    {% for prod in production.none_productions %}
-                                    <span class="production-icon-container">
-                                        <img class="production-icon-name" src="{{ prod.type_image_url }}" alt="{{ prod.type }}">
-                                        {% if prod.type and prod.type.type == "money" %}
-                                            <div class="production-text-overlay">{{ prod.type.money_amount }}</div>
+                            {% for key in ['minus_productions', 'plus_productions', 'none_productions'] %}
+                                {% if production[key] and production[key]|length > 0 %}
+                                    <div class="production-container">
+                                        {% if key != 'none_productions' and production[key][0].prefix_image_url %}
+                                            <img class="prefix_icons" src="{{ production[key][0].prefix_image_url }}" alt="{{ key[:-12] }}">
                                         {% endif %}
-                                    </span>                                    
-                                    {% endfor %}
-                                </div>
-                            {% endif %}
+
+                                        {% for prod in production[key] %}
+                                            <span class="production-icon-container">
+                                                <img class="production-icon-name" src="{{ prod.type_image_url }}" alt="{{ prod.type }}">
+                                                {% if prod.type and prod.type.type == "money" %}
+                                                    <div class="production-text-overlay">{{ prod.type.money_amount }}</div>
+                                                {% endif %}
+                                            </span>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
                             </div>                           
                         {% endif %}
-
-
-
                         <div class="description">{{ card.descriptions }}</div>
-                    </div>
-                                      
+                    </div>                                      
 
                     {% if card.points_resource %}
                         {% for pr in card.points_resource %}
