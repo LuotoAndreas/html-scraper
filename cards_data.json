@@ -1,6 +1,9 @@
 [
     {
-        "title": "COLONIZER TRAINING CAMP",
+        "title": {
+            "title_text": "COLONIZER TRAINING CAMP",
+            "title_card_type": "background-color-automated"
+        },
         "number": "#001",
         "price": {
             "text": "8",
@@ -40,7 +43,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "ASTEROID MINING CONSORTIUM",
+        "title": {
+            "title_text": "ASTEROID MINING CONSORTIUM",
+            "title_card_type": "background-color-automated"
+        },
         "number": "#002",
         "price": {
             "text": "13",
@@ -103,7 +109,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "DEEP WELL HEATING",
+        "title": {
+            "title_text": "DEEP WELL HEATING",
+            "title_card_type": "background-color-automated"
+        },
         "number": "#003",
         "price": {
             "text": "13",
@@ -154,7 +163,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "CLOUD SEEDING",
+        "title": {
+            "title_text": "CLOUD SEEDING",
+            "title_card_type": "background-color-automated"
+        },
         "number": "#004",
         "price": {
             "text": "11",
@@ -222,7 +234,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "SEARCH FOR LIFE",
+        "title": {
+            "title_text": "SEARCH FOR LIFE",
+            "title_card_type": "background-color-active"
+        },
         "number": "#005",
         "price": {
             "text": "3",
@@ -257,7 +272,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "INVENTORS' GUILD",
+        "title": {
+            "title_text": "INVENTORS' GUILD",
+            "title_card_type": "background-color-active"
+        },
         "number": "#006",
         "price": {
             "text": "9",
@@ -280,7 +298,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "MARTIAN RAILS",
+        "title": {
+            "title_text": "MARTIAN RAILS",
+            "title_card_type": "background-color-active"
+        },
         "number": "#007",
         "price": {
             "text": "13",
@@ -308,7 +329,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "CAPITAL",
+        "title": {
+            "title_text": "CAPITAL",
+            "title_card_type": "background-color-automated"
+        },
         "number": "#008",
         "price": {
             "text": "26",
@@ -391,7 +415,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "ASTEROID",
+        "title": {
+            "title_text": "ASTEROID",
+            "title_card_type": "background-color-events"
+        },
         "number": "#009",
         "price": {
             "text": "14",
@@ -424,7 +451,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "COMET",
+        "title": {
+            "title_text": "COMET",
+            "title_card_type": "background-color-events"
+        },
         "number": "#010",
         "price": {
             "text": "21",
@@ -461,7 +491,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "BIG ASTEROID",
+        "title": {
+            "title_text": "BIG ASTEROID",
+            "title_card_type": "background-color-events"
+        },
         "number": "#011",
         "price": {
             "text": "27",
@@ -498,7 +531,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "WATER IMPORT FROM EUROPA",
+        "title": {
+            "title_text": "WATER IMPORT FROM EUROPA",
+            "title_card_type": "background-color-active"
+        },
         "number": "#012",
         "price": {
             "text": "25",
@@ -537,7 +573,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "SPACE ELEVATOR",
+        "title": {
+            "title_text": "SPACE ELEVATOR",
+            "title_card_type": "background-color-active"
+        },
         "number": "#013",
         "price": {
             "text": "27",
@@ -589,7 +628,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "DEVELOPMENT CENTER",
+        "title": {
+            "title_text": "DEVELOPMENT CENTER",
+            "title_card_type": "background-color-active"
+        },
         "number": "#014",
         "price": {
             "text": "11",
@@ -617,7 +659,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "EQUATORIAL MAGNETIZER",
+        "title": {
+            "title_text": "EQUATORIAL MAGNETIZER",
+            "title_card_type": "background-color-active"
+        },
         "number": "#015",
         "price": {
             "text": "11",
@@ -663,7 +708,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "DOMED CRATER",
+        "title": {
+            "title_text": "DOMED CRATER",
+            "title_card_type": "background-color-automated"
+        },
         "number": "#016",
         "price": {
             "text": "24",
@@ -739,7 +787,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "NOCTIS CITY",
+        "title": {
+            "title_text": "NOCTIS CITY",
+            "title_card_type": "background-color-automated"
+        },
         "number": "#017",
         "price": {
             "text": "18",
@@ -803,7 +854,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "METHANE FROM TITAN",
+        "title": {
+            "title_text": "METHANE FROM TITAN",
+            "title_card_type": "background-color-automated"
+        },
         "number": "#018",
         "price": {
             "text": "28",
@@ -884,7 +938,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "IMPORTED HYDROGEN",
+        "title": {
+            "title_text": "IMPORTED HYDROGEN",
+            "title_card_type": "background-color-events"
+        },
         "number": "#019",
         "price": {
             "text": "16",
@@ -922,7 +979,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "RESEARCH OUTPOST",
+        "title": {
+            "title_text": "RESEARCH OUTPOST",
+            "title_card_type": "background-color-active"
+        },
         "number": "#020",
         "price": {
             "text": "18",
@@ -960,7 +1020,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "PHOBOS SPACE HAVEN",
+        "title": {
+            "title_text": "PHOBOS SPACE HAVEN",
+            "title_card_type": "background-color-automated"
+        },
         "number": "#021",
         "price": {
             "text": "25",
@@ -1017,7 +1080,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "BLACK POLAR DUST",
+        "title": {
+            "title_text": "BLACK POLAR DUST",
+            "title_card_type": "background-color-automated"
+        },
         "number": "#022",
         "price": {
             "text": "15",
@@ -1084,7 +1150,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "ARCTIC ALGAE",
+        "title": {
+            "title_text": "ARCTIC ALGAE",
+            "title_card_type": "background-color-active"
+        },
         "number": "#023",
         "price": {
             "text": "12",
@@ -1118,7 +1187,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "PREDATORS",
+        "title": {
+            "title_text": "PREDATORS",
+            "title_card_type": "background-color-active"
+        },
         "number": "#024",
         "price": {
             "text": "14",
@@ -1153,7 +1225,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "SPACE STATION",
+        "title": {
+            "title_text": "SPACE STATION",
+            "title_card_type": "background-color-active"
+        },
         "number": "#025",
         "price": {
             "text": "10",
@@ -1182,7 +1257,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "EOS CHASMA NATIONAL PARK",
+        "title": {
+            "title_text": "EOS CHASMA NATIONAL PARK",
+            "title_card_type": "background-color-automated"
+        },
         "number": "#026",
         "price": {
             "text": "16",
@@ -1243,7 +1321,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "INTERSTELLAR COLONY SHIP",
+        "title": {
+            "title_text": "INTERSTELLAR COLONY SHIP",
+            "title_card_type": "background-color-events"
+        },
         "number": "#027",
         "price": {
             "text": "24",
@@ -1288,7 +1369,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "SECURITY FLEET",
+        "title": {
+            "title_text": "SECURITY FLEET",
+            "title_card_type": "background-color-active"
+        },
         "number": "#028",
         "price": {
             "text": "12",
@@ -1317,7 +1401,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "CUPOLA CITY",
+        "title": {
+            "title_text": "CUPOLA CITY",
+            "title_card_type": "background-color-automated"
+        },
         "number": "#029",
         "price": {
             "text": "16",
@@ -1387,7 +1474,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "LUNAR BEAM",
+        "title": {
+            "title_text": "LUNAR BEAM",
+            "title_card_type": "background-color-automated"
+        },
         "number": "#030",
         "price": {
             "text": "13",
@@ -1469,7 +1559,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "OPTIMAL AEROBRAKING",
+        "title": {
+            "title_text": "OPTIMAL AEROBRAKING",
+            "title_card_type": "background-color-active"
+        },
         "number": "#031",
         "price": {
             "text": "7",
@@ -1492,7 +1585,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "UNDERGROUND CITY",
+        "title": {
+            "title_text": "UNDERGROUND CITY",
+            "title_card_type": "background-color-automated"
+        },
         "number": "#032",
         "price": {
             "text": "18",
@@ -1567,7 +1663,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "REGOLITH EATERS",
+        "title": {
+            "title_text": "REGOLITH EATERS",
+            "title_card_type": "background-color-active"
+        },
         "number": "#033",
         "price": {
             "text": "13",
@@ -1600,7 +1699,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "GHG PRODUCING BACTERIA",
+        "title": {
+            "title_text": "GHG PRODUCING BACTERIA",
+            "title_card_type": "background-color-active"
+        },
         "number": "#034",
         "price": {
             "text": "8",
@@ -1639,7 +1741,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "ANTS",
+        "title": {
+            "title_text": "ANTS",
+            "title_card_type": "background-color-active"
+        },
         "number": "#035",
         "price": {
             "text": "9",
@@ -1674,7 +1779,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "RELEASE OF INERT GASES",
+        "title": {
+            "title_text": "RELEASE OF INERT GASES",
+            "title_card_type": "background-color-events"
+        },
         "number": "#036",
         "price": {
             "text": "14",
@@ -1706,7 +1814,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "NITROGEN-RICH ASTEROID",
+        "title": {
+            "title_text": "NITROGEN-RICH ASTEROID",
+            "title_card_type": "background-color-events"
+        },
         "number": "#037",
         "price": {
             "text": "31",
@@ -1772,7 +1883,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "ROVER CONSTRUCTION",
+        "title": {
+            "title_text": "ROVER CONSTRUCTION",
+            "title_card_type": "background-color-active"
+        },
         "number": "#038",
         "price": {
             "text": "8",
@@ -1806,7 +1920,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "DEIMOS DOWN",
+        "title": {
+            "title_text": "DEIMOS DOWN",
+            "title_card_type": "background-color-events"
+        },
         "number": "#039",
         "price": {
             "text": "31",
@@ -1847,7 +1964,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "ASTEROID MINING",
+        "title": {
+            "title_text": "ASTEROID MINING",
+            "title_card_type": "background-color-automated"
+        },
         "number": "#040",
         "price": {
             "text": "30",
@@ -1906,7 +2026,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "FOOD FACTORY",
+        "title": {
+            "title_text": "FOOD FACTORY",
+            "title_card_type": "background-color-automated"
+        },
         "number": "#041",
         "price": {
             "text": "12",
@@ -1966,7 +2089,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "ARCHAEBACTERIA",
+        "title": {
+            "title_text": "ARCHAEBACTERIA",
+            "title_card_type": "background-color-automated"
+        },
         "number": "#042",
         "price": {
             "text": "6",
@@ -2013,7 +2139,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "CARBONATE PROCESSING",
+        "title": {
+            "title_text": "CARBONATE PROCESSING",
+            "title_card_type": "background-color-automated"
+        },
         "number": "#043",
         "price": {
             "text": "6",
@@ -2078,7 +2207,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "NATURAL PRESERVE",
+        "title": {
+            "title_text": "NATURAL PRESERVE",
+            "title_card_type": "background-color-automated"
+        },
         "number": "#044",
         "price": {
             "text": "9",
@@ -2144,7 +2276,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "NUCLEAR POWER",
+        "title": {
+            "title_text": "NUCLEAR POWER",
+            "title_card_type": "background-color-automated"
+        },
         "number": "#045",
         "price": {
             "text": "10",
@@ -2217,7 +2352,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "LIGHTNING HARVEST",
+        "title": {
+            "title_text": "LIGHTNING HARVEST",
+            "title_card_type": "background-color-automated"
+        },
         "number": "#046",
         "price": {
             "text": "8",
@@ -2280,7 +2418,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "ALGAE",
+        "title": {
+            "title_text": "ALGAE",
+            "title_card_type": "background-color-automated"
+        },
         "number": "#047",
         "price": {
             "text": "10",
@@ -2334,7 +2475,10 @@
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
-        "title": "ADAPTED LICHEN",
+        "title": {
+            "title_text": "ADAPTED LICHEN",
+            "title_card_type": "background-color-automated"
+        },
         "number": "#048",
         "price": {
             "text": "9",

@@ -1,8 +1,19 @@
 body {
     font-family: Arial, sans-serif;
-    background-image: url('https://ssimeonoff.github.io/images/stars.jpg');
-    background-color: black;
+    /*background-image: url('https://ssimeonoff.github.io/images/stars.jpg');
+    background-color: black;*/
     background-attachment: fixed;
+}
+
+#background-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100vw; /* Ensure the video spans the viewport width */
+    height: 100vh; /* Ensure the video spans the viewport height */
+    transform: translate(-50%, -50%);
+    z-index: -1; /* Keep it behind content */
+    object-fit: cover; /* Maintain aspect ratio */
 }
 
 #play-music-btn {
@@ -13,8 +24,8 @@ body {
     font-weight: 700;
     font-size: 1.2rem;
     padding: 15px 40px;
-    margin-left: 755px;
-    margin-bottom: 50px;
+    margin: 0 auto 50px auto; /* top=0, left/right auto, bottom=50px */
+    display: block; /* make margin auto work */
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(238, 9, 121, 0.6);
     transition: all 0.3s ease;
@@ -23,6 +34,7 @@ body {
     user-select: none;
     outline: none;
 }
+
 
 #play-music-btn:hover {
     background: linear-gradient(135deg, #ee0979, #ff6a00);
@@ -141,10 +153,9 @@ h1 {
     border-radius: 50%;
 }
 
-.card .title {
+.title {
     text-align: center;
     white-space: nowrap;
-    background: rgba(0, 128, 0, 0.8);
     color: black;
     font-weight: 700;
     font-size: 16px;
@@ -156,11 +167,21 @@ h1 {
     z-index: 2;
 }
 
+.background-color-automated {
+    background: linear-gradient(-60deg, #089108 10%, #08910888, #089108 90%);
+}
+.background-color-active {
+    background: linear-gradient(-60deg, #208cdf 10%, #208cdf88, #208cdf 90%);
+}
+.background-color-events {
+    background: linear-gradient(-60deg, #ec6a13 10%, #ec6a1388, #ec6a13 90%);
+}
+
 .number {
     z-index: 2;
 }
 
-.card .card-number {
+.card-number {
     padding-left: 39px;
     padding-top: 6px;
     color: rgb(129, 129, 129);

@@ -338,16 +338,31 @@ def extract_tile_data(card):
                 'tile_name': tile_name.strip(),
                 'tile_image_url': background_image
             })
-        
-        
+           
     except Exception as e:
         print(f"Error extracting tile data: {e}")
     return tile_data
 
 
+def extract_title_data(card):
+    title_data = []
+    try: 
+        title_text = safe_find_text(card, "div.title")
+        title_classes = safe_find_attribute(card, "div.title", "class")
+
+        title_parts = title_classes.replace("title", "").strip()
+
+        title_data = ({
+            'title_text': title_text,
+            'title_card_type': title_parts 
+        })
+    except Exception as e:
+        print(f"Error extracting title data: {e}")
+    return title_data
+
 
 for card in cards[:48]:  # limit to first 48 cards
-    title = safe_find_text(card, "div.title")
+    title = extract_title_data(card)
     price_data = extract_price_data(driver, card)
     number = safe_find_text(card, "div.number")
     money = safe_find_text(card, "span.money.resource")

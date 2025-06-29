@@ -7,12 +7,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Card Showcase</h1>
-    
-    <button id="play-music-btn">Play Music</button>
+    <h1>Card Showcase</h1>    
 
-    <audio id="background-audio" src="{{ url_for('static', filename='SuperGalaxyRumble.mp3') }}" autoplay loop muted></audio>
-
+    <button id="play-music-btn">Play Music</button> 
 
     <div id="loading">Loading cards...</div>
     <div id="cards-container">
@@ -47,7 +44,7 @@
                             </div>
                         </div>                        
                     </div>
-                    <div class="title">{{ card.title }}</div>
+                    <div class="title {{ card.title.title_card_type }}">{{ card.title.title_text }}</div>
                     <div class="content">
                         {% if card.requirements %}
                             <div class="requirements {% if 'requirements-max' in card.requirements.0.resource_name %}requirements-max{% endif %}" 
@@ -121,23 +118,39 @@
     </div>
     <div id="error-message"></div>
 
+    <audio id="background-audio" src="{{ url_for('static', filename='SuperGalaxyRumble.mp3') }}" autoplay loop muted></audio>
 
-   <script>
+    <video id="background-video" autoplay muted loop>
+        <source src="{{ url_for('static', filename='background_animated.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <script>
         const audio = document.getElementById('background-audio');
+        const video = document.getElementById('background-video');
         const btn = document.getElementById('play-music-btn');
 
+        let isPlaying = false;
+
+        video.pause();
+
         btn.addEventListener('click', () => {
-            if (audio.paused) {
+            if (isPlaying) {
+                // Pause audio and video
+                audio.pause();
+                video.pause();
+                btn.textContent = 'Play Music';
+            } else {
+                // Play audio and video
                 audio.muted = false;
                 audio.volume = 0.2;
                 audio.play();
+                video.play();
                 btn.textContent = 'Pause Music';
-            } else {
-                audio.pause();
-                btn.textContent = 'Play Music';
             }
+            isPlaying = !isPlaying; // Toggle the playing state
         });
-    </script> 
+    </script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
