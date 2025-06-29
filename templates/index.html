@@ -12,7 +12,8 @@
     <div id="loading">Loading cards...</div>
     <div id="cards-container">
         {% for card in cards %}
-        <div class="card-wrapper">
+        <div class="card-wrapper"
+            data-production-box-size="{{ card.production[0].production_box_size if card.production and card.production[0].production_box_size is not none else '' }}">
             <div class="card" style="background-image: url('{{ card.image }}')">
                 <div class="overlay">
                     <div class="header">
@@ -75,9 +76,21 @@
                                     {% endfor %}
                                 {% endif %}
                             {% endfor %}
-
-                            </div>                           
+                            </div>                            
                         {% endif %}
+
+                        {% if card.tile_data %}
+                            {% for tile in card.tile_data %}
+                                <div class="{{ tile.tile_name ~ '-container' | default('tile-container') }}">
+                                    <div class="{{ tile.tile_name | default('tile-icon') }}"                                    
+                                        style="background-image: url('{{ tile.tile_image_url }}')"
+                                        title="hi">                                    
+                                    </div>
+                                </div>                                
+                            {% endfor %}
+                        {% endif %}                     
+                         
+
                         <div class="description">{{ card.descriptions }}</div>
                     </div>                                      
 
@@ -105,11 +118,46 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.card-wrapper');
+            
+            cards.forEach(cardWrapper => {
+                // Check if the card has requirements
+                const requirements = cardWrapper.querySelector('.requirements');
+                
+                // Check if the card contains a city tile
+                const cityTileContainer = cardWrapper.querySelector('.city-tile-container');                
+                const productionBoxSize = cardWrapper.getAttribute('data-production-box-size');
+
+                if ((requirements || productionBoxSize) && cityTileContainer ) {
+                    const cityTile = cityTileContainer.querySelector('.city-tile');
+                    if (cityTile) {
+                        // Add the margin-top style to the city-tile
+                        cityTile.style.marginTop = '33px';
+                        cityTile.style.marginLeft = '18px';                        
+                        cityTile.style.left = '0px';
+                    }
+                }
+
+                const numberElement = cardWrapper.querySelector('.card-number');
+                const number = numberElement ? numberElement.textContent.trim() : null;
+                
+                if (number == "#008") {
+                    const cityTile = cityTileContainer.querySelector('.city-tile');
+                    cityTile.style.filter = 'None';
+                    cityTile.style.width = '60px';
+                    cityTile.style.height = '69px';
+                    cityTile.style.marginTop = '10px';
+                    cityTile.style.left = '-15px';
+                }
+            });
+
+            // Hide loading message if cards are present
             const loadingElement = document.getElementById('loading');
             if (loadingElement && document.querySelectorAll('.card').length > 0) {
                 loadingElement.style.display = 'none';
             }
         });
     </script>
+
 </body>
 </html>

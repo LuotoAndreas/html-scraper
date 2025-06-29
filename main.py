@@ -29,6 +29,12 @@ RESOURCE_IMAGE_MAP = {
     "plant":                    "https://ssimeonoff.github.io/images/resources/plant.png",
     "heat":                     "https://ssimeonoff.github.io/images/resources/heat.png",
     "steel":                    "https://ssimeonoff.github.io/images/resources/steel.png",
+    "temperature-tile":         "https://ssimeonoff.github.io/images/global-parameters/temperature.png",
+    "ocean-tile":               "https://ssimeonoff.github.io/images/tiles/ocean.png",
+    "city-tile":                "https://ssimeonoff.github.io/images/tiles/city.png",
+    "rating":                   "https://ssimeonoff.github.io/images/resources/TR.png",
+    "special-tile":             "https://ssimeonoff.github.io/images/tiles/special.png",
+    "city-tile-small":          "https://ssimeonoff.github.io/images/tiles/city.png"
 }               
 
 URL = "https://ssimeonoff.github.io/cards-list"
@@ -310,6 +316,34 @@ def extract_production_data(card):
         print(f"Error extracting production data: {e}")
     return production_data
 
+def extract_tile_data(card):
+    tile_data = []
+    try: 
+        content_divs = card.find_elements(By.CSS_SELECTOR, "div.content")
+        if not content_divs:
+            return tile_data
+        
+        content_div = content_divs[0]
+        tiles = content_div.find_elements(By.CSS_SELECTOR, "div.tile")
+        for tile in tiles:
+
+            tile_class = tile.get_attribute("class")
+            # Split the tile from spaces
+            tile_parts = tile_class.split() 
+            tile_name = " ".join(part for part in tile_parts if part != "tile")
+
+            background_image = RESOURCE_IMAGE_MAP.get(tile_name, "")
+
+            tile_data.append({
+                'tile_name': tile_name.strip(),
+                'tile_image_url': background_image
+            })
+        
+        
+    except Exception as e:
+        print(f"Error extracting tile data: {e}")
+    return tile_data
+
 
 
 for card in cards[:48]:  # limit to first 48 cards
@@ -322,6 +356,7 @@ for card in cards[:48]:  # limit to first 48 cards
     tag_data = extract_tag_data(driver, card)
     requirements = extract_requirements_data(card, "requirements")
     production = extract_production_data(card)
+    tile_data = extract_tile_data(card)
 
 
     data.append({
@@ -334,6 +369,7 @@ for card in cards[:48]:  # limit to first 48 cards
         "points_resource": points_resource,
         "requirements": requirements,
         "production": production,
+        "tile_data": tile_data,
         "image": RESOURCE_IMAGE_MAP.get("background-image", "")
     })
 

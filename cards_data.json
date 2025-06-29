@@ -36,6 +36,7 @@
             }
         ],
         "production": [],
+        "tile_data": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -98,6 +99,7 @@
                 "grouped_none": {}
             }
         ],
+        "tile_data": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -141,6 +143,12 @@
                         }
                     ]
                 }
+            }
+        ],
+        "tile_data": [
+            {
+                "tile_name": "temperature-tile",
+                "tile_image_url": "https://ssimeonoff.github.io/images/global-parameters/temperature.png"
             }
         ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
@@ -210,6 +218,7 @@
                 "grouped_none": {}
             }
         ],
+        "tile_data": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -244,6 +253,7 @@
             }
         ],
         "production": [],
+        "tile_data": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -266,6 +276,7 @@
         "points_resource": [],
         "requirements": [],
         "production": [],
+        "tile_data": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -288,6 +299,12 @@
         "points_resource": [],
         "requirements": [],
         "production": [],
+        "tile_data": [
+            {
+                "tile_name": "city-tile-small",
+                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/city.png"
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -365,6 +382,12 @@
                 "grouped_none": {}
             }
         ],
+        "tile_data": [
+            {
+                "tile_name": "city-tile",
+                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/city.png"
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -392,6 +415,12 @@
         "points_resource": [],
         "requirements": [],
         "production": [],
+        "tile_data": [
+            {
+                "tile_name": "temperature-tile",
+                "tile_image_url": "https://ssimeonoff.github.io/images/global-parameters/temperature.png"
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -419,6 +448,16 @@
         "points_resource": [],
         "requirements": [],
         "production": [],
+        "tile_data": [
+            {
+                "tile_name": "temperature-tile",
+                "tile_image_url": "https://ssimeonoff.github.io/images/global-parameters/temperature.png"
+            },
+            {
+                "tile_name": "ocean-tile",
+                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/ocean.png"
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -446,6 +485,16 @@
         "points_resource": [],
         "requirements": [],
         "production": [],
+        "tile_data": [
+            {
+                "tile_name": "temperature-tile",
+                "tile_image_url": "https://ssimeonoff.github.io/images/global-parameters/temperature.png"
+            },
+            {
+                "tile_name": "temperature-tile",
+                "tile_image_url": "https://ssimeonoff.github.io/images/global-parameters/temperature.png"
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -479,6 +528,12 @@
         ],
         "requirements": [],
         "production": [],
+        "tile_data": [
+            {
+                "tile_name": "ocean-tile",
+                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/ocean.png"
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -530,6 +585,7 @@
                 }
             }
         ],
+        "tile_data": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -557,6 +613,7 @@
         "points_resource": [],
         "requirements": [],
         "production": [],
+        "tile_data": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -595,6 +652,12 @@
                 },
                 "grouped_plus": {},
                 "grouped_none": {}
+            }
+        ],
+        "tile_data": [
+            {
+                "tile_name": "rating",
+                "tile_image_url": "https://ssimeonoff.github.io/images/resources/TR.png"
             }
         ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
@@ -667,6 +730,12 @@
                 "grouped_none": {}
             }
         ],
+        "tile_data": [
+            {
+                "tile_name": "city-tile",
+                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/city.png"
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -723,6 +792,12 @@
                     ]
                 },
                 "grouped_none": {}
+            }
+        ],
+        "tile_data": [
+            {
+                "tile_name": "city-tile",
+                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/city.png"
             }
         ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
@@ -805,6 +880,7 @@
                 }
             }
         ],
+        "tile_data": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -837,6 +913,12 @@
         "points_resource": [],
         "requirements": [],
         "production": [],
+        "tile_data": [
+            {
+                "tile_name": "ocean-tile",
+                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/ocean.png"
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -869,6 +951,12 @@
         "points_resource": [],
         "requirements": [],
         "production": [],
+        "tile_data": [
+            {
+                "tile_name": "city-tile",
+                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/city.png"
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -918,6 +1006,12 @@
                         }
                     ]
                 }
+            }
+        ],
+        "tile_data": [
+            {
+                "tile_name": "city-tile",
+                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/city.png"
             }
         ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
@@ -981,6 +1075,12 @@
                 "grouped_none": {}
             }
         ],
+        "tile_data": [
+            {
+                "tile_name": "ocean-tile",
+                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/ocean.png"
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1009,6 +1109,12 @@
             }
         ],
         "production": [],
+        "tile_data": [
+            {
+                "tile_name": "ocean-tile red-outline",
+                "tile_image_url": ""
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1043,6 +1149,7 @@
             }
         ],
         "production": [],
+        "tile_data": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1071,6 +1178,7 @@
         ],
         "requirements": [],
         "production": [],
+        "tile_data": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1131,6 +1239,7 @@
                 }
             }
         ],
+        "tile_data": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1175,6 +1284,7 @@
             }
         ],
         "production": [],
+        "tile_data": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1203,6 +1313,7 @@
         ],
         "requirements": [],
         "production": [],
+        "tile_data": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1265,6 +1376,12 @@
                     ]
                 },
                 "grouped_none": {}
+            }
+        ],
+        "tile_data": [
+            {
+                "tile_name": "city-tile",
+                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/city.png"
             }
         ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
@@ -1348,6 +1465,7 @@
                 "grouped_none": {}
             }
         ],
+        "tile_data": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1370,6 +1488,7 @@
         "points_resource": [],
         "requirements": [],
         "production": [],
+        "tile_data": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1439,6 +1558,12 @@
                 "grouped_none": {}
             }
         ],
+        "tile_data": [
+            {
+                "tile_name": "city-tile",
+                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/city.png"
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1466,6 +1591,12 @@
         "points_resource": [],
         "requirements": [],
         "production": [],
+        "tile_data": [
+            {
+                "tile_name": "oxygen-tile",
+                "tile_image_url": ""
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1499,6 +1630,12 @@
             }
         ],
         "production": [],
+        "tile_data": [
+            {
+                "tile_name": "temperature-tile",
+                "tile_image_url": "https://ssimeonoff.github.io/images/global-parameters/temperature.png"
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1533,6 +1670,7 @@
             }
         ],
         "production": [],
+        "tile_data": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1555,6 +1693,16 @@
         "points_resource": [],
         "requirements": [],
         "production": [],
+        "tile_data": [
+            {
+                "tile_name": "rating",
+                "tile_image_url": "https://ssimeonoff.github.io/images/resources/TR.png"
+            },
+            {
+                "tile_name": "rating",
+                "tile_image_url": "https://ssimeonoff.github.io/images/resources/TR.png"
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1607,6 +1755,20 @@
                 }
             }
         ],
+        "tile_data": [
+            {
+                "tile_name": "rating",
+                "tile_image_url": "https://ssimeonoff.github.io/images/resources/TR.png"
+            },
+            {
+                "tile_name": "rating",
+                "tile_image_url": "https://ssimeonoff.github.io/images/resources/TR.png"
+            },
+            {
+                "tile_name": "temperature-tile",
+                "tile_image_url": "https://ssimeonoff.github.io/images/global-parameters/temperature.png"
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1635,6 +1797,12 @@
         ],
         "requirements": [],
         "production": [],
+        "tile_data": [
+            {
+                "tile_name": "city-tile",
+                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/city.png"
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1662,6 +1830,20 @@
         "points_resource": [],
         "requirements": [],
         "production": [],
+        "tile_data": [
+            {
+                "tile_name": "temperature-tile",
+                "tile_image_url": "https://ssimeonoff.github.io/images/global-parameters/temperature.png"
+            },
+            {
+                "tile_name": "temperature-tile",
+                "tile_image_url": "https://ssimeonoff.github.io/images/global-parameters/temperature.png"
+            },
+            {
+                "tile_name": "temperature-tile",
+                "tile_image_url": "https://ssimeonoff.github.io/images/global-parameters/temperature.png"
+            }
+        ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1720,6 +1902,7 @@
                 }
             }
         ],
+        "tile_data": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1779,6 +1962,7 @@
                 "grouped_none": {}
             }
         ],
+        "tile_data": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1825,6 +2009,7 @@
                 }
             }
         ],
+        "tile_data": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1889,6 +2074,7 @@
                 "grouped_none": {}
             }
         ],
+        "tile_data": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -1947,6 +2133,12 @@
                         }
                     ]
                 }
+            }
+        ],
+        "tile_data": [
+            {
+                "tile_name": "special-tile",
+                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/special.png"
             }
         ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
@@ -2021,6 +2213,7 @@
                 "grouped_none": {}
             }
         ],
+        "tile_data": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -2083,6 +2276,7 @@
                 }
             }
         ],
+        "tile_data": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -2136,6 +2330,7 @@
                 }
             }
         ],
+        "tile_data": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     },
     {
@@ -2176,6 +2371,7 @@
                 }
             }
         ],
+        "tile_data": [],
         "image": "https://ssimeonoff.github.io/images/mars.png"
     }
 ]
