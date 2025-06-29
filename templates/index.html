@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Card Showcase</title>
+    <title>Terraforming Mars Card Showcase</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <h1>Card Showcase</h1>
     
+    <button id="play-music-btn">Play Music</button>
+
+    <audio id="background-audio" src="{{ url_for('static', filename='SuperGalaxyRumble.mp3') }}" autoplay loop muted></audio>
+
+
     <div id="loading">Loading cards...</div>
     <div id="cards-container">
         {% for card in cards %}
@@ -115,6 +120,24 @@
         {% endfor %}
     </div>
     <div id="error-message"></div>
+
+
+   <script>
+        const audio = document.getElementById('background-audio');
+        const btn = document.getElementById('play-music-btn');
+
+        btn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.muted = false;
+                audio.volume = 0.2;
+                audio.play();
+                btn.textContent = 'Pause Music';
+            } else {
+                audio.pause();
+                btn.textContent = 'Play Music';
+            }
+        });
+    </script> 
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
