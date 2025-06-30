@@ -9,7 +9,16 @@
 <body>
     <h1>Card Showcase</h1>    
 
-    <button id="play-music-btn">Play Music</button> 
+    <button id="play-music-btn">Play Music</button>
+    <div class="select-wrapper">
+        <label for="song-selector" class="song-label"></label>
+        <select id="song-selector" aria-label="Choose song">
+            <option value="{{ url_for('static', filename='SuperGalaxyRumble.mp3') }}">Super Galaxy Rumble</option>
+            <option value="{{ url_for('static', filename='AurelionSol.mp3') }}">Aurelion Sol</option>
+        </select>
+    </div>
+    
+
 
     <div id="loading">Loading cards...</div>
     <div id="cards-container">
@@ -54,7 +63,7 @@
                             </div>
                         {% endif %} 
                         {% if card.production %}
-                            <div class="{% if card.production.0.production_box_size %}{{ card.production.0.production_box_size }}{% else %}production-box{% endif %}" 
+                        <div class="{% if card.production.0.production_box_size %}{{ card.production.0.production_box_size }}{% else %}production-box{% endif %}" 
                             style="background-image: url('{{ card.production.0.production_box_image }}');">
 
                             {% set production = card.production.0 %}
@@ -86,7 +95,7 @@
                                 <div class="{{ tile.tile_name ~ '-container' | default('tile-container') }}">
                                     <div class="{{ tile.tile_name | default('tile-icon') }}"                                    
                                         style="background-image: url('{{ tile.tile_image_url }}')"
-                                        title="hi">                                    
+                                        title="">                                    
                                     </div>
                                 </div>                                
                             {% endfor %}
@@ -95,20 +104,19 @@
                         {% if card.ordered_resources %}                        
                             <div class="resource-container">
                                 {% for resource in card.ordered_resources %}
-                                    <div class="{{ resource.class ~ '-icon' | default('resource-icon') }}"
-                                        style="background-image: url('{{ resource.resource_image_url }}')">
-                                        {% if resource.class == "money" %}
-                                            <div class="resource-text-overlay">{{ resource.text }}</div>
-                                        {% endif %}
-                                    </div>
+                                    <div class="{{ resource.class ~ '-resource-container' | default('class-resource-container') }}">
+                                        <div class="{{ resource.class ~ '-icon' | default('resource-icon') }}"
+                                            style="background-image: url('{{ resource.resource_image_url }}')">
+                                            {% if resource.class == "money" %}
+                                                <div class="resource-text-overlay">{{ resource.text }}</div>
+                                            {% endif %}
+                                        </div>
+                                    </div>                                    
                                 {% endfor %}                            
                             </div>
-                        {% endif %}
+                        {% endif %}                         
 
-
-                         
-
-                        <div class="description">{{ card.descriptions }}</div>
+                    <div class="description">{{ card.descriptions }}</div>
                     </div>                                      
 
                     {% if card.points_resource %}
@@ -133,37 +141,50 @@
     </div>
     <div id="error-message"></div>
 
-    <audio id="background-audio" src="{{ url_for('static', filename='SuperGalaxyRumble.mp3') }}" autoplay loop muted></audio>
-
     <video id="background-video" autoplay muted loop>
         <source src="{{ url_for('static', filename='background_animated.mp4') }}" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 
+    <audio id="background-audio" src="{{ url_for('static', filename='SuperGalaxyRumble.mp3') }}" autoplay loop muted></audio>    
+
     <script>
         const audio = document.getElementById('background-audio');
         const video = document.getElementById('background-video');
-        const btn = document.getElementById('play-music-btn');
+        const playBtn = document.getElementById('play-music-btn');
+        const songSelector = document.getElementById('song-selector');
 
         let isPlaying = false;
 
         video.pause();
 
-        btn.addEventListener('click', () => {
+        playBtn.addEventListener('click', () => {
             if (isPlaying) {
                 // Pause audio and video
                 audio.pause();
                 video.pause();
-                btn.textContent = 'Play Music';
+                playBtn.textContent = 'Play Music';
             } else {
                 // Play audio and video
                 audio.muted = false;
                 audio.volume = 0.1;
                 audio.play();
                 video.play();
-                btn.textContent = 'Pause Music';
+                playBtn.textContent = 'Pause Music';
             }
             isPlaying = !isPlaying; // Toggle the playing state
+        });
+
+        songSelector.addEventListener('change', () => {
+            const selectedSong = songSelector.value; // full URL here
+            const wasPlaying = isPlaying; // Capture the current play state
+            audio.src = selectedSong; // Change the song source
+            audio.load(); // Ensure the new audio is properly loaded
+            if (wasPlaying) {
+                audio.play(); // Play only if it was playing before
+            } else {
+                audio.pause(); // Explicitly pause the audio
+            }
         });
     </script>
 
@@ -192,13 +213,85 @@
                 const numberElement = cardWrapper.querySelector('.card-number');
                 const number = numberElement ? numberElement.textContent.trim() : null;
                 
-                if (number == "#008") {
+                
+                if (number == "#008") {             
                     const cityTile = cityTileContainer.querySelector('.city-tile');
                     cityTile.style.filter = 'None';
                     cityTile.style.width = '60px';
                     cityTile.style.height = '69px';
                     cityTile.style.marginTop = '10px';
                     cityTile.style.left = '-15px';
+                }
+
+                if (number == "#012") {
+                    const oceanContainer = cardWrapper.querySelector('.ocean-tile-container');
+                    const resourceContainer = cardWrapper.querySelector('.resource-container')
+                    if (oceanContainer || resourceContainer) {
+                        oceanContainer.style.left = '55px';
+                        oceanContainer.style.bottom = '7px';
+                        oceanContainer.style.right = '40px';
+                        resourceContainer.style.right = '20px';
+                        resourceContainer.style.position = 'relative';
+                        resourceContainer.style.bottom = '69px';
+                    }
+                }
+
+                if (number == "#013") {
+                    const resourceContainer = cardWrapper.querySelector('.resource-container');
+                    const productionBox = cardWrapper.querySelector('.production-box');
+                    if (resourceContainer) {
+                        resourceContainer.style.position = 'relative';
+                        resourceContainer.style.top = '-69px';
+                    }
+                    if (productionBox) {
+                        productionBox.style.position = 'relative';
+                        productionBox.style.bottom = '-66px';
+                    }
+                }
+
+                if (number == "#015") {
+                    const resourceContainer = cardWrapper.querySelector('.resource-container');
+                    const productionBox = cardWrapper.querySelector('.production-box-size1a');
+                    const ratingContainer = cardWrapper.querySelector('.rating-container')
+                    if (resourceContainer || productionBox || ratingContainer) {
+                        resourceContainer.style.position = 'relative';
+                        resourceContainer.style.bottom = '65px';
+                        productionBox.style.position = 'relative';
+                        productionBox.style.right = '25px';
+                        ratingContainer.style.left = '5px';
+                    }
+                }
+
+
+
+                if (number == "#022") {
+                    const oceanTile = cardWrapper.querySelector('.ocean-tile-container');
+                    if (oceanTile) {
+                        oceanTile.style.marginTop = '36px';
+                    }
+                }
+
+                // Specific styles for #037
+                if (number === "#037") {
+                    const productionTile = cardWrapper.querySelector('.production-box-size3');
+                    if (productionTile) {
+                        productionTile.style.marginLeft = '49px';
+                        productionTile.style.marginRight = '49px';
+                    }
+                }
+
+                // Specific styles for #037
+                if (number === "#047") {
+                    const resourceContainer = cardWrapper.querySelector('.resource-container');
+                    const productionBox = cardWrapper.querySelector('.production-box-size2');
+                    if (resourceContainer || productionBox) {
+                        resourceContainer.style.position = 'relative';
+                        resourceContainer.style.left = '56px';
+                        resourceContainer.style.top = '-64px';
+                        productionBox.style.position = 'relative';
+                        productionBox.style.left = '-24px';
+                    }
+                    
                 }
             });
 
