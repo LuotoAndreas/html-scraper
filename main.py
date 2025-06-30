@@ -32,9 +32,21 @@ RESOURCE_IMAGE_MAP = {
     "temperature-tile":         "https://ssimeonoff.github.io/images/global-parameters/temperature.png",
     "ocean-tile":               "https://ssimeonoff.github.io/images/tiles/ocean.png",
     "city-tile":                "https://ssimeonoff.github.io/images/tiles/city.png",
+    "oxygen-tile":              "https://ssimeonoff.github.io/images/global-parameters/oxygen.png",
     "rating":                   "https://ssimeonoff.github.io/images/resources/TR.png",
     "special-tile":             "https://ssimeonoff.github.io/images/tiles/special.png",
-    "city-tile-small":          "https://ssimeonoff.github.io/images/tiles/city.png"
+    "city-tile-small":          "https://ssimeonoff.github.io/images/tiles/city.png",
+    "red-arrow":                "https://ssimeonoff.github.io/images/misc/arrow.png",
+    "tag-microbe":              "https://ssimeonoff.github.io/images/tags/microbe.png",
+    "science":                  "https://ssimeonoff.github.io/images/resources/science.png",
+    "card":                     "https://ssimeonoff.github.io/images/resources/card.png",
+    "animal":                   "https://ssimeonoff.github.io/images/resources/animal.png",
+    "tag-space":                "https://ssimeonoff.github.io/images/tags/space.png",
+    "plant":                    "https://ssimeonoff.github.io/images/resources/plant.png",
+    "fighter":                  "https://ssimeonoff.github.io/images/resources/fighter.png",
+    "tag-event":                "https://ssimeonoff.github.io/images/tags/event.png",
+    "microbe":                  "https://ssimeonoff.github.io/images/resources/microbe.png"
+    
 }               
 
 URL = "https://ssimeonoff.github.io/cards-list"
@@ -361,6 +373,64 @@ def extract_title_data(card):
     return title_data
 
 
+def clean_class_name(class_attribute):
+    # Split class string and remove "resource" and "resource-tag"
+    classes = class_attribute.split()
+    filtered_classes = [c for c in classes if c not in ("resource", "resource-tag")]
+    return " ".join(filtered_classes)
+
+def extract_filtered_content_with_class(card_content):
+    result = []
+    ignored_classes = {"points", "requirements", "description", "production-box", "tile"}
+
+    def has_ignored_parent(element):
+        parent = element.find_element(By.XPATH, "..")
+        while parent:
+            parent_classes = (parent.get_attribute("class") or "").split()
+            if set(parent_classes) & ignored_classes:
+                return True
+            if parent.tag_name == 'html':  # reached top, stop
+                break
+            parent = parent.find_element(By.XPATH, "..")
+        return False
+
+    try:
+        content_div = card_content.find_element(By.CLASS_NAME, "content")
+        children = content_div.find_elements(By.XPATH, ".//*")
+
+        for child in children:
+            if child.tag_name.lower() == "br":
+                continue
+            
+            # Skip if element or any parent has ignored class
+            class_attribute = child.get_attribute("class") or ""
+            class_list = set(class_attribute.split())
+            if class_list & ignored_classes or has_ignored_parent(child):
+                continue
+
+            text = child.text.strip() if hasattr(child, "text") else ""
+
+            # Check if element has child elements
+            if child.find_elements(By.XPATH, "./*"):
+                text = ""
+
+            # Clean class string by removing "resource" and "resource-tag"
+            clean_class = clean_class_name(class_attribute)
+
+            # Append elements based on class or text
+            if class_list or text:
+                result.append({
+                    "class": clean_class,
+                    "text": text,
+                    "resource_image_url": RESOURCE_IMAGE_MAP.get(clean_class, "")
+                })
+
+    except Exception as e:
+        print(f"Error extracting filtered content: {e}")
+
+    return result
+
+
 for card in cards[:48]:  # limit to first 48 cards
     title = extract_title_data(card)
     price_data = extract_price_data(driver, card)
@@ -372,6 +442,7 @@ for card in cards[:48]:  # limit to first 48 cards
     requirements = extract_requirements_data(card, "requirements")
     production = extract_production_data(card)
     tile_data = extract_tile_data(card)
+    ordered_resources = extract_filtered_content_with_class(card)
 
 
     data.append({
@@ -385,6 +456,7 @@ for card in cards[:48]:  # limit to first 48 cards
         "requirements": requirements,
         "production": production,
         "tile_data": tile_data,
+        "ordered_resources": ordered_resources,
         "image": RESOURCE_IMAGE_MAP.get("background-image", "")
     })
 

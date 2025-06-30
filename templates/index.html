@@ -90,7 +90,22 @@
                                     </div>
                                 </div>                                
                             {% endfor %}
-                        {% endif %}                     
+                        {% endif %}    
+                        
+                        {% if card.ordered_resources %}                        
+                            <div class="resource-container">
+                                {% for resource in card.ordered_resources %}
+                                    <div class="{{ resource.class ~ '-icon' | default('resource-icon') }}"
+                                        style="background-image: url('{{ resource.resource_image_url }}')">
+                                        {% if resource.class == "money" %}
+                                            <div class="resource-text-overlay">{{ resource.text }}</div>
+                                        {% endif %}
+                                    </div>
+                                {% endfor %}                            
+                            </div>
+                        {% endif %}
+
+
                          
 
                         <div class="description">{{ card.descriptions }}</div>
@@ -143,7 +158,7 @@
             } else {
                 // Play audio and video
                 audio.muted = false;
-                audio.volume = 0.2;
+                audio.volume = 0.1;
                 audio.play();
                 video.play();
                 btn.textContent = 'Pause Music';
