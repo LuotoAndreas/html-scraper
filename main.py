@@ -318,7 +318,7 @@ def extract_production_data(card):
             background_image = RESOURCE_IMAGE_MAP.get("production-box", "") if productions else ""
 
             production_data.append({
-                'production_box_size': next((cls for cls in resource_called.split() if cls.startswith("production-box-size")), None),
+                'production_box_size': next((cls for cls in resource_called.split() if cls.startswith("production-box-size")), "default-box"),
                 'production_box_image': background_image,
                 'grouped_minus': grouped_minus,
                 'grouped_plus': grouped_plus,
@@ -340,16 +340,23 @@ def extract_tile_data(card):
         for tile in tiles:
 
             tile_class = tile.get_attribute("class")
-            # Split the tile from spaces
-            tile_parts = tile_class.split() 
-            tile_name = " ".join(part for part in tile_parts if part != "tile")
+            tile_parts = tile_class.split()
+
+            special = ""
+            if "red-outline" in tile_parts:
+                special = "red-outline"
+                tile_parts.remove("red-outline")
+
+            tile_name = " ".join(part for part in tile_parts if part != "tile").strip()
 
             background_image = RESOURCE_IMAGE_MAP.get(tile_name, "")
 
             tile_data.append({
-                'tile_name': tile_name.strip(),
-                'tile_image_url': background_image
+                'tile_name': tile_name,
+                'tile_image_url': background_image,
+                'special': special
             })
+
            
     except Exception as e:
         print(f"Error extracting tile data: {e}")
@@ -414,14 +421,21 @@ def extract_filtered_content_with_class(card_content):
             if child.find_elements(By.XPATH, "./*"):
                 text = ""
 
+            # Process class list
+            special_classes = {"red-outline"}  # Add more special classes here if needed
+            clean_classes = set(class_list) - special_classes
+            special_class = (class_list & special_classes).pop() if class_list & special_classes else ""
+
+
             # Clean class string by removing "resource" and "resource-tag"
-            clean_class = clean_class_name(class_attribute)
+            clean_class = clean_class_name(" ".join(clean_classes))
 
             # Append elements based on class or text
             if class_list or text:
                 result.append({
                     "class": clean_class,
                     "text": text,
+                    "special": special_class,
                     "resource_image_url": RESOURCE_IMAGE_MAP.get(clean_class, "")
                 })
 

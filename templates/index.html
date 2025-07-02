@@ -13,8 +13,8 @@
     <div class="select-wrapper">
         <label for="song-selector" class="song-label"></label>
         <select id="song-selector" aria-label="Choose song">
+            <option value="{{ url_for('static', filename='AurelionSol.mp3') }}">Aurelion Sol</option>            
             <option value="{{ url_for('static', filename='SuperGalaxyRumble.mp3') }}">Super Galaxy Rumble</option>
-            <option value="{{ url_for('static', filename='AurelionSol.mp3') }}">Aurelion Sol</option>
         </select>
     </div>
     
@@ -54,16 +54,18 @@
                         </div>                        
                     </div>
                     <div class="title {{ card.title.title_card_type }}">{{ card.title.title_text }}</div>
-                    <div class="content">
-                        {% if card.requirements %}
-                            <div class="requirements {% if 'requirements-max' in card.requirements.0.resource_name %}requirements-max{% endif %}" 
-                                style="background-image: url('{{ card.requirements.0.requirements_image }}');"
-                                title="{{ card.requirements.0.requirements }}">
-                                {{ card.requirements.0.requirements }}
-                            </div>
-                        {% endif %} 
+                    
+                    {% if card.requirements %}                        
+                        <div class="requirements {% if 'requirements-max' in card.requirements.0.resource_name %}requirements-max{% endif %}" 
+                            style="background-image: url('{{ card.requirements.0.requirements_image }}');"
+                            title="{{ card.requirements.0.requirements }}">
+                            {{ card.requirements.0.requirements }}
+                        </div>
+                    {% endif %} 
+
+                    <div class="content">                        
                         {% if card.production %}
-                        <div class="{% if card.production.0.production_box_size %}{{ card.production.0.production_box_size }}{% else %}production-box{% endif %}" 
+                        <div class="{{ card.production.0.production_box_size|default('production-box') }}" 
                             style="background-image: url('{{ card.production.0.production_box_image }}');">
 
                             {% set production = card.production.0 %}
@@ -76,7 +78,8 @@
                                                 <img class="prefix_icons" src="{{ prods[0].prefix_image_url }}" alt="{{ key }}">
                                             {% endif %}
                                             {% for prod in prods %}
-                                                <span class="production-icon-container">
+                                                <span class="production-icon-container"
+                                                    style="{% if prod.special %} filter: drop-shadow(1px 0px 1px #c33) drop-shadow(-1px 0px 1px #c33) drop-shadow(0px 1px 1px #c33) drop-shadow(0px -1px 1px #c33) !important; {% endif %}">
                                                     <img class="production-icon-name" src="{{ prod.type_image_url }}" alt="{{ prod.type }}">
                                                     {% if prod.type is mapping and prod.type.type == "money" %}
                                                         <div class="production-text-overlay">{{ prod.type.money_amount }}</div>
@@ -93,31 +96,52 @@
                         {% if card.tile_data %}
                             {% for tile in card.tile_data %}
                                 <div class="{{ tile.tile_name ~ '-container' | default('tile-container') }}">
-                                    <div class="{{ tile.tile_name | default('tile-icon') }}"                                    
-                                        style="background-image: url('{{ tile.tile_image_url }}')"
-                                        title="">                                    
+                                    <div class="{{ tile.tile_name | default('tile-icon') }}"
+                                        style="background-image: url('{{ tile.tile_image_url }}');
+                                                filter:
+                                                    {% if card.number == '#038' %}
+                                                        brightness(0.8) drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.5))
+                                                        drop-shadow(1px 0px 1px #c33) drop-shadow(-1px 0px 1px #c33)
+                                                        drop-shadow(0px 1px 1px #c33) drop-shadow(0px -1px 1px #c33);
+                                                    {% elif tile.special == 'red-outline' %}
+                                                        drop-shadow(1px 0px 1px #c33) drop-shadow(-1px 0px 1px #c33)
+                                                        drop-shadow(0px 1px 1px #c33) drop-shadow(0px -1px 1px #c33);
+                                                    {% endif %}"
+                                        title="">
                                     </div>
-                                </div>                                
+                                </div>
                             {% endfor %}
-                        {% endif %}    
-                        
-                        {% if card.ordered_resources %}                        
-                            <div class="resource-container">
-                                {% for resource in card.ordered_resources %}
-                                    <div class="{{ resource.class ~ '-resource-container' | default('class-resource-container') }}">
-                                        <div class="{{ resource.class ~ '-icon' | default('resource-icon') }}"
-                                            style="background-image: url('{{ resource.resource_image_url }}')">
-                                            {% if resource.class == "money" %}
-                                                <div class="resource-text-overlay">{{ resource.text }}</div>
-                                            {% endif %}
+                        {% endif %}                                              
+                    </div>            
+                     <div class="resource-description-container">
+                            {% if card.ordered_resources %}
+                                <div class="resource-container">
+                                    {% set resource_counters = {} %} <!-- Initialize a counter dictionary -->
+                                    {% for resource in card.ordered_resources %}
+                                        {% set count = resource_counters[resource.class] if resource.class in resource_counters else 0 %}
+                                        {% set resource_counters = resource_counters.update({resource.class: count + 1}) %}
+                                        
+                                        <div class="{{ resource.class ~ '-resource-container-' ~ (count + 1) }}">
+                                            <div class="{{ resource.class ~ '-icon' | default('resource-icon') }}"
+                                                style="background-image: url('{{ resource.resource_image_url }}'); 
+                                                    {% if resource.special == 'red-outline' %} 
+                                                    filter: drop-shadow(1px 0px 1px #c33) drop-shadow(-1px 0px 1px #c33) 
+                                                            drop-shadow(0px 1px 1px #c33) drop-shadow(0px -1px 1px #c33) !important; 
+                                                    {% endif %}">
+                                                {% if resource.class == "money" %}
+                                                    <div class="resource-text-overlay">{{ resource.text }}</div>
+                                                {% endif %}
+                                            </div>
                                         </div>
-                                    </div>                                    
-                                {% endfor %}                            
-                            </div>
-                        {% endif %}                         
-
-                    <div class="description">{{ card.descriptions }}</div>
-                    </div>                                      
+                                    {% endfor %}
+                                </div>
+                                {% endif %}  
+                                <div class="description-container">                        
+                                    <div class="description">{{ card.descriptions }}</div>
+                                </div> 
+                            </div>            
+                    
+                    
 
                     {% if card.points_resource %}
                         {% for pr in card.points_resource %}
@@ -129,8 +153,7 @@
                                 {% endif %}
                             </div>
                         {% endfor %}
-                    {% endif %}
-          
+                    {% endif %}          
                 </div>
             </div>
             
@@ -146,7 +169,7 @@
         Your browser does not support the video tag.
     </video>
 
-    <audio id="background-audio" src="{{ url_for('static', filename='SuperGalaxyRumble.mp3') }}" autoplay loop muted></audio>    
+    <audio id="background-audio" src="{{ url_for('static', filename='AurelionSol.mp3') }}" autoplay loop muted></audio>    
 
     <script>
         const audio = document.getElementById('background-audio');
@@ -193,105 +216,83 @@
             const cards = document.querySelectorAll('.card-wrapper');
             
             cards.forEach(cardWrapper => {
-                // Check if the card has requirements
-                const requirements = cardWrapper.querySelector('.requirements');
                 
-                // Check if the card contains a city tile
-                const cityTileContainer = cardWrapper.querySelector('.city-tile-container');                
-                const productionBoxSize = cardWrapper.getAttribute('data-production-box-size');
-
-                if ((requirements || productionBoxSize) && cityTileContainer ) {
-                    const cityTile = cityTileContainer.querySelector('.city-tile');
-                    if (cityTile) {
-                        // Add the margin-top style to the city-tile
-                        cityTile.style.marginTop = '33px';
-                        cityTile.style.marginLeft = '18px';                        
-                        cityTile.style.left = '0px';
-                    }
-                }
+                // Check if the card contains a city tile 
 
                 const numberElement = cardWrapper.querySelector('.card-number');
                 const number = numberElement ? numberElement.textContent.trim() : null;
+
+                const resource_description = cardWrapper.querySelector('.resource-description-container');
+
+                if (number == "#001") {
+                    resource_description.style.top = '106px';
+                }
                 
+                // jos top 200px niin tänne vaa
+                if (number == "#002" || number == "#004" || number == "#008") {
+                    resource_description.style.top = '200px';
+                }
+
+                if (number === "#006") {
+                    const description = cardWrapper.querySelector('.description-container');
+                    const resourceContainer = cardWrapper.querySelector('.resource-container');
+                    resource_description.style.top = '76px';
+                    resourceContainer.style.left = '-80px'
+
+                    description.style.width = '180px';
+                    description.style.top = '-36px';
+                    description.style.right = '-10px';
+                    description.style.color = 'black';
+                    description.style.fontWeight = 'bold';
+                    description.style.fontSize = '11px';
+                    description.textContent = "ACTION: LOOK AT THE TOP CARD AND EITHER BUY IT OR DISCARD IT";
+                }
                 
-                if (number == "#008") {             
-                    const cityTile = cityTileContainer.querySelector('.city-tile');
-                    cityTile.style.filter = 'None';
-                    cityTile.style.width = '60px';
-                    cityTile.style.height = '69px';
-                    cityTile.style.marginTop = '10px';
-                    cityTile.style.left = '-15px';
+                if (number === "#007") {
+                    const resource = cardWrapper.querySelector('.resource-container');
+                    const city = cardWrapper.querySelector('.city-tile-small-container');
+                    resource_description.style.top = '85px';
+                    resource.style.right = '35px';
+                    city.style.left = '50px';
+                    city.style.top = '7px';
+                }
+                
+                if (number === "#009") {
+                    const container = cardWrapper.querySelector('.resource-container');
+                    const minus = cardWrapper.querySelector('.minus-resource-container-1');
+                    const titaniums = cardWrapper.querySelectorAll('.titanium-resource-container-1, .titanium-resource-container-2');
+                    const rest = cardWrapper.querySelectorAll('.plant-resource-container-1, .plant-resource-container-2, .plant-resource-container-3');
+                    container.style.width = '100px';
+                    minus.style.left = '-97px';
+                    minus.style.bottom = '-33px';
+
+                    titaniums.forEach(titanium => {
+                        titanium.style.left = '10px';
+                    });
+
+                    rest.forEach(both => {
+                        both.style.left = '-5px';
+                    });
+                }
+                
+                if (number === "#011") {
+                    const minus = cardWrapper.querySelector('.minus-resource-container-1');
+                    const container = cardWrapper.querySelector('.resource-container');
+                    container.style.width = '185px';
+                    container.style.left = '17px';
+                    minus.style.right = '143px';
+                    minus.style.bottom = '-32px';
+
                 }
 
-                if (number == "#012") {
-                    const oceanContainer = cardWrapper.querySelector('.ocean-tile-container');
-                    const resourceContainer = cardWrapper.querySelector('.resource-container')
-                    if (oceanContainer || resourceContainer) {
-                        oceanContainer.style.left = '55px';
-                        oceanContainer.style.bottom = '7px';
-                        oceanContainer.style.right = '40px';
-                        resourceContainer.style.right = '20px';
-                        resourceContainer.style.position = 'relative';
-                        resourceContainer.style.bottom = '69px';
-                    }
-                }
+                if (number === "#012") {
+                    ocean = cardWrapper.querySelector('.ocean-tile-container')
+                    description = cardWrapper.querySelector('.description-container')
+                    resource_description.style.top = '85px'
+                    resource_description.style.left = '-40px'
+                    ocean.style.right = '-33px'
+                    description.style.left = '39px'
 
-                if (number == "#013") {
-                    const resourceContainer = cardWrapper.querySelector('.resource-container');
-                    const productionBox = cardWrapper.querySelector('.production-box');
-                    if (resourceContainer) {
-                        resourceContainer.style.position = 'relative';
-                        resourceContainer.style.top = '-69px';
-                    }
-                    if (productionBox) {
-                        productionBox.style.position = 'relative';
-                        productionBox.style.bottom = '-66px';
-                    }
-                }
-
-                if (number == "#015") {
-                    const resourceContainer = cardWrapper.querySelector('.resource-container');
-                    const productionBox = cardWrapper.querySelector('.production-box-size1a');
-                    const ratingContainer = cardWrapper.querySelector('.rating-container')
-                    if (resourceContainer || productionBox || ratingContainer) {
-                        resourceContainer.style.position = 'relative';
-                        resourceContainer.style.bottom = '65px';
-                        productionBox.style.position = 'relative';
-                        productionBox.style.right = '25px';
-                        ratingContainer.style.left = '5px';
-                    }
-                }
-
-
-
-                if (number == "#022") {
-                    const oceanTile = cardWrapper.querySelector('.ocean-tile-container');
-                    if (oceanTile) {
-                        oceanTile.style.marginTop = '36px';
-                    }
-                }
-
-                // Specific styles for #037
-                if (number === "#037") {
-                    const productionTile = cardWrapper.querySelector('.production-box-size3');
-                    if (productionTile) {
-                        productionTile.style.marginLeft = '49px';
-                        productionTile.style.marginRight = '49px';
-                    }
-                }
-
-                // Specific styles for #037
-                if (number === "#047") {
-                    const resourceContainer = cardWrapper.querySelector('.resource-container');
-                    const productionBox = cardWrapper.querySelector('.production-box-size2');
-                    if (resourceContainer || productionBox) {
-                        resourceContainer.style.position = 'relative';
-                        resourceContainer.style.left = '56px';
-                        resourceContainer.style.top = '-64px';
-                        productionBox.style.position = 'relative';
-                        productionBox.style.left = '-24px';
-                    }
-                    
                 }
             });
 

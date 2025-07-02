@@ -139,7 +139,7 @@
         "requirements": [],
         "production": [
             {
-                "production_box_size": null,
+                "production_box_size": "default-box",
                 "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png",
                 "grouped_minus": {},
                 "grouped_plus": {},
@@ -159,7 +159,8 @@
         "tile_data": [
             {
                 "tile_name": "temperature-tile",
-                "tile_image_url": "https://ssimeonoff.github.io/images/global-parameters/temperature.png"
+                "tile_image_url": "https://ssimeonoff.github.io/images/global-parameters/temperature.png",
+                "special": ""
             }
         ],
         "ordered_resources": [],
@@ -277,21 +278,25 @@
             {
                 "class": "money",
                 "text": "1",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png"
             },
             {
                 "class": "red-arrow",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/misc/arrow.png"
             },
             {
                 "class": "tag-microbe",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/tags/microbe.png"
             },
             {
                 "class": "science",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/science.png"
             }
         ],
@@ -325,11 +330,13 @@
             {
                 "class": "red-arrow",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/misc/arrow.png"
             },
             {
                 "class": "",
                 "text": "ACTION: LOOK AT THE TOP CARD AND EITHER BUY IT OR DISCARD IT",
+                "special": "",
                 "resource_image_url": ""
             }
         ],
@@ -361,23 +368,27 @@
         "tile_data": [
             {
                 "tile_name": "city-tile-small",
-                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/city.png"
+                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/city.png",
+                "special": ""
             }
         ],
         "ordered_resources": [
             {
                 "class": "energy",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/power.png"
             },
             {
                 "class": "red-arrow",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/misc/arrow.png"
             },
             {
                 "class": "money",
                 "text": "1",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png"
             }
         ],
@@ -464,7 +475,8 @@
         "tile_data": [
             {
                 "tile_name": "city-tile",
-                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/city.png"
+                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/city.png",
+                "special": ""
             }
         ],
         "ordered_resources": [],
@@ -501,39 +513,46 @@
         "tile_data": [
             {
                 "tile_name": "temperature-tile",
-                "tile_image_url": "https://ssimeonoff.github.io/images/global-parameters/temperature.png"
+                "tile_image_url": "https://ssimeonoff.github.io/images/global-parameters/temperature.png",
+                "special": ""
             }
         ],
         "ordered_resources": [
             {
                 "class": "titanium",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/titanium.png"
             },
             {
                 "class": "titanium",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/titanium.png"
             },
             {
                 "class": "minus",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/misc/minus.png"
             },
             {
-                "class": "plant red-outline",
+                "class": "plant",
                 "text": "",
-                "resource_image_url": ""
+                "special": "red-outline",
+                "resource_image_url": "https://ssimeonoff.github.io/images/resources/plant.png"
             },
             {
-                "class": "plant red-outline",
+                "class": "plant",
                 "text": "",
-                "resource_image_url": ""
+                "special": "red-outline",
+                "resource_image_url": "https://ssimeonoff.github.io/images/resources/plant.png"
             },
             {
-                "class": "plant red-outline",
+                "class": "plant",
                 "text": "",
-                "resource_image_url": ""
+                "special": "red-outline",
+                "resource_image_url": "https://ssimeonoff.github.io/images/resources/plant.png"
             }
         ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
@@ -569,33 +588,39 @@
         "tile_data": [
             {
                 "tile_name": "temperature-tile",
-                "tile_image_url": "https://ssimeonoff.github.io/images/global-parameters/temperature.png"
+                "tile_image_url": "https://ssimeonoff.github.io/images/global-parameters/temperature.png",
+                "special": ""
             },
             {
                 "tile_name": "ocean-tile",
-                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/ocean.png"
+                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/ocean.png",
+                "special": ""
             }
         ],
         "ordered_resources": [
             {
                 "class": "minus",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/misc/minus.png"
             },
             {
-                "class": "plant red-outline",
+                "class": "plant",
                 "text": "",
-                "resource_image_url": ""
+                "special": "red-outline",
+                "resource_image_url": "https://ssimeonoff.github.io/images/resources/plant.png"
             },
             {
-                "class": "plant red-outline",
+                "class": "plant",
                 "text": "",
-                "resource_image_url": ""
+                "special": "red-outline",
+                "resource_image_url": "https://ssimeonoff.github.io/images/resources/plant.png"
             },
             {
-                "class": "plant red-outline",
+                "class": "plant",
                 "text": "",
-                "resource_image_url": ""
+                "special": "red-outline",
+                "resource_image_url": "https://ssimeonoff.github.io/images/resources/plant.png"
             }
         ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
@@ -631,58 +656,69 @@
         "tile_data": [
             {
                 "tile_name": "temperature-tile",
-                "tile_image_url": "https://ssimeonoff.github.io/images/global-parameters/temperature.png"
+                "tile_image_url": "https://ssimeonoff.github.io/images/global-parameters/temperature.png",
+                "special": ""
             },
             {
                 "tile_name": "temperature-tile",
-                "tile_image_url": "https://ssimeonoff.github.io/images/global-parameters/temperature.png"
+                "tile_image_url": "https://ssimeonoff.github.io/images/global-parameters/temperature.png",
+                "special": ""
             }
         ],
         "ordered_resources": [
             {
                 "class": "titanium",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/titanium.png"
             },
             {
                 "class": "titanium",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/titanium.png"
             },
             {
                 "class": "titanium",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/titanium.png"
             },
             {
                 "class": "titanium",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/titanium.png"
             },
             {
                 "class": "minus",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/misc/minus.png"
             },
             {
-                "class": "plant red-outline",
+                "class": "plant",
                 "text": "",
-                "resource_image_url": ""
+                "special": "red-outline",
+                "resource_image_url": "https://ssimeonoff.github.io/images/resources/plant.png"
             },
             {
-                "class": "plant red-outline",
+                "class": "plant",
                 "text": "",
-                "resource_image_url": ""
+                "special": "red-outline",
+                "resource_image_url": "https://ssimeonoff.github.io/images/resources/plant.png"
             },
             {
-                "class": "plant red-outline",
+                "class": "plant",
                 "text": "",
-                "resource_image_url": ""
+                "special": "red-outline",
+                "resource_image_url": "https://ssimeonoff.github.io/images/resources/plant.png"
             },
             {
-                "class": "plant red-outline",
+                "class": "plant",
                 "text": "",
-                "resource_image_url": ""
+                "special": "red-outline",
+                "resource_image_url": "https://ssimeonoff.github.io/images/resources/plant.png"
             }
         ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
@@ -724,23 +760,27 @@
         "tile_data": [
             {
                 "tile_name": "ocean-tile",
-                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/ocean.png"
+                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/ocean.png",
+                "special": ""
             }
         ],
         "ordered_resources": [
             {
                 "class": "money",
                 "text": "12",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png"
             },
             {
                 "class": "titanium",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/titanium.png"
             },
             {
                 "class": "red-arrow",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/misc/arrow.png"
             }
         ],
@@ -781,7 +821,7 @@
         "requirements": [],
         "production": [
             {
-                "production_box_size": null,
+                "production_box_size": "default-box",
                 "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png",
                 "grouped_minus": {},
                 "grouped_plus": {},
@@ -803,16 +843,19 @@
             {
                 "class": "steel",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/steel.png"
             },
             {
                 "class": "red-arrow",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/misc/arrow.png"
             },
             {
                 "class": "money",
                 "text": "5",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png"
             }
         ],
@@ -851,16 +894,19 @@
             {
                 "class": "energy",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/power.png"
             },
             {
                 "class": "red-arrow",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/misc/arrow.png"
             },
             {
                 "class": "card",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/card.png"
             }
         ],
@@ -910,13 +956,15 @@
         "tile_data": [
             {
                 "tile_name": "rating",
-                "tile_image_url": "https://ssimeonoff.github.io/images/resources/TR.png"
+                "tile_image_url": "https://ssimeonoff.github.io/images/resources/TR.png",
+                "special": ""
             }
         ],
         "ordered_resources": [
             {
                 "class": "red-arrow",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/misc/arrow.png"
             }
         ],
@@ -996,23 +1044,27 @@
         "tile_data": [
             {
                 "tile_name": "city-tile",
-                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/city.png"
+                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/city.png",
+                "special": ""
             }
         ],
         "ordered_resources": [
             {
                 "class": "plant",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/plant.png"
             },
             {
                 "class": "plant",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/plant.png"
             },
             {
                 "class": "plant",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/plant.png"
             }
         ],
@@ -1080,7 +1132,8 @@
         "tile_data": [
             {
                 "tile_name": "city-tile",
-                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/city.png"
+                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/city.png",
+                "special": ""
             }
         ],
         "ordered_resources": [],
@@ -1207,38 +1260,45 @@
         "tile_data": [
             {
                 "tile_name": "ocean-tile",
-                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/ocean.png"
+                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/ocean.png",
+                "special": ""
             }
         ],
         "ordered_resources": [
             {
                 "class": "",
                 "text": "3",
+                "special": "",
                 "resource_image_url": ""
             },
             {
                 "class": "plant",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/plant.png"
             },
             {
                 "class": "",
                 "text": "3",
+                "special": "",
                 "resource_image_url": ""
             },
             {
                 "class": "microbe",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/microbe.png"
             },
             {
                 "class": "",
                 "text": "2",
+                "special": "",
                 "resource_image_url": ""
             },
             {
                 "class": "animal",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/animal.png"
             }
         ],
@@ -1280,13 +1340,15 @@
         "tile_data": [
             {
                 "tile_name": "city-tile",
-                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/city.png"
+                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/city.png",
+                "special": ""
             }
         ],
         "ordered_resources": [
             {
                 "class": "money",
                 "text": "-1",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png"
             }
         ],
@@ -1327,7 +1389,7 @@
         "requirements": [],
         "production": [
             {
-                "production_box_size": null,
+                "production_box_size": "default-box",
                 "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png",
                 "grouped_minus": {},
                 "grouped_plus": {},
@@ -1347,7 +1409,8 @@
         "tile_data": [
             {
                 "tile_name": "city-tile",
-                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/city.png"
+                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/city.png",
+                "special": ""
             }
         ],
         "ordered_resources": [],
@@ -1418,7 +1481,8 @@
         "tile_data": [
             {
                 "tile_name": "ocean-tile",
-                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/ocean.png"
+                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/ocean.png",
+                "special": ""
             }
         ],
         "ordered_resources": [],
@@ -1455,24 +1519,28 @@
         "production": [],
         "tile_data": [
             {
-                "tile_name": "ocean-tile red-outline",
-                "tile_image_url": ""
+                "tile_name": "ocean-tile",
+                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/ocean.png",
+                "special": "red-outline"
             }
         ],
         "ordered_resources": [
             {
                 "class": "plant",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/plant.png"
             },
             {
                 "class": "plant",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/plant.png"
             },
             {
                 "class": "plant",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/plant.png"
             }
         ],
@@ -1516,18 +1584,21 @@
         "tile_data": [],
         "ordered_resources": [
             {
-                "class": "animal red-outline",
+                "class": "animal",
                 "text": "",
-                "resource_image_url": ""
+                "special": "red-outline",
+                "resource_image_url": "https://ssimeonoff.github.io/images/resources/animal.png"
             },
             {
                 "class": "red-arrow",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/misc/arrow.png"
             },
             {
                 "class": "animal",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/animal.png"
             }
         ],
@@ -1567,11 +1638,13 @@
             {
                 "class": "tag-space",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/tags/space.png"
             },
             {
                 "class": "money",
                 "text": "-2",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png"
             }
         ],
@@ -1618,7 +1691,7 @@
         ],
         "production": [
             {
-                "production_box_size": null,
+                "production_box_size": "default-box",
                 "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png",
                 "grouped_minus": {},
                 "grouped_plus": {},
@@ -1643,21 +1716,25 @@
             {
                 "class": "animal",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/animal.png"
             },
             {
                 "class": "plant",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/plant.png"
             },
             {
                 "class": "plant",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/plant.png"
             },
             {
                 "class": "plant",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/plant.png"
             }
         ],
@@ -1746,16 +1823,19 @@
             {
                 "class": "titanium",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/titanium.png"
             },
             {
                 "class": "red-arrow",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/misc/arrow.png"
             },
             {
                 "class": "fighter",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/fighter.png"
             }
         ],
@@ -1829,7 +1909,8 @@
         "tile_data": [
             {
                 "tile_name": "city-tile",
-                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/city.png"
+                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/city.png",
+                "special": ""
             }
         ],
         "ordered_resources": [],
@@ -1949,31 +2030,37 @@
             {
                 "class": "tag-space",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/tags/space.png"
             },
             {
                 "class": "tag-event",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/tags/event.png"
             },
             {
                 "class": "money",
                 "text": "3",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png"
             },
             {
                 "class": "heat",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/heat.png"
             },
             {
                 "class": "heat",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/heat.png"
             },
             {
                 "class": "heat",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/heat.png"
             }
         ],
@@ -2052,7 +2139,8 @@
         "tile_data": [
             {
                 "tile_name": "city-tile",
-                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/city.png"
+                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/city.png",
+                "special": ""
             }
         ],
         "ordered_resources": [],
@@ -2089,33 +2177,39 @@
         "tile_data": [
             {
                 "tile_name": "oxygen-tile",
-                "tile_image_url": "https://ssimeonoff.github.io/images/global-parameters/oxygen.png"
+                "tile_image_url": "https://ssimeonoff.github.io/images/global-parameters/oxygen.png",
+                "special": ""
             }
         ],
         "ordered_resources": [
             {
                 "class": "red-arrow",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/misc/arrow.png"
             },
             {
                 "class": "microbe",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/microbe.png"
             },
             {
                 "class": "microbe",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/microbe.png"
             },
             {
                 "class": "microbe",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/microbe.png"
             },
             {
                 "class": "red-arrow",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/misc/arrow.png"
             }
         ],
@@ -2158,33 +2252,39 @@
         "tile_data": [
             {
                 "tile_name": "temperature-tile",
-                "tile_image_url": "https://ssimeonoff.github.io/images/global-parameters/temperature.png"
+                "tile_image_url": "https://ssimeonoff.github.io/images/global-parameters/temperature.png",
+                "special": ""
             }
         ],
         "ordered_resources": [
             {
                 "class": "red-arrow",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/misc/arrow.png"
             },
             {
                 "class": "microbe",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/microbe.png"
             },
             {
                 "class": "microbe",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/microbe.png"
             },
             {
                 "class": "microbe",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/microbe.png"
             },
             {
                 "class": "red-arrow",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/misc/arrow.png"
             }
         ],
@@ -2228,18 +2328,21 @@
         "tile_data": [],
         "ordered_resources": [
             {
-                "class": "microbe red-outline",
+                "class": "microbe",
                 "text": "",
-                "resource_image_url": ""
+                "special": "red-outline",
+                "resource_image_url": "https://ssimeonoff.github.io/images/resources/microbe.png"
             },
             {
                 "class": "red-arrow",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/misc/arrow.png"
             },
             {
                 "class": "microbe",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/microbe.png"
             }
         ],
@@ -2271,11 +2374,13 @@
         "tile_data": [
             {
                 "tile_name": "rating",
-                "tile_image_url": "https://ssimeonoff.github.io/images/resources/TR.png"
+                "tile_image_url": "https://ssimeonoff.github.io/images/resources/TR.png",
+                "special": ""
             },
             {
                 "tile_name": "rating",
-                "tile_image_url": "https://ssimeonoff.github.io/images/resources/TR.png"
+                "tile_image_url": "https://ssimeonoff.github.io/images/resources/TR.png",
+                "special": ""
             }
         ],
         "ordered_resources": [],
@@ -2337,15 +2442,18 @@
         "tile_data": [
             {
                 "tile_name": "rating",
-                "tile_image_url": "https://ssimeonoff.github.io/images/resources/TR.png"
+                "tile_image_url": "https://ssimeonoff.github.io/images/resources/TR.png",
+                "special": ""
             },
             {
                 "tile_name": "rating",
-                "tile_image_url": "https://ssimeonoff.github.io/images/resources/TR.png"
+                "tile_image_url": "https://ssimeonoff.github.io/images/resources/TR.png",
+                "special": ""
             },
             {
                 "tile_name": "temperature-tile",
-                "tile_image_url": "https://ssimeonoff.github.io/images/global-parameters/temperature.png"
+                "tile_image_url": "https://ssimeonoff.github.io/images/global-parameters/temperature.png",
+                "special": ""
             }
         ],
         "ordered_resources": [],
@@ -2383,13 +2491,15 @@
         "tile_data": [
             {
                 "tile_name": "city-tile",
-                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/city.png"
+                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/city.png",
+                "special": ""
             }
         ],
         "ordered_resources": [
             {
                 "class": "money",
                 "text": "2",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/megacredits/megacredit.png"
             }
         ],
@@ -2426,47 +2536,56 @@
         "tile_data": [
             {
                 "tile_name": "temperature-tile",
-                "tile_image_url": "https://ssimeonoff.github.io/images/global-parameters/temperature.png"
+                "tile_image_url": "https://ssimeonoff.github.io/images/global-parameters/temperature.png",
+                "special": ""
             },
             {
                 "tile_name": "temperature-tile",
-                "tile_image_url": "https://ssimeonoff.github.io/images/global-parameters/temperature.png"
+                "tile_image_url": "https://ssimeonoff.github.io/images/global-parameters/temperature.png",
+                "special": ""
             },
             {
                 "tile_name": "temperature-tile",
-                "tile_image_url": "https://ssimeonoff.github.io/images/global-parameters/temperature.png"
+                "tile_image_url": "https://ssimeonoff.github.io/images/global-parameters/temperature.png",
+                "special": ""
             }
         ],
         "ordered_resources": [
             {
                 "class": "steel",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/steel.png"
             },
             {
                 "class": "steel",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/steel.png"
             },
             {
                 "class": "steel",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/steel.png"
             },
             {
                 "class": "steel",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/steel.png"
             },
             {
                 "class": "minus",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/misc/minus.png"
             },
             {
-                "class": "plant red-outline",
+                "class": "plant",
                 "text": "",
-                "resource_image_url": ""
+                "special": "red-outline",
+                "resource_image_url": "https://ssimeonoff.github.io/images/resources/plant.png"
             }
         ],
         "image": "https://ssimeonoff.github.io/images/mars.png"
@@ -2628,7 +2747,7 @@
         ],
         "production": [
             {
-                "production_box_size": null,
+                "production_box_size": "default-box",
                 "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png",
                 "grouped_minus": {},
                 "grouped_plus": {},
@@ -2759,7 +2878,7 @@
         ],
         "production": [
             {
-                "production_box_size": null,
+                "production_box_size": "default-box",
                 "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png",
                 "grouped_minus": {},
                 "grouped_plus": {},
@@ -2782,7 +2901,8 @@
         "tile_data": [
             {
                 "tile_name": "special-tile",
-                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/special.png"
+                "tile_image_url": "https://ssimeonoff.github.io/images/tiles/special.png",
+                "special": ""
             }
         ],
         "ordered_resources": [],
@@ -2991,6 +3111,7 @@
             {
                 "class": "plant",
                 "text": "",
+                "special": "",
                 "resource_image_url": "https://ssimeonoff.github.io/images/resources/plant.png"
             }
         ],
@@ -3020,7 +3141,7 @@
         "requirements": [],
         "production": [
             {
-                "production_box_size": null,
+                "production_box_size": "default-box",
                 "production_box_image": "https://ssimeonoff.github.io/images/misc/production.png",
                 "grouped_minus": {},
                 "grouped_plus": {},
