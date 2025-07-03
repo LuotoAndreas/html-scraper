@@ -18,9 +18,6 @@
         </select>
     </div>
     
-
-
-    <div id="loading">Loading cards...</div>
     <div id="cards-container">
         {% for card in cards %}
         <div class="card-wrapper"
@@ -78,7 +75,7 @@
                                                 <img class="prefix_icons" src="{{ prods[0].prefix_image_url }}" alt="{{ key }}">
                                             {% endif %}
                                             {% for prod in prods %}
-                                                <span class="production-icon-container"
+                                                <span class="production-icon-container {{ prod.type }}-production-icon-container-{{ loop.index }}"
                                                     style="{% if prod.special %} filter: drop-shadow(1px 0px 1px #c33) drop-shadow(-1px 0px 1px #c33) drop-shadow(0px 1px 1px #c33) drop-shadow(0px -1px 1px #c33) !important; {% endif %}">
                                                     <img class="production-icon-name" src="{{ prod.type_image_url }}" alt="{{ prod.type }}">
                                                     {% if prod.type is mapping and prod.type.type == "money" %}
@@ -136,9 +133,11 @@
                                     {% endfor %}
                                 </div>
                                 {% endif %}  
-                                <div class="description-container">                        
-                                    <div class="description">{{ card.descriptions }}</div>
-                                </div> 
+                                {% for description in card.descriptions %}
+                                    <div class="description-container-{{ loop.index }}">
+                                        <div class="description">{{ description.description }}</div>
+                                    </div>
+                                {% endfor %}
                             </div>            
                     
                     
@@ -223,6 +222,9 @@
                 const number = numberElement ? numberElement.textContent.trim() : null;
 
                 const resource_description = cardWrapper.querySelector('.resource-description-container');
+                const smallCityContainer = cardWrapper.querySelector('.city-tile-small-container');
+                const cityTileContainer = cardWrapper.querySelector('.city-tile-container')
+                const resourceContainer = cardWrapper.querySelector('.resource-container');
 
                 if (number == "#001") {
                     resource_description.style.top = '106px';
@@ -233,36 +235,54 @@
                     resource_description.style.top = '200px';
                 }
 
-                if (number === "#006") {
-                    const description = cardWrapper.querySelector('.description-container');
-                    const resourceContainer = cardWrapper.querySelector('.resource-container');
-                    resource_description.style.top = '76px';
-                    resourceContainer.style.left = '-80px'
-
-                    description.style.width = '180px';
-                    description.style.top = '-36px';
-                    description.style.right = '-10px';
-                    description.style.color = 'black';
-                    description.style.fontWeight = 'bold';
-                    description.style.fontSize = '11px';
-                    description.textContent = "ACTION: LOOK AT THE TOP CARD AND EITHER BUY IT OR DISCARD IT";
+                if (number == "#005") {
+                    const descriptionBox = cardWrapper.querySelector('.description-container-2')
+                    resource_description.style.top = '109px'
+                    descriptionBox.style.left = '-46px'
+                    descriptionBox.style.top = '42px'
+                    descriptionBox.style.width = '130px'
                 }
+
+                if (number == "#006") {
+                    const container = cardWrapper.querySelector('.resource-container')
+                    const description = cardWrapper.querySelector('.description-container-1')
+                    const deee = cardWrapper.querySelector('.description')
+                    container.style.left = '-80px'
+                    resource_description.style.top = '71px'
+                    description.style.top = '-34px'
+                    description.style.left = '11px'
+                    description.style.width = '170px'
+                    deee.style.fontWeight = 'bold'
+                    deee.style.fontSize = '11px'
+                }
+
                 
                 if (number === "#007") {
-                    const resource = cardWrapper.querySelector('.resource-container');
-                    const city = cardWrapper.querySelector('.city-tile-small-container');
                     resource_description.style.top = '85px';
-                    resource.style.right = '35px';
-                    city.style.left = '50px';
-                    city.style.top = '7px';
+                    resourceContainer.style.right = '35px';
+                    smallCityContainer.style.left = '50px';
+                    smallCityContainer.style.top = '7px';
+                }
+
+                if (number === "#008") {
+                    [2, 3, 4].forEach(i => {
+                        const container = cardWrapper.querySelector(`.description-container-${i}`);
+                        const description = container.querySelector('.description');
+
+                        if (container && description) {
+                            container.style.width = '160px';
+                            container.style.left = '-30px';
+                            container.style.textAlign = 'left';
+                            description.style.fontSize = '9px';
+                        }
+                    });
                 }
                 
                 if (number === "#009") {
-                    const container = cardWrapper.querySelector('.resource-container');
                     const minus = cardWrapper.querySelector('.minus-resource-container-1');
                     const titaniums = cardWrapper.querySelectorAll('.titanium-resource-container-1, .titanium-resource-container-2');
                     const rest = cardWrapper.querySelectorAll('.plant-resource-container-1, .plant-resource-container-2, .plant-resource-container-3');
-                    container.style.width = '100px';
+                    resourceContainer.style.width = '100px';
                     minus.style.left = '-97px';
                     minus.style.bottom = '-33px';
 
@@ -277,23 +297,273 @@
                 
                 if (number === "#011") {
                     const minus = cardWrapper.querySelector('.minus-resource-container-1');
-                    const container = cardWrapper.querySelector('.resource-container');
-                    container.style.width = '185px';
-                    container.style.left = '17px';
+                    resourceContainer.style.width = '185px';
+                    resourceContainer.style.left = '17px';
                     minus.style.right = '143px';
                     minus.style.bottom = '-32px';
 
                 }
 
                 if (number === "#012") {
-                    ocean = cardWrapper.querySelector('.ocean-tile-container')
-                    description = cardWrapper.querySelector('.description-container')
-                    resource_description.style.top = '85px'
-                    resource_description.style.left = '-40px'
-                    ocean.style.right = '-33px'
-                    description.style.left = '39px'
-
+                    ocean = cardWrapper.querySelector('.ocean-tile-container');
+                    description = cardWrapper.querySelector('.description-container-1');
+                    description2 = cardWrapper.querySelector('.description-container-2');
+                    resource_description.style.top = '85px';
+                    resource_description.style.left = '-40px';
+                    ocean.style.right = '-33px';
+                    description.style.left = '39px';
+                    description2.style.left = '39px'
                 }
+
+                if (number === "#013") {
+                    const production = cardWrapper.querySelector('.default-box')
+                    const container1 = cardWrapper.querySelector('.description-container-1')
+                    const container = cardWrapper.querySelector('.description-container-2')
+
+                    resource_description.style.top = '77px';
+                    production.style.position = 'relative'
+                    production.style.top = '77px'
+                    container.style.top = '58px'
+                    container1.style.top = '-10px'
+                }
+
+                if (number === "#014") {
+                    resource_description.style.top = '82px';
+                }
+
+                if (number === "#015") {
+                    const production = cardWrapper.querySelector('.production-box-size1a')
+
+                    resource_description.style.top = '82px';
+                    production.style.position = 'relative'
+                    production.style.left = '-25px'
+                }
+
+                if (number === "#016") {
+                    [1, 2, 3, 4].forEach(i => {
+                        const container = cardWrapper.querySelector(`.description-container-${i}`);
+                        const description = container.querySelector('.description');
+
+                        if (container && description) {
+                            container.style.paddingTop = '0px'
+                            container.style.paddingBottom = '0px'
+                            container.style.textAlign = 'left';
+                        }
+                    });
+                    container2 = cardWrapper.querySelector('.description-container-2')
+                    container3 = cardWrapper.querySelector('.description-container-3')                    
+                    container4 = cardWrapper.querySelector('.description-container-4')
+                    resource_description.style.top = '196px' 
+                    container2.style.left = '-47px'
+                    container3.style.left = '7px'
+                    container4.style.left = '-107px'                    
+                    container4.style.top = '13px'
+                    cityTileContainer.style.top = '32px'
+                }
+
+                if (number === "#017") {
+                    resource_description.style.top = '165px';
+                    cityTileContainer.style.top = '32px'
+                }
+
+                if (number === "#018") {
+                    resource_description.style.top = '197px';
+                }
+
+                if (number === "#019") {
+                    const ocean = cardWrapper.querySelector('.ocean-tile-container')
+                    const container = cardWrapper.querySelector('.description-container-1')
+                    resource_description.style.top = '80px'
+                    ocean.style.top = '43px'
+                    container.style.top = '47px'
+                }
+
+                if (number === "#020") {
+                    const container = cardWrapper.querySelector('.description-container-2')
+                    resource_description.style.top = '77px'
+                    cityTileContainer.style.top = '93px'
+                    container.style.top = '60px'
+                }
+
+                if (number === "#022") {
+                    const ocean = cardWrapper.querySelector('.ocean-tile-container')
+                    resource_description.style.top = '166px'
+                    ocean.style.top = '33px'
+                }
+
+                if (number === "#023") {
+                    const ocean = cardWrapper.querySelector('.ocean-tile-container')
+                    const container = cardWrapper.querySelector('.plant-resource-container-1')
+                    const container2 = cardWrapper.querySelector('.description-container-2')
+                    resource_description.style.top = '119px'
+                    container.style.top = '75px'
+                    container.style.left = '34px'
+                    container2.style.top = '28px'
+                    ocean.style.left = '-50px'
+                }
+
+                if (number === "#024") {
+                    resource_description.style.top = '111px'
+                }
+
+                if (number === "#025") {
+                    resource_description.style.top = '79px'
+                }
+
+                if (number === "#026") {
+                    const production = cardWrapper.querySelector('.default-box')
+                    const description = cardWrapper.querySelector('.description-container-1')
+                    resource_description.style.top = '109px'
+                    production.style.position = 'relative'
+                    production.style.top = '39px'
+                    description.style.top = '47px'
+                }
+
+                if (number === "#028") {
+                    resource_description.style.top = '76px'
+                }
+
+                if (number === "#029") {
+                    resource_description.style.top = '200px'
+                    cityTileContainer.style.top = '31px'
+                }
+
+                if (number === "#030") {
+                    resource_description.style.top = '200px'
+                }
+
+                if (number === "#031") {
+                    resource_description.style.top = '78px'
+                    resourceContainer.style.width = '213px'
+                }
+
+                if (number === "#032") {
+                    resource_description.style.top = '166px'
+                    cityTileContainer.style.top = '33px'
+                }
+
+                if (number === "#033") {
+                    const arrow1microbe1 = cardWrapper.querySelectorAll('.red-arrow-resource-container-1, .microbe-resource-container-1')
+                    const arrow2 = cardWrapper.querySelector('.red-arrow-resource-container-2')
+                    const microbe2and3 = cardWrapper.querySelectorAll('.microbe-resource-container-2, .microbe-resource-container-3')
+                    const oxygen = cardWrapper.querySelector('.oxygen-tile-container')
+                    const description1 = cardWrapper.querySelector('.description-container-1')
+
+                    arrow1microbe1.forEach(both => {
+                        both.style.top = '-56px'
+                        both.style.left = '35px'
+                    });
+
+                    microbe2and3.forEach(two => {
+                        two.style.left = '-60px'
+                    });
+                    oxygen.style.top = '50px'
+                    oxygen.style.left = '64px'
+                    arrow2.style.top = '-32px'
+                    arrow2.style.left = '23px'
+                    description1.style.top = '-27px'
+                }
+
+                if (number === "#034") {
+                    const arrow1microbe1 = cardWrapper.querySelectorAll('.red-arrow-resource-container-1, .microbe-resource-container-1')
+                    const arrow2 = cardWrapper.querySelector('.red-arrow-resource-container-2')
+                    const microbe2and3 = cardWrapper.querySelectorAll('.microbe-resource-container-2, .microbe-resource-container-3')
+                    const temperature = cardWrapper.querySelector('.temperature-tile-container')
+                    const description1 = cardWrapper.querySelector('.description-container-1')
+                    const description2 = cardWrapper.querySelector('.description-container-2')
+                    resource_description.style.top = '162px'
+
+                    arrow1microbe1.forEach(both => {
+                        both.style.top = '-56px'
+                        both.style.left = '35px'
+                    });
+
+                    microbe2and3.forEach(two => {
+                        two.style.left = '-60px'
+                    });
+                    temperature.style.top = '42px'
+                    temperature.style.left = '53px'
+                    arrow2.style.top = '-33px'
+                    arrow2.style.left = '23px'
+
+                    description1.style.top = '-30px'
+                    description2.style.top = '-30px'
+                }
+
+                if (number === "#035") {
+                    resource_description.style.top = '111px'
+                }
+
+                if (number === "#036") {
+                    resource_description.style.top = '127px'
+                }
+
+                if (number === "#036") {
+                    const content = cardWrapper.querySelector('.content')
+                    resource_description.style.top = '127px'
+                    content.style.columnGap = '8px'
+                }
+
+                if (number === "#037") {
+                    const size = cardWrapper.querySelector('.production-box-size3');
+                    const temperature = cardWrapper.querySelector('.temperature-tile-container');
+                    const content = cardWrapper.querySelector('.content');
+                    const plantIcon1 = cardWrapper.querySelector('.plant-production-icon-container-1 .production-icon-name');
+                    const plantIcon2 = cardWrapper.querySelector('.plant-production-icon-container-2 .production-icon-name');
+                    const tagPlantIcon = cardWrapper.querySelector('.tag-plant-production-icon-container-1 .production-icon-name');
+
+                    resource_description.style.top = '218px';
+                    size.style.marginLeft = '60px';
+                    size.style.marginRight = '56px';
+                    temperature.style.left = '7px';
+                    content.style.columnGap = '8px';
+
+                    plantIcon1.style.transform = 'translate(22px, -3px)';
+                    plantIcon2.style.transform = 'translate(20px, 34px)';
+                    tagPlantIcon.style.transform = 'translate(-19px, 1px)';
+                }
+
+
+                if (number === "#038") {
+                    const money = cardWrapper.querySelector('.money-resource-container-1')
+                    resource_description.style.top = '86px'
+                    cityTileContainer.style.left = '-25px'
+                    money.style.left = '20px'
+                }
+
+                if (number === "#041") {
+                    resource_description.style.top = '165px'
+                }
+
+                if (number === "#042") {
+                    resource_description.style.top = '165px'
+                }
+
+                if (number === "#043") {
+                    resource_description.style.top = '165px'
+                }
+
+                if (number === "#044") {
+                    resource_description.style.top = '165px'
+                }
+
+                if (number === "#045") {
+                    resource_description.style.top = '165px'
+                }
+
+                if (number === "#046") {
+                    resource_description.style.top = '165px'
+                }
+
+                if (number === "#047") {
+                    const container = cardWrapper.querySelector('.production-box-size2')
+                    const container2 = cardWrapper.querySelector('.resource-container')
+                    container.style.marginRight = '56px'
+                    resource_description.style.top = '119px'
+                    container2.style.left = '49px'
+                }
+
+
             });
 
             // Hide loading message if cards are present

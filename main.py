@@ -45,7 +45,8 @@ RESOURCE_IMAGE_MAP = {
     "plant":                    "https://ssimeonoff.github.io/images/resources/plant.png",
     "fighter":                  "https://ssimeonoff.github.io/images/resources/fighter.png",
     "tag-event":                "https://ssimeonoff.github.io/images/tags/event.png",
-    "microbe":                  "https://ssimeonoff.github.io/images/resources/microbe.png"
+    "microbe":                  "https://ssimeonoff.github.io/images/resources/microbe.png",
+    "tag-plant":                "https://ssimeonoff.github.io/images/tags/plant.png"
     
 }               
 
@@ -249,20 +250,20 @@ def extract_production_data(card):
         content_divs = card.find_elements(By.CSS_SELECTOR, "div.content")
         if not content_divs:
             return production_data
-        
+
         content_div = content_divs[0]
         resource_called = safe_find_attribute(card, "div.production-box", "class")
         production_boxes = content_div.find_elements(By.CSS_SELECTOR, "div.production-box")
-        
+
         for production_box in production_boxes:
             children = production_box.find_elements(By.XPATH, "./*")
             current_prefix = None
             prefix_image_url = ""
-            type_image_url = ""
             productions = []
-            
+
             for child in children:
                 classes = child.get_attribute("class").split()
+
                 # Detect prefix
                 if "production-prefix" in classes:
                     if child.find_elements(By.CSS_SELECTOR, "div.minus"):
@@ -274,13 +275,18 @@ def extract_production_data(card):
                     else:
                         current_prefix = None
                     continue
-                
-                # Collect production items with prefix, or with no prefix (set prefix to 'none')
+
+                # Handle standard production resource
                 if "production" in classes:
-                    # Assign prefix 'none' if none was set previously
                     prefix_to_use = current_prefix if current_prefix else "none"
-                    
-                    production_type = next((ptype for ptype in classes if ptype in ["money", "heat", "energy", "titanium", "plant", "steel"]), "None")
+
+                    production_type = next(
+                        (ptype for ptype in classes if ptype in [
+                            "money", "heat", "energy", "titanium", "plant", "steel"
+                        ]),
+                        None
+                    )
+
                     if production_type:
                         if production_type == "money":
                             money_amount = safe_find_text(card, "div.money")
@@ -293,28 +299,43 @@ def extract_production_data(card):
 
                         type_image_url = RESOURCE_IMAGE_MAP.get(production_type, "")
                         is_special = "red-outline" in classes
+
                         productions.append({
-                            "type": type_value ,
-                            "prefix": prefix_to_use,                            
+                            "type": type_value,
+                            "prefix": prefix_to_use,
                             "type_image_url": type_image_url,
                             "prefix_image_url": prefix_image_url,
                             "special": is_special
                         })
-                else:
-                    # Reset prefix on unrelated elements (like <br>)
-                    if "production-prefix" not in classes and "production" not in classes:
-                        current_prefix = None
+
+                # Handle special tag-based production like <div class="tag-plant resource-tag"></div>
+                elif "tag-plant" in classes:
+                    prefix_to_use = current_prefix if current_prefix else "none"
+                    type_image_url = RESOURCE_IMAGE_MAP.get("tag-plant", "")
+                    is_special = "red-outline" in classes
+
+                    productions.append({
+                        "type": "tag-plant",
+                        "prefix": prefix_to_use,
+                        "type_image_url": type_image_url,
+                        "prefix_image_url": prefix_image_url,
+                        "special": is_special
+                    })
+
+                # Reset prefix for unrelated elements like <br>
+                elif "production-prefix" not in classes:
+                    current_prefix = None
+
             # After parsing productions:
             minus_productions = [p for p in productions if p['prefix'] == 'minus']
             plus_productions = [p for p in productions if p['prefix'] == 'plus']
             none_productions = [p for p in productions if p['prefix'] not in ['minus', 'plus']]
 
-            # Group each list by type or merge if they are single
+            # Group each list
             grouped_minus = merge_if_single_items(group_productions_by_type(minus_productions))
             grouped_plus = merge_if_single_items(group_productions_by_type(plus_productions))
             grouped_none = merge_if_single_items(group_productions_by_type(none_productions))
 
-            
             background_image = RESOURCE_IMAGE_MAP.get("production-box", "") if productions else ""
 
             production_data.append({
@@ -324,9 +345,12 @@ def extract_production_data(card):
                 'grouped_plus': grouped_plus,
                 'grouped_none': grouped_none
             })
+
     except Exception as e:
         print(f"Error extracting production data: {e}")
+
     return production_data
+
 
 def extract_tile_data(card):
     tile_data = []
@@ -445,13 +469,46 @@ def extract_filtered_content_with_class(card_content):
     return result
 
 
+def extract_description_data(card):
+    description_data = []
+    try:
+        for d in card.find_elements(By.CSS_SELECTOR, "div.description"):
+            raw_text = d.text.strip()
+
+            # Find all "(...)" blocks using regex
+            parts = re.findall(r'\([^)]+\)', raw_text)            
+
+            if parts:
+                for part in parts:
+                    # Split each parentheses block by newline and add separately
+                    lines = part.split('\n')
+                    for line in lines:
+                        line = line.strip()
+                        if line:
+                            description_data.append({"description": line})
+            else:
+                # No parentheses, split whole text by newline
+                lines = raw_text.split('\n')
+                for line in lines:
+                    line = line.strip()
+                    if line:
+                        description_data.append({"description": line})
+
+    except Exception as e:
+        print(f"Error extracting description data: {e}")
+
+    return description_data
+
+
+
+
 for card in cards[:48]:  # limit to first 48 cards
     title = extract_title_data(card)
     price_data = extract_price_data(driver, card)
     number = safe_find_text(card, "div.number")
     money = safe_find_text(card, "span.money.resource")
     points_resource = extract_points_data(card)  # Extract points data
-    descriptions = " ".join([d.text for d in card.find_elements(By.CSS_SELECTOR, "div.description")]) or ""
+    description_data = extract_description_data(card)
     tag_data = extract_tag_data(driver, card)
     requirements = extract_requirements_data(card, "requirements")
     production = extract_production_data(card)
@@ -465,7 +522,7 @@ for card in cards[:48]:  # limit to first 48 cards
         "price": price_data,
         "tags": tag_data,  # Now contains both names and image URLs
         "money": money,
-        "descriptions": descriptions,
+        "descriptions": description_data,
         "points_resource": points_resource,
         "requirements": requirements,
         "production": production,

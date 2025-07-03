@@ -23,7 +23,11 @@
             }
         ],
         "money": "",
-        "descriptions": "(Oxygen must be 5% or less.)",
+        "descriptions": [
+            {
+                "description": "(Oxygen must be 5% or less.)"
+            }
+        ],
         "points_resource": [
             {
                 "points": "2",
@@ -62,7 +66,11 @@
             }
         ],
         "money": "",
-        "descriptions": "(Requires that you have titanium production. Decrease any titanium production 1 step and increase your own 1 step.)",
+        "descriptions": [
+            {
+                "description": "(Requires that you have titanium production. Decrease any titanium production 1 step and increase your own 1 step.)"
+            }
+        ],
         "points_resource": [
             {
                 "points": "1",
@@ -134,7 +142,11 @@
             }
         ],
         "money": "",
-        "descriptions": "(Increase your Energy production 1 step. Increase temperature 1 step.)",
+        "descriptions": [
+            {
+                "description": "(Increase your Energy production 1 step. Increase temperature 1 step.)"
+            }
+        ],
         "points_resource": [],
         "requirements": [],
         "production": [
@@ -179,7 +191,11 @@
         },
         "tags": [],
         "money": "",
-        "descriptions": "(Requires 3 ocean tiles. Decrease your MC production 1 step and any heat production 1 step. Increase your Plant production 2 steps.)",
+        "descriptions": [
+            {
+                "description": "(Requires 3 ocean tiles. Decrease your MC production 1 step and any heat production 1 step. Increase your Plant production 2 steps.)"
+            }
+        ],
         "points_resource": [],
         "requirements": [
             {
@@ -257,7 +273,14 @@
             }
         ],
         "money": "1",
-        "descriptions": "(Action: Spend 1 MC to reveal the top card of the draw deck. If that card has a Microbe tag, add a Science resource here.)\n\n(3 VPs if you have one or more Science resources here.)",
+        "descriptions": [
+            {
+                "description": "(Action: Spend 1 MC to reveal the top card of the draw deck. If that card has a Microbe tag, add a Science resource here.)"
+            },
+            {
+                "description": "(3 VPs if you have one or more Science resources here.)"
+            }
+        ],
         "points_resource": [
             {
                 "points": "3/",
@@ -321,7 +344,9 @@
             }
         ],
         "money": "",
-        "descriptions": "",
+        "descriptions": [{
+            "description": "ACTION: LOOK AT THE TOP CARD AND EITHER BUY IT OR DISCARD IT"
+        }],
         "points_resource": [],
         "requirements": [],
         "production": [],
@@ -361,7 +386,11 @@
             }
         ],
         "money": "1",
-        "descriptions": "(Action: Spend 1 Energy to gain 1 MC for each City tile ON MARS.)",
+        "descriptions": [
+            {
+                "description": "(Action: Spend 1 Energy to gain 1 MC for each City tile ON MARS.)"
+            }
+        ],
         "points_resource": [],
         "requirements": [],
         "production": [],
@@ -418,7 +447,20 @@
             }
         ],
         "money": "",
-        "descriptions": "(Requires 4 ocean tiles. Place this tile. Decrease your Energy production 2 steps and increase your MC production 5 steps.\n1 ADDITIONAL VP FOR EACH\nOCEAN TILE ADJACENT\nTO THIS CITY TILE.",
+        "descriptions": [
+            {
+                "description": "(Requires 4 ocean tiles. Place this tile. Decrease your Energy production 2 steps and increase your MC production 5 steps."
+            },
+            {
+                "description": "1 ADDITIONAL VP FOR EACH"
+            },
+            {
+                "description": "OCEAN TILE ADJACENT"
+            },
+            {
+                "description": "TO THIS CITY TILE."
+            }
+        ],
         "points_resource": [
             {
                 "points": "1/",
@@ -506,7 +548,11 @@
             }
         ],
         "money": "",
-        "descriptions": "(Raise temperature 1 step and gain 2 titanium. Remove up to 3 Plants from any player.)",
+        "descriptions": [
+            {
+                "description": "(Raise temperature 1 step and gain 2 titanium. Remove up to 3 Plants from any player.)"
+            }
+        ],
         "points_resource": [],
         "requirements": [],
         "production": [],
@@ -581,7 +627,11 @@
             }
         ],
         "money": "",
-        "descriptions": "(Raise temperature 1 step and place an ocean tile. Remove up to 3 Plants from any player.)",
+        "descriptions": [
+            {
+                "description": "(Raise temperature 1 step and place an ocean tile. Remove up to 3 Plants from any player.)"
+            }
+        ],
         "points_resource": [],
         "requirements": [],
         "production": [],
@@ -649,7 +699,11 @@
             }
         ],
         "money": "",
-        "descriptions": "(Raise temperature 2 steps and gain 4 titanium. Remove up to 4 Plants from any player.)",
+        "descriptions": [
+            {
+                "description": "(Raise temperature 2 steps and gain 4 titanium. Remove up to 4 Plants from any player.)"
+            }
+        ],
         "points_resource": [],
         "requirements": [],
         "production": [],
@@ -747,7 +801,14 @@
             }
         ],
         "money": "",
-        "descriptions": "(Action: Pay 12 MC to place an ocean tile. TITANIUM MAY BE USED as if playing a Space card.)\n\n(1 VP for each Jovian tag you have.)",
+        "descriptions": [
+            {
+                "description": "(Action: Pay 12 MC to place an ocean tile. TITANIUM MAY BE USED as if playing a Space card.)"
+            },
+            {
+                "description": "(1 VP for each Jovian tag you have.)"
+            }
+        ],
         "points_resource": [
             {
                 "points": "1/",
@@ -810,7 +871,14 @@
             }
         ],
         "money": "5",
-        "descriptions": "(Action: Spend 1 steel to gain 5 MC.) (Increase your titanium production 1 step.)",
+        "descriptions": [
+            {
+                "description": "(Action: Spend 1 steel to gain 5 MC.)"
+            },
+            {
+                "description": "(Increase your titanium production 1 step.)"
+            }
+        ],
         "points_resource": [
             {
                 "points": "2",
@@ -885,7 +953,11 @@
             }
         ],
         "money": "",
-        "descriptions": "(Action: Spend 1 Energy to draw a card.)",
+        "descriptions": [
+            {
+                "description": "(Action: Spend 1 Energy to draw a card.)"
+            }
+        ],
         "points_resource": [],
         "requirements": [],
         "production": [],
@@ -931,7 +1003,11 @@
             }
         ],
         "money": "",
-        "descriptions": "(Action: Decrease your Energy production 1 step to increase your terraform rating 1 step.)",
+        "descriptions": [
+            {
+                "description": "(Action: Decrease your Energy production 1 step to increase your terraform rating 1 step.)"
+            }
+        ],
         "points_resource": [],
         "requirements": [],
         "production": [
@@ -994,7 +1070,20 @@
             }
         ],
         "money": "",
-        "descriptions": "(Oxygen must be 7% or less. Gain 3 plants. Place a City tile. Decrease\nyour Energy production 1\nstep and increase your\nMC production 3 steps.)",
+        "descriptions": [
+            {
+                "description": "(Oxygen must be 7% or less. Gain 3 plants. Place a City tile. Decrease"
+            },
+            {
+                "description": "your Energy production 1"
+            },
+            {
+                "description": "step and increase your"
+            },
+            {
+                "description": "MC production 3 steps.)"
+            }
+        ],
         "points_resource": [
             {
                 "points": "1",
@@ -1094,7 +1183,11 @@
             }
         ],
         "money": "",
-        "descriptions": "(Decrease your Energy production 1 step and increase your MC production 3 steps. Place a city ON THE RESERVED AREA, disregarding normal placement restrictions.)",
+        "descriptions": [
+            {
+                "description": "(Decrease your Energy production 1 step and increase your MC production 3 steps. Place a city ON THE RESERVED AREA, disregarding normal placement restrictions.)"
+            }
+        ],
         "points_resource": [],
         "requirements": [],
         "production": [
@@ -1163,7 +1256,11 @@
             }
         ],
         "money": "",
-        "descriptions": "(Requires 2% oxygen. Increase your heat production 2 steps and your Plant production 2 steps.)",
+        "descriptions": [
+            {
+                "description": "(Requires 2% oxygen. Increase your heat production 2 steps and your Plant production 2 steps.)"
+            }
+        ],
         "points_resource": [
             {
                 "points": "2",
@@ -1253,7 +1350,11 @@
             }
         ],
         "money": "",
-        "descriptions": "(Gain 3 Plants, or add 3 Microbes or 2 Animals to ANOTHER card. Place an ocean tile.)",
+        "descriptions": [
+            {
+                "description": "(Gain 3 Plants, or add 3 Microbes or 2 Animals to ANOTHER card. Place an ocean tile.)"
+            }
+        ],
         "points_resource": [],
         "requirements": [],
         "production": [],
@@ -1333,7 +1434,14 @@
             }
         ],
         "money": "-1",
-        "descriptions": "(Effect: When you play a card, you pay 1 MC less for it.) (Place a city tile NEXT TO NO OTHER TILE.)",
+        "descriptions": [
+            {
+                "description": "(Effect: When you play a card, you pay 1 MC less for it.)"
+            },
+            {
+                "description": "(Place a city tile NEXT TO NO OTHER TILE.)"
+            }
+        ],
         "points_resource": [],
         "requirements": [],
         "production": [],
@@ -1378,7 +1486,11 @@
             }
         ],
         "money": "",
-        "descriptions": "(Increase your titanium production 1 step and place a City tile ON THE RESERVED AREA.)",
+        "descriptions": [
+            {
+                "description": "(Increase your titanium production 1 step and place a City tile ON THE RESERVED AREA.)"
+            }
+        ],
         "points_resource": [
             {
                 "points": "3",
@@ -1429,7 +1541,11 @@
         },
         "tags": [],
         "money": "",
-        "descriptions": "(Place an ocean tile. Decrease your MC production 2 steps and increase your heat production 3 steps.)",
+        "descriptions": [
+            {
+                "description": "(Place an ocean tile. Decrease your MC production 2 steps and increase your heat production 3 steps.)"
+            }
+        ],
         "points_resource": [],
         "requirements": [],
         "production": [
@@ -1507,7 +1623,14 @@
             }
         ],
         "money": "",
-        "descriptions": "(Effect: When anyone places an ocean tile, gain 2 Plants.) (It must be -12 C or colder to play. Gain 1 Plant.)",
+        "descriptions": [
+            {
+                "description": "(Effect: When anyone places an ocean tile, gain 2 Plants.)"
+            },
+            {
+                "description": "(It must be -12 C or colder to play. Gain 1 Plant.)"
+            }
+        ],
         "points_resource": [],
         "requirements": [
             {
@@ -1565,7 +1688,14 @@
             }
         ],
         "money": "",
-        "descriptions": "(Action: Remove 1 Animal from any card and add it to this card.) (Requires 11% oxygen. 1 VP per Animal on this card.)",
+        "descriptions": [
+            {
+                "description": "(Action: Remove 1 Animal from any card and add it to this card.)"
+            },
+            {
+                "description": "(Requires 11% oxygen. 1 VP per Animal on this card.)"
+            }
+        ],
         "points_resource": [
             {
                 "points": "1/",
@@ -1623,7 +1753,11 @@
             }
         ],
         "money": "",
-        "descriptions": "(Effect: When you play a Space card, you pay 2 MC less for it.)",
+        "descriptions": [
+            {
+                "description": "(Effect: When you play a Space card, you pay 2 MC less for it.)"
+            }
+        ],
         "points_resource": [
             {
                 "points": "1",
@@ -1674,7 +1808,11 @@
             }
         ],
         "money": "",
-        "descriptions": "(Requires -12 C or warmer. Add 1 Animal TO ANY ANIMAL CARD. Gain 3 Plants. Increase your MC production 2 steps.)",
+        "descriptions": [
+            {
+                "description": "(Requires -12 C or warmer. Add 1 Animal TO ANY ANIMAL CARD. Gain 3 Plants. Increase your MC production 2 steps.)"
+            }
+        ],
         "points_resource": [
             {
                 "points": "1",
@@ -1769,7 +1907,7 @@
             }
         ],
         "money": "",
-        "descriptions": "",
+        "descriptions": [],
         "points_resource": [
             {
                 "points": "4",
@@ -1808,7 +1946,14 @@
             }
         ],
         "money": "",
-        "descriptions": "(Action: Spend 1 titanium to add 1 fighter resource to this card.) (1 VP for each fighter resource on this card.)",
+        "descriptions": [
+            {
+                "description": "(Action: Spend 1 titanium to add 1 fighter resource to this card.)"
+            },
+            {
+                "description": "(1 VP for each fighter resource on this card.)"
+            }
+        ],
         "points_resource": [
             {
                 "points": "1/",
@@ -1865,7 +2010,11 @@
             }
         ],
         "money": "",
-        "descriptions": "(Oxygen must be 9% or less. Place a City tile. Decrease your Energy production 1 step and increase your MC production 3 steps.)",
+        "descriptions": [
+            {
+                "description": "(Oxygen must be 9% or less. Place a City tile. Decrease your Energy production 1 step and increase your MC production 3 steps.)"
+            }
+        ],
         "points_resource": [],
         "requirements": [
             {
@@ -1940,7 +2089,11 @@
             }
         ],
         "money": "",
-        "descriptions": "(Decrease your MC production 2 steps and increase your heat production and Energy production 2 steps each.)",
+        "descriptions": [
+            {
+                "description": "(Decrease your MC production 2 steps and increase your heat production and Energy production 2 steps each.)"
+            }
+        ],
         "points_resource": [],
         "requirements": [],
         "production": [
@@ -2021,7 +2174,11 @@
             }
         ],
         "money": "",
-        "descriptions": "(Effect: When you play a Space Event, you gain 3 MC and 3 heat.)",
+        "descriptions": [
+            {
+                "description": "(Effect: When you play a Space Event, you gain 3 MC and 3 heat.)"
+            }
+        ],
         "points_resource": [],
         "requirements": [],
         "production": [],
@@ -2090,7 +2247,11 @@
             }
         ],
         "money": "",
-        "descriptions": "(Place a City tile. Decrease your Energy production 2 steps and increase your steel production 2 steps.)",
+        "descriptions": [
+            {
+                "description": "(Place a City tile. Decrease your Energy production 2 steps and increase your steel production 2 steps.)"
+            }
+        ],
         "points_resource": [],
         "requirements": [],
         "production": [
@@ -2170,7 +2331,11 @@
             }
         ],
         "money": "",
-        "descriptions": "(Action: Add 1 Microbe to this card, or remove 2 Microbes from this card to raise oxygen level 1 step.)",
+        "descriptions": [
+            {
+                "description": "(Action: Add 1 Microbe to this card, or remove 2 Microbes from this card to raise oxygen level 1 step.)"
+            }
+        ],
         "points_resource": [],
         "requirements": [],
         "production": [],
@@ -2239,7 +2404,14 @@
             }
         ],
         "money": "",
-        "descriptions": "(Action: Add 1 Microbe to this card, or remove 2 Microbes to raise temperature 1 step.)\n\n(Requires 4% oxygen.)",
+        "descriptions": [
+            {
+                "description": "(Action: Add 1 Microbe to this card, or remove 2 Microbes to raise temperature 1 step.)"
+            },
+            {
+                "description": "(Requires 4% oxygen.)"
+            }
+        ],
         "points_resource": [],
         "requirements": [
             {
@@ -2309,7 +2481,14 @@
             }
         ],
         "money": "",
-        "descriptions": "(Action: Remove 1 Microbe from any card to add 1 to this card.)\n\n(Requires 4% oxygen. 1 VP per 2 Microbes on this card.)",
+        "descriptions": [
+            {
+                "description": "(Action: Remove 1 Microbe from any card to add 1 to this card.)"
+            },
+            {
+                "description": "(Requires 4% oxygen. 1 VP per 2 Microbes on this card.)"
+            }
+        ],
         "points_resource": [
             {
                 "points": "1/2",
@@ -2367,7 +2546,11 @@
             }
         ],
         "money": "",
-        "descriptions": "(Raise your terraform rating 2 steps.)",
+        "descriptions": [
+            {
+                "description": "(Raise your terraform rating 2 steps.)"
+            }
+        ],
         "points_resource": [],
         "requirements": [],
         "production": [],
@@ -2410,7 +2593,11 @@
             }
         ],
         "money": "",
-        "descriptions": "(Raise your terraforming rating 2 steps and temperature 1 step. Increase your Plant production 1 step, or 4 steps if you have 3 Plant tags.)",
+        "descriptions": [
+            {
+                "description": "(Raise your terraforming rating 2 steps and temperature 1 step. Increase your Plant production 1 step, or 4 steps if you have 3 Plant tags.)"
+            }
+        ],
         "points_resource": [],
         "requirements": [],
         "production": [
@@ -2432,6 +2619,15 @@
                             "type": "plant",
                             "prefix": "none",
                             "type_image_url": "https://ssimeonoff.github.io/images/resources/plant.png",
+                            "prefix_image_url": "",
+                            "special": false
+                        }
+                    ],
+                    "tag-plant": [
+                        {
+                            "type": "tag-plant",
+                            "prefix": "none",
+                            "type_image_url": "https://ssimeonoff.github.io/images/tags/plant.png",
                             "prefix_image_url": "",
                             "special": false
                         }
@@ -2478,7 +2674,11 @@
             }
         ],
         "money": "",
-        "descriptions": "(Effect: When any City tile is placed, gain 2 MC.)",
+        "descriptions": [
+            {
+                "description": "(Effect: When any City tile is placed, gain 2 MC.)"
+            }
+        ],
         "points_resource": [
             {
                 "points": "1",
@@ -2529,7 +2729,11 @@
             }
         ],
         "money": "",
-        "descriptions": "(Raise temperature 3 steps and gain 4 steel. Remove up to 8 Plants from any player.)",
+        "descriptions": [
+            {
+                "description": "(Raise temperature 3 steps and gain 4 steel. Remove up to 8 Plants from any player.)"
+            }
+        ],
         "points_resource": [],
         "requirements": [],
         "production": [],
@@ -2614,7 +2818,11 @@
             }
         ],
         "money": "",
-        "descriptions": "(Increase your titanium production 2 steps.)",
+        "descriptions": [
+            {
+                "description": "(Increase your titanium production 2 steps.)"
+            }
+        ],
         "points_resource": [
             {
                 "points": "2",
@@ -2672,7 +2880,11 @@
             }
         ],
         "money": "",
-        "descriptions": "(Decrease your Plant production 1 step and increase your MC production 4 steps.)",
+        "descriptions": [
+            {
+                "description": "(Decrease your Plant production 1 step and increase your MC production 4 steps.)"
+            }
+        ],
         "points_resource": [
             {
                 "points": "1",
@@ -2736,7 +2948,11 @@
             }
         ],
         "money": "",
-        "descriptions": "(It must be -18 C or colder. Increase your Plant production 1 step.)",
+        "descriptions": [
+            {
+                "description": "(It must be -18 C or colder. Increase your Plant production 1 step.)"
+            }
+        ],
         "points_resource": [],
         "requirements": [
             {
@@ -2787,7 +3003,11 @@
             }
         ],
         "money": "",
-        "descriptions": "(Decrease your Energy production 1 step and increase your heat production 3 steps.)",
+        "descriptions": [
+            {
+                "description": "(Decrease your Energy production 1 step and increase your heat production 3 steps.)"
+            }
+        ],
         "points_resource": [],
         "requirements": [],
         "production": [
@@ -2861,7 +3081,11 @@
             }
         ],
         "money": "",
-        "descriptions": "(Oxygen must be 4% or less. Place this tile NEXT TO NO OTHER TILE. Increase your MC production 1 step.)",
+        "descriptions": [
+            {
+                "description": "(Oxygen must be 4% or less. Place this tile NEXT TO NO OTHER TILE. Increase your MC production 1 step.)"
+            }
+        ],
         "points_resource": [
             {
                 "points": "1",
@@ -2932,7 +3156,11 @@
             }
         ],
         "money": "",
-        "descriptions": "(Decrease your MC production 2 steps and increase your Energy production 3 steps.)",
+        "descriptions": [
+            {
+                "description": "(Decrease your MC production 2 steps and increase your Energy production 3 steps.)"
+            }
+        ],
         "points_resource": [],
         "requirements": [],
         "production": [
@@ -3004,7 +3232,11 @@
             }
         ],
         "money": "",
-        "descriptions": "(Requires 3 Science tags. Increase your Energy production and your MC production up one step each.)",
+        "descriptions": [
+            {
+                "description": "(Requires 3 Science tags. Increase your Energy production and your MC production up one step each.)"
+            }
+        ],
         "points_resource": [
             {
                 "points": "1",
@@ -3071,7 +3303,11 @@
             }
         ],
         "money": "",
-        "descriptions": "(Requires 5 ocean tiles. Gain 1 Plant and increase your Plant production 2 steps.)",
+        "descriptions": [
+            {
+                "description": "(Requires 5 ocean tiles. Gain 1 Plant and increase your Plant production 2 steps.)"
+            }
+        ],
         "points_resource": [],
         "requirements": [
             {
@@ -3136,7 +3372,11 @@
             }
         ],
         "money": "",
-        "descriptions": "(Increase your Plant production 1 step.)",
+        "descriptions": [
+            {
+                "description": "(Increase your Plant production 1 step.)"
+            }
+        ],
         "points_resource": [],
         "requirements": [],
         "production": [
