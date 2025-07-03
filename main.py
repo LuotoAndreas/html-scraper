@@ -2,6 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from collections import defaultdict
+from selenium.common.exceptions import NoSuchElementException, ElementClickInterceptedException
+import time
 import json
 import re
 
@@ -52,6 +54,19 @@ RESOURCE_IMAGE_MAP = {
 
 URL = "https://ssimeonoff.github.io/cards-list"
 driver.get(URL)
+
+while True:
+    try:
+        load_more_button = driver.find_element(By.ID, "button-load-more")
+        if load_more_button.is_displayed():
+            load_more_button.click()
+            time.sleep(2)  # wait for new cards to load
+        else:
+            break  # button hidden, no more cards to load
+    except NoSuchElementException:
+        break  # button gone, all cards loaded
+    except ElementClickInterceptedException:
+        time.sleep(1)  # wait and retry
 
 # Get all card elements
 cards = driver.find_elements(By.CSS_SELECTOR, "li.filterDiv")
@@ -502,7 +517,7 @@ def extract_description_data(card):
 
 
 
-for card in cards[:48]:  # limit to first 48 cards
+for card in cards[:261]:  # limit to first 48 cards
     title = extract_title_data(card)
     price_data = extract_price_data(driver, card)
     number = safe_find_text(card, "div.number")
