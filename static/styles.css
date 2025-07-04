@@ -301,7 +301,8 @@ h1 {
     justify-content: center;
     /* border: 1px solid red; */ 
     width: 100%;
-    height: 137px;
+    height: auto;
+    /*height: 137px; THIS GOT CHANGED IN THE GREAT CHANGENING */
     /*padding: 10px;*/
     line-height: 13px; /* tällä muutetaan riviväliä */
     text-align: center;
@@ -694,7 +695,7 @@ h1 {
 .resource-description-container {
     display: flex; /* arrange resources side by side */   
 
-    top: 133px;
+    /* top: 133px; THIS GOT CHANGED IN THE GREAT CHANGENING*/
 
     align-items: center;    
     justify-content: center;
@@ -704,7 +705,8 @@ h1 {
     /*padding: 5px; */
     /*border: 2px solid red; /* invisible border for hover effect */
     transition: border-color 0.3s ease, transform 0.3s ease;
-    position: absolute;
+    /*position: absolute; THIS GOT CHANGED IN THE GREAT CHANGENING */
+    position: relative;
     /* border: 1px solid red; */ /* for debugging */
     cursor: default; /* so it looks clickable on hover */
     gap: 3px;

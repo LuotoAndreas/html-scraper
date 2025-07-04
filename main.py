@@ -48,7 +48,8 @@ RESOURCE_IMAGE_MAP = {
     "fighter":                  "https://ssimeonoff.github.io/images/resources/fighter.png",
     "tag-event":                "https://ssimeonoff.github.io/images/tags/event.png",
     "microbe":                  "https://ssimeonoff.github.io/images/resources/microbe.png",
-    "tag-plant":                "https://ssimeonoff.github.io/images/tags/plant.png"
+    "tag-plant":                "https://ssimeonoff.github.io/images/tags/plant.png",
+    "asteroid":                 "https://ssimeonoff.github.io/images/resources/asteroid.png"
     
 }               
 
@@ -517,7 +518,7 @@ def extract_description_data(card):
 
 
 
-for card in cards[:261]:  # limit to first 48 cards
+for card in cards[:390]:  # limit to first 48 cards
     title = extract_title_data(card)
     price_data = extract_price_data(driver, card)
     number = safe_find_text(card, "div.number")

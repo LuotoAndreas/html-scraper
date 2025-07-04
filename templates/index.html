@@ -17,6 +17,10 @@
             <option value="{{ url_for('static', filename='SuperGalaxyRumble.mp3') }}">Super Galaxy Rumble</option>
         </select>
     </div>
+
+    <div id="search-wrapper" style="text-align:center; margin-bottom: 20px;">
+        <input type="text" id="card-search" placeholder="Search card name..." style="padding:8px; width:220px; border-radius:8px; border:1px solid #aaa;">
+    </div>
     
     <div id="cards-container">
         {% for card in cards %}
@@ -211,6 +215,22 @@
     </script>
 
     <script>
+        document.getElementById('card-search').addEventListener('input', function() {
+            const search = this.value.trim().toLowerCase();
+            const cards = document.querySelectorAll('.card-wrapper');
+            cards.forEach(card => {
+                const titleDiv = card.querySelector('.title');
+                const title = titleDiv ? titleDiv.textContent.trim().toLowerCase() : '';
+                if (title.includes(search)) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+    <script>
         document.addEventListener('DOMContentLoaded', () => {
             const cards = document.querySelectorAll('.card-wrapper');
             
@@ -226,6 +246,7 @@
                 const cityTileContainer = cardWrapper.querySelector('.city-tile-container')
                 const resourceContainer = cardWrapper.querySelector('.resource-container');
 
+                /*
                 if (number == "#001") {
                     resource_description.style.top = '106px';
                 }
@@ -563,7 +584,7 @@
                     container2.style.left = '49px'
                 }
 
-
+                    */
             });
 
             // Hide loading message if cards are present
