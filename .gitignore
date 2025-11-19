@@ -50,3 +50,6 @@ todo.txt
 *.tmp
 *.temp
 ~*
+
+.vs/
+
