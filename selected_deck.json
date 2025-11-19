@@ -1,0 +1,254 @@
+{
+  "projects": [
+    {
+      "number": "#X44",
+      "title": "16 PSYCH",
+      "type": "Automated",
+      "cost": 31,
+      "tags": [
+        "Space"
+      ],
+      "requirements": [],
+      "description": "Increase titanium production 2 steps. Gain 3 titanium.",
+      "points": 2
+    },
+    {
+      "number": "#196",
+      "title": "LAGRANGE OBSERVATORY",
+      "type": "Automated",
+      "cost": 9,
+      "tags": [
+        "Space",
+        "Science"
+      ],
+      "requirements": [],
+      "description": "Draw 1 card.",
+      "points": 1
+    },
+    {
+      "number": "#X63",
+      "title": "RED SHIPS",
+      "type": "Active",
+      "cost": 2,
+      "tags": [],
+      "requirements": [
+        "4% O2"
+      ],
+      "description": "Action: Gain 1 M€ for each CITY AND SPECIAL TILE ADJACENT TO OCEAN, regardless of owner. Requires 4% oxygen or more.",
+      "points": null
+    },
+    {
+      "number": "#169",
+      "title": "TUNDRA FARMING",
+      "type": "Automated",
+      "cost": 16,
+      "tags": [
+        "Plant"
+      ],
+      "requirements": [
+        "-6 C"
+      ],
+      "description": "Requires -6 C or warmer. Increase your Plant production 1 step and your MC production 2 steps. Gain 1 Plant.",
+      "points": 2
+    },
+    {
+      "number": "#C40",
+      "title": "SPACE PORT COLONY",
+      "type": "Automated",
+      "cost": 27,
+      "tags": [
+        "Space"
+      ],
+      "requirements": [
+        "Colony"
+      ],
+      "description": "Requires a colony. Place a colony. MAY BE PLACED ON A COLONY TILE WHERE YOU ALREADY HAVE A COLONY. Gain 1 Trade Fleet. 1VP per 2 colonies in play.",
+      "points": 12
+    },
+    {
+      "number": "#C49",
+      "title": "WARP DRIVE",
+      "type": "Active",
+      "cost": 14,
+      "tags": [
+        "Science"
+      ],
+      "requirements": [
+        "5 Science"
+      ],
+      "description": "Effect: When you play a Space card, you pay 4 MC less for it. Requires 5 Science tags.",
+      "points": 2
+    },
+    {
+      "number": "#C22",
+      "title": "LUNAR MINING",
+      "type": "Automated",
+      "cost": 11,
+      "tags": [
+        "Earth"
+      ],
+      "requirements": [],
+      "description": "Increase your titanium production 1 step for every 2 Earth tags you have in play, including this.",
+      "points": null
+    },
+    {
+      "number": "#148",
+      "title": "INSECTS",
+      "type": "Automated",
+      "cost": 9,
+      "tags": [
+        "Microbe"
+      ],
+      "requirements": [
+        "6% O2"
+      ],
+      "description": "Requires 6% oxygen. Increase your Plant production 1 step for each plant tag you have.",
+      "points": null
+    },
+    {
+      "number": "#108",
+      "title": "OPEN CITY",
+      "type": "Automated",
+      "cost": 23,
+      "tags": [
+        "Building",
+        "City"
+      ],
+      "requirements": [
+        "12% O2"
+      ],
+      "description": "Requires 12% oxygen. Gain 2 plants. Place a City tile. Decrease your Energy production 1 step and increase your MC production 4 steps.",
+      "points": 1
+    },
+    {
+      "number": "#174",
+      "title": "PROTECTED VALLEY",
+      "type": "Automated",
+      "cost": 23,
+      "tags": [
+        "Building",
+        "Plant"
+      ],
+      "requirements": [],
+      "description": "Increase your MC production 2 steps. Place on a greenery tile ON AN AREA RESERVED FOR OCEAN, disregarding normal placement restrictions, and increase oxygen 1 step.",
+      "points": null
+    }
+  ],
+  "corporations": [
+    {
+      "id": "#CORP44",
+      "name": "SPIRE",
+      "tags": [
+        "corporation",
+        "city",
+        "earth",
+        "prelude2"
+      ],
+      "effect": "When you play a card with AT LEAST 2 tags, including this, add 1 science resource here. When you pay for standard projects, science resources here may be used as 2 MC each.",
+      "starting_money": 50,
+      "starting_production": {}
+    },
+    {
+      "id": "#CORP05",
+      "name": "INTERPLANETARY CINEMATICS",
+      "tags": [
+        "corporation",
+        "building",
+        "event"
+      ],
+      "effect": "Each time you play an event, you gain 2 MC.",
+      "starting_money": 30,
+      "starting_production": {}
+    }
+  ],
+  "preludes": [
+    {
+      "id": "#P22",
+      "name": "Mohole",
+      "tags": [
+        "Building"
+      ],
+      "effects": {
+        "production": {
+          "heat": 3
+        },
+        "resources": {
+          "heat": 3
+        }
+      },
+      "description": "Increase your heat production 3 steps. Gain 3 heat."
+    },
+    {
+      "id": "#X39",
+      "name": "Corporate Archives",
+      "tags": [
+        "Science",
+        "Promo"
+      ],
+      "effects": {
+        "resources": {
+          "money": 13
+        },
+        "special": "Look at the top 7 cards from the deck. Take 2 into hand and discard 5."
+      },
+      "description": "Gain 13 MC. Look at the top 7 cards. Take 2 into hand and discard the rest."
+    },
+    {
+      "id": "#P34",
+      "name": "UNMI Contractor",
+      "tags": [
+        "Earth"
+      ],
+      "effects": {
+        "tile": [
+          "TR",
+          "TR",
+          "TR"
+        ],
+        "resources": {
+          "cards": 1
+        }
+      },
+      "description": "Increase your TR 3 steps. Draw a card."
+    },
+    {
+      "id": "#P20",
+      "name": "Metals Company",
+      "tags": [],
+      "effects": {
+        "production": {
+          "money": 1,
+          "steel": 1,
+          "titanium": 1
+        }
+      },
+      "description": "Increase your MC, steel and titanium production 1 step."
+    }
+  ],
+  "deck_info": {
+    "total_cost": 165,
+    "avg_cost": 16.5,
+    "total_points": 20,
+    "tag_distribution": {
+      "Space": 3,
+      "Science": 3,
+      "Plant": 2,
+      "Earth": 2,
+      "Microbe": 1,
+      "Building": 3,
+      "City": 1,
+      "Promo": 1,
+      "corporation": 2,
+      "city": 1,
+      "earth": 1,
+      "prelude2": 1,
+      "building": 1,
+      "event": 1
+    },
+    "dominant_tags": [
+      "Space",
+      "Science",
+      "Building"
+    ]
+  }
+}

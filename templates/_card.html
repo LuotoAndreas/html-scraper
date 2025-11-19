@@ -1,0 +1,199 @@
+<div class="card-wrapper"
+     data-card-id="{{ card.number.lstrip('#') }}"
+     data-card-number="{{ card.number if card.number != 'N/A' else 'NOID' }}"
+    data-production-box-size="{{ card.production[0].production_box_size if card.production and card.production[0].production_box_size is not none else '' }}">
+
+    {% if editor_mode %}
+        <button data-export>Export PNG</button>
+    {% endif %}
+
+
+    <div class="card">
+        <div class="card-bg">
+            <img src="{{ url_for('static', filename='images/mars_harmaa.png') }}" class="card-bg-img">
+        </div>
+
+        <div class="overlay">
+            <div class="header">
+                <div class="number">
+                    {% if card.number != "N/A" %}
+                        <div class="card-number">{{ card.number }}</div>
+                    {% endif %}
+                </div>
+                <div class="price-container">
+                    {% if card.price.image_url %}
+                        <div class="price-icon" 
+                            style="background-image: url('{{ card.price.image_url }}')"
+                            title="{{ card.price.text }}">
+                        </div>
+                    {% endif %}
+                    <div class="price-text">{{ card.price.text }}</div>
+                </div>
+                <div class="tag-container">
+                    <div class="tags">
+                    <!---The tags are reversed in the json, this is an easy fix--->
+                    {% for tag in card.tags|reverse %}
+                        <div class="tag" 
+                            style="background-image: url('{{ tag.image_url }}')"
+                            title="{{ tag.name }}">
+                        </div>
+                    {% endfor %}
+                    </div>
+                </div>                        
+            </div>
+
+            <div class="title {{ card.title.title_card_type }}">{{ card.title.title_text }}</div>
+            
+            {% if card.requirements %}
+                {% set req = card.requirements[0] %}
+                <div class="requirements-wrapper" style="position: relative;">
+                    {% if req.party_requirements %}
+                        <div class="party {% if req.party_name %}party-{{ req.party_name }}{% endif %}"
+                            style="background-image: url('{{ req.party_requirements }}');"></div>
+                    {% endif %}
+                    {% if req.party_requirements2 %}
+                        <div class="party {% if req.party_name %}party-{{ req.party_name }}{% endif %} second"
+                            style="background-image: url('{{ req.party_requirements2 }}');"></div>
+                    {% endif %}
+                    <div class="requirements {% if 'requirements-max' in req.resource_name %}requirements-max{% endif %}" 
+                        style="background-image: url('{{ req.requirements_image }}');"
+                        title="{{ req.requirements }}">
+                        {{ req.requirements }}
+                    </div>
+                </div>
+            {% endif %}
+
+
+
+
+
+            {% if card.production %}
+                <!-- ✅ Make one or more production boxes editable -->
+                {% for pbox in card.production %}
+                    {% set base_class = pbox.production_box_size|default('production-box') %}
+                    {% if card.number in ['#X53', '#X65'] %}
+                        {% if loop.index == 1 %}
+                            {% set box_class = base_class %}
+                        {% else %}
+                            {% set box_class = base_class ~ '-' ~ loop.index %}
+                        {% endif %}
+                    {% else %}
+                        {% set box_class = base_class %}
+                    {% endif %}
+
+                    <div class="{{ box_class }}"
+                        data-editable
+                        data-production-index="{{ loop.index0 }}"
+                        style="background-image: url('{{ pbox.production_box_image }}');">
+
+                        {% set production = pbox %}
+
+                        {% for key, grouped in [('grouped_minus', production.grouped_minus), ('grouped_plus', production.grouped_plus), ('grouped_none', production.grouped_none)] %}
+                            {% if grouped %}
+                                {% for prod_type, prods in grouped.items() %}
+                                    <div class="production-container">
+                                        {% if key != 'grouped_none' and prods[0].prefix_image_url %}
+                                            <img class="prefix_icons" src="{{ prods[0].prefix_image_url }}" alt="{{ key }}">
+                                        {% endif %}
+                                        {% for prod in prods %}
+                                            {% if not loop.first and card.number in ["#051", "#099", "#102", "#137", "#148", "#175", "#236", "#250", "#C09", "#C13", "#C31"] %}
+                                                <span class="production-separator">/</span>
+                                            {% endif %}
+                                            {% if key == 'grouped_plus' and loop.index > 1 and card.number in ["#230"] %}
+                                                <span class="production-separator">/</span>
+                                            {% endif %}
+                                            {% if not loop.first and card.number in ["#207", "#C22"] %}
+                                                <span class="production-separator">/2</span>
+                                            {% endif %}
+                                            {% if not loop.first and card.number in ["#126"] %}
+                                                <span class="production-NUMBER"></span>
+                                            {% endif %}
+                                            {% if not loop.first and card.number in ["#129"] %}
+                                                <span class="production-SLASH"></span>
+                                            {% endif %}
+                                            <span class="production-icon-container {{ prod.type }}-production-icon-container-{{ loop.index }}"
+                                                  style="{% if prod.special %} filter: drop-shadow(1px 0px 1px #c33) drop-shadow(-1px 0px 1px #c33) drop-shadow(0px 1px 1px #c33) drop-shadow(0px -1px 1px #c33) !important; {% endif %}">
+                                                {% if prod.text %}
+                                                    <span class="production-text">{{ prod.text }}</span>
+                                                {% else %}
+                                                    <img class="production-icon-name" src="{{ prod.type_image_url }}" alt="{{ prod.type }}">
+                                                {% endif %}
+                                                {% if prod.type is mapping and prod.type.type == "money" %}
+                                                    <div class="production-text-overlay">{{ prod.type.money_amount }}</div>
+                                                {% endif %}
+                                            </span>
+                                        {% endfor %}
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            {% endif %}    
+
+            {% if card.tile_data %}
+                {% for tile in card.tile_data %}
+                    <div class="{{ tile.tile_name ~ '-container' | default('tile-container') }}" data-editable>
+                        <div class="{{ tile.tile_name | default('tile-icon') }}"
+                            style="background-image: url('{{ tile.tile_image_url }}');
+                                    filter:
+                                        {% if card.number == '#038' %}
+                                            brightness(0.8) drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.5))
+                                            drop-shadow(1px 0px 1px #c33) drop-shadow(-1px 0px 1px #c33)
+                                            drop-shadow(0px 1px 1px #c33) drop-shadow(0px -1px 1px #c33);
+                                        {% elif tile.special == 'red-outline' %}
+                                            drop-shadow(1px 0px 1px #c33) drop-shadow(-1px 0px 1px #c33)
+                                            drop-shadow(0px 1px 1px #c33) drop-shadow(0px -1px 1px #c33);
+                                        {% endif %}">
+                        {% if tile.tile_name == 'globals-box' %}
+                            <div class="tile-text-overlay globals-text"></div>
+                        {% elif tile.text %}
+                            <div class="tile-text-overlay">{{ tile.text }}</div>
+                        {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}        
+            
+            {% if card.ordered_resources %}
+                <div class="resource-container" data-editable>
+                    {% set resource_counters = {} %}
+                    {% for resource in card.ordered_resources %}
+                        {% set count = resource_counters[resource.class] if resource.class in resource_counters else 0 %}
+                        {% set resource_counters = resource_counters.update({resource.class: count + 1}) %}
+                        <div class="{{ resource.class ~ '-resource-container-' ~ (count + 1) }}" data-editable>
+                            <div class="{{ resource.class ~ '-icon' | default('resource-icon') }}"
+                                style="background-image: url('{{ resource.resource_image_url }}'); 
+                                        {% if resource.special == 'red-outline' %}
+                                            filter: drop-shadow(1px 0px 1px #c33) drop-shadow(-1px 0px 1px #c33)
+                                                    drop-shadow(0px 1px 1px #c33) drop-shadow(0px -1px 1px #c33) !important;
+                                        {% endif %}">
+                                {% if resource.text %}
+                                    <span class="resource-text">{{ resource.text }}</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}  
+
+            {% for description in card.descriptions %}
+                <div class="description-container-{{ loop.index }}" data-editable>
+                    <div class="description">{{ description.description }}</div>
+                </div>
+            {% endfor %}
+                  
+            {% if card.points_resource %}
+                {% for pr in card.points_resource %}
+                    <div class="points" style="background-image: url('{{ card.image }}');">
+                        {{ pr.points }}
+                        {% if pr.image_url %}
+                            <span class="resource-image {% if pr.resource == 'tag-jovian resource-tag' %}jovian{% endif %}" 
+                                  style="background-image: url('{{ pr.image_url }}');"></span>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            {% endif %}          
+        </div>
+    </div>
+</div>

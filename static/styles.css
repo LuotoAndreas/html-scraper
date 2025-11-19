@@ -114,60 +114,83 @@ h1 {
 }
 
 #cards-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 240px);
+  justify-content: center;
+  justify-items: center;
+  align-items: start;
+  gap: 19px;
+  max-width: 1276px;
+  margin: 0 auto;
+  padding: 0px;
+  box-sizing: border-box;
 }
+
 .card-wrapper {
     position: relative; /* Add this line */
-    width: 240px; /* Match the card width */
+    width: 100%;
+    max-width: 240px;
+    overflow: visible !important;
 }
-
 .card {
     position: relative;
-    width: 240px;
-    height: 310px;
-    background-size: 250% auto;
-    background-position: center;
-    background-color: white;
-    border-radius: 10px;
-    border: 2px solid #aaa;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-
-.card::before {
-    content: '';
-    position: absolute;
-    top: 0%;
-    left: 0;
     width: 100%;
-    height: 100%;
-    background: inherit; /* Copy the background image */
-    background-size: 424% auto;
-    background-position: 51% 1%;
-    border-radius: 8px;
-    filter: grayscale(1) brightness(1.7) contrast(0.6) hue-rotate(90deg);
-    z-index: 0; /* Place it behind the content */
+    aspect-ratio: 240 / 310;
+
+    /* TM-style beveled border */
+    border-top: 4px solid rgb(190, 190, 190);
+    border-left: 4px solid rgb(190, 190, 190);
+    border-bottom: 4px solid rgb(120, 120, 120);
+    border-right: 4px solid rgb(120, 120, 120);
+
+    border-radius: 12px;
+    box-shadow: 0 0 2px 1px black;
+    overflow: visible !important;
 }
 
+.card-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;        /* important */
+    border-radius: 5px;
+    z-index: 0;
+}
+
+.card-bg-img {
+    position: absolute;
+
+    /* EXACT match to your old background-size: 434% */
+    width: 434%;
+    height: 434%;
+
+    /* Recenter based on your old background-position: 51% 2% */
+    left: -158%;
+    top: -34%;
+
+    object-fit: cover;
+    pointer-events: none;
+}
+
+/* shared overlay layout for all .overlay elements */
 .card .overlay {
-    height: 100%;
+    position: relative;
     display: flex;
+    z-index: 2;
+}
+
+/* main overlay only */
+.card > .overlay {
+    height: 100%;
     flex-direction: column;
-    background: rgba(0, 0, 0, 0.4);
-    border-radius: 10px;
     color: white;
 }
+
 
 .card .header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    background: rgba(209, 209, 209, 0.8);
+    /*background: rgba(209, 209, 209, 0.8); */ /* turha harmaa palkki hinnan ja tägien alle */
     padding: 5px 10px;
     border-radius: 8px;
     min-height: 43px; /* minimikorkeus jos ei tägejä */
@@ -221,7 +244,7 @@ h1 {
     font-weight: 700;
     font-size: 16px;
     padding-top: 8px;
-    padding-bottom: 14px;
+    padding-bottom: 12px;
     text-transform: uppercase;
     margin-top: 38px;
     border-radius: 0 0 50% 50%;
@@ -254,16 +277,15 @@ h1 {
 }
 
 
+
+
 .requirements {
     width: 70%; 
-    height: 25px;
+    height: 45px;
     line-height: 40px;
-    margin-left: 20px;
-    margin-bottom: -11px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px;
     font-size: 14px;
     font-weight: bold;
     color: black;
@@ -275,13 +297,11 @@ h1 {
 
 .requirements-max {
     width: 70%; 
-    height: 25px;
+    height: 45px;
     line-height: 40px;
-    margin-left: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px;
     font-size: 14px;
     font-weight: bold;
     color: black;
@@ -306,7 +326,7 @@ h1 {
     /*padding: 10px;*/
     line-height: 13px; /* tällä muutetaan riviväliä */
     text-align: center;
-    column-gap: 13px;
+    column-gap: 10px;
 }
 
 .default-box {
@@ -323,15 +343,62 @@ h1 {
     border-bottom: 2px solid rgb(137, 137, 137);
     border-right: 2px solid rgb(137, 137, 137);
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3);
-    padding-top: 4px;
     text-align: center;
     margin-bottom: 10px;
     margin-right: 0px;
     margin-top: 2px;
+    padding-top: 4px;
     padding-bottom: 4px;
     line-height: 32px;
     background-size: cover;
 }
+.default-box-2 {
+    width: 44px;
+    min-height: 34px;
+    align-self: flex-start;
+    font-family: Prototype;
+    font-weight: normal;
+    font-size: 18px;
+    display: inline-block;
+    text-shadow: none;
+    border-top: 2px solid rgb(221, 221, 221);
+    border-left: 2px solid rgb(221, 221, 221);
+    border-bottom: 2px solid rgb(137, 137, 137);
+    border-right: 2px solid rgb(137, 137, 137);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    margin-bottom: 10px;
+    margin-right: 0px;
+    margin-top: 2px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    line-height: 32px;
+    background-size: cover;
+}
+.default-box-3 {
+    width: 44px;
+    min-height: 34px;
+    align-self: flex-start;
+    font-family: Prototype;
+    font-weight: normal;
+    font-size: 18px;
+    display: inline-block;
+    text-shadow: none;
+    border-top: 2px solid rgb(221, 221, 221);
+    border-left: 2px solid rgb(221, 221, 221);
+    border-bottom: 2px solid rgb(137, 137, 137);
+    border-right: 2px solid rgb(137, 137, 137);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    margin-bottom: 10px;
+    margin-right: 0px;
+    margin-top: 2px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    line-height: 32px;
+    background-size: cover;
+}
+
 
 .production-box-size1a {
     width: 65px;
@@ -452,6 +519,56 @@ h1 {
     background-size: cover;
 }
 
+.production-box-size4 {
+    width: 155px;
+    height: 36px;
+    min-height: 34px;
+    align-self: flex-start;
+    font-family: Prototype;
+    font-weight: normal;
+    font-size: 18px;
+    display: inline-block;
+    text-shadow: none;
+    border-top: 2px solid rgb(221, 221, 221);
+    border-left: 2px solid rgb(221, 221, 221);
+    border-bottom: 2px solid rgb(137, 137, 137);
+    border-right: 2px solid rgb(137, 137, 137);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3);
+    padding-top: 4px;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-right: 0px;
+    margin-top: 2px;
+    padding-bottom: 4px;
+    line-height: 32px;
+    background-size: cover;
+}
+
+.production-box-size4a {
+    width: 170px;
+    height: 36px;
+    min-height: 34px;
+    align-self: flex-start;
+    font-family: Prototype;
+    font-weight: normal;
+    font-size: 18px;
+    display: inline-block;
+    text-shadow: none;
+    border-top: 2px solid rgb(221, 221, 221);
+    border-left: 2px solid rgb(221, 221, 221);
+    border-bottom: 2px solid rgb(137, 137, 137);
+    border-right: 2px solid rgb(137, 137, 137);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3);
+    padding-top: 4px;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-right: 0px;
+    margin-top: 2px;
+    padding-bottom: 4px;
+    line-height: 32px;
+    background-size: cover;
+}
+
 .production-icon-container {
     position: relative;
     display: inline-block; /* shrink to fit */
@@ -476,10 +593,69 @@ h1 {
     border-radius: 50%;
 }
 
+.production-icon-name[alt="jovian"] {
+    border-radius: 50%;
+}
+
+.production-icon-name[alt="earth"] {
+    border-radius: 50%;
+}
+
+.production-icon-name[alt="tag-microbe"] {
+    border-radius: 50%;
+}
+
+.production-icon-name[alt="tag-building"] {
+    border-radius: 50%;
+}
+
+.production-icon-name[alt="tag-space"] {
+    border-radius: 50%;
+}
+
+.production-icon-name[alt="tag-energy"] {
+    border-radius: 50%;
+}
+
+.production-icon-name[alt="tag-venus"] {
+    border-radius: 50%;
+}
+
+.production-separator {
+    color: black;
+    font-size: 26px;
+    position: relative;
+    top: 2px;
+    font-weight: 900;
+}
+
+.production-OR {
+    color: black;
+    font-size: 15px;
+    position: relative;
+    top: 2px;
+    font-weight: 900;
+}
+
+.production-NUMBER {
+    color: black;
+    font-size: 15px;
+    position: relative;
+    top: 2px;
+    font-weight: 900;
+}
+
+.production-SLASH {
+    color: black;
+    font-size: 15px;
+    position: relative;
+    top: 2px;
+    font-weight: 900;
+}
 
 .production-text-overlay {
     position: absolute;
-    top: 55%;
+    top: 61%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-weight: bold;
@@ -512,10 +688,22 @@ h1 {
     z-index: 3;
 }
 
+.tile-text-overlay {
+    position: absolute;
+    font-size: 20px;
+    top: 41%;
+    left: 48%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    color: black;
+    font-size: 26px;
+    pointer-events: none;
+    user-select: none;
+}
+
 .temperature-tile-container {    
     display: inline-block;
     vertical-align: top; /* or middle */
-    margin-top: 3px;
     width: 20px;
     height: 45px;
     padding-bottom: 10px;
@@ -524,11 +712,207 @@ h1 {
     z-index: 3;
 }
 
-.ocean-tile-container {    
+.temperature-tile-1-container {    
+    display: inline-block;
+    vertical-align: top; /* or middle */
+    width: 20px;
+    height: 45px;
+    padding-bottom: 10px;
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+
+.temperature-tile-2-container {    
+    display: inline-block;
+    vertical-align: top; /* or middle */
+    width: 20px;
+    height: 45px;
+    padding-bottom: 10px;
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+
+.temperature-tile-3-container {    
+    display: inline-block;
+    vertical-align: top; /* or middle */
+    width: 20px;
+    height: 45px;
+    padding-bottom: 10px;
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+
+.greenery-tile-container {
     display: inline-block;
     vertical-align: top; /* or middle */
     margin-top: 3px;
     width: 50px;
+    height: 45px;
+    padding-bottom: 10px;
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+
+.trade-tile-container {
+    display: inline-block;
+    vertical-align: top; /* or middle */
+    width: 50px;
+    height: 45px;
+    padding-bottom: 10px;
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+
+.trade-tile {
+    width: 50px;
+    height: 48px; 
+    margin-top: 0px;    
+    margin-top: 0px; /* Adjust vertically if needed */
+    position: absolute;
+    left: 16px;
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    background-position: center;
+}
+
+.fleet-tile-container {
+    display: inline-block;
+    vertical-align: top; /* or middle */
+    width: 50px;
+    height: 45px;
+    padding-bottom: 10px;
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+
+.fleet-tile {
+    width: 52px;
+    height: 48px; 
+    margin-top: 0px;    
+    margin-top: 0px; /* Adjust vertically if needed */
+    position: absolute;
+    left: 16px;
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    background-position: center;
+    filter: invert(1) drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.5)) drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.5));
+}
+
+
+.camp_resource_container_1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+
+.camp-icon {
+    font-family: Prototype;
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    font-size: 22px;
+    line-height: 30px;
+    background-color: orange; /* 🟠 solid orange fill */
+    border: 2px solid #0006;  /* soft dark border for contrast */
+    vertical-align: middle;
+}
+
+
+/* Force orange background for transparent base64 resource icons */
+span.resource-image[style*="data:image/png;base64"],
+span.resource-image[style*="data:image"],
+span.resource-image[style*="transparent"] {
+    background: orange !important;
+    background-color: orange !important;
+    border: 2px solid #000 !important;
+    filter: none !important;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.4) !important;
+}
+
+
+
+
+
+
+
+
+.colony-tile-container {
+    display: inline-block;
+    vertical-align: top; /* or middle */
+    width: 50px;
+    height: 45px;
+    padding-bottom: 10px;
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+
+.colony-tile {
+    width: 50px;
+    height: 48px; 
+    margin-top: 0px;    
+    margin-top: 0px; /* Adjust vertically if needed */
+    position: absolute;
+    left: 16px;
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    background-position: center;
+}
+
+.venus-tile-container {
+    display: inline-block;
+    vertical-align: top; /* or middle */
+    width: 50px;
+    height: 45px;
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+
+.venus-tile-1-container {    
+    display: inline-block;
+    vertical-align: top; /* or middle */
+    width: 20px;
+    height: 45px;
+    padding-bottom: 10px;
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+.venus-tile-2-container {    
+    display: inline-block;
+    vertical-align: top; /* or middle */
+    width: 20px;
+    height: 45px;
+    padding-bottom: 10px;
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+.venus-tile-3-container {    
+    display: inline-block;
+    vertical-align: top; /* or middle */
+    width: 20px;
+    height: 45px;
+    padding-bottom: 10px;
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+.venus-tile-4-container {    
+    display: inline-block;
+    vertical-align: top; /* or middle */
+    width: 20px;
     height: 45px;
     padding-bottom: 10px;
     position: relative;
@@ -540,7 +924,6 @@ h1 {
 .rating-container {    
     display: inline-block;
     vertical-align: top; /* or middle */
-    margin-top: 3px;
     width: 50px;
     height: 45px;
     padding-bottom: 10px;
@@ -550,26 +933,108 @@ h1 {
     z-index: 3;
 }
 
-.city-tile-container {    
+.rating-1-container {    
     display: inline-block;
     vertical-align: top; /* or middle */
-    margin-top: 3px;
-    margin-bottom: 10px;
-    width: 59px;
+    width: 50px;
     height: 45px;
-    padding-bottom: 10px;
+ /* border: 1px solid red; */ 
     position: relative;
     overflow: visible;
     z-index: 3;
 }
 
+.rating-2-container {    
+    display: inline-block;
+    vertical-align: top; /* or middle */
+    width: 50px;
+    height: 45px;
+ /* border: 1px solid red; */ 
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+
+.rating-3-container {    
+    display: inline-block;
+    vertical-align: top; /* or middle */
+    width: 50px;
+    height: 45px;
+ /* border: 1px solid red; */ 
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+
+.city-tile-container {    
+    display: inline-block;
+    margin-bottom: 10px;
+    width: 59px;
+    height: 45px;
+    padding-bottom: 10px;
+    overflow: visible;
+    z-index: 3;
+}
+
+.city-tile-1-container {    
+    display: inline-block;
+    margin-bottom: 10px;
+    width: 59px;
+    height: 45px;
+    padding-bottom: 10px;
+    overflow: visible;
+    z-index: 3;
+}
+
+.city-tile-2-container {    
+    display: inline-block;
+    margin-bottom: 10px;
+    width: 59px;
+    height: 45px;
+    padding-bottom: 10px;
+    overflow: visible;
+    z-index: 3;
+}
+
+/* Example smaller card style for selected cards */
+.selected-card {
+  width: 150px;      /* smaller width */
+  height: 210px;     /* adjust to your card aspect ratio */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  position: relative;
+  cursor: default;
+}
+
+
 .ocean-tile-container {    
     display: inline-block;
     vertical-align: top; /* or middle */
-    margin-top: 3px;
     width: 50px;
     height: 45px;
-    padding-bottom: 10px;
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+
+.ocean-tile-1-container {    
+    display: inline-block;
+    vertical-align: top; /* or middle */
+    width: 50px;
+    height: 45px;
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+
+.ocean-tile-2-container {    
+    display: inline-block;
+    vertical-align: top; /* or middle */
+    width: 50px;
+    height: 45px;
     position: relative;
     overflow: visible;
     z-index: 3;
@@ -578,7 +1043,39 @@ h1 {
 .oxygen-tile-container {    
     display: inline-block;
     vertical-align: top; /* or middle */
-    margin-top: 3px;
+    width: 50px;
+    height: 45px;
+    padding-bottom: 10px;
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+
+.oxygen-tile-1-container {    
+    display: inline-block;
+    vertical-align: top; /* or middle */
+    width: 50px;
+    height: 45px;
+    padding-bottom: 10px;
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+
+.oxygen-tile-2-container {    
+    display: inline-block;
+    vertical-align: top; /* or middle */
+    width: 50px;
+    height: 45px;
+    padding-bottom: 10px;
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+
+.oxygen-tile-3-container {    
+    display: inline-block;
+    vertical-align: top; /* or middle */
     width: 50px;
     height: 45px;
     padding-bottom: 10px;
@@ -590,9 +1087,8 @@ h1 {
 .city-tile-small-container { 
     display: inline-block;
     vertical-align: top; /* or middle */
-    margin-top: 3px;
-    width: 50px;
-    height: 45px;
+    width: 30px;
+    height: 30px;
     padding-bottom: 10px;
     position: relative;
     overflow: visible;
@@ -602,7 +1098,6 @@ h1 {
 .special-tile-container { 
     display: inline-block;
     vertical-align: top; /* or middle */
-    margin-top: 3px;
     width: 50px;
     height: 45px;
     padding-bottom: 10px;
@@ -621,12 +1116,65 @@ h1 {
     background-position: center; /* Center the image */
 }
 
+.temperature-tile-1 {
+    width: 20px; /* Fill the container width */
+    height: 46px; /* Fill the container height */
+    position: absolute;
+    /* left: 4px; */
+    background-size: contain; /* Scale the image proportionally */
+    background-repeat: no-repeat; /* Avoid tiling the image */
+    background-position: center; /* Center the image */
+}
+
+.temperature-tile-2 {
+    width: 20px; /* Fill the container width */
+    height: 46px; /* Fill the container height */
+    position: absolute;
+    /* left: 4px; */
+    background-size: contain; /* Scale the image proportionally */
+    background-repeat: no-repeat; /* Avoid tiling the image */
+    background-position: center; /* Center the image */
+}
+
+.temperature-tile-3 {
+    width: 20px; /* Fill the container width */
+    height: 46px; /* Fill the container height */
+    position: absolute;
+    /* left: 4px; */
+    background-size: contain; /* Scale the image proportionally */
+    background-repeat: no-repeat; /* Avoid tiling the image */
+    background-position: center; /* Center the image */
+}
+
 .rating {
     width: 50px;
     height: 40px;    
     position: absolute;
-    left: 3px;
-    margin-top: 2px;
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    background-position: center;
+}
+
+.rating-1 {
+    width: 50px;
+    height: 40px;    
+    position: absolute;
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    background-position: center;
+}
+.rating-2 {
+    width: 50px;
+    height: 40px;    
+    position: absolute;
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    background-position: center;
+}
+.rating-3 {
+    width: 50px;
+    height: 40px;    
+    position: absolute;
     background-size: contain; 
     background-repeat: no-repeat; 
     background-position: center;
@@ -643,12 +1191,55 @@ h1 {
     filter: brightness(0.8) drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.5));
 }
 
-
-.ocean-tile {
-    width: 41px;
-    height: 46px; 
+.venus-tile {
+    width: 60px;
+    height: 50px; 
     margin-top: 0px;    
-    margin-left: -11px; /* Move the tile to the right */
+    margin-top: 0px; /* Adjust vertically if needed */
+    position: absolute;
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    background-position: center;
+}
+
+.venus-tile-1 {
+    width: 60px;
+    height: 50px; 
+    margin-top: 0px;    
+    margin-top: 0px; /* Adjust vertically if needed */
+    position: absolute;
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    background-position: center;
+}
+
+.venus-tile-2 {
+    width: 60px;
+    height: 50px; 
+    margin-top: 0px;    
+    margin-top: 0px; /* Adjust vertically if needed */
+    position: absolute;
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    background-position: center;
+}
+
+.venus-tile-3 {
+    width: 60px;
+    height: 50px; 
+    margin-top: 0px;    
+    margin-top: 0px; /* Adjust vertically if needed */
+    position: absolute;
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    background-position: center;
+}
+
+.greenery-tile {
+    width: 58px;
+    height: 48px; 
+    margin-top: 0px;    
+    margin-left: -15px; /* Move the tile to the right */
     margin-top: 0px; /* Adjust vertically if needed */
     position: absolute;
     left: 16px;
@@ -657,7 +1248,65 @@ h1 {
     background-position: center;
 }
 
+
+.ocean-tile {
+    width: 41px;
+    height: 46px; 
+    margin-top: 0px;    
+    margin-top: 0px; /* Adjust vertically if needed */
+    position: absolute;
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    background-position: center;
+}
+
+.ocean-tile-1 {
+    width: 41px;
+    height: 46px; 
+    margin-top: 0px;    
+    margin-top: 0px; /* Adjust vertically if needed */
+    position: absolute;
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    background-position: center;
+}
+
+.ocean-tile-2 {
+    width: 41px;
+    height: 46px; 
+    margin-top: 0px;    
+    margin-top: 0px; /* Adjust vertically if needed */
+    position: absolute;
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    background-position: center;
+}
+
 .city-tile {
+    width: 40px;
+    height: 46px; 
+    margin-top: 0px;    
+    position: absolute;
+    left: 11px;
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    background-position: center;
+    filter: brightness(0.8) drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.5));
+}
+
+.city-tile-1 {
+    width: 40px;
+    height: 46px; 
+    margin-top: 0px;    
+    position: absolute;
+    left: 11px;
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    background-position: center;
+    filter: brightness(0.8) drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.5));
+}
+
+.city-tile-2 {
     width: 40px;
     height: 46px; 
     margin-top: 0px;    
@@ -682,6 +1331,76 @@ h1 {
     background-position: center;
 }
 
+.oxygen-tile-1 {
+    width: 41px;
+    height: 46px; 
+    margin-top: 0px;    
+    margin-left: -11px; /* Move the tile to the right */
+    margin-top: 0px; /* Adjust vertically if needed */
+    position: absolute;
+    left: 16px;
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    background-position: center;
+}
+
+.oxygen-tile-2 {
+    width: 41px;
+    height: 46px; 
+    margin-top: 0px;    
+    margin-left: -11px; /* Move the tile to the right */
+    margin-top: 0px; /* Adjust vertically if needed */
+    position: absolute;
+    left: 16px;
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    background-position: center;
+}
+
+.oxygen-tile-3 {
+    width: 41px;
+    height: 46px; 
+    margin-top: 0px;    
+    margin-left: -11px; /* Move the tile to the right */
+    margin-top: 0px; /* Adjust vertically if needed */
+    position: absolute;
+    left: 16px;
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    background-position: center;
+}
+
+.globals-box {
+  width: 100px; 
+  height: 70px;
+  display: flex;
+  margin-left: 33px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 50%;
+  clip-path: inset(23% 2% 22% 2% round 10px);
+  background-size: 115% 110%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+
+.globals-box .tile-text-overlay,
+.globals-box-container .tile-text-overlay {
+  /* customize these */
+  font-family: 'Inter', 'Orbitron', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 2px;        /* change size */
+  letter-spacing: 0.5px;  /* optional */
+  color: #000;            /* text color */
+  text-transform: uppercase; /* optional */
+  line-height: 1;
+}
+
+
+
 .special-tile {
     width: 40px; /* Fill the container width */
     height: 46px; /* Fill the container height */
@@ -692,25 +1411,6 @@ h1 {
     background-position: center; /* Center the image */
 }
 
-.resource-description-container {
-    display: flex; /* arrange resources side by side */   
-
-    /* top: 133px; THIS GOT CHANGED IN THE GREAT CHANGENING*/
-
-    align-items: center;    
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 100%;
-    height: auto;
-    /*padding: 5px; */
-    /*border: 2px solid red; /* invisible border for hover effect */
-    transition: border-color 0.3s ease, transform 0.3s ease;
-    /*position: absolute; THIS GOT CHANGED IN THE GREAT CHANGENING */
-    position: relative;
-    /* border: 1px solid red; */ /* for debugging */
-    cursor: default; /* so it looks clickable on hover */
-    gap: 3px;
-}
 
 .resource-container {
     display: flex; /* arrange resources side by side */
@@ -718,11 +1418,9 @@ h1 {
     justify-content: center;
     flex-wrap: wrap;
     width: 160px;
-    margin: 10px auto 0 auto;
     max-height: 65px;
     /*padding: 5px; */
     /*border: 2px solid red; /* invisible border for hover effect */
-    border-radius: 8px;
     transition: border-color 0.3s ease, transform 0.3s ease;
     top: 0px;
     position: relative;
@@ -737,7 +1435,6 @@ h1 {
     text-align: center;
     padding: 10px 10px 10px 10px;
     margin-top: 0px;
-    width: auto;
     height: auto;
     column-gap: 13px;
 }  
@@ -746,9 +1443,8 @@ h1 {
     position: relative;
     top: 0px;
     text-align: center;
-    padding: 0px 10px 0px 10px;
+    padding-left: 10px;
     margin-top: 0px;
-    width: auto;
     height: 10px;
     column-gap: 13px;
 }  
@@ -756,9 +1452,10 @@ h1 {
 .description-container-3 {
     position: relative;
     top: 0px;
-    text-align: center;
+    text-align: center;    
+    padding-left: 10px;
     margin-top: 0px;
-    width: auto;
+    width: 100%;
     height: 10px;
     column-gap: 13px;
 }  
@@ -767,11 +1464,122 @@ h1 {
     position: relative;
     top: 0px;
     text-align: center;
+    padding-left: 10px;
     margin-top: 0px;
-    width: auto;
+    width: 100%;
     height: 10px;
     column-gap: 13px;
 }  
+
+.description-container-5 {
+    position: relative;
+    top: 0px;
+    text-align: center;
+    padding-left: 10px;
+    margin-top: 0px;
+    width: 100%;
+    height: 10px;
+    column-gap: 13px;
+}  
+
+.description-container-6 {
+    position: relative;
+    top: 0px;
+    text-align: center;
+    padding-left: 10px;
+    margin-top: 0px;
+    width: 100%;
+    height: 10px;
+    column-gap: 13px;
+}  
+.description-container-7 {
+    position: relative;
+    top: 0px;
+    text-align: center;
+    padding-left: 10px;
+    margin-top: 0px;
+    width: 100%;
+    height: 10px;
+    column-gap: 13px;
+}  
+.description-container-8 {
+    position: relative;
+    top: 0px;
+    text-align: center;
+    padding-left: 10px;
+    margin-top: 0px;
+    width: 100%;
+    height: 10px;
+    column-gap: 13px;
+}  
+.description-container-9 {
+    position: relative;
+    top: 0px;
+    text-align: center;
+    padding-left: 10px;
+    margin-top: 0px;
+    width: 100%;
+    height: 10px;
+    column-gap: 13px;
+}  
+
+
+.card-wrapper.selected {
+  outline: 3px solid #4ade80;
+  transform: scale(1.02);
+  transition: 0.2s;
+}
+
+.selected-copy {
+  transform: scale(0.9);
+  position: relative;
+  cursor: default;
+  overflow: visible; /* ensures the ❌ isn't hidden */
+}
+
+.ball-resource-container-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: visible;
+    color: white;
+}
+
+.ball-icon {
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50%;
+    border: 2px solid #0006;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+}
+
+.empty-resource-container-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: visible;
+    color: white;
+}
+
+.empty-icon {
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border: 2px solid #0006;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+}
+
+.remove-selected-btn:hover {
+  background: red !important;
+}
+
+h2 {
+    color: #d1d1d1;
+}
+
 
 .description {
     font-size: 11px;
@@ -820,6 +1628,30 @@ h1 {
     z-index: 3;
 }
 
+.tag-plant-resource-container-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    /* border: 1px solid red; */
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+
+.tag-animal-resource-container-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    /* border: 1px solid red; */
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+
 .science-resource-container-1 {
     display: flex;
     align-items: center;
@@ -833,6 +1665,18 @@ h1 {
 }
 
 .card-resource-container-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    /* border: 1px solid red; */ 
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+
+.tag-science-resource-container-1 {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -953,6 +1797,28 @@ h1 {
     z-index: 3;
 }
 
+.floater-resource-container-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    /* border: 1px solid red; */
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+.floater-resource-container-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    /* border: 1px solid red; */
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
 
 .red-arrow-resource-container-1 {
     display: flex;
@@ -978,6 +1844,487 @@ h1 {
     z-index: 3;
 }
 
+.asteroid-resource-container-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    /* border: 1px solid red; */
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+
+.asteroid-resource-container-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    /* border: 1px solid red; */
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+
+.asteroid-resource-container-3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    /* border: 1px solid red; */
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+.asteroid-resource-container-4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    /* border: 1px solid red; */
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+
+.tag-venus-resource-container-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    /* border: 1px solid red; */
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+.tag-venus-resource-container-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    /* border: 1px solid red; */
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+.tag-venus-resource-container-3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    /* border: 1px solid red; */
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+
+.tag-city-resource-container-1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  overflow: visible;
+}
+
+.tag-city-icon {
+    width: 30px;
+    height: 30px;
+    background-size: contain; /* scale image to fit */
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.white-resource-container-1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  overflow: visible;
+}
+.white-icon {
+  width: 26px;
+  height: 26px;
+  background: linear-gradient(white, lightgrey) !important;
+  background-blend-mode: normal !important;
+  filter: drop-shadow(0px 0px 1px black);
+  position: relative;
+  z-index: 9999 !important;
+}
+span.resource-image[style*="white-cube"] {
+  width: 26px;
+  height: 26px;
+  background: linear-gradient(white, lightgrey) !important;
+  background-blend-mode: normal !important;
+  filter: drop-shadow(0px 0px 1px black);
+  position: relative;
+  z-index: 9999 !important;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6),
+              0 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+.skyblue-resource-container-1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  overflow: visible;
+}
+.skyblue-icon {
+  width: 26px;
+  height: 26px;
+  background: linear-gradient(skyblue, cyan) !important;
+  background-blend-mode: normal !important;
+  filter: drop-shadow(0px 0px 1px black);
+  position: relative;
+  z-index: 9999 !important;
+}
+
+/* Gradient Blue resource placeholder */
+span.resource-image[style*="gradient-blue"] {
+  width: 26px;
+  height: 26px;
+  background: linear-gradient(skyblue, cyan) !important;
+  background-blend-mode: normal !important;
+  filter: drop-shadow(0px 0px 1px black);
+  position: relative;
+  z-index: 9999 !important;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6),
+              0 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Gradient Blue resource placeholder */
+span.resource-image[style*="gradient-orange"] {
+  width: 26px;
+  height: 26px;
+  background: linear-gradient(orange) !important;
+  background-blend-mode: normal !important;
+  filter: drop-shadow(0px 0px 1px black);
+  position: relative;
+  z-index: 9999 !important;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6),
+              0 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+
+.yellow-resource-container-1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  overflow: visible;
+}
+.yellow-resource-container-2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  overflow: visible;
+}
+.yellow-icon {
+  width: 26px;
+  height: 26px;
+  background: linear-gradient(yellow, gold) !important;
+  background-blend-mode: normal !important;
+  filter: drop-shadow(0px 0px 1px black);
+  position: relative;
+  z-index: 9999 !important;
+}
+
+
+
+.black-resource-container-1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  overflow: visible;
+}
+
+.black-resource-container-2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  overflow: visible;
+}
+
+.black-icon {
+  width: 26px;
+  height: 26px;
+  background: linear-gradient(darkgrey, black) !important;
+  background-blend-mode: normal !important; 
+  filter: drop-shadow(0px 0px 1px black);
+  z-index: 9999 !important;
+  position: relative;
+}
+
+.gradient-resource-container-1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  overflow: visible;
+}
+
+.gradient-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(to bottom right, green, yellow, red) !important;
+  background-blend-mode: normal !important;  
+  border: 1px solid black;
+  filter: none !important;
+  z-index: 9999 !important;
+  position: relative;
+}
+
+.black-resource-container-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    overflow: visible;
+}
+
+
+.wild-resource-container-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    /* border: 1px solid red; */
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+
+.pentagon-resource-container-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    /* border: 1px solid red; */
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+
+.variable-resource-container-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 6px;
+    height: 30px;
+    /* border: 1px solid red; */
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+.variable-resource-container-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15px;
+    height: 30px;
+    /* border: 1px solid red; */
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+.variable-resource-container-3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15px;
+    height: 30px;
+    /* border: 1px solid red; */
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+
+.variable-resource-container-4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15px;
+    height: 30px;
+    /* border: 1px solid red; */
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+.variable-resource-container-5 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15px;
+    height: 30px;
+    /* border: 1px solid red; */
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+.variable-resource-container-6 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15px;
+    height: 30px;
+    /* border: 1px solid red; */
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+
+.influence-resource-container-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 30px;
+    /* border: 1px solid red; */
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+
+.influence-icon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-size: 40px 40px;
+    vertical-align: middle;
+    margin-bottom: 5px;
+}
+.leader-resource-container-1 {
+    display: inline-block;
+    width: 24px;
+    height: 30px;
+    background-size: 24px 30px;
+    vertical-align: middle;
+    filter: drop-shadow(0px 0px 1px black);
+    background-color: #222;
+    padding: 3px;
+    background-repeat: no-repeat;
+    background-position: 3px;
+    border-radius: 15px 15px 2px 2px;
+    margin-bottom: 6px;
+}
+
+.leader-icon {
+    width: 30px;
+    height: 30px;
+    background-size: contain; /* scale image to fit */
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 6px;
+    margin-left: -3px;
+}
+
+.chairman-resource-container-1 {
+    display: inline-block;
+    width: 24px;
+    height: 30px;
+    background-size: 24px 30px;
+    vertical-align: middle;
+    filter: drop-shadow(0px 0px 1px black);
+    background-color: #222;
+    padding: 3px;
+    background-repeat: no-repeat;
+    background-position: 3px;
+    border-radius: 15px 15px 2px 2px;
+    margin-bottom: 6px;
+}
+
+.chairman-resource-container-2 {
+    display: inline-block;
+    width: 24px;
+    height: 30px;
+    background-size: 24px 30px;
+    vertical-align: middle;
+    filter: drop-shadow(0px 0px 1px black);
+    background-color: #222;
+    padding: 3px;
+    background-repeat: no-repeat;
+    background-position: 3px;
+    border-radius: 15px 15px 2px 2px;
+    margin-bottom: 6px;
+}
+
+.chairman-icon {
+    width: 30px;
+    height: 30px;
+    background-size: contain; /* scale image to fit */
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 6px;
+    margin-left: -3px;
+}
+
+.delegate-resource-container-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    /* border: 1px solid red; */
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+
+.delegate-resource-container-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    /* border: 1px solid red; */
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+
+.delegate-icon {
+    width: 30px;
+    height: 30px;
+    background-size: contain; /* scale image to fit */
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 6px;
+}
+
+
 .minus-resource-container-1 {
     display: flex;
     align-items: center;
@@ -988,6 +2335,48 @@ h1 {
     position: relative;
     overflow: visible;
     z-index: 3;
+}
+
+.minus-icon {
+    width: 15px;
+    height: 15px;
+    background-size: contain; /* scale image to fit */
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 6px;
+}
+
+.plus-resource-container-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    /* border: 1px solid red; */
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+
+.plus-resource-container-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    /* border: 1px solid red; */
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+
+.plus-icon {
+    width: 15px;
+    height: 15px;
+    background-size: contain; /* scale image to fit */
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 6px;
 }
 
 .energy-resource-container-1 {
@@ -1002,7 +2391,20 @@ h1 {
     z-index: 3;
 }
 
+
 .tag-space-resource-container-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    /* border: 1px solid red; */
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+}
+
+.tag-earth-resource-container-1 {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1021,6 +2423,62 @@ h1 {
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 6px;
+}
+
+.resource-text {
+    filter: none !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center; /* horizontal center */
+    align-items: center;     /* vertical center */
+    color: black;
+    font-weight: bold;
+    padding: 0 4px;
+    border-radius: 3px;
+    font-size: 1.2rem;
+    pointer-events: none;
+}
+
+.tag-science-icon {
+    width: 30px;
+    height: 30px;
+    background-size: contain; /* scale image to fit */
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    filter: brightness(0.9);
+}
+
+.tag-plant-icon {
+    width: 30px;
+    height: 30px;
+    background-size: contain; /* scale image to fit */
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    filter: brightness(0.9);
+}
+
+.tag-animal-icon {
+    width: 30px;
+    height: 30px;
+    background-size: contain; /* scale image to fit */
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    filter: brightness(0.9);
+}
+
+.asteroid-icon {
+    width: 30px;
+    height: 30px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .money-icon {
@@ -1046,7 +2504,7 @@ h1 {
     user-select: none; /* Prevent text selection */
 }
 
-.red-arrow-icon {
+.floater-icon {
     width: 30px;
     height: 30px;
     background-size: contain; /* scale image to fit */
@@ -1055,9 +2513,9 @@ h1 {
     border-radius: 6px;
 }
 
-.minus-icon {
-    width: 15px;
-    height: 15px;
+.red-arrow-icon {
+    width: 30px;
+    height: 30px;
     background-size: contain; /* scale image to fit */
     background-repeat: no-repeat;
     background-position: center;
@@ -1127,6 +2585,55 @@ h1 {
     border-radius: 50%;
     overflow: hidden;
 }
+.tag-earth-icon {
+    width: 30px;
+    height: 30px;
+    background-size: contain; /* scale image to fit */
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.tag-energy-icon {
+    width: 30px;
+    height: 30px;
+    background-size: contain; /* scale image to fit */
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.tag-jovian-icon {
+    width: 30px;
+    height: 30px;
+    background-size: contain; /* scale image to fit */
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.tag-event-icon {
+    width: 30px;
+    height: 30px;
+    background-size: contain; /* scale image to fit */
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.tag-building-icon {
+    width: 30px;
+    height: 30px;
+    background-size: contain; /* scale image to fit */
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    overflow: hidden;
+}
 
 .tag-event-icon {
     width: 30px;
@@ -1144,6 +2651,59 @@ h1 {
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 6px;
+}
+
+.pentagon-icon {
+    width: 30px;
+    height: 30px;
+    background-size: contain; /* scale image to fit */
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 6px;
+}
+
+.wild-icon {
+    width: 30px;
+    height: 30px;
+    background-size: contain; /* scale image to fit */
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 6px;
+}
+
+
+
+.tag-venus-icon {
+    width: 30px;
+    height: 30px;
+    background-size: contain; /* scale image to fit */
+    background-repeat: no-repeat;
+    background-position: center;    
+    border-radius: 50%;
+}
+.tag-venus-1-icon {
+    width: 30px;
+    height: 30px;
+    background-size: contain; /* scale image to fit */
+    background-repeat: no-repeat;
+    background-position: center;    
+    border-radius: 50%;
+}
+.tag-venus-2-icon {
+    width: 30px;
+    height: 30px;
+    background-size: contain; /* scale image to fit */
+    background-repeat: no-repeat;
+    background-position: center;    
+    border-radius: 50%;
+}
+.tag-venus-3-icon {
+    width: 30px;
+    height: 30px;
+    background-size: contain; /* scale image to fit */
+    background-repeat: no-repeat;
+    background-position: center;    
+    border-radius: 50%;
 }
 
 .titanium-icon {
@@ -1180,6 +2740,75 @@ h1 {
     background-repeat: no-repeat;
     background-position: center;
 }
+
+.card-icon-small {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    line-height: 20px;
+    border-radius: 10px;
+    background-size: 20px 20px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3);
+    z-index: 5;
+}
+
+.card-icon-small-money {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    background-size: 20px 20px;
+    z-index: 5;
+}
+
+.tag-money-icon .resource-text {
+  font-size: 0.8rem;
+}
+
+
+.card-icon-small-1 {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    line-height: 20px;
+    border-radius: 10px;
+    background-size: 20px 20px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3);
+    z-index: 5;
+}
+
+.card-icon-small-2 {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    line-height: 20px;
+    border-radius: 10px;
+    background-size: 20px 20px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3);
+    z-index: 5;
+}
+
+.card-icon-small-3 {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    line-height: 20px;
+    border-radius: 10px;
+    background-size: 20px 20px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3);
+    z-index: 5;
+}
+
+.card-icon-small-4 {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    line-height: 20px;
+    border-radius: 10px;
+    background-size: 20px 20px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3);
+    z-index: 5;
+}
   
 
 .points {
@@ -1212,6 +2841,7 @@ h1 {
     background-repeat: no-repeat;
     background-position: center;
     vertical-align: middle;
+    filter: brightness(0.8) drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.5));
     margin-left: 6px; 
 }
 
@@ -1287,3 +2917,345 @@ h1 {
     pointer-events: none; /* Prevent interference with the icon */
     z-index: 4;
 }
+
+.requirements-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.party {
+    position: absolute;
+    background-size: 60px 40px;
+    top: 11px;
+    left: 44px;
+    width: 60px;
+    height: 40px;
+    margin-left: 47px;
+    margin-top: -8px;
+    z-index: 3;
+}
+
+.party.second {
+  margin-left: 80px; /* tweak for overlap or spacing */
+  z-index: 2;
+}
+
+.party-chairman {
+    display: inline-block;
+    width: 24px;
+    height: 30px;
+    left: 56px;
+    background-size: 24px 30px;
+    vertical-align: middle;
+    filter: drop-shadow(0px 0px 1px black);
+    background-color: #222;
+    padding: 3px;
+    background-repeat: no-repeat;
+    background-position: 3px;
+    border-radius: 15px 15px 2px 2px;
+    margin-bottom: 6px;
+}
+
+.party-delegate {
+    display: inline-block;
+    width: 24px;
+    height: 30px;
+    left: 57px;
+    background-size: 24px 30px;
+    vertical-align: middle;
+    filter: drop-shadow(0px 0px 1px black);
+    background-color: #222;
+    padding: 3px;
+    background-repeat: no-repeat;
+    background-position: 3px;
+    border-radius: 15px 15px 2px 2px;
+    margin-bottom: 6px;
+}
+
+/* Editor visuals */
+.editor-mode [data-editable] { 
+    outline: 1px dashed #4da3ff; 
+    cursor: move; 
+}
+
+.editor-mode .card { 
+    position: relative; 
+} /* ensure anchor exists */
+
+.editor-floating-ui {
+  position: fixed; 
+  right: 10px; 
+  bottom: 10px; 
+  z-index: 9999;
+  background: rgba(16, 20, 28, 0.92); 
+  color: #d6f0ff;
+  padding: 10px; 
+  border-radius: 8px; 
+  font: 12px/1.4 monospace;
+  width: 282px; 
+  max-height: 800px; 
+  overflow: auto;
+  box-shadow: 0 6px 24px rgba(0,0,0,.35);
+}
+
+.editor-floating-ui button { margin-top: 8px; }
+
+.toggle-btn {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.2s ease;
+  }
+  .toggle-btn:hover {
+    background: #555;
+  }
+  .toggle-btn.active {
+    background: #1976d2;
+  }
+
+
+#ai-response {
+  background: rgba(255,255,255,0.05);
+  border-radius: 10px;
+  padding: 16px;
+  margin-top: 16px;
+  line-height: 1.5;
+  font-size: 15px;
+}
+
+#ai-response h2 {
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+#ai-response ul {
+  list-style-type: "• ";
+  margin-left: 20px;
+}
+
+#ai-response p {
+  margin: 6px 0;
+}
+
+#random-hand-btn {
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+#random-hand-btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #34d399, #059669);
+  box-shadow: 0 0 12px rgba(52, 211, 153, 0.8);
+}
+
+#random-hand-btn:active {
+  transform: scale(0.97);
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.7);
+}
+
+
+.center-buttons {
+  text-align: center;
+  margin: 20px;
+}
+
+/* --- Selected Cards Container --- */
+#selected-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px;
+}
+
+/* --- Analyze Deck Button --- */
+#analyze-btn {
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #06b6d4, #3b82f6);
+  color: white;
+  cursor: pointer;
+}
+
+/* --- AI Response Box --- */
+#ai-response {
+  margin: 20px auto;
+  padding: 15px;
+  max-width: 800px;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  border-radius: 10px;
+  font-family: sans-serif;
+  white-space: pre-wrap;
+  display: none;
+}
+
+/* --- Toggle Buttons --- */
+.toggle-buttons-wrapper {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.toggle-btn {
+  padding: 8px 14px;
+  border-radius: 6px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.toggle-btn.active {
+  background: #3b82f6;
+  color: #fff;
+}
+
+/* --- Song Selector Wrapper --- */
+.select-wrapper {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.song-label {
+  margin-right: 8px;
+}
+
+/* --- Card Search Bar --- */
+#search-wrapper {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#card-search {
+  padding: 8px;
+  width: 220px;
+  border-radius: 8px;
+  border: 1px solid #aaa;
+}
+
+/* --- Error Message --- */
+#error-message {
+  color: red;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.section-title {
+  text-align: center;
+  margin-top: 40px;
+  color: #d1d1d1;
+}
+
+
+/* ================================
+   AI Analysis / Recommendation UI
+   ================================ */
+
+/* Section titles inside AI results */
+.ai-title {
+  color: #3b82f6;
+  margin-top: -44px;
+  text-align: center;
+}
+
+/* Light blue subtitles (Corporation, Preludes, Projects) */
+.ai-subtitle {
+  margin-top: 20px;
+  color: #93c5fd;
+  text-align: center;
+}
+
+/* Main wrapper for each AI section */
+.ai-cards-section {
+  background: none;
+  white-space: normal;
+  margin-top: 10px;
+}
+
+/* Flex groups (projects, preludes, corporations) */
+.ai-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ai-flex.center {
+  justify-content: center;
+}
+
+/* Default pill box for unmatched card names */
+.ai-pill {
+  background: rgba(255,255,255,0.05);
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+/* Rating paragraph spacing */
+.ai-rating {
+  margin-top: 20px;
+}
+
+/* Reasoning text */
+.ai-reason {
+  margin-bottom: 15px;
+}
+
+
+.export-btn {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    z-index: 50;
+    padding: 4px 8px;
+    font-size: 12px;
+    background: rgba(0,0,0,0.65);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+
+.export-png-btn:hover {
+    background: rgba(0,0,0,0.9);
+}
+
+
+/* ================================
+   EDITOR MODE BUTTON
+================================ */
+.editor-toggle-btn {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 9999;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #3b82f6, #06b6d4);
+    color: white;
+    font-weight: 700;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    transition: 0.15s ease;
+}
+
+.editor-toggle-btn:hover {
+    transform: scale(1.05);
+}
+
+

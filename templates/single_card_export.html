@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Card {{ card.number }}</title>
+
+  <!-- Reuse your existing CSS so the card looks identical -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='corporations.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='preludes.css') }}">
+
+  <style>
+    /* Make sure the screenshots are clean and centered */
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;       /* <— prevent layout collapse */
+        background: #222;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        /* Make sure flex container does not auto-scale children */
+        flex-grow: 1;
+        overflow: visible;
+        background: transparent !important;
+    }
+
+
+    /* Prevent shrinking of the card */
+    .card-wrapper, 
+    .card {
+        flex-shrink: 0;
+        overflow: visible;
+    }
+
+    /* Optional: avoid video/audio or other overlays here */
+    .card-wrapper {
+      /* if you want a fixed scale for PNGs, you can adjust transform later */
+    }
+  </style>
+</head>
+<body>
+  <!-- Render exactly ONE card using the same template you already use -->
+  {% include "_card.html" %}
+
+  <script src="{{ url_for('static', filename='js/card_customizations.js') }}"></script>
+
+  <script>
+    // Puppeteer will wait for this signal before taking screenshot
+    window.onload = function() {
+      console.log("📸 Card fully loaded for export");
+      window.EXPORT_READY = true;
+    };
+  </script>
+</body>
+</html>

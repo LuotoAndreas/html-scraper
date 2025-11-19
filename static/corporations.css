@@ -1,0 +1,124 @@
+/* 🏢 Corporations - Matches Project Card Styling */
+
+.section-divider {
+  margin: 60px 0;
+  border: 2px solid #aaa;
+}
+
+
+#corporations-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Card container (same size as project cards) */
+.corporation-card {
+  background: linear-gradient(135deg, #f0f5ff, #e4ecfa);
+  border: 2px solid #90a9f3;
+  border-radius: 12px;
+  width: 220px;
+  min-height: 300px;
+  padding: 12px;
+  color: #333;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  cursor: pointer;
+}
+
+
+/* Header (top bar) */
+.corporation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  padding: 4px 8px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 6px;
+}
+
+.background-color-corporation {
+  background: linear-gradient(-60deg, rgb(110, 149, 255) 10%, rgba(110, 149, 255, 0.6), rgb(110, 149, 255) 90%);
+}
+
+.corp-id {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.corp-name {
+  flex: 1;
+  text-align: right;
+  font-size: 14px;
+}
+
+/* Tag chips */
+.corp-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+
+.corp-tag {
+  background: #d9d9d9;
+  border-radius: 6px;
+  padding: 2px 6px;
+  font-size: 11px;
+  color: #333;
+  font-weight: 500;
+}
+
+/* Tag color variants */
+.corp-tag.tag-building { background: #607d8b; color: white; }
+.corp-tag.tag-space { background: #607dff; color: white; }
+.corp-tag.tag-earth { background: #4caf50; color: white; }
+.corp-tag.tag-jovian { background: #7e57c2; color: white; }
+.corp-tag.tag-microbe { background: #9c27b0; color: white; }
+.corp-tag.tag-plant { background: #66bb6a; color: white; }
+
+/* Effect section */
+.corp-effect {
+  font-size: 12px;
+  line-height: 1.4;
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 6px;
+  padding: 6px;
+  margin-bottom: 6px;
+}
+
+.corp-effect strong {
+  color: #2563eb;
+}
+
+/* Resources */
+.corp-resources {
+  font-size: 12px;
+  line-height: 1.4;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 6px;
+  padding: 6px;
+  margin-bottom: 6px;
+}
+
+/* Special ability */
+.corp-special {
+  font-style: italic;
+  color: #1e3a8a;
+  background: rgba(147, 197, 253, 0.2);
+  border-radius: 6px;
+  padding: 6px;
+}
+
+/* Responsive adjustment */
+@media (max-width: 700px) {
+  .corporation-card {
+    width: 90%;
+  }
+}

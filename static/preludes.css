@@ -1,0 +1,110 @@
+/* 🌅 Prelude Card Styling */
+.prelude-card {
+  background: linear-gradient(135deg, #fbeaf2, #f6dce9);
+  border: 2px solid rgb(235, 118, 171);
+  border-radius: 12px;
+  width: 220px;
+  height: 160px;
+  padding: 12px;
+  color: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  cursor: pointer;
+}
+
+.prelude-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Header section */
+.prelude-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  padding: 4px 8px;
+  font-weight: 700;
+  color: #4a0b26;
+  margin-bottom: 6px;
+}
+
+/* 🌸 Pink gradient header background */
+.background-color-prelude {
+  background: linear-gradient(-60deg, rgb(235, 118, 171) 10%, rgba(235, 118, 171, 0.6), rgb(235, 118, 171) 90%);
+}
+
+.prelude-number {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.prelude-name {
+  flex: 1;
+  text-align: right;
+  font-size: 14px;
+}
+
+/* Tag chips */
+.prelude-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+
+.prelude-tag {
+  background: #d9d9d9;
+  border-radius: 6px;
+  padding: 2px 6px;
+  font-size: 11px;
+  color: #333;
+  font-weight: 500;
+}
+
+/* Tag colors by type */
+.prelude-tag.tag-earth { background: #4caf50; color: white; }
+.prelude-tag.tag-power { background: #ff9800; color: white; }
+.prelude-tag.tag-plant { background: #66bb6a; color: white; }
+.prelude-tag.tag-microbe { background: #9c27b0; color: white; }
+.prelude-tag.tag-building { background: #607d8b; color: white; }
+.prelude-tag.tag-science { background: #2196f3; color: white; }
+.prelude-tag.tag-space { background: #607dff; color: white; }
+.prelude-tag.tag-jovian { background: #7e57c2; color: white; }
+.prelude-tag.tag-city { background: #f06292; color: white; }
+.prelude-tag.tag-wild { background: #d32f2f; color: white; }
+
+/* Effects */
+.prelude-effects {
+  font-size: 12px;
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+.prelude-effect {
+  margin-bottom: 2px;
+}
+
+.prelude-effect.special {
+  font-style: italic;
+  color: #8a2656;
+}
+
+/* Description */
+.prelude-description {
+  font-size: 12px;
+  color: #333;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 4px;
+  margin-top: 4px;
+}
+
+/* Smooth responsive adjustment */
+@media (max-width: 700px) {
+  .prelude-card {
+    width: 90%;
+  }
+}

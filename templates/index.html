@@ -1,599 +1,682 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terraforming Mars Card Showcase</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terraforming Mars Card Showcase</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='corporations.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='preludes.css') }}">
 </head>
+
 <body>
-    <h1>Card Showcase</h1>    
+  <script>
+    console.log("🔥 PAGE JS STARTED");
+  </script>
+  <script>
+    console.log("🔥 LOCALSTORAGE RESTORE SCRIPT LOADED");
+
+  </script>
+
+
+  <h1>Card Showcase</h1>
+
+  <!-- Top Buttons -->
+  <div class="center-buttons">   
+    
 
     <button id="play-music-btn">Play Music</button>
+
     <div class="select-wrapper">
-        <label for="song-selector" class="song-label"></label>
-        <select id="song-selector" aria-label="Choose song">
-            <option value="{{ url_for('static', filename='AurelionSol.mp3') }}">Aurelion Sol</option>            
-            <option value="{{ url_for('static', filename='SuperGalaxyRumble.mp3') }}">Super Galaxy Rumble</option>
-        </select>
+      <label for="song-selector" class="song-label"></label>
+      <select id="song-selector" aria-label="Choose song">
+        <option value="{{ url_for('static', filename='AurelionSol.mp3') }}">Aurelion Sol</option>
+        <option value="{{ url_for('static', filename='SuperGalaxyRumble.mp3') }}">Super Galaxy Rumble</option>
+      </select>
     </div>
+  </div>
 
-    <div id="search-wrapper" style="text-align:center; margin-bottom: 20px;">
-        <input type="text" id="card-search" placeholder="Search card name..." style="padding:8px; width:220px; border-radius:8px; border:1px solid #aaa;">
-    </div>
-    
-    <div id="cards-container">
-        {% for card in cards %}
-        <div class="card-wrapper"
-            data-production-box-size="{{ card.production[0].production_box_size if card.production and card.production[0].production_box_size is not none else '' }}">
-            <div class="card" style="background-image: url('{{ card.image }}')">
-                <div class="overlay">
-                    <div class="header">
-                        <div class="number">
-                            {% if card.number != "N/A" %}
-                                <div class="card-number">{{ card.number }}</div>
-                            {% endif %}
-                        </div>
-                        <div class="price-container">
-                            {% if card.price.image_url %}
-                                <div class="price-icon" 
-                                    style="background-image: url('{{ card.price.image_url }}')"
-                                    title="{{ card.price.text }}">
-                                </div>
-                            {% endif %}
-                            <div class="price-text">{{ card.price.text }}</div>
-                        </div>
-                        <div class="tag-container">
-                            <div class="tags">
-                            {% for tag in card.tags %}
-                                <div class="tag" 
-                                    style="background-image: url('{{ tag.image_url }}')"
-                                    title="{{ tag.name }}">
-                                </div>
-                            {% endfor %}
-                            </div>
-                        </div>                        
-                    </div>
-                    <div class="title {{ card.title.title_card_type }}">{{ card.title.title_text }}</div>
-                    
-                    {% if card.requirements %}                        
-                        <div class="requirements {% if 'requirements-max' in card.requirements.0.resource_name %}requirements-max{% endif %}" 
-                            style="background-image: url('{{ card.requirements.0.requirements_image }}');"
-                            title="{{ card.requirements.0.requirements }}">
-                            {{ card.requirements.0.requirements }}
-                        </div>
-                    {% endif %} 
+  <h2 class="section-title">Selected Cards</h2>
 
-                    <div class="content">                        
-                        {% if card.production %}
-                        <div class="{{ card.production.0.production_box_size|default('production-box') }}" 
-                            style="background-image: url('{{ card.production.0.production_box_image }}');">
+  <!-- Selected Cards -->
+  <div id="selected-cards-container"></div>
 
-                            {% set production = card.production.0 %}
+  <!-- Analyze Button -->
+  <div class="center-buttons">
+    <button id="random-hand-btn">🎲 Random Hand</button>
+    <button id="analyze-btn">🔍 Analyze Deck</button>
+  </div>
 
-                            {% for key, grouped in [('grouped_minus', production.grouped_minus), ('grouped_plus', production.grouped_plus), ('grouped_none', production.grouped_none)] %}
-                                {% if grouped %}
-                                    {% for prod_type, prods in grouped.items() %}
-                                        <div class="production-container">
-                                            {% if key != 'grouped_none' and prods[0].prefix_image_url %}
-                                                <img class="prefix_icons" src="{{ prods[0].prefix_image_url }}" alt="{{ key }}">
-                                            {% endif %}
-                                            {% for prod in prods %}
-                                                <span class="production-icon-container {{ prod.type }}-production-icon-container-{{ loop.index }}"
-                                                    style="{% if prod.special %} filter: drop-shadow(1px 0px 1px #c33) drop-shadow(-1px 0px 1px #c33) drop-shadow(0px 1px 1px #c33) drop-shadow(0px -1px 1px #c33) !important; {% endif %}">
-                                                    <img class="production-icon-name" src="{{ prod.type_image_url }}" alt="{{ prod.type }}">
-                                                    {% if prod.type is mapping and prod.type.type == "money" %}
-                                                        <div class="production-text-overlay">{{ prod.type.money_amount }}</div>
-                                                    {% endif %}
-                                                </span>
-                                            {% endfor %}
-                                        </div>
-                                    {% endfor %}
-                                {% endif %}
-                            {% endfor %}
-                            </div>                            
-                        {% endif %}
+  <div class="center-buttons" style="margin-top:10px;">
+    <button id="save-local-btn">💾 Save Deck Locally</button>
+    <button id="load-local-btn">📥 Load Saved Deck</button>
+    <button id="delete-local-btn">🗑️ Delete Saved Deck</button>
+</div>
 
-                        {% if card.tile_data %}
-                            {% for tile in card.tile_data %}
-                                <div class="{{ tile.tile_name ~ '-container' | default('tile-container') }}">
-                                    <div class="{{ tile.tile_name | default('tile-icon') }}"
-                                        style="background-image: url('{{ tile.tile_image_url }}');
-                                                filter:
-                                                    {% if card.number == '#038' %}
-                                                        brightness(0.8) drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.5))
-                                                        drop-shadow(1px 0px 1px #c33) drop-shadow(-1px 0px 1px #c33)
-                                                        drop-shadow(0px 1px 1px #c33) drop-shadow(0px -1px 1px #c33);
-                                                    {% elif tile.special == 'red-outline' %}
-                                                        drop-shadow(1px 0px 1px #c33) drop-shadow(-1px 0px 1px #c33)
-                                                        drop-shadow(0px 1px 1px #c33) drop-shadow(0px -1px 1px #c33);
-                                                    {% endif %}"
-                                        title="">
-                                    </div>
-                                </div>
-                            {% endfor %}
-                        {% endif %}                                              
-                    </div>            
-                     <div class="resource-description-container">
-                            {% if card.ordered_resources %}
-                                <div class="resource-container">
-                                    {% set resource_counters = {} %} <!-- Initialize a counter dictionary -->
-                                    {% for resource in card.ordered_resources %}
-                                        {% set count = resource_counters[resource.class] if resource.class in resource_counters else 0 %}
-                                        {% set resource_counters = resource_counters.update({resource.class: count + 1}) %}
-                                        
-                                        <div class="{{ resource.class ~ '-resource-container-' ~ (count + 1) }}">
-                                            <div class="{{ resource.class ~ '-icon' | default('resource-icon') }}"
-                                                style="background-image: url('{{ resource.resource_image_url }}'); 
-                                                    {% if resource.special == 'red-outline' %} 
-                                                    filter: drop-shadow(1px 0px 1px #c33) drop-shadow(-1px 0px 1px #c33) 
-                                                            drop-shadow(0px 1px 1px #c33) drop-shadow(0px -1px 1px #c33) !important; 
-                                                    {% endif %}">
-                                                {% if resource.class == "money" %}
-                                                    <div class="resource-text-overlay">{{ resource.text }}</div>
-                                                {% endif %}
-                                            </div>
-                                        </div>
-                                    {% endfor %}
-                                </div>
-                                {% endif %}  
-                                {% for description in card.descriptions %}
-                                    <div class="description-container-{{ loop.index }}">
-                                        <div class="description">{{ description.description }}</div>
-                                    </div>
-                                {% endfor %}
-                            </div>            
-                    
-                    
+  <!-- AI Response -->
+  <div id="ai-response"></div>
 
-                    {% if card.points_resource %}
-                        {% for pr in card.points_resource %}
-                            <div class="points" style="background-image: url('{{ card.image }}');">
-                                {{ pr.points }}
-                                {% if pr.image_url %}
-                                    <span class="resource-image {% if pr.resource == 'tag-jovian resource-tag' %}jovian{% endif %}" 
-                                          style="background-image: url('{{ pr.image_url }}');"></span>
-                                {% endif %}
-                            </div>
-                        {% endfor %}
-                    {% endif %}          
-                </div>
-            </div>
-            
-            <!-- Price container now outside the card but inside wrapper -->
-            
-        </div>
-        {% endfor %}
-    </div>
-    <div id="error-message"></div>
+  <!-- Card Type Toggle Buttons -->
+  <div class="toggle-buttons-wrapper">
+    <button id="show-projects-btn" class="toggle-btn active">🃏 Project Cards</button>
+    <button id="show-corps-btn" class="toggle-btn">🏢 Corporations</button>
+    <button id="show-preludes-btn" class="toggle-btn">🌅 Preludes</button>
+  </div>
 
-    <video id="background-video" autoplay muted loop>
-        <source src="{{ url_for('static', filename='background_animated.mp4') }}" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+  <!-- Search -->
+  <div id="search-wrapper">
+    <input type="text" id="card-search" placeholder="Search card name...">
+  </div>
 
-    <audio id="background-audio" src="{{ url_for('static', filename='AurelionSol.mp3') }}" autoplay loop muted></audio>    
+  <!-- Cards Container -->
+  <div id="cards-container">
+    {% for card in cards %}
+      {% include "_card.html" %}
+    {% endfor %}
+  </div>
 
-    <script>
-        const audio = document.getElementById('background-audio');
-        const video = document.getElementById('background-video');
-        const playBtn = document.getElementById('play-music-btn');
-        const songSelector = document.getElementById('song-selector');
+  {% include "_corporations.html" %}
+  {% include "_preludes.html" %}
 
-        let isPlaying = false;
+  <div id="error-message"></div>
 
+  <video id="background-video" autoplay muted loop>
+    <source src="{{ url_for('static', filename='background_animated.mp4') }}" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <audio id="background-audio" src="{{ url_for('static', filename='AurelionSol.mp3') }}" autoplay loop muted></audio>
+
+  <!-- 🎵 MUSIC LOGIC -->
+  <script>
+    console.log("🔥 MUSIC SCRIPT STARTED");
+    const audio = document.getElementById('background-audio');
+    const video = document.getElementById('background-video');
+    const playBtn = document.getElementById('play-music-btn');
+    const songSelector = document.getElementById('song-selector');
+    let isPlaying = false;
+
+    video.pause();
+    playBtn.addEventListener('click', () => {
+      if (isPlaying) {
+        audio.pause();
         video.pause();
+        playBtn.textContent = 'Play Music';
+      } else {
+        audio.muted = false;
+        audio.volume = 0.1;
+        audio.play();
+        video.play();
+        playBtn.textContent = 'Pause Music';
+      }
+      isPlaying = !isPlaying;
+    });
 
-        playBtn.addEventListener('click', () => {
-            if (isPlaying) {
-                // Pause audio and video
-                audio.pause();
-                video.pause();
-                playBtn.textContent = 'Play Music';
-            } else {
-                // Play audio and video
-                audio.muted = false;
-                audio.volume = 0.1;
-                audio.play();
-                video.play();
-                playBtn.textContent = 'Pause Music';
-            }
-            isPlaying = !isPlaying; // Toggle the playing state
+    songSelector.addEventListener('change', () => {
+      const selectedSong = songSelector.value;
+      const wasPlaying = isPlaying;
+      audio.src = selectedSong;
+      audio.load();
+      if (wasPlaying) audio.play(); else audio.pause();
+    });
+  </script>
+
+  <!-- 🔍 CARD SEARCH -->
+  <script>
+    console.log("🔥 SEARCH SCRIPT STARTED");
+    document.getElementById('card-search').addEventListener('input', function () {
+      const search = this.value.trim().toLowerCase();
+      const cardsVisible = document.getElementById('cards-container').style.display !== 'none';
+      const corpsVisible = document.getElementById('corporations-container').style.display !== 'none';
+      const preludesVisible = document.getElementById('preludes-container').style.display !== 'none';
+
+      if (cardsVisible) {
+        document.querySelectorAll('#cards-container .card-wrapper').forEach(card => {
+          const title = card.querySelector('.title')?.textContent.trim().toLowerCase() || '';
+          const number = card.querySelector('.number')?.textContent.trim().toLowerCase() || '';
+          card.style.display = (title.includes(search) || number.includes(search)) ? '' : 'none';
+        });
+      } 
+      else if (corpsVisible) {
+        document.querySelectorAll('#corporations-container .corporation-card').forEach(corp => {
+          const name = corp.querySelector('.corp-name')?.textContent.trim().toLowerCase() || '';
+          const id = corp.querySelector('.corp-id')?.textContent.trim().toLowerCase() || '';
+          corp.style.display = (name.includes(search) || id.includes(search)) ? '' : 'none';
+        });
+      }
+      else if (preludesVisible) {
+        document.querySelectorAll('#preludes-container .prelude-card').forEach(prelude => {
+          const name = prelude.querySelector('.prelude-name')?.textContent.trim().toLowerCase() || '';
+          const id = prelude.querySelector('.prelude-number')?.textContent.trim().toLowerCase() || '';
+          const tags = Array.from(prelude.querySelectorAll('.prelude-tag'))
+            .map(t => t.textContent.trim().toLowerCase());
+          const match = name.includes(search) || id.includes(search) || tags.some(t => t.includes(search));
+          prelude.style.display = match ? '' : 'none';
+        });
+      }
+    });
+  </script>
+
+  <!-- 🔄 TOGGLE PROJECT/CORPORATION/PRELUDE VIEW -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log("🔥 TOGGLE VIEW SCRIPT STARTED");
+      const cardsContainer = document.getElementById('cards-container');
+      const corporationsContainer = document.getElementById('corporations-container');
+      const preludesContainer = document.getElementById('preludes-container');
+      const showProjectsBtn = document.getElementById('show-projects-btn');
+      const showCorpsBtn = document.getElementById('show-corps-btn');
+      const showPreludesBtn = document.getElementById('show-preludes-btn');
+      const searchInput = document.getElementById('card-search');
+
+      corporationsContainer.style.display = 'none';
+      preludesContainer.style.display = 'none';
+      cardsContainer.style.display = '';
+
+      function toggleSection(section) {
+        cardsContainer.style.display = section === 'projects' ? '' : 'none';
+        corporationsContainer.style.display = section === 'corps' ? 'flex' : 'none';
+        preludesContainer.style.display = section === 'preludes' ? 'flex' : 'none';
+
+        showProjectsBtn.classList.toggle('active', section === 'projects');
+        showCorpsBtn.classList.toggle('active', section === 'corps');
+        showPreludesBtn.classList.toggle('active', section === 'preludes');
+
+        const placeholder = section === 'projects'
+          ? 'Search project card name...'
+          : section === 'corps'
+          ? 'Search corporation name...'
+          : 'Search prelude name...';
+        searchInput.placeholder = placeholder;
+
+        searchInput.value = '';
+        document.querySelectorAll('.card-wrapper, .corporation-card, .prelude-card')
+          .forEach(el => el.style.display = '');
+      }
+
+      showProjectsBtn.addEventListener('click', () => toggleSection('projects'));
+      showCorpsBtn.addEventListener('click', () => toggleSection('corps'));
+      showPreludesBtn.addEventListener('click', () => toggleSection('preludes'));
+    });
+  </script>
+
+ 
+
+  <!-- 🧠 MAIN GAME LOGIC: SELECTION + ANALYSIS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log("🔥 ANALYZE / SELECTION SCRIPT STARTED");
+
+      // ===============================
+      // RESTORE DECK FROM LOCALSTORAGE
+      // ===============================
+      function restoreDeckUI(deck) {
+        if (!deck) return;
+
+        console.log("🔄 Applying saved deck to UI...", deck);
+
+        //
+        // 🃏 Restore project cards
+        //
+        (deck.card_ids || []).forEach(id => {
+            const el = document.querySelector(`[data-card-number="${id}"]`);
+            if (!el) return;
+
+            // Ensure attributes exist
+            el.dataset.cardNumber = el.dataset.cardNumber ||
+                el.querySelector('.number')?.textContent.trim();
+
+            addItem(el, "card");
         });
 
-        songSelector.addEventListener('change', () => {
-            const selectedSong = songSelector.value; // full URL here
-            const wasPlaying = isPlaying; // Capture the current play state
-            audio.src = selectedSong; // Change the song source
-            audio.load(); // Ensure the new audio is properly loaded
-            if (wasPlaying) {
-                audio.play(); // Play only if it was playing before
-            } else {
-                audio.pause(); // Explicitly pause the audio
-            }
-        });
-    </script>
+        //
+        // 🏢 Restore corporations
+        //
+        (deck.corp_ids || []).forEach(id => {
+            const el = document.querySelector(`[data-corp-id="${id}"]`);
+            if (!el) return;
 
-    <script>
-        document.getElementById('card-search').addEventListener('input', function() {
-            const search = this.value.trim().toLowerCase();
-            const cards = document.querySelectorAll('.card-wrapper');
-            cards.forEach(card => {
-                const titleDiv = card.querySelector('.title');
-                const title = titleDiv ? titleDiv.textContent.trim().toLowerCase() : '';
-                if (title.includes(search)) {
-                    card.style.display = '';
+            // 🔧 FIX: ensure corpId attribute is attached before addItem()
+            el.dataset.corpId = el.dataset.corpId ||
+                el.querySelector('.corp-id')?.textContent.trim();
+
+            addItem(el, "corporation");
+        });
+
+        //
+        // 🌅 Restore preludes
+        //
+        (deck.prelude_ids || []).forEach(id => {
+            const el = document.querySelector(`[data-prelude-id="${id}"]`);
+            if (!el) return;
+
+            // 🔧 FIX: ensure preludeId attribute is attached before addItem()
+            el.dataset.preludeId = el.dataset.preludeId ||
+                el.querySelector('.prelude-number')?.textContent.trim();
+
+            addItem(el, "prelude");
+        });
+      }
+
+      const searchInput = document.getElementById('card-search');
+      const cardsContainer = document.getElementById('cards-container');
+      const corporationsContainer = document.getElementById('corporations-container');
+      const preludesContainer = document.getElementById('preludes-container');
+      const selectedContainer = document.getElementById('selected-cards-container');
+
+      const selectedItems = new Map();   // project cards
+      const selectedCorps = new Map();   // corporations
+      const selectedPreludes = new Map();// preludes
+      const selectedCards = selectedItems;      
+
+      // SAVE TO LOCALSTORAGE
+      function saveCurrentDeck() {
+        const deck = {
+          card_ids: Array.from(selectedItems.keys()),
+          corp_ids: Array.from(selectedCorps.keys()),
+          prelude_ids: Array.from(selectedPreludes.keys())
+        };
+        localStorage.setItem("savedDeck", JSON.stringify(deck));
+        console.log("💾 Deck saved to localStorage", deck);
+      }
+
+      // 🎴 Handle project card selection
+      cardsContainer.addEventListener('click', (event) => {
+        const cardWrapper = event.target.closest('.card-wrapper');
+        if (!cardWrapper) return;
+        addItem(cardWrapper, 'card');
+      });
+
+      // 🏢 Handle corporation selection
+      corporationsContainer.addEventListener('click', (event) => {
+        const corpWrapper = event.target.closest('.corporation-card');
+        if (!corpWrapper) return;
+        corpWrapper.dataset.corpId = corpWrapper.querySelector('.corp-id')?.textContent.trim() || '';
+        addItem(corpWrapper, 'corporation');
+      });
+
+      // 🌅 Handle prelude selection
+      preludesContainer.addEventListener('click', (event) => {
+        const preludeWrapper = event.target.closest('.prelude-card');
+        if (!preludeWrapper) return;
+        preludeWrapper.dataset.preludeId = preludeWrapper.querySelector('.prelude-number')?.textContent.trim() || '';
+        addItem(preludeWrapper, 'prelude');
+      });
+
+      // 🧩 Shared add function
+      function addItem(itemWrapper, type) {
+        const itemId = itemWrapper.dataset.cardNumber || itemWrapper.dataset.corpId || itemWrapper.dataset.preludeId || 'NOID';
+        if (!itemId) return;
+
+        const map =
+          type === 'card' ? selectedItems :
+          type === 'corporation' ? selectedCorps :
+          selectedPreludes;
+
+        if (map.has(itemId)) return;
+
+        const clone = itemWrapper.cloneNode(true);
+        clone.classList.add('selected-copy');
+        clone.style.position = 'relative';
+        clone.style.overflow = 'visible';
+        clone.style.zIndex = '5';
+
+        // ❌ Remove button
+        const removeBtn = document.createElement('button');
+        removeBtn.textContent = '❌';
+        removeBtn.className = 'remove-selected-btn';
+        removeBtn.style.cssText = `
+          position: absolute;
+          top: -14px;
+          right: -14px;
+          z-index: 9999;
+          background: rgba(0,0,0,0.7);
+          color: white;
+          border: none;
+          border-radius: 50%;
+          width: 26px;
+          height: 26px;
+          cursor: pointer;
+          font-size: 14px;
+          line-height: 22px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        `;
+
+        removeBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          clone.remove();
+          map.delete(itemId);
+          itemWrapper.classList.remove('selected');
+          saveCurrentDeck();
+        });
+
+        clone.appendChild(removeBtn);
+        selectedContainer.appendChild(clone);
+        map.set(itemId, clone);
+        itemWrapper.classList.add('selected');
+        saveCurrentDeck();
+      }
+
+      // 🎲 Random Hand Generator Button
+      const randomBtn = document.getElementById('random-hand-btn');
+      if (randomBtn) {
+        randomBtn.addEventListener('click', () => {
+          const allCards = Array.from(cardsContainer.querySelectorAll('.card-wrapper'));
+          const allCorps = Array.from(corporationsContainer.querySelectorAll('.corporation-card'));
+          const allPreludes = Array.from(preludesContainer.querySelectorAll('.prelude-card'));
+
+          function pickRandom(arr, n) {
+            const copy = [...arr];
+            for (let i = copy.length - 1; i > 0; i--) {
+              const j = Math.floor(Math.random() * (i + 1));
+              [copy[i], copy[j]] = [copy[j], copy[i]];
+            }
+            return copy.slice(0, Math.min(n, copy.length));
+          }
+
+          selectedContainer.innerHTML = '';
+          selectedItems.clear();
+          selectedCorps.clear();
+          selectedPreludes.clear();
+          document.querySelectorAll('.selected').forEach(el => el.classList.remove('selected'));
+
+          const chosenCards = pickRandom(allCards, 10);
+          const chosenCorps = pickRandom(allCorps, 2);
+          const chosenPreludes = pickRandom(allPreludes, 4);
+
+          chosenCards.forEach(c => addItem(c, 'card'));
+          chosenCorps.forEach(c => addItem(c, 'corporation'));
+          chosenPreludes.forEach(p => addItem(p, 'prelude'));
+
+          console.log('🎲 Randomized selection complete.');
+        });
+      }
+
+      // 🧠 Analyze Deck button
+      document.getElementById('analyze-btn').addEventListener('click', () => {
+        const selectedData = {
+          card_ids: Array.from(selectedItems.values()).map(c => c.dataset.cardNumber?.trim()).filter(Boolean),
+          corp_ids: Array.from(selectedCorps.values()).map(c => c.dataset.corpId?.trim()).filter(Boolean),
+          prelude_ids: Array.from(selectedPreludes.values()).map(p => p.dataset.preludeId?.trim()).filter(Boolean)
+        };
+
+        console.log('Sending deck data:', selectedData);
+
+        const aiDiv = document.getElementById('ai-response');
+        aiDiv.style.display = 'block';
+        aiDiv.innerHTML = '🤖 <em>Analyzing deck...</em> please wait.';
+
+        fetch('/save_deck', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(selectedData)
+        })
+        .then(res => res.json())
+        .then(() => fetch('/analyze_deck', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(selectedData)
+        }))
+        .then(res => res.json())
+        .then(result => {
+          const aiDiv = document.getElementById('ai-response');
+          aiDiv.scrollIntoView({ behavior: "smooth" });
+
+          if (!result.analysis) {
+            aiDiv.textContent = '⚠️ Error: ' + (result.error || 'Unknown issue');
+            return;
+          }
+
+          let analysis = result.analysis;
+
+          // 🧠 Try to parse JSON strings automatically (even if wrapped in ```json ... ```).
+          if (typeof analysis === 'string') {
+            let cleaned = analysis.trim();
+
+            if (cleaned.startsWith("```")) {
+              cleaned = cleaned.replace(/^```(json)?/i, "").replace(/```$/, "").trim();
+            }
+
+            if (cleaned.startsWith("{") || cleaned.startsWith("[")) {
+              try {
+                analysis = JSON.parse(cleaned);
+                console.log("✅ Parsed JSON from GPT response");
+              } catch (err) {
+                console.warn("⚠️ Failed to parse JSON string from GPT:", err, "\nContent:", cleaned);
+              }
+            }
+          }
+
+          console.log("🔍 BEFORE rendering — analysis typeof:", typeof analysis, analysis);
+
+          // ✅ If backend returned structured JSON (object)
+          if (typeof analysis === 'object') {
+            const r = analysis.recommended_setup || {};
+            const alt = analysis.alternatives || [];
+
+            console.log("🔍 Full analysis object from backend:", analysis);
+            console.log("🔍 recommended_setup.early_game_plan:", r.early_game_plan);
+
+            // Helper: render card visually if it exists on page
+            const renderSelectedCardByTitle = (names) => {
+            if (!Array.isArray(names)) names = [names];
+
+            return names
+              .filter(name => typeof name === "string" && name.trim())
+              .map(name => {
+                const lowerName = name.trim().toLowerCase();
+
+                // Search ANY card on the page — NOT just selected ones
+                let match = Array.from(document.querySelectorAll('.card-wrapper, .corporation-card, .prelude-card'))
+                  .find(c => {
+                    const label = c.querySelector('.title, .corp-name, .prelude-name')?.textContent?.trim()?.toLowerCase() || "";
+                    return label === lowerName;
+                  });
+
+                // Try matching by number
+                if (!match) {
+                  match = Array.from(document.querySelectorAll('.card-wrapper, .corporation-card, .prelude-card'))
+                    .find(c => {
+                      const num = (c.dataset.cardNumber || c.dataset.corpId || c.dataset.preludeId || "")
+                        .trim().toLowerCase();
+                      return num === lowerName;
+                    });
+                }
+
+                if (match) {
+                  const clone = match.cloneNode(true);
+                  clone.style.cursor = "default";
+                  clone.querySelectorAll('button').forEach(b => b.remove());
+                  return clone.outerHTML;
                 } else {
-                    card.style.display = 'none';
+                  return `<div class="ai-pill">${name}</div>`;
                 }
-            });
-        });
-    </script>
+              })
+              .join("");
+          };
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const cards = document.querySelectorAll('.card-wrapper');
-            
-            cards.forEach(cardWrapper => {
-                
-                // Check if the card contains a city tile 
 
-                const numberElement = cardWrapper.querySelector('.card-number');
-                const number = numberElement ? numberElement.textContent.trim() : null;
+            let html = `
+              <h2 class="ai-title">🏢 Recommended Setup</h2>
+              <div class="ai-cards-section">
 
-                const resource_description = cardWrapper.querySelector('.resource-description-container');
-                const smallCityContainer = cardWrapper.querySelector('.city-tile-small-container');
-                const cityTileContainer = cardWrapper.querySelector('.city-tile-container')
-                const resourceContainer = cardWrapper.querySelector('.resource-container');
+                <h3 class="ai-subtitle">Corporation and Preludes</h3>
+                <div class="ai-flex">
+                  ${renderSelectedCardByTitle([r.corporation].filter(Boolean))}, ${renderSelectedCardByTitle(r.preludes || [])}
+                </div>
 
-                /*
-                if (number == "#001") {
-                    resource_description.style.top = '106px';
-                }
-                
-                // jos top 200px niin tänne vaa
-                if (number == "#002" || number == "#004" || number == "#008") {
-                    resource_description.style.top = '200px';
-                }
+                <h3 class="ai-subtitle">🃏 Project Cards</h3>
+                <div class="ai-flex center">
+                  ${renderSelectedCardByTitle(r.kept_projects || [])}
+                </div>
 
-                if (number == "#005") {
-                    const descriptionBox = cardWrapper.querySelector('.description-container-2')
-                    resource_description.style.top = '109px'
-                    descriptionBox.style.left = '-46px'
-                    descriptionBox.style.top = '42px'
-                    descriptionBox.style.width = '130px'
-                }
+                <p class="ai-rating"><strong>⭐ Synergy Rating:</strong> ${r.synergy_rating || "?"}/10</p>
 
-                if (number == "#006") {
-                    const container = cardWrapper.querySelector('.resource-container')
-                    const description = cardWrapper.querySelector('.description-container-1')
-                    const deee = cardWrapper.querySelector('.description')
-                    container.style.left = '-80px'
-                    resource_description.style.top = '71px'
-                    description.style.top = '-34px'
-                    description.style.left = '11px'
-                    description.style.width = '170px'
-                    deee.style.fontWeight = 'bold'
-                    deee.style.fontSize = '11px'
+                <!-- STRICT SYNERGY REPORT (Grouped) -->
+                <h3 class="ai-subtitle">🔗 Mechanical Synergies</h3>
+
+                ${
+                  (() => {
+                    const groups = r.synergy_report?.synergy_groups || {};
+                    const keys = Object.keys(groups);
+
+                    if (keys.length === 0) {
+                      return "<div class='ai-pill'>No mechanical synergies detected.</div>";
+                    }
+
+                    return keys.map(groupName => `
+                      <div class="ai-synergy-group">
+                        <h4 class="ai-synergy-group-title">${groupName}</h4>
+                        <div class="ai-synergies">
+                          ${groups[groupName]
+                            .map(line => `<div class="ai-pill synergy">${line}</div>`)
+                            .join("")}
+                        </div>
+                      </div>
+                    `).join("");
+                  })()
                 }
 
-                
-                if (number === "#007") {
-                    resource_description.style.top = '85px';
-                    resourceContainer.style.right = '35px';
-                    smallCityContainer.style.left = '50px';
-                    smallCityContainer.style.top = '7px';
-                }
+                <!-- GENERAL REASONING (not synergy-specific) -->
+                ${Array.isArray(r.reasoning) ? 
+                  `<h3 class="ai-subtitle">📘 Reasoning</h3>
+                  <ul class="ai-reason-list">
+                    ${r.reasoning.map(line => `<li>${line}</li>`).join("")}
+                  </ul>` 
+                  : ""}
 
-                if (number === "#008") {
-                    [2, 3, 4].forEach(i => {
-                        const container = cardWrapper.querySelector(`.description-container-${i}`);
-                        const description = container.querySelector('.description');
+                  ${r.early_game_plan
+                    ? `<h3 class="ai-subtitle">🕹️ Early Game Plan</h3><p>${r.early_game_plan}</p>`
+                    : ""}
+              </div>
+            `;
 
-                        if (container && description) {
-                            container.style.width = '160px';
-                            container.style.left = '-30px';
-                            container.style.textAlign = 'left';
-                            description.style.fontSize = '9px';
-                        }
-                    });
-                }
-                
-                if (number === "#009") {
-                    const minus = cardWrapper.querySelector('.minus-resource-container-1');
-                    const titaniums = cardWrapper.querySelectorAll('.titanium-resource-container-1, .titanium-resource-container-2');
-                    const rest = cardWrapper.querySelectorAll('.plant-resource-container-1, .plant-resource-container-2, .plant-resource-container-3');
-                    resourceContainer.style.width = '100px';
-                    minus.style.left = '-97px';
-                    minus.style.bottom = '-33px';
+            if (alt.length) {
+              html += `
+                <h2 class="ai-title">🔁 Alternative Combo</h2>
+                ${alt.map(a => `
+                <div class="ai-cards-section">
 
-                    titaniums.forEach(titanium => {
-                        titanium.style.left = '10px';
-                    });
+                  <h3 class="ai-subtitle">Corporation and Preludes</h3>
+                  <div class="ai-flex">
+                    ${renderSelectedCardByTitle([a.corporation])}, ${renderSelectedCardByTitle(a.preludes || [])}
+                  </div>
 
-                    rest.forEach(both => {
-                        both.style.left = '-5px';
-                    });
-                }
-                
-                if (number === "#011") {
-                    const minus = cardWrapper.querySelector('.minus-resource-container-1');
-                    resourceContainer.style.width = '185px';
-                    resourceContainer.style.left = '17px';
-                    minus.style.right = '143px';
-                    minus.style.bottom = '-32px';
+                  <h3 class="ai-subtitle">🃏 Project Cards</h3>
+                  <div class="ai-flex center">
+                    ${renderSelectedCardByTitle(a.kept_projects || [])}
+                  </div>
 
-                }
+                  <p class="ai-rating"><strong>⭐ Rating:</strong> ${a.synergy_rating || "?"}/10</p>
 
-                if (number === "#012") {
-                    ocean = cardWrapper.querySelector('.ocean-tile-container');
-                    description = cardWrapper.querySelector('.description-container-1');
-                    description2 = cardWrapper.querySelector('.description-container-2');
-                    resource_description.style.top = '85px';
-                    resource_description.style.left = '-40px';
-                    ocean.style.right = '-33px';
-                    description.style.left = '39px';
-                    description2.style.left = '39px'
-                }
+                  <!-- STRICT SYNERGY REPORT (Grouped) -->
+                  <h3 class="ai-subtitle">🔗 Mechanical Synergies</h3>
 
-                if (number === "#013") {
-                    const production = cardWrapper.querySelector('.default-box')
-                    const container1 = cardWrapper.querySelector('.description-container-1')
-                    const container = cardWrapper.querySelector('.description-container-2')
+                  ${
+                    (() => {
+                      const groups = a.synergy_report?.synergy_groups || {};
+                      const keys = Object.keys(groups);
 
-                    resource_description.style.top = '77px';
-                    production.style.position = 'relative'
-                    production.style.top = '77px'
-                    container.style.top = '58px'
-                    container1.style.top = '-10px'
-                }
+                      if (keys.length === 0) {
+                        return "<div class='ai-pill'>No mechanical synergies detected.</div>";
+                      }
 
-                if (number === "#014") {
-                    resource_description.style.top = '82px';
-                }
-
-                if (number === "#015") {
-                    const production = cardWrapper.querySelector('.production-box-size1a')
-
-                    resource_description.style.top = '82px';
-                    production.style.position = 'relative'
-                    production.style.left = '-25px'
-                }
-
-                if (number === "#016") {
-                    [1, 2, 3, 4].forEach(i => {
-                        const container = cardWrapper.querySelector(`.description-container-${i}`);
-                        const description = container.querySelector('.description');
-
-                        if (container && description) {
-                            container.style.paddingTop = '0px'
-                            container.style.paddingBottom = '0px'
-                            container.style.textAlign = 'left';
-                        }
-                    });
-                    container2 = cardWrapper.querySelector('.description-container-2')
-                    container3 = cardWrapper.querySelector('.description-container-3')                    
-                    container4 = cardWrapper.querySelector('.description-container-4')
-                    resource_description.style.top = '196px' 
-                    container2.style.left = '-47px'
-                    container3.style.left = '7px'
-                    container4.style.left = '-107px'                    
-                    container4.style.top = '13px'
-                    cityTileContainer.style.top = '32px'
-                }
-
-                if (number === "#017") {
-                    resource_description.style.top = '165px';
-                    cityTileContainer.style.top = '32px'
-                }
-
-                if (number === "#018") {
-                    resource_description.style.top = '197px';
-                }
-
-                if (number === "#019") {
-                    const ocean = cardWrapper.querySelector('.ocean-tile-container')
-                    const container = cardWrapper.querySelector('.description-container-1')
-                    resource_description.style.top = '80px'
-                    ocean.style.top = '43px'
-                    container.style.top = '47px'
-                }
-
-                if (number === "#020") {
-                    const container = cardWrapper.querySelector('.description-container-2')
-                    resource_description.style.top = '77px'
-                    cityTileContainer.style.top = '93px'
-                    container.style.top = '60px'
-                }
-
-                if (number === "#022") {
-                    const ocean = cardWrapper.querySelector('.ocean-tile-container')
-                    resource_description.style.top = '166px'
-                    ocean.style.top = '33px'
-                }
-
-                if (number === "#023") {
-                    const ocean = cardWrapper.querySelector('.ocean-tile-container')
-                    const container = cardWrapper.querySelector('.plant-resource-container-1')
-                    const container2 = cardWrapper.querySelector('.description-container-2')
-                    resource_description.style.top = '119px'
-                    container.style.top = '75px'
-                    container.style.left = '34px'
-                    container2.style.top = '28px'
-                    ocean.style.left = '-50px'
-                }
-
-                if (number === "#024") {
-                    resource_description.style.top = '111px'
-                }
-
-                if (number === "#025") {
-                    resource_description.style.top = '79px'
-                }
-
-                if (number === "#026") {
-                    const production = cardWrapper.querySelector('.default-box')
-                    const description = cardWrapper.querySelector('.description-container-1')
-                    resource_description.style.top = '109px'
-                    production.style.position = 'relative'
-                    production.style.top = '39px'
-                    description.style.top = '47px'
-                }
-
-                if (number === "#028") {
-                    resource_description.style.top = '76px'
-                }
-
-                if (number === "#029") {
-                    resource_description.style.top = '200px'
-                    cityTileContainer.style.top = '31px'
-                }
-
-                if (number === "#030") {
-                    resource_description.style.top = '200px'
-                }
-
-                if (number === "#031") {
-                    resource_description.style.top = '78px'
-                    resourceContainer.style.width = '213px'
-                }
-
-                if (number === "#032") {
-                    resource_description.style.top = '166px'
-                    cityTileContainer.style.top = '33px'
-                }
-
-                if (number === "#033") {
-                    const arrow1microbe1 = cardWrapper.querySelectorAll('.red-arrow-resource-container-1, .microbe-resource-container-1')
-                    const arrow2 = cardWrapper.querySelector('.red-arrow-resource-container-2')
-                    const microbe2and3 = cardWrapper.querySelectorAll('.microbe-resource-container-2, .microbe-resource-container-3')
-                    const oxygen = cardWrapper.querySelector('.oxygen-tile-container')
-                    const description1 = cardWrapper.querySelector('.description-container-1')
-
-                    arrow1microbe1.forEach(both => {
-                        both.style.top = '-56px'
-                        both.style.left = '35px'
-                    });
-
-                    microbe2and3.forEach(two => {
-                        two.style.left = '-60px'
-                    });
-                    oxygen.style.top = '50px'
-                    oxygen.style.left = '64px'
-                    arrow2.style.top = '-32px'
-                    arrow2.style.left = '23px'
-                    description1.style.top = '-27px'
-                }
-
-                if (number === "#034") {
-                    const arrow1microbe1 = cardWrapper.querySelectorAll('.red-arrow-resource-container-1, .microbe-resource-container-1')
-                    const arrow2 = cardWrapper.querySelector('.red-arrow-resource-container-2')
-                    const microbe2and3 = cardWrapper.querySelectorAll('.microbe-resource-container-2, .microbe-resource-container-3')
-                    const temperature = cardWrapper.querySelector('.temperature-tile-container')
-                    const description1 = cardWrapper.querySelector('.description-container-1')
-                    const description2 = cardWrapper.querySelector('.description-container-2')
-                    resource_description.style.top = '162px'
-
-                    arrow1microbe1.forEach(both => {
-                        both.style.top = '-56px'
-                        both.style.left = '35px'
-                    });
-
-                    microbe2and3.forEach(two => {
-                        two.style.left = '-60px'
-                    });
-                    temperature.style.top = '42px'
-                    temperature.style.left = '53px'
-                    arrow2.style.top = '-33px'
-                    arrow2.style.left = '23px'
-
-                    description1.style.top = '-30px'
-                    description2.style.top = '-30px'
-                }
-
-                if (number === "#035") {
-                    resource_description.style.top = '111px'
-                }
-
-                if (number === "#036") {
-                    resource_description.style.top = '127px'
-                }
-
-                if (number === "#036") {
-                    const content = cardWrapper.querySelector('.content')
-                    resource_description.style.top = '127px'
-                    content.style.columnGap = '8px'
-                }
-
-                if (number === "#037") {
-                    const size = cardWrapper.querySelector('.production-box-size3');
-                    const temperature = cardWrapper.querySelector('.temperature-tile-container');
-                    const content = cardWrapper.querySelector('.content');
-                    const plantIcon1 = cardWrapper.querySelector('.plant-production-icon-container-1 .production-icon-name');
-                    const plantIcon2 = cardWrapper.querySelector('.plant-production-icon-container-2 .production-icon-name');
-                    const tagPlantIcon = cardWrapper.querySelector('.tag-plant-production-icon-container-1 .production-icon-name');
-
-                    resource_description.style.top = '218px';
-                    size.style.marginLeft = '60px';
-                    size.style.marginRight = '56px';
-                    temperature.style.left = '7px';
-                    content.style.columnGap = '8px';
-
-                    plantIcon1.style.transform = 'translate(22px, -3px)';
-                    plantIcon2.style.transform = 'translate(20px, 34px)';
-                    tagPlantIcon.style.transform = 'translate(-19px, 1px)';
-                }
+                      return keys.map(groupName => `
+                        <div class="ai-synergy-group">
+                          <h4 class="ai-synergy-group-title">${groupName}</h4>
+                          <div class="ai-synergies">
+                            ${groups[groupName]
+                              .map(line => `<div class="ai-pill synergy">${line}</div>`)
+                              .join("")}
+                          </div>
+                        </div>
+                      `).join("");
+                    })()
+                  }
 
 
-                if (number === "#038") {
-                    const money = cardWrapper.querySelector('.money-resource-container-1')
-                    resource_description.style.top = '86px'
-                    cityTileContainer.style.left = '-25px'
-                    money.style.left = '20px'
-                }
+                  <!-- GENERAL REASONING -->
+                  ${Array.isArray(a.reasoning) ? 
+                    `<h3 class="ai-subtitle">📘 Reasoning</h3>
+                    <ul class="ai-reason-list">
+                      ${a.reasoning.map(line => `<li>${line}</li>`).join("")}
+                    </ul>` 
+                    : ""}
 
-                if (number === "#041") {
-                    resource_description.style.top = '165px'
-                }
-
-                if (number === "#042") {
-                    resource_description.style.top = '165px'
-                }
-
-                if (number === "#043") {
-                    resource_description.style.top = '165px'
-                }
-
-                if (number === "#044") {
-                    resource_description.style.top = '165px'
-                }
-
-                if (number === "#045") {
-                    resource_description.style.top = '165px'
-                }
-
-                if (number === "#046") {
-                    resource_description.style.top = '165px'
-                }
-
-                if (number === "#047") {
-                    const container = cardWrapper.querySelector('.production-box-size2')
-                    const container2 = cardWrapper.querySelector('.resource-container')
-                    container.style.marginRight = '56px'
-                    resource_description.style.top = '119px'
-                    container2.style.left = '49px'
-                }
-
-                    */
-            });
-
-            // Hide loading message if cards are present
-            const loadingElement = document.getElementById('loading');
-            if (loadingElement && document.querySelectorAll('.card').length > 0) {
-                loadingElement.style.display = 'none';
+                    ${a.early_game_plan
+                      ? `<h3 class="ai-subtitle">🕹️ Early Game Plan</h3><p>${a.early_game_plan}</p>`
+                      : ""}
+                </div>
+              `).join("")}
+              `;
             }
+
+            aiDiv.innerHTML = html;
+          }
+          // ✅ If backend returned plain text (mock mode or fallback)
+          else {
+            aiDiv.textContent = analysis;
+          }
+        })
+        .catch(err => {
+          console.error('❌ Failed to get AI analysis:', err);
+          aiDiv.textContent = '❌ Failed to get AI analysis: ' + err;
         });
-    </script>
+      });
+
+      // ===============================
+      // LOCAL DECK SAVE / LOAD BUTTONS
+      // ===============================
+      document.getElementById("save-local-btn").addEventListener("click", () => {
+          const deck = {
+              card_ids: Array.from(selectedItems.keys()),
+              corp_ids: Array.from(selectedCorps.keys()),
+              prelude_ids: Array.from(selectedPreludes.keys())
+          };
+
+          localStorage.setItem("savedDeckManual", JSON.stringify(deck));
+          console.log("💾 Saved manually to savedDeckManual:", deck);
+          alert("Deck saved locally!");
+      });
+
+      document.getElementById("load-local-btn").addEventListener("click", () => {
+          const saved = localStorage.getItem("savedDeckManual");
+          if (!saved) {
+              alert("No saved deck found!");
+              return;
+          }
+
+          const deck = JSON.parse(saved);
+          console.log("📥 Loading saved deck:", deck);
+
+          // Clear current selections
+          selectedContainer.innerHTML = '';
+          selectedItems.clear();
+          selectedCorps.clear();
+          selectedPreludes.clear();
+          document.querySelectorAll('.selected').forEach(el => el.classList.remove('selected'));
+
+          // Restore saved deck to UI
+          restoreDeckUI(deck);
+
+          // Persist as "current working deck"
+          localStorage.setItem("savedDeck", saved);
+
+          alert("Saved deck loaded!");
+      });
+
+      document.getElementById("delete-local-btn").addEventListener("click", () => {
+          localStorage.removeItem("savedDeckManual");
+          alert("Saved deck deleted!");
+      });
+    }); 
+  </script>
+
+
+  <script src="{{ url_for('static', filename='js/card_customizations.js') }}"></script>
 
 </body>
 </html>

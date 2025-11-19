@@ -37,6 +37,7 @@ RESOURCE_IMAGE_MAP = {
     "oxygen-tile":              "https://ssimeonoff.github.io/images/global-parameters/oxygen.png",
     "rating":                   "https://ssimeonoff.github.io/images/resources/TR.png",
     "special-tile":             "https://ssimeonoff.github.io/images/tiles/special.png",
+    "venus-tile":               "https://ssimeonoff.github.io/images/global-parameters/venus.png",
     "city-tile-small":          "https://ssimeonoff.github.io/images/tiles/city.png",
     "red-arrow":                "https://ssimeonoff.github.io/images/misc/arrow.png",
     "tag-microbe":              "https://ssimeonoff.github.io/images/tags/microbe.png",
@@ -49,7 +50,9 @@ RESOURCE_IMAGE_MAP = {
     "tag-event":                "https://ssimeonoff.github.io/images/tags/event.png",
     "microbe":                  "https://ssimeonoff.github.io/images/resources/microbe.png",
     "tag-plant":                "https://ssimeonoff.github.io/images/tags/plant.png",
-    "asteroid":                 "https://ssimeonoff.github.io/images/resources/asteroid.png"
+    "asteroid":                 "https://ssimeonoff.github.io/images/resources/asteroid.png",
+    "trade":                    "https://ssimeonoff.github.io/images/tiles/trade.png",
+    "greenery-tile":            "https://ssimeonoff.github.io/images/tiles/greenery.png"
     
 }               
 
@@ -423,7 +426,7 @@ def extract_title_data(card):
 def clean_class_name(class_attribute):
     # Split class string and remove "resource" and "resource-tag"
     classes = class_attribute.split()
-    filtered_classes = [c for c in classes if c not in ("resource", "resource-tag")]
+    filtered_classes = [c for c in classes if c not in ("production", "resource", "resource-tag")]
     return " ".join(filtered_classes)
 
 def extract_filtered_content_with_class(card_content):

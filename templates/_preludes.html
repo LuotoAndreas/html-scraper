@@ -1,0 +1,40 @@
+<div id="preludes-container" style="display:none; flex-wrap:wrap; justify-content:center; gap:12px; padding:10px;">
+  {% for prelude in preludes %}
+    <div class="prelude-card" data-prelude-id="{{ prelude.id }}">
+      <div class="prelude-header background-color-prelude">
+        <div class="prelude-number">{{ prelude.id }}</div>
+        <div class="prelude-name">{{ prelude.name }}</div>
+      </div>
+      <div class="prelude-tags">
+        {% for tag in prelude.tags %}
+          <span class="prelude-tag tag-{{ tag|lower }}">{{ tag }}</span>
+        {% endfor %}
+      </div>
+      <div class="prelude-effects">
+        {% if prelude.effects.production %}
+          <div class="prelude-effect">Production:
+            {% for key, val in prelude.effects.production.items() %}
+              {{ key }} +{{ val }}
+            {% endfor %}
+          </div>
+        {% endif %}
+        {% if prelude.effects.resources %}
+          <div class="prelude-effect">Resources:
+            {% for key, val in prelude.effects.resources.items() %}
+              {{ key }} +{{ val }}
+            {% endfor %}
+          </div>
+        {% endif %}
+        {% if prelude.effects.tile %}
+          <div class="prelude-effect">Tiles:
+            {{ prelude.effects.tile | join(', ') }}
+          </div>
+        {% endif %}
+        {% if prelude.effects.special %}
+          <div class="prelude-effect special">{{ prelude.effects.special }}</div>
+        {% endif %}
+      </div>
+      <div class="prelude-description">{{ prelude.description }}</div>
+    </div>
+  {% endfor %}
+</div>

@@ -1,0 +1,23 @@
+{
+  "name": "htmlscraping",
+  "version": "1.0.0",
+  "main": "puppeteer_export.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LuotoAndreas/html-scraper.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LuotoAndreas/html-scraper/issues"
+  },
+  "homepage": "https://github.com/LuotoAndreas/html-scraper#readme",
+  "description": "",
+  "dependencies": {
+    "sharp": "^0.34.5"
+  }
+}

@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Card Layout Editor</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='corporations.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='preludes.css') }}">
+</head>
+
+<body>
+
+  <h1>Card Layout Editor</h1>
+
+  <!-- 🎵 MUSIC CONTROLS -->
+  <div class="center-buttons">
+      <button id="play-music-btn">Play Music</button>
+      <div class="select-wrapper">
+        <label for="song-selector"></label>
+        <select id="song-selector">
+          <option value="{{ url_for('static', filename='AurelionSol.mp3') }}">Aurelion Sol</option>
+          <option value="{{ url_for('static', filename='SuperGalaxyRumble.mp3') }}">Super Galaxy Rumble</option>
+        </select>
+      </div>
+  </div>
+
+  <!-- 🔍 SEARCH -->
+  <div id="search-wrapper">
+    <input type="text" id="card-search" placeholder="Search card name...">
+  </div>
+
+    <!-- 🧾 EXPORT ALL CARDS -->
+  <div class="center-buttons" style="margin-top: 10px;">
+    <button id="export-all-btn">📤 Export ALL Cards to PNG</button>
+  </div>
+
+  <div id="export-all-status" style="margin-top: 10px; white-space: pre-line; text-align:center; color:#eee;">
+  </div>
+
+  <div style="display: flex; flex-direction: column; align-items: center; margin-top: 10px;">
+  
+  <div id="export-progress-wrapper"
+       style="width: 300px; background: #444; border-radius: 8px; height: 20px; display:none;">
+      <div id="export-progress-bar"
+           style="height: 100%; width: 0%; background: #00d0ff; border-radius: 8px;"></div>
+      </div>
+
+      <div id="export-progress-text"
+          style="margin-top:5px; color:white; display:none;">
+          0%
+      </div>
+
+    </div>
+
+
+
+
+  <!-- TOGGLE BUTTONS -->
+  <div class="toggle-buttons-wrapper">
+    <button id="show-projects-btn" class="toggle-btn active">🃏 Project Cards</button>
+    <button id="show-corps-btn" class="toggle-btn">🏢 Corporations</button>
+    <button id="show-preludes-btn" class="toggle-btn">🌅 Preludes</button>
+  </div>
+
+  <!-- ALL CARDS -->
+  <div id="cards-container">
+    {% for card in cards %}
+      {% include "_card.html" %}
+    {% endfor %}
+  </div>
+
+  {% include "_corporations.html" %}
+  {% include "_preludes.html" %}
+
+  <video id="background-video" autoplay muted loop>
+    <source src="{{ url_for('static', filename='background_animated.mp4') }}" type="video/mp4">
+  </video>
+
+  <audio id="background-audio" src="{{ url_for('static', filename='AurelionSol.mp3') }}" autoplay loop muted></audio>
+
+  <!-- 🎵 MUSIC LOGIC -->
+  <script>
+    const audio = document.getElementById('background-audio');
+    const video = document.getElementById('background-video');
+    const playBtn = document.getElementById('play-music-btn');
+    const songSelector = document.getElementById('song-selector');
+    let isPlaying = false;
+
+    video.pause();
+    playBtn.addEventListener('click', () => {
+      if (isPlaying) {
+        audio.pause();
+        video.pause();
+        playBtn.textContent = 'Play Music';
+      } else {
+        audio.muted = false;
+        audio.volume = 0.1;
+        audio.play();
+        video.play();
+        playBtn.textContent = 'Pause Music';
+      }
+      isPlaying = !isPlaying;
+    });
+
+    songSelector.addEventListener('change', () => {
+      const selectedSong = songSelector.value;
+      const wasPlaying = isPlaying;
+      audio.src = selectedSong;
+      audio.load();
+      if (wasPlaying) audio.play();
+    });
+  </script>
+
+  <!-- 🔍 SEARCH LOGIC -->
+  <script>
+    document.getElementById('card-search').addEventListener('input', function () {
+      const search = this.value.trim().toLowerCase();
+
+      const cardsVisible = document.getElementById('cards-container').style.display !== 'none';
+      const corpsVisible = document.getElementById('corporations-container').style.display !== 'none';
+      const preludesVisible = document.getElementById('preludes-container').style.display !== 'none';
+
+      if (cardsVisible) {
+        document.querySelectorAll('#cards-container .card-wrapper').forEach(card => {
+          const title = card.querySelector('.title')?.textContent.toLowerCase() || '';
+          const number = card.querySelector('.number')?.textContent.toLowerCase() || '';
+          card.style.display = (title.includes(search) || number.includes(search)) ? '' : 'none';
+        });
+      }
+      else if (corpsVisible) {
+        document.querySelectorAll('#corporations-container .corporation-card').forEach(corp => {
+          const name = corp.querySelector('.corp-name')?.textContent.toLowerCase() || '';
+          const id = corp.querySelector('.corp-id')?.textContent.toLowerCase() || '';
+          corp.style.display = (name.includes(search) || id.includes(search)) ? '' : 'none';
+        });
+      }
+      else if (preludesVisible) {
+        document.querySelectorAll('#preludes-container .prelude-card').forEach(prelude => {
+          const name = prelude.querySelector('.prelude-name')?.textContent.toLowerCase() || '';
+          const id = prelude.querySelector('.prelude-number')?.textContent.toLowerCase() || '';
+          prelude.style.display = (name.includes(search) || id.includes(search)) ? '' : 'none';
+        });
+      }
+    });
+  </script>
+
+  <!-- TOGGLE LOGIC -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const cardsContainer = document.getElementById('cards-container');
+      const corporationsContainer = document.getElementById('corporations-container');
+      const preludesContainer = document.getElementById('preludes-container');
+
+      corporationsContainer.style.display = 'none';
+      preludesContainer.style.display = 'none';
+
+      function toggle(section) {
+        cardsContainer.style.display = section === 'projects' ? '' : 'none';
+        corporationsContainer.style.display = section === 'corps' ? 'flex' : 'none';
+        preludesContainer.style.display = section === 'preludes' ? 'flex' : 'none';
+
+        document.getElementById('show-projects-btn').classList.toggle('active', section === 'projects');
+        document.getElementById('show-corps-btn').classList.toggle('active', section === 'corps');
+        document.getElementById('show-preludes-btn').classList.toggle('active', section === 'preludes');
+      }
+
+      document.getElementById('show-projects-btn').onclick = () => toggle('projects');
+      document.getElementById('show-corps-btn').onclick = () => toggle('corps');
+      document.getElementById('show-preludes-btn').onclick = () => toggle('preludes');
+    });
+  </script>
+
+  <!-- 🛠️ DRAG/DROP EDITOR SCRIPT -->
+  <script>
+    console.log("🔥 DRAG/DROP SCRIPT STARTED");
+    (() => {
+      const GRID = 1; // set to 2/4/8 if you want snapping
+      const EDIT_BTN_ID = 'toggle-editor-btn';
+      const PANEL_ID = 'css-output-panel';
+
+      // Inject toggle button + panel
+      function injectUI() {
+        if (!document.getElementById(EDIT_BTN_ID)) {
+          const btn = document.createElement('button');
+          btn.id = EDIT_BTN_ID;
+          btn.textContent = '🛠️ Editor OFF';
+          btn.style.cssText = `
+            position: fixed; top: 10px; right: 10px; z-index: 9999;
+            padding: 8px 12px; border-radius: 8px; border: 0; cursor: pointer;
+            background: linear-gradient(135deg,#3b82f6,#06b6d4); color: white; font-weight: 700;
+            box-shadow: 0 4px 16px rgba(0,0,0,.25);`;
+          btn.addEventListener('click', toggleEditorMode);
+          document.body.appendChild(btn);
+        }
+        if (!document.getElementById(PANEL_ID)) {
+          const panel = document.createElement('div');
+          panel.id = PANEL_ID;
+          panel.className = 'editor-floating-ui';
+          panel.style.display = 'none';
+          panel.innerHTML = `
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;">
+              <strong>Editor Export</strong>
+              <div>
+                <button id="copy-css">Copy</button>
+                <button id="clear-local">Clear Local</button>
+                <button id="hide-panel">Hide</button>
+              </div>
+            </div>
+            <pre id="css-output" style="margin:8px 0 0;white-space:pre;"></pre>`;
+          document.body.appendChild(panel);
+          document.getElementById('copy-css').onclick = copyCSS;
+          document.getElementById('clear-local').onclick = () => {
+            localStorage.removeItem('card_editor_positions');
+            positions = {};
+            document.querySelectorAll('[data-editable]').forEach(el => {
+              el.style.position = '';
+              el.style.left = '';
+              el.style.top = '';
+            });
+            refreshPanel();
+            location.reload();
+          };
+          document.getElementById('hide-panel').onclick = () => panel.style.display = 'none';
+        }
+      }
+
+      let editorOn = false;
+      let positions = {};
+
+      function toggleEditorMode() {
+        editorOn = !editorOn;
+        document.body.classList.toggle('editor-mode', editorOn);
+        document.getElementById(EDIT_BTN_ID).textContent = editorOn ? '✅ Editor ON' : '🛠️ Editor OFF';
+        document.getElementById(PANEL_ID).style.display = editorOn ? 'block' : 'none';
+
+        if (editorOn) {
+          attachDraggables();
+          refreshPanel();
+        }
+      }
+
+      // Whitelist of things you can drag (by [data-editable])
+      function attachDraggables() {
+        document.querySelectorAll('.card-wrapper').forEach(wrapper => {
+          const card = wrapper.querySelector('.card');
+          if (!card) return;
+          wrapper.querySelectorAll('[data-editable]').forEach(el => {
+            // prevent double-binding
+            if (el.__draggableBound) return;
+            el.__draggableBound = true;
+            makeDraggable(el, card, wrapper);
+          });
+        });
+      }
+
+      function makeDraggable(el, card, wrapper) {
+        el.style.touchAction = 'none';
+
+        let startX = 0, startY = 0, startLeft = 0, startTop = 0, dragging = false;
+        el._originalParent = el._originalParent || el.parentElement;
+
+        const onPointerDown = (ev) => {
+          if (!editorOn) return;
+
+          ev.stopPropagation();
+
+          if (ev.target.closest('[data-editable]') !== el) return;
+
+          el.setPointerCapture?.(ev.pointerId);
+          dragging = true;
+
+          let positioningParent = el.parentElement.closest('[data-editable]') || card;
+
+          const topLevelClasses = [
+            'resource-container',
+            'city-tile-small-container',
+            'special-tile-container',
+            'temperature-tile-container',
+            'oxygen-tile-container'
+          ];
+
+          if (
+            el.closest('.resource-description-container') ||
+            (
+              topLevelClasses.some(cls => el.classList.contains(cls)) &&
+              !el.closest('.content')
+            )
+          ) {
+            positioningParent = card;
+          }
+
+          const parentRect = positioningParent.getBoundingClientRect();
+          const elRect = el.getBoundingClientRect();
+
+          const alreadyDetached = el.parentElement === positioningParent && getComputedStyle(el).position === 'absolute';
+
+          if (!alreadyDetached) {
+            const placeholder = document.createElement('div');
+            placeholder.className = 'drag-placeholder';
+            const cs = getComputedStyle(el);
+            placeholder.style.display = cs.display || 'block';
+            placeholder.style.width = `${elRect.width}px`;
+            placeholder.style.height = `${elRect.height}px`;
+            placeholder.style.boxSizing = cs.boxSizing || 'border-box';
+            el._placeholder = placeholder;
+            el.parentNode.replaceChild(placeholder, el);
+
+            positioningParent.appendChild(el);
+            el.style.position = 'absolute';
+            el.style.boxSizing = 'border-box';
+            el.style.width = `${elRect.width}px`;
+            el.style.height = `${elRect.height}px`;
+            el.style.left = `${Math.round(elRect.left - parentRect.left)}px`;
+            el.style.top  = `${Math.round(elRect.top  - parentRect.top)}px`;
+            el.style.margin = '0';
+            el.style.transition = 'none';
+            el.dataset.detached = 'true';
+          } else {
+            el.style.left = el.style.left || `${Math.round(elRect.left - parentRect.left)}px`;
+            el.style.top  = el.style.top  || `${Math.round(elRect.top  - parentRect.top)}px`;
+          }
+
+          startX = ev.clientX;
+          startY = ev.clientY;
+          startLeft = parseFloat(el.style.left || '0');
+          startTop = parseFloat(el.style.top || '0');
+
+          ev.preventDefault();
+          ev.stopPropagation();
+        };
+
+        el.addEventListener('dblclick', (ev) => {
+          if (!editorOn) return;
+          ev.stopPropagation();
+          const cur = el.style.textAlign || getComputedStyle(el).textAlign || '';
+          if (cur === 'left') el.style.textAlign = '';
+          else el.style.textAlign = 'left';
+          recordPosition(wrapper, el);
+          refreshPanel();
+        });
+
+        const onPointerMove = (ev) => {
+          if (!dragging || !editorOn) return;
+          const dx = ev.clientX - startX;
+          const dy = ev.clientY - startY;
+
+          let newLeft = startLeft + dx;
+          let newTop  = startTop  + dy;
+
+          if (GRID > 1) {
+            newLeft = Math.round(newLeft / GRID) * GRID;
+            newTop  = Math.round(newTop / GRID) * GRID;
+          }
+
+          newLeft = Math.max(0, Math.min(newLeft, card.clientWidth - el.offsetWidth));
+          newTop  = Math.max(0, Math.min(newTop,  card.clientHeight - el.offsetHeight));
+
+          el.style.left = `${newLeft}px`;
+          el.style.top  = `${newTop}px`;
+
+          recordPosition(wrapper, el);
+          refreshPanel();
+
+          ev.preventDefault();
+          ev.stopPropagation();
+        };
+
+        const onPointerUp = (ev) => {
+          if (!dragging) return;
+          dragging = false;
+          el.releasePointerCapture?.(ev.pointerId);
+          recordPosition(wrapper, el);
+          refreshPanel();
+          ev.preventDefault();
+          ev.stopPropagation();
+        };
+
+        el.addEventListener('pointerdown', onPointerDown);
+        window.addEventListener('pointermove', onPointerMove);
+        window.addEventListener('pointerup', onPointerUp);
+      }
+
+      function keyFor(el) {
+        const classes = [...el.classList];
+        const specific = classes.find(c => /\d$/.test(c));
+        if (specific) return '.' + specific;
+        const main = classes.find(c => /(container|box)$/.test(c));
+        if (main) return '.' + main;
+        if (classes.length > 0) return '.' + classes[0];
+
+        const tag = el.tagName.toLowerCase();
+        const parent = el.closest('.card-wrapper');
+        const siblings = [...parent.querySelectorAll(tag + '[data-editable]')];
+        const idx = siblings.indexOf(el) + 1;
+        return `${tag}[data-editable]:nth-of-type(${idx})`;
+      }
+
+      function recordPosition(wrapper, el) {
+        const cardNum = wrapper.getAttribute('data-card-number') || 'UNKNOWN';
+        if (positions.activeCard !== cardNum) positions = { activeCard: cardNum };
+
+        const key = keyFor(el);
+        positions[cardNum] ||= {};
+
+        const left = Math.round(parseFloat(el.style.left || '0'));
+        const top  = Math.round(parseFloat(el.style.top || '0'));
+        const textAlign = el.style.textAlign || '';
+
+        positions[cardNum][key] = { top, left, textAlign };
+      }
+
+      function buildCSSExport() {
+        let out = '';
+        for (const [cardNum, map] of Object.entries(positions)) {
+          if (cardNum === 'activeCard' || cardNum === 'UNKNOWN' || !map || typeof map !== 'object') continue;
+          out += `if (number === "${cardNum}") {\n`;
+          for (const [selKey, coords] of Object.entries(map)) {
+            const { top, left, textAlign } = coords;
+            const varName = selKey.replace(/^\./, '').replace(/-/g, '_');
+            out += `  ${varName}.style.position = 'absolute';\n`;
+            out += `  ${varName}.style.top = '${top}px';\n`;
+            out += `  ${varName}.style.left = '${left}px';\n`;
+            if (textAlign) out += `  ${varName}.style.textAlign = '${textAlign}';\n`;
+            out += `\n`;
+          }
+          out += `}\n\n`;
+        }
+        return out.trim();
+      }
+
+      function refreshPanel() {
+        const pre = document.getElementById('css-output');
+        if (!pre) return;
+        pre.textContent = buildCSSExport();
+      }
+
+      function copyCSS() {
+        const txt = buildCSSExport();
+        navigator.clipboard.writeText(txt).then(() => {
+          localStorage.removeItem('card_editor_positions');
+        }).catch(() => {});
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        injectUI();
+      });
+    })();
+    console.log("🔥 DRAG/DROP SCRIPT FINISHED");
+  </script>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll("[data-export]").forEach(btn => {
+            btn.addEventListener("click", async () => {
+
+                const wrapper = btn.closest(".card-wrapper");
+                const cardId = wrapper.dataset.cardId;  // <-- now works
+
+                console.log("Exporting card ID:", cardId);
+
+                btn.textContent = "⏳ Exporting via Puppeteer...";
+
+                const response = await fetch("/export_png_puppeteer", {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({ card_id: cardId })
+                });
+
+                const result = await response.json();
+
+                if (result.success)
+                    btn.textContent = "✅ Saved!";
+                else
+                    btn.textContent = "❌ Error";
+
+                setTimeout(() => btn.textContent = "📤 Export PNG", 1500);
+            });
+        });
+    });
+  </script>
+
+  <script>
+    document.getElementById("export-all-btn").addEventListener("click", () => {
+      document.getElementById("export-all-status").textContent =
+          "⏳ Starting export...\n";
+
+      startExportAll();  // ⭐ show bar + poll + start export
+  });
+
+  </script>
+
+
+  <script>
+    async function startExportAll() {
+        // Show bar
+        document.getElementById("export-progress-wrapper").style.display = "block";
+        document.getElementById("export-progress-text").style.display = "block";
+
+        // Start actual export
+        fetch("/export_all_cards", { method: "POST" });
+
+        // Poll progress every 300ms
+        let timer = setInterval(async () => {
+            const res = await fetch("/export_progress");
+            const data = await res.json();
+
+            let percent = Math.floor((data.current / data.total) * 100);
+
+            // update bar
+            document.getElementById("export-progress-bar").style.width = percent + "%";
+            document.getElementById("export-progress-text").innerText =
+                `${percent}% (${data.current}/${data.total})`;
+
+            if (percent >= 100) {
+                clearInterval(timer);
+                document.getElementById("export-progress-text").innerText = "Done!";
+                setTimeout(() => {
+                    alert("All cards exported! ✅");
+                }, 200);
+            }
+        }, 300);
+    }
+  </script>
+
+
+  <script src="{{ url_for('static', filename='js/card_customizations.js') }}"></script>
+</body>
+</html>

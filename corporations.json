@@ -1,0 +1,987 @@
+[
+  {
+    "id": "#CORP01",
+    "name": "Credicor",
+    "tags": [],
+    "effect": {
+      "description": "After you pay for a card or standard project with a basic cost of 20MC or more, you gain 4MC.",
+      "trigger": "payment >= 20MC",
+      "gain": {
+        "money": 4
+      }
+    },
+    "starting_resources": {
+      "money": 57,
+      "resources": {}
+    },
+    "special": "You start with 57 MC."
+  },
+  {
+    "id": "#CORP02",
+    "name": "Ecoline",
+    "tags": [
+      "plant"
+    ],
+    "effect": {
+      "description": "You may always pay 7 plants, instead of 8, to place greenery.",
+      "trigger": "greenery placement",
+      "cost_override": {
+        "plant": 7
+      }
+    },
+    "starting_resources": {
+      "money": 36,
+      "production": {
+        "plant": 2
+      },
+      "resources": {
+        "plant": 3
+      }
+    },
+    "special": "You start with 2 plant production, 3 plants, and 36MC."
+  },
+  {
+    "id": "#CORP03",
+    "name": "helion",
+    "tags": [
+      "corporation",
+      "space"
+    ],
+    "effect": {
+      "trigger": "heat",
+      "gain": "money",
+      "description": "Your may use heat as MC. You may not use MC as heat."
+    },
+    "starting_resources": {
+      "money": 42,
+      "production": {
+        "heat": 3
+      },
+      "resources": {}
+    }
+  },
+  {
+    "id": "#CORP04",
+    "name": "MINING GUILD",
+    "tags": [
+      "corporation",
+      "building",
+      "building"
+    ],
+    "effect": {
+      "trigger": [
+        "steel",
+        "titanium"
+      ],
+      "gain": "steel production",
+      "description": "Each time you get any steel or titanium as a placement bonus on the map, increase your steel production 1 step."
+    },
+    "starting_resources": {
+      "money": 30,
+      "production": {
+        "steel": 1
+      },
+      "resources": {
+        "steel": 5
+      }
+    }
+  },
+  {
+    "id": "#CORP05",
+    "name": "INTERPLANETARY CINEMATICS",
+    "tags": [
+      "corporation",
+      "building",
+      "event"
+    ],
+    "effect": {
+      "trigger": "event",
+      "gain": "money",
+      "amount": 2,
+      "description": "Each time you play an event, you gain 2 MC."
+    },
+    "starting_resources": {
+      "money": 30,
+      "resources": {
+        "steel": 20
+      }
+    }
+  },
+  {
+    "id": "#CORP06",
+    "name": "INVENTRIX",
+    "tags": [
+      "corporation",
+      "science"
+    ],
+    "effect": {
+      "trigger": "globals (Temp/O2/Ocean)",
+      "gain": "+/- 2 steps",
+      "description": "Your temperature, oxygen and ocean requirements are +2 or -2 steps, your choice in each case."
+    },
+    "starting_resources": {
+      "money": 45,
+      "resources": {
+        "cards": 3,
+        "description": "As your first action in the game, draw 3 cards."
+      }
+    }
+  },
+  {
+    "id": "#CORP07",
+    "name": "PHOBOLOG",
+    "tags": [
+      "corporation",
+      "space"
+    ],
+    "effect": {
+      "trigger": "titanium",
+      "gain": "money",
+      "amount": 1,
+      "description": "Your titanium resources are each worth 1 MC extra."
+    },
+    "starting_resources": {
+      "money": 23,
+      "resources": {
+        "titanium": 10
+      }
+    }
+  },
+  {
+    "id": "#CORP08",
+    "name": "THARSIS REPUBLIC",
+    "tags": [
+      "corporation",
+      "building"
+    ],
+    "effect": {
+      "trigger": "city tile placed ON MARS",
+      "gain": [
+        "money production +1",
+        "money +3"
+      ],
+      "description": "When any city tile is placed ON MARS, increase your MC production 1 step. When you place a city tile, gain 3 MC."
+    },
+    "starting_resources": {
+      "money": 40,
+      "resources": {
+        "first_action": "place a city tile"
+      }
+    }
+  },
+  {
+    "id": "#CORP09",
+    "name": "THORGATE",
+    "tags": [
+      "corporation",
+      "power"
+    ],
+    "effect": {
+      "trigger": "playing a power card or the standard project Power Plant",
+      "cost_reduction": 3,
+      "description": "When playing a power card OR THE STANDARD PROJECT POWER PLANT, you pay 3 MC less for it."
+    },
+    "starting_resources": {
+      "money": 48,
+      "production": {
+        "energy": 1
+      },
+      "resources": {}
+    }
+  },
+  {
+    "id": "#CORP10",
+    "name": "UNITED NATIONS MARS INITIATIVE",
+    "tags": [
+      "corporation",
+      "earth"
+    ],
+    "effect": {
+      "type": "action",
+      "cost": 3,
+      "effect": "raise Terraform Rating 1 step",
+      "condition": "If your Terraform Rating was raised this generation",
+      "description": "If your Terraform Rating was raised this generation, you may pay 3 MC to raise it 1 step more."
+    },
+    "starting_resources": {
+      "money": 40,
+      "resources": {}
+    }
+  },
+  {
+    "id": "#CORP11",
+    "name": "TERACTOR",
+    "tags": [
+      "corporation",
+      "earth",
+      "corporate"
+    ],
+    "effect": {
+      "trigger": "playing an Earth card",
+      "cost_reduction": 3,
+      "description": "When playing an Earth card, you pay 3 MC less for it."
+    },
+    "starting_resources": {
+      "money": 60,
+      "resources": {}
+    }
+  },
+  {
+    "id": "#CORP12",
+    "name": "SATURN SYSTEMS",
+    "tags": [
+      "corporation",
+      "jovian",
+      "corporate"
+    ],
+    "effect": {
+      "trigger": "any Jovian tag put into play",
+      "gain": "money production +1",
+      "description": "Each time any Jovian tag is put into play, including this, increase your MC production 1 step."
+    },
+    "starting_resources": {
+      "money": 42,
+      "production": {
+        "titanium": 1
+      },
+      "resources": {}
+    }
+  },
+  {
+    "id": "#CORP13",
+    "name": "APHRODITE",
+    "tags": [
+      "corporation",
+      "venus",
+      "plant"
+    ],
+    "effect": {
+      "trigger": "Venus terraforming 1 step",
+      "gain": "2 money",
+      "description": "Whenever Venus is terraformed 1 step, you gain 2 MC."
+    },
+    "starting_resources": {
+      "money": 47,
+      "production": {
+        "plant": 1
+      },
+      "resources": {}
+    }
+  },
+  {
+    "id": "#CORP14",
+    "name": "CELESTIC",
+    "tags": [
+      "corporation",
+      "venus"
+    ],
+    "effect": {
+      "action": "Add a floater to any card",
+      "victory_points": "1 VP per 3 floaters on this card",
+      "description": "Action: Add a floater to ANY card. 1 VP per 3 floaters on this card."
+    },
+    "starting_resources": {
+      "money": 42,
+      "resources": {
+        "cards": 2
+      }
+    }
+  },
+  {
+    "id": "#CORP15",
+    "name": "MANUTECH",
+    "tags": [
+      "corporation",
+      "building"
+    ],
+    "effect": {
+      "trigger": "increase production of any resource",
+      "gain": "that resource",
+      "description": "For each step you increase the production of a resource, including this, you also gain that resource."
+    },
+    "starting_resources": {
+      "money": 35,
+      "production": {
+        "steel": 1
+      },
+      "resources": {}
+    }
+  },
+  {
+    "id": "#CORP16",
+    "name": "MORNING STAR INC.",
+    "tags": [
+      "corporation",
+      "venus"
+    ],
+    "effect": {
+      "modifier": "Venus requirements +/- 2 steps",
+      "description": "Your Venus requirements are +/- 2 steps, your choice in each case."
+    },
+    "starting_resources": {
+      "money": 50,
+      "resources": {
+        "cards": 3,
+        "cards_tag": "venus"
+      }
+    }
+  },
+  {
+    "id": "#CORP17",
+    "name": "VIRON",
+    "tags": [
+      "corporation",
+      "microbe"
+    ],
+    "effect": {
+      "action": "Use a blue card action that has already been used this generation",
+      "description": "Action: Use a blue card action that has already been used this generation."
+    },
+    "starting_resources": {
+      "money": 48,
+      "resources": {}
+    }
+  },
+  {
+    "id": "#CORP18",
+    "name": "CHEUNG SHING",
+    "tags": [
+      "corporation",
+      "building",
+      "prelude"
+    ],
+    "effect": {
+      "trigger": "play building tag",
+      "cost_reduction": 2,
+      "description": "When you play a building tag, you pay 2 MC less for it."
+    },
+    "starting_resources": {
+      "money": 44,
+      "production": {
+        "money": 3
+      },
+      "resources": {}
+    }
+  },
+  {
+    "id": "#CORP19",
+    "name": "POINT LUNA",
+    "tags": [
+      "corporation",
+      "prelude",
+      "earth",
+      "space"
+    ],
+    "effect": {
+      "trigger": "play Earth tag",
+      "gain": "draw a card",
+      "description": "When you play an Earth tag, including this, draw a card."
+    },
+    "starting_resources": {
+      "money": 38,
+      "production": {
+        "titanium": 1
+      },
+      "resources": {}
+    }
+  },
+  {
+    "id": "#CORP20",
+    "name": "ROBINSON INDUSTRIES",
+    "tags": [
+      "corporation",
+      "prelude",
+      "none"
+    ],
+    "effect": {
+      "action": "Spend 4 MC to increase your lowest production 1 step",
+      "description": "Action: Spend 4 MC to increase (one of) your LOWEST PRODUCTION 1 step."
+    },
+    "starting_resources": {
+      "money": 47,
+      "resources": {}
+    }
+  },
+  {
+    "id": "#CORP21",
+    "name": "VALLEY TRUST",
+    "tags": [
+      "corporation",
+      "prelude",
+      "earth",
+      "science"
+    ],
+    "effect": {
+      "trigger": "playing a Science tag",
+      "cost_reduction": 2,
+      "description": "When you play a Science tag, you pay 2 MC less for it."
+    },
+    "starting_resources": {
+      "money": 37,
+      "resources": {
+        "cards": 3,
+        "special": "As your first action, draw 3 Prelude cards and play one. Discard the other two."
+      }
+    }
+  },
+  {
+    "id": "#CORP22",
+    "name": "AWARD FUNDERS INC.",
+    "tags": [
+      "corporation",
+      "prelude",
+      "earth",
+      "award"
+    ],
+    "effect": {
+      "trigger": "play a card with non-negative VP icon",
+      "gain": "3 money",
+      "description": "When you play a card with a non-negative VP icon, including this, gain 3 MC."
+    },
+    "starting_resources": {
+      "money": 45,
+      "resources": {
+        "special": "As your first action, fund an award for free."
+      }
+    }
+  },
+  {
+    "id": "#CORP23",
+    "name": "ARIDOR",
+    "tags": [
+      "corporation",
+      "colony"
+    ],
+    "effect": {
+      "trigger": "get a new type of tag in play",
+      "gain": "money production +1",
+      "description": "When you get a new type of tag in play (event cards do not count), increase your MC production 1 step."
+    },
+    "starting_resources": {
+      "money": 40,
+      "resources": {
+        "special": "As your first action add a colony tile."
+      }
+    }
+  },
+  {
+    "id": "#CORP24",
+    "name": "ARKLIGHT",
+    "tags": [
+      "corporation",
+      "animal",
+      "colony"
+    ],
+    "effect": {
+      "trigger": "play animal or plant tag",
+      "gain": "add 1 animal to this card",
+      "description": "When you play an animal or plant tag, including this, add 1 animal to this card."
+    },
+    "starting_resources": {
+      "money": 45,
+      "production": {
+        "money": 2
+      },
+      "resources": {
+        "victory_points": "1 VP per 2 animals on this card"
+      }
+    }
+  },
+  {
+    "id": "#CORP25",
+    "name": "POLYPHEMOS",
+    "tags": [
+      "corporation",
+      "colony"
+    ],
+    "effect": {
+      "trigger": "buy a card to hand",
+      "cost_increase": 5,
+      "description": "When you buy a card to hand, pay 5 MC instead of 3, including the starting hand."
+    },
+    "starting_resources": {
+      "money": 50,
+      "production": {
+        "money": 5
+      },
+      "resources": {
+        "titanium": 5
+      }
+    }
+  },
+  {
+    "id": "#CORP26",
+    "name": "POSEIDON",
+    "tags": [
+      "corporation",
+      "colony"
+    ],
+    "effect": {
+      "trigger": "any colony placed",
+      "gain": "money production +1",
+      "description": "When any colony is placed, including this, raise your MC production 1 step."
+    },
+    "starting_resources": {
+      "money": 45,
+      "resources": {
+        "special": "As your first action, place a colony."
+      }
+    }
+  },
+  {
+    "id": "#CORP27",
+    "name": "STORMCRAFT INCORPORATED",
+    "tags": [
+      "corporation",
+      "jovian",
+      "colony"
+    ],
+    "effect": {
+      "action": "Add a floater to any card",
+      "modifier": "Floaters on this card may be used as 2 heat each",
+      "description": "Action: Add a floater to ANY card. Floaters on this card may be used as 2 heat each."
+    },
+    "starting_resources": {
+      "money": 48,
+      "resources": {}
+    }
+  },
+  {
+    "id": "#CORP28",
+    "name": "LAKEFRONT RESORTS",
+    "tags": [
+      "corporation",
+      "building",
+      "turmoil"
+    ],
+    "effect": {
+      "trigger": "any ocean tile placed",
+      "gain": "money production +1",
+      "modifier": "Bonus for placing adjacent to oceans is 3 MC instead of 2 MC",
+      "description": "When any ocean tile is placed, increase your MC production 1 step. Your bonus for placing adjacent to oceans is 3 MC instead of 2 MC."
+    },
+    "starting_resources": {
+      "money": 54,
+      "resources": {}
+    }
+  },
+  {
+    "id": "#CORP29",
+    "name": "PRISTAR",
+    "tags": [
+      "corporation",
+      "turmoil",
+      "none"
+    ],
+    "effect": {
+      "trigger": "during production phase",
+      "condition": "if you did not get TR so far this generation",
+      "gain": "add one preservation resource here and gain 6 MC",
+      "description": "During production phase, if you did not get TR so far this generation, add one preservation resource here and gain 6 MC."
+    },
+    "starting_resources": {
+      "money": 53,
+      "resources": {
+        "tr_decrease": 2,
+        "victory_points": "1 VP per preservation resource here"
+      }
+    }
+  },
+  {
+    "id": "#CORP30",
+    "name": "SEPTEM TRIBUS",
+    "tags": [
+      "corporation",
+      "wild",
+      "turmoil"
+    ],
+    "effect": {
+      "action": "Gain 2 MC for each party where you have at least 1 delegate",
+      "description": "Action: Gain 2 MC for EACH PARTY WHERE YOU HAVE AT LEAST 1 DELEGATE."
+    },
+    "starting_resources": {
+      "money": 36,
+      "resources": {
+        "wild_tag": "counts as any tag of your choice when performing an action"
+      }
+    }
+  },
+  {
+    "id": "#CORP31",
+    "name": "TERRALABS RESEARCH",
+    "tags": [
+      "corporation",
+      "earth",
+      "science",
+      "turmoil"
+    ],
+    "effect": {
+      "trigger": "buying cards to hand",
+      "cost_increase": 1,
+      "description": "Buying cards to hand costs 1 MC."
+    },
+    "starting_resources": {
+      "money": 14,
+      "resources": {
+        "tr_decrease": 1
+      }
+    }
+  },
+  {
+    "id": "#CORP32",
+    "name": "UTOPIA INVEST",
+    "tags": [
+      "corporation",
+      "building",
+      "turmoil"
+    ],
+    "effect": {
+      "action": "Decrease any production to gain 4 resources of that kind",
+      "description": "Action: Decrease any production to gain 4 resources of that kind."
+    },
+    "starting_resources": {
+      "money": 40,
+      "resources": {
+        "production_increase": {
+          "steel": 1,
+          "titanium": 1
+        }
+      }
+    }
+  },
+  {
+    "id": "#CORP33",
+    "name": "FACTORUM",
+    "tags": [
+      "corporation",
+      "building",
+      "power",
+      "promo"
+    ],
+    "effect": {
+      "action": "Increase energy production 1 step IF YOU HAVE NO ENERGY RESOURCES or spend 3 MC to draw a building card",
+      "description": "Action: Increase your energy production 1 step IF YOU HAVE NO ENERGY RESOURCES, or spend 3 MC to draw a building card."
+    },
+    "starting_resources": {
+      "money": 37,
+      "resources": {
+        "production_increase": {
+          "steel": 1
+        }
+      }
+    }
+  },
+  {
+    "id": "#CORP34",
+    "name": "MONS INSURANCE",
+    "tags": [
+      "corporation",
+      "promo",
+      "none"
+    ],
+    "effect": {
+      "trigger": "when a player causes another to decrease production or lose resources",
+      "cost": "pay 3 MC to the victim or as much as possible",
+      "description": "When a player causes another player to decrease production or lose resources, pay 3 MC to the victim, or as much as possible."
+    },
+    "starting_resources": {
+      "money": 48,
+      "resources": {
+        "production_increase": {
+          "money": 4
+        },
+        "opponents_production_decrease": {
+          "money": 2
+        }
+      }
+    }
+  },
+  {
+    "id": "#CORP35",
+    "name": "PHILARES",
+    "tags": [
+      "corporation",
+      "building",
+      "promo"
+    ],
+    "effect": {
+      "trigger": "each new adjacency between your tile and an opponent's tile",
+      "gain": "a standard resource of your choice regardless of who placed the tile",
+      "description": "Each new adjacency between your tile and an opponent's tile gives you a standard resource of your choice (regardless of who just placed a tile)."
+    },
+    "starting_resources": {
+      "money": 47,
+      "resources": {
+        "first_action": "place a greenery tile and raise oxygen 1 step"
+      }
+    }
+  },
+  {
+    "id": "#CORP36",
+    "name": "ARCADIAN COMMUNITIES",
+    "tags": [
+      "corporation",
+      "promo",
+      "none"
+    ],
+    "effect": {
+      "action": "Place a player marker on a non-reserved area adjacent to one of your tiles or marked areas",
+      "effect": "Marked areas are reserved for you. When you place a tile there, gain 3 MC.",
+      "description": "ACTION: PLACE A PLAYER MARKER ON A NON-RESERVED AREA ADJACENT TO ONE OF YOUR TILES OR MARKED AREAS. EFFECT: MARKED AREAS ARE RESERVED FOR YOU. WHEN YOU PLACE A TILE THERE, GAIN 3 MC."
+    },
+    "starting_resources": {
+      "money": 40,
+      "resources": {
+        "steel": 10,
+        "first_action": "place a community (player marker) on a non-reserved area"
+      }
+    }
+  },
+  {
+    "id": "#CORP37",
+    "name": "RECYCLON",
+    "tags": [
+      "corporation",
+      "building",
+      "microbe",
+      "promo"
+    ],
+    "effect": {
+      "trigger": "play building tag",
+      "gain": "add 1 microbe to this card",
+      "alternative": "remove 2 microbes here and raise your plant production 1 step",
+      "description": "When you play a building tag, including this, gain 1 microbe to this card, or remove 2 microbes here and raise your plant production 1 step."
+    },
+    "starting_resources": {
+      "money": 38,
+      "production": {
+        "steel": 1
+      },
+      "resources": {}
+    }
+  },
+  {
+    "id": "#CORP38",
+    "name": "SPLICE TACTICAL GENOMICS",
+    "tags": [
+      "corporation",
+      "microbe",
+      "promo"
+    ],
+    "effect": {
+      "trigger": "microbe tag played",
+      "option1": "that player gains 2 MC",
+      "option2": "that player adds a microbe to that card",
+      "gain": "you gain 2 MC",
+      "description": "When a microbe tag is played, including this, THAT PLAYER gains 2 MC or adds a microbe to THAT card, and you gain 2 MC."
+    },
+    "starting_resources": {
+      "money": 44,
+      "resources": {
+        "special": "As your first action, reveal cards until you have revealed a microbe tag. Take that card into hand, discard the rest."
+      }
+    }
+  },
+  {
+    "id": "#CORP39",
+    "name": "ASTRODRILL",
+    "tags": [
+      "corporation",
+      "space",
+      "promo"
+    ],
+    "effect": {
+      "action": "Add 1 asteroid to any card or gain any standard resource",
+      "alternative": "remove 1 asteroid here to gain 3 titanium",
+      "description": "Action: Either add 1 asteroid to ANY CARD or gain any standard resource OR remove 1 asteroid here to gain 3 titanium."
+    },
+    "starting_resources": {
+      "money": 35,
+      "resources": {
+        "asteroid": 3
+      }
+    }
+  },
+  {
+    "id": "#CORP40",
+    "name": "PHARMACY UNION",
+    "tags": [
+      "corporation",
+      "microbe",
+      "microbe",
+      "promo"
+    ],
+    "effect": {
+      "trigger": "microbe played",
+      "gain": "add a disease here and lose 4 MC or as much as possible",
+      "trigger2": "science tag played",
+      "alternative": "remove 1 disease here and raise TR 1 step",
+      "alternative2": "if no diseases here, raise TR 3 steps and turn this card face down",
+      "description": "When ANY microbe is played, including these, add a disease here and lose 4 MC or as much as possible. When you play a science tag, remove 1 disease from here and raise your TR 1 step, OR if there are no diseases here, you MAY raise your TR 3 steps and TURN THIS CARD FACE DOWN (lose this card tags/effects)."
+    },
+    "starting_resources": {
+      "money": 54,
+      "resources": {
+        "special": "Draw a science card"
+      }
+    }
+  },
+  {
+    "id": "#CORP41",
+    "name": "ECOTEC",
+    "tags": [
+      "corporation",
+      "plant",
+      "microbe",
+      "prelude2"
+    ],
+    "effect": {
+      "trigger": "play bio tag",
+      "gain": "gain 1 plant or add 1 microbe to ANY card",
+      "description": "When playing a bio tag, including these 2, gain 1 plant or add 1 microbe to ANY card."
+    },
+    "starting_resources": {
+      "money": 42,
+      "production": {
+        "plant": 1
+      },
+      "resources": {}
+    }
+  },
+  {
+    "id": "#CORP42",
+    "name": "TYCHO MAGNETICS",
+    "tags": [
+      "corporation",
+      "power",
+      "science",
+      "promo",
+      "prelude2"
+    ],
+    "effect": {
+      "action": "Spend any number of energy to draw that many cards. Keep 1 and discard the rest.",
+      "description": "Action: Spend any number of energy to draw that many cards. Keep 1 and discard the rest."
+    },
+    "starting_resources": {
+      "money": 42,
+      "production": {
+        "energy": 1
+      },
+      "resources": {}
+    }
+  },
+  {
+    "id": "#CORP43",
+    "name": "KUIPER COOPERATIVE",
+    "tags": [
+      "corporation",
+      "space",
+      "promo",
+      "prelude2"
+    ],
+    "effect": {
+      "action": "Add 1 asteroid here for every space tag you have",
+      "effect": "When paying for the ASTEROID or AQUIFER standard projects, each asteroid here may be used as 1 MC",
+      "description": "Action: Add 1 asteroid here for every space tag you have. Effect: When paying for the ASTEROID or AQUIFER standard projects, each asteroid here may be used as 1 MC."
+    },
+    "starting_resources": {
+      "money": 33,
+      "production": {
+        "titanium": 1
+      },
+      "resources": {}
+    }
+  },
+  {
+    "id": "#CORP44",
+    "name": "SPIRE",
+    "tags": [
+      "corporation",
+      "city",
+      "earth",
+      "prelude2"
+    ],
+    "effect": {
+      "trigger": "play card with at least 2 tags",
+      "gain": "add 1 science resource here",
+      "effect2": "science resources here may be used as 2 MC each when paying for standard projects",
+      "description": "When you play a card with AT LEAST 2 tags, including this, add 1 science resource here. When you pay for standard projects, science resources here may be used as 2 MC each."
+    },
+    "starting_resources": {
+      "money": 50,
+      "resources": {
+        "special": "As your first action, draw 4 cards, then discard 3 cards from hand."
+      }
+    }
+  },
+  {
+    "id": "#CORP45",
+    "name": "SAGITTA",
+    "tags": [
+      "corporation",
+      "prelude2"
+    ],
+    "effect": {
+      "trigger": "play a card with no tags",
+      "gain": "gain 4 MC",
+      "trigger2": "play a card with EXACTLY 1 tag",
+      "gain2": "gain 1 MC",
+      "description": "When you play a card with no tags, including this, gain 4 MC. When you play a card with EXACTLY 1 TAG, you gain 1 MC."
+    },
+    "starting_resources": {
+      "money": 31,
+      "production": {
+        "energy": 1,
+        "money": 2
+      },
+      "resources": {
+        "special": "Draw a card that has no tags."
+      }
+    }
+  },
+  {
+    "id": "#CORP46",
+    "name": "PALLADIN SHIPPING",
+    "tags": [
+      "corporation",
+      "space",
+      "prelude2"
+    ],
+    "effect": {
+      "trigger": "play a space event",
+      "gain": "gain 1 titanium",
+      "action": "Spend 2 titanium to raise temperature 1 step",
+      "description": "Effect: When you play a space event, gain 1 titanium. Action: Spend 2 titanium to raise temperature 1 step."
+    },
+    "starting_resources": {
+      "money": 36,
+      "resources": {
+        "titanium": 5
+      }
+    }
+  },
+  {
+    "id": "#CORP47",
+    "name": "NIRGAL ENTERPRISES",
+    "tags": [
+      "corporation",
+      "plant",
+      "power",
+      "building",
+      "prelude2"
+    ],
+    "effect": {
+      "static": "Awards and milestones always cost 0 MC for you",
+      "description": "AWARDS AND MILESTONES ALWAYS COST 0 MC FOR YOU"
+    },
+    "starting_resources": {
+      "money": 30,
+      "production": {
+        "energy": 1,
+        "plant": 1,
+        "steel": 1
+      },
+      "resources": {}
+    }
+  }
+]

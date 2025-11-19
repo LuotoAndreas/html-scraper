@@ -1,0 +1,48 @@
+<div id="corporations-container">
+  {% for corp in corporations %}
+    <div class="corporation-card" data-corp-id="{{ corp.id }}">
+      <div class="corporation-header background-color-corporation">
+        <div class="corp-id">{{ corp.id or '' }}</div>
+        <div class="corp-name">{{ corp.name or "Unknown Corporation" }}</div>
+      </div>
+
+      {% if corp.tags %}
+        <div class="corp-tags">
+          {% for tag in corp.tags %}
+            <span class="corp-tag tag-{{ tag|lower }}">{{ tag }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      <div class="corp-effect">
+        <strong>Effect:</strong>
+        {{ corp.effect.description if corp.effect and corp.effect.description else corp.effect or "None" }}
+      </div>
+
+      {% if corp.starting_resources %}
+        <div class="corp-resources">
+          <strong>Starting Resources:</strong><br>
+          💰 Money: {{ corp.starting_resources.money or 0 }}
+          {% if corp.starting_resources.production %}
+            <br><strong>Production:</strong>
+            {% for k, v in corp.starting_resources.production.items() %}
+              {{ k }}: {{ v }}
+            {% endfor %}
+          {% endif %}
+          {% if corp.starting_resources.resources %}
+            <br><strong>Resources:</strong>
+            {% for k, v in corp.starting_resources.resources.items() %}
+              {{ k }}: {{ v }}
+            {% endfor %}
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if corp.special %}
+        <div class="corp-special">
+          {{ corp.special }}
+        </div>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>

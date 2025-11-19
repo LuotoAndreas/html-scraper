@@ -1,0 +1,393 @@
+[
+  {
+    "id": "#P01",
+    "name": "Allied Banks",
+    "tags": ["Earth"],
+    "effects": {
+      "production": { "money": 4 },
+      "resources": { "money": 3 }
+    },
+    "description": "Increase your MC production 4 steps. Gain 3 MC."
+  },
+  {
+    "id": "#P02",
+    "name": "Aquifer Turbines",
+    "tags": ["Power"],
+    "effects": {
+      "tile": ["Ocean"],
+      "production": { "energy": 2 },
+      "cost": { "money": 3 }
+    },
+    "description": "Place an Ocean. Increase your energy production 2 steps. Pay 3 MC."
+  },
+  {
+    "id": "#P03",
+    "name": "Biofuels",
+    "tags": ["Microbe"],
+    "effects": {
+      "production": { "energy": 1, "plant": 1 },
+      "resources": { "plant": 2 }
+    },
+    "description": "Increase your energy and plant production 1 step. Gain 2 plants."
+  },
+  {
+    "id": "#P04",
+    "name": "Biolab",
+    "tags": ["Science"],
+    "effects": {
+      "production": { "plant": 1 },
+      "resources": { "cards": 3 }
+    },
+    "description": "Increase your plant production 1 step. Draw 3 cards."
+  },
+  {
+    "id": "#P05",
+    "name": "Biosphere Support",
+    "tags": ["Plant"],
+    "effects": {
+      "production": { "money": -1, "plant": 2 }
+    },
+    "description": "Increase your plant production 2 steps. Decrease your MC production 1 step."
+  },
+  {
+    "id": "#P06",
+    "name": "Business Empire",
+    "tags": ["Earth"],
+    "effects": {
+      "production": { "money": 6 },
+      "cost": { "money": 6 }
+    },
+    "description": "Increase your MC production 6 steps. Pay 6 MC."
+  },
+  {
+    "id": "#P07",
+    "name": "Dome Farming",
+    "tags": ["Building", "Plant"],
+    "effects": {
+      "production": { "money": 2, "plant": 1 }
+    },
+    "description": "Increase your MC production 2 steps and plant production 1 step."
+  },
+  {
+    "id": "#P08",
+    "name": "Donation",
+    "tags": [],
+    "effects": {
+      "resources": { "money": 21 }
+    },
+    "description": "Gain 21 MC."
+  },
+  {
+    "id": "#P09",
+    "name": "Early Settlement",
+    "tags": ["Building", "City"],
+    "effects": {
+      "production": { "plant": 1 },
+      "tile": ["City"]
+    },
+    "description": "Increase your plant production 1 step. Place a city tile."
+  },
+  {
+    "id": "#P10",
+    "name": "Ecology Experts",
+    "tags": ["Plant", "Microbe"],
+    "effects": {
+      "production": { "plant": 1 },
+      "special": "Play a card from hand, ignoring global requirements."
+    },
+    "description": "Increase your plant production 1 step. Play a card from hand, ignoring global requirements."
+  },
+  {
+    "id": "#P11",
+    "name": "Excentric Sponsor",
+    "tags": [],
+    "effects": {
+      "special": "Play 1 card from hand with a 25 MC reduction."
+    },
+    "description": "Play 1 card from hand with a 25 MC reduction."
+  },
+  {
+    "id": "#P12",
+    "name": "Experimental Forest",
+    "tags": ["Plant"],
+    "effects": {
+      "tile": ["Greenery"],
+      "resources": { "cards_tag": "Plant", "cards": 2 }
+    },
+    "description": "Place 1 Greenery tile. Reveal cards until you reveal two with Plant tags. Take them into hand."
+  },
+  {
+    "id": "#P13",
+    "name": "Galilean Mining",
+    "tags": ["Jovian"],
+    "effects": {
+      "production": { "titanium": 2 },
+      "cost": { "money": 5 }
+    },
+    "description": "Increase your titanium production 2 steps. Pay 5 MC."
+  },
+  {
+    "id": "#P14",
+    "name": "Great Aquifer",
+    "tags": [],
+    "effects": {
+      "tile": ["Ocean", "Ocean"]
+    },
+    "description": "Place 2 Ocean tiles."
+  },
+  {
+    "id": "#P15",
+    "name": "Huge Asteroid",
+    "tags": [],
+    "effects": {
+      "tile": ["Temperature", "Temperature", "Temperature"],
+      "cost": { "money": 5 }
+    },
+    "description": "Increase Temperature 3 steps. Pay 5 MC."
+  },
+  {
+    "id": "#P16",
+    "name": "Io Research Outpost",
+    "tags": ["Jovian", "Science"],
+    "effects": {
+      "production": { "titanium": 1 },
+      "resources": { "cards": 1 }
+    },
+    "description": "Increase your titanium production 1 step. Draw a card."
+  },
+  {
+    "id": "#P17",
+    "name": "Loan",
+    "tags": [],
+    "effects": {
+      "production": { "money": -2 },
+      "resources": { "money": 30 }
+    },
+    "description": "Gain 30 MC. Decrease your MC production 2 steps."
+  },
+  {
+    "id": "#P18",
+    "name": "Martian Industries",
+    "tags": ["Building"],
+    "effects": {
+      "production": { "energy": 1, "steel": 1 },
+      "resources": { "money": 6 }
+    },
+    "description": "Increase your energy and steel production 1 step. Gain 6 MC."
+  },
+  {
+    "id": "#P19",
+    "name": "Metal-rich Asteroid",
+    "tags": [],
+    "effects": {
+      "tile": ["Temperature"],
+      "resources": { "titanium": 4, "steel": 4 }
+    },
+    "description": "Increase temperature 1 step. Gain 4 titanium and 4 steel."
+  },
+  {
+    "id": "#P20",
+    "name": "Metals Company",
+    "tags": [],
+    "effects": {
+      "production": { "money": 1, "steel": 1, "titanium": 1 }
+    },
+    "description": "Increase your MC, steel and titanium production 1 step."
+  },
+  {
+    "id": "#P21",
+    "name": "Mining Operations",
+    "tags": ["Building"],
+    "effects": {
+      "production": { "steel": 2 },
+      "resources": { "steel": 4 }
+    },
+    "description": "Increase your steel production 2 steps. Gain 4 steel."
+  },
+  {
+    "id": "#P22",
+    "name": "Mohole",
+    "tags": ["Building"],
+    "effects": {
+      "production": { "heat": 3 },
+      "resources": { "heat": 3 }
+    },
+    "description": "Increase your heat production 3 steps. Gain 3 heat."
+  },
+  {
+    "id": "#P23",
+    "name": "Mohole Excavation",
+    "tags": ["Building"],
+    "effects": {
+      "production": { "steel": 1, "heat": 2 },
+      "resources": { "heat": 2 }
+    },
+    "description": "Increase your steel production 1 step and heat production 2 steps. Gain 2 heat."
+  },
+  {
+    "id": "#P24",
+    "name": "Nitrogen Shipment",
+    "tags": [],
+    "effects": {
+      "production": { "plant": 1 },
+      "tile": ["TR"],
+      "resources": { "money": 5 }
+    },
+    "description": "Increase your plant production 1 step. Increase your TR 1 step. Gain 5 MC."
+  },
+  {
+    "id": "#P25",
+    "name": "Orbital Construction Yard",
+    "tags": ["Space"],
+    "effects": {
+      "production": { "titanium": 1 },
+      "resources": { "titanium": 4 }
+    },
+    "description": "Increase your titanium production 1 step. Gain 4 titanium."
+  },
+  {
+    "id": "#P26",
+    "name": "Polar Industries",
+    "tags": ["Building"],
+    "effects": {
+      "production": { "heat": 2 },
+      "tile": ["Ocean"]
+    },
+    "description": "Increase your heat production 2 steps. Place an Ocean tile."
+  },
+  {
+    "id": "#P27",
+    "name": "Power Generation",
+    "tags": ["Power"],
+    "effects": {
+      "production": { "energy": 3 }
+    },
+    "description": "Increase your energy production 3 steps."
+  },
+  {
+    "id": "#P28",
+    "name": "Research Network",
+    "tags": ["Wild"],
+    "effects": {
+      "production": { "money": 1 },
+      "resources": { "cards": 3 }
+    },
+    "description": "Increase your money production 1 step. Draw 3 cards."
+  },
+  {
+    "id": "#P29",
+    "name": "Self-Sufficient Settlement",
+    "tags": ["Building", "City"],
+    "effects": {
+      "production": { "money": 2 },
+      "tile": ["City"]
+    },
+    "description": "Increase your money production 2 steps. Place a City tile."
+  },
+  {
+    "id": "#P30",
+    "name": "Smelting Plant",
+    "tags": ["Building"],
+    "effects": {
+      "tile": ["Oxygen", "Oxygen"],
+      "resources": { "steel": 5 }
+    },
+    "description": "Raise oxygen 2 steps. Gain 5 steel."
+  },
+  {
+    "id": "#P31",
+    "name": "Society Support",
+    "tags": [],
+    "effects": {
+      "production": { "money": -1, "plant": 1, "energy": 1, "heat": 1 }
+    },
+    "description": "Increase your plant, energy and heat production 1 step. Decrease money production 1 step."
+  },
+  {
+    "id": "#P32",
+    "name": "Supplier",
+    "tags": ["Power"],
+    "effects": {
+      "production": { "energy": 2 },
+      "resources": { "steel": 4 }
+    },
+    "description": "Increase your energy production 2 steps. Gain 4 steel."
+  },
+  {
+    "id": "#P33",
+    "name": "Supply Drop",
+    "tags": [],
+    "effects": {
+      "resources": { "titanium": 3, "steel": 8, "plant": 3 }
+    },
+    "description": "Gain 3 titanium, 8 steel and 3 plants."
+  },
+  {
+    "id": "#P34",
+    "name": "UNMI Contractor",
+    "tags": ["Earth"],
+    "effects": {
+      "tile": ["TR", "TR", "TR"],
+      "resources": { "cards": 1 }
+    },
+    "description": "Increase your TR 3 steps. Draw a card."
+  },
+  {
+    "id": "#P35",
+    "name": "Acquired Space Agency",
+    "tags": [],
+    "effects": {
+      "resources": { "titanium": 6, "cards_tag": "Space", "cards": 2 }
+    },
+    "description": "Gain 6 titanium. Reveal cards until you reveal two with Space tags. Take them into hand."
+  },
+  {
+    "id": "#X39",
+    "name": "Corporate Archives",
+    "tags": ["Science", "Promo"],
+    "effects": {
+      "resources": { "money": 13 },
+      "special": "Look at the top 7 cards from the deck. Take 2 into hand and discard 5."
+    },
+    "description": "Gain 13 MC. Look at the top 7 cards. Take 2 into hand and discard the rest."
+  },
+  {
+    "id": "#X40",
+    "name": "Double Down",
+    "tags": ["Promo"],
+    "effects": {
+      "special": "Copy your other Prelude's direct effect."
+    },
+    "description": "Copy your other Prelude's direct effect."
+  },
+  {
+    "id": "#X41",
+    "name": "Merger",
+    "tags": ["Promo"],
+    "effects": {
+      "resources": { "money": -42 },
+      "special": "Draw 4 corporation cards. Play one and discard 3."
+    },
+    "description": "Draw 4 corporation cards. Play one and discard 3. Then pay 42 MC."
+  },
+  {
+    "id": "#X42",
+    "name": "New Partner",
+    "tags": ["Promo"],
+    "effects": {
+      "production": { "money": 1 },
+      "special": "Draw 2 Prelude cards, play one and discard the other."
+    },
+    "description": "Raise your MC production 1 step. Immediately draw 2 Prelude cards, play one and discard the other."
+  },
+  {
+    "id": "#X43",
+    "name": "Head Start",
+    "tags": ["Promo"],
+    "effects": {
+      "resources": { "steel": 2 },
+      "special": "Gain 2 MC per project card in hand. Immediately take two actions."
+    },
+    "description": "Gain 2 steel. Gain 2 MC per project card in hand. Immediately take two actions."
+  }
+]
